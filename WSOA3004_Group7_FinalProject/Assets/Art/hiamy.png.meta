@@ -1,0 +1,1795 @@
+fileFormatVersion: 2
+guid: a2ba75966caa25c40a498a050335a3ec
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1639240334441740940
+    second: hiamy_0
+  - first:
+      213: 7748207745452868955
+    second: hiamy_1
+  - first:
+      213: 7250877911619142749
+    second: hiamy_2
+  - first:
+      213: -6049700601712252646
+    second: hiamy_3
+  - first:
+      213: -1993064572526570394
+    second: hiamy_4
+  - first:
+      213: -2093114977670998895
+    second: hiamy_5
+  - first:
+      213: -7675953902972851440
+    second: hiamy_6
+  - first:
+      213: -3320409294995205774
+    second: hiamy_7
+  - first:
+      213: -4190595745905784731
+    second: hiamy_8
+  - first:
+      213: 4119428998204886124
+    second: hiamy_9
+  - first:
+      213: -5052527762784362321
+    second: hiamy_10
+  - first:
+      213: -2023356125862907657
+    second: hiamy_11
+  - first:
+      213: -5257065116801162359
+    second: hiamy_12
+  - first:
+      213: 8910098481607620839
+    second: hiamy_13
+  - first:
+      213: -2644421620306480698
+    second: hiamy_14
+  - first:
+      213: -127434580827659926
+    second: hiamy_15
+  - first:
+      213: -6360454121251713611
+    second: hiamy_16
+  - first:
+      213: -5251730908097199288
+    second: hiamy_17
+  - first:
+      213: -6498932775729835078
+    second: hiamy_18
+  - first:
+      213: 5632432546285123786
+    second: hiamy_19
+  - first:
+      213: -1504536145927629981
+    second: hiamy_20
+  - first:
+      213: 7599696958569506762
+    second: hiamy_21
+  - first:
+      213: 876776571718401399
+    second: hiamy_22
+  - first:
+      213: -4470429328874879526
+    second: hiamy_23
+  - first:
+      213: 3452694729773742415
+    second: hiamy_24
+  - first:
+      213: 2959435375465258976
+    second: hiamy_25
+  - first:
+      213: 5896441123939956970
+    second: hiamy_26
+  - first:
+      213: -7454444887910100631
+    second: hiamy_27
+  - first:
+      213: 531150197434010626
+    second: hiamy_28
+  - first:
+      213: 4931292203632552852
+    second: hiamy_29
+  - first:
+      213: 3900030019549162266
+    second: hiamy_30
+  - first:
+      213: -3486110101991342470
+    second: hiamy_31
+  - first:
+      213: 5744892248712706457
+    second: hiamy_32
+  - first:
+      213: -6036565709532741922
+    second: hiamy_33
+  - first:
+      213: -2012398314992223859
+    second: hiamy_34
+  - first:
+      213: -3774516427593648467
+    second: hiamy_35
+  - first:
+      213: 5877395042272178286
+    second: hiamy_36
+  - first:
+      213: 7461236916208193149
+    second: hiamy_37
+  - first:
+      213: 484298356559269254
+    second: hiamy_38
+  - first:
+      213: 6708151376693749932
+    second: hiamy_39
+  - first:
+      213: -3056224330141510237
+    second: hiamy_40
+  - first:
+      213: 677285676120823762
+    second: hiamy_41
+  - first:
+      213: -6193575421626659640
+    second: hiamy_42
+  - first:
+      213: -2089130617095437389
+    second: hiamy_43
+  - first:
+      213: -8736546948002740522
+    second: hiamy_44
+  - first:
+      213: -2216547738927578236
+    second: hiamy_45
+  - first:
+      213: 8338638523100023459
+    second: hiamy_46
+  - first:
+      213: 8740163031009673001
+    second: hiamy_47
+  - first:
+      213: -6772828289739968623
+    second: hiamy_48
+  - first:
+      213: -8942603708063033060
+    second: hiamy_49
+  - first:
+      213: -1058319505164279211
+    second: hiamy_50
+  - first:
+      213: 7963349116078567144
+    second: hiamy_51
+  - first:
+      213: -1336432527928826929
+    second: hiamy_52
+  - first:
+      213: 8676568504264748285
+    second: hiamy_53
+  - first:
+      213: -2367303125992752306
+    second: hiamy_54
+  - first:
+      213: 4027937067373131717
+    second: hiamy_55
+  - first:
+      213: 186907465876014217
+    second: hiamy_56
+  - first:
+      213: 1810887246959747460
+    second: hiamy_57
+  - first:
+      213: 5293913948743971022
+    second: hiamy_58
+  - first:
+      213: 9174172406754770373
+    second: hiamy_59
+  - first:
+      213: -7185944807498812828
+    second: hiamy_60
+  - first:
+      213: -7751253787565565468
+    second: hiamy_61
+  - first:
+      213: 4706549465555438333
+    second: hiamy_62
+  - first:
+      213: -2397254429979068561
+    second: hiamy_63
+  - first:
+      213: 5207330874737689502
+    second: hiamy_64
+  - first:
+      213: 8426849308989687396
+    second: hiamy_65
+  - first:
+      213: -8733673491578586345
+    second: hiamy_66
+  - first:
+      213: 6872524221655986385
+    second: hiamy_67
+  - first:
+      213: 6958587720378407886
+    second: hiamy_68
+  - first:
+      213: 1209420736289293177
+    second: hiamy_69
+  - first:
+      213: 2939482365375806551
+    second: hiamy_70
+  - first:
+      213: 8508241135164476199
+    second: hiamy_71
+  - first:
+      213: 8764400467849846581
+    second: hiamy_72
+  - first:
+      213: 3965997724010291352
+    second: hiamy_73
+  - first:
+      213: 3652993010626185374
+    second: hiamy_74
+  - first:
+      213: -8385276250644329451
+    second: hiamy_75
+  - first:
+      213: 6020695691734825691
+    second: hiamy_76
+  - first:
+      213: -3003646943854370723
+    second: hiamy_77
+  - first:
+      213: 8510195611748495122
+    second: hiamy_78
+  - first:
+      213: -1245571051900110567
+    second: hiamy_79
+  - first:
+      213: 4970078974482769777
+    second: hiamy_80
+  - first:
+      213: -8606991732854605464
+    second: hiamy_81
+  - first:
+      213: 1162563432436649193
+    second: hiamy_82
+  - first:
+      213: 5826324347223962730
+    second: hiamy_83
+  - first:
+      213: -8667724477063474841
+    second: hiamy_84
+  - first:
+      213: 770376998511118905
+    second: hiamy_85
+  - first:
+      213: -4236288916493014281
+    second: hiamy_86
+  - first:
+      213: 4689366491866400681
+    second: hiamy_87
+  - first:
+      213: 7269533820078826673
+    second: hiamy_88
+  - first:
+      213: -7901672131177183600
+    second: hiamy_89
+  - first:
+      213: 6878464861868630830
+    second: hiamy_90
+  - first:
+      213: -6993064647240211947
+    second: hiamy_91
+  - first:
+      213: 5699955658577426153
+    second: hiamy_92
+  - first:
+      213: -3511165900434375690
+    second: hiamy_93
+  - first:
+      213: 2183734942226100383
+    second: hiamy_94
+  - first:
+      213: -1045907081986347738
+    second: hiamy_95
+  - first:
+      213: -8277825156390644903
+    second: hiamy_96
+  - first:
+      213: 634565256420323149
+    second: hiamy_97
+  - first:
+      213: -6393727593019863307
+    second: hiamy_98
+  - first:
+      213: -8451168083139745149
+    second: hiamy_99
+  - first:
+      213: -5393819680636970878
+    second: hiamy_100
+  - first:
+      213: 80976411310981730
+    second: hiamy_101
+  - first:
+      213: -4890296056506972053
+    second: hiamy_102
+  - first:
+      213: -7285251545645354490
+    second: hiamy_103
+  - first:
+      213: 4641147497338822211
+    second: hiamy_104
+  - first:
+      213: 4907598334919456833
+    second: hiamy_105
+  - first:
+      213: 5629372573860217613
+    second: hiamy_106
+  - first:
+      213: 571978641885225887
+    second: hiamy_107
+  - first:
+      213: -346891480229893423
+    second: hiamy_108
+  - first:
+      213: -7844930195246481175
+    second: hiamy_109
+  - first:
+      213: -1934467040719786589
+    second: hiamy_110
+  - first:
+      213: -6654761004283557140
+    second: hiamy_111
+  - first:
+      213: -5363277431189522136
+    second: hiamy_112
+  - first:
+      213: 3646881000374183091
+    second: hiamy_113
+  - first:
+      213: 5824606297519711891
+    second: hiamy_114
+  - first:
+      213: 3655953805974429324
+    second: hiamy_115
+  - first:
+      213: 1335820449262729510
+    second: hiamy_116
+  - first:
+      213: -7566607199109569764
+    second: hiamy_117
+  - first:
+      213: 3742525016227376889
+    second: hiamy_118
+  - first:
+      213: 2441552319898448030
+    second: hiamy_119
+  - first:
+      213: 9154229464806490269
+    second: hiamy_120
+  - first:
+      213: -8555934553721981199
+    second: hiamy_121
+  - first:
+      213: -150630710889489815
+    second: hiamy_122
+  - first:
+      213: -2154774291908966898
+    second: hiamy_123
+  - first:
+      213: 9202562820561791829
+    second: hiamy_124
+  - first:
+      213: 2640274234763458577
+    second: hiamy_125
+  - first:
+      213: -4413072590101548689
+    second: hiamy_126
+  - first:
+      213: 4738121415113085223
+    second: hiamy_127
+  - first:
+      213: 5439543461517222746
+    second: hiamy_128
+  - first:
+      213: -8897118553780520052
+    second: hiamy_129
+  - first:
+      213: -4716238022148175129
+    second: hiamy_130
+  - first:
+      213: -36251208527554140
+    second: hiamy_131
+  - first:
+      213: -5804579133301845294
+    second: hiamy_132
+  - first:
+      213: 3991295272504637979
+    second: hiamy_133
+  - first:
+      213: -9204864755330387841
+    second: hiamy_134
+  - first:
+      213: -9135562563678531489
+    second: hiamy_135
+  - first:
+      213: -907645561227256668
+    second: hiamy_136
+  - first:
+      213: 5653314235143822874
+    second: hiamy_137
+  - first:
+      213: -5972440892541771121
+    second: hiamy_138
+  - first:
+      213: 1397211492833182775
+    second: hiamy_139
+  - first:
+      213: -2364845614176310090
+    second: hiamy_140
+  - first:
+      213: -623425259391570084
+    second: hiamy_141
+  - first:
+      213: 6169713193006216551
+    second: hiamy_142
+  - first:
+      213: 542241284929050542
+    second: hiamy_143
+  - first:
+      213: 6630960623015497327
+    second: hiamy_144
+  - first:
+      213: -2453426969157306911
+    second: hiamy_145
+  - first:
+      213: -560073490301196301
+    second: hiamy_146
+  - first:
+      213: -344675730639805989
+    second: hiamy_147
+  - first:
+      213: -6653573082013254528
+    second: hiamy_148
+  - first:
+      213: -8231479302706415365
+    second: hiamy_149
+  - first:
+      213: 7307927909892452284
+    second: hiamy_150
+  - first:
+      213: 6590209461790113437
+    second: hiamy_151
+  - first:
+      213: 4016638897218240152
+    second: hiamy_152
+  - first:
+      213: -1482366811252961454
+    second: hiamy_153
+  - first:
+      213: 3225620538074900689
+    second: hiamy_154
+  - first:
+      213: 2437233852966593370
+    second: hiamy_155
+  - first:
+      213: 5179484768276465740
+    second: hiamy_156
+  - first:
+      213: 3852540193868351680
+    second: hiamy_157
+  - first:
+      213: 4808418622029204786
+    second: hiamy_158
+  - first:
+      213: -769752214969381580
+    second: hiamy_159
+  - first:
+      213: -1592794811987301555
+    second: hiamy_160
+  - first:
+      213: 5546818746975295932
+    second: hiamy_161
+  - first:
+      213: 8335071805228503013
+    second: hiamy_162
+  - first:
+      213: 5461543146853953686
+    second: hiamy_163
+  - first:
+      213: -6655288210860147845
+    second: hiamy_164
+  - first:
+      213: 7738983483711878128
+    second: hiamy_165
+  - first:
+      213: 1527408276481555213
+    second: hiamy_166
+  - first:
+      213: -8155353605496265900
+    second: hiamy_167
+  - first:
+      213: -3929777612773906031
+    second: hiamy_168
+  - first:
+      213: -5584889669452171022
+    second: hiamy_169
+  - first:
+      213: 4792141861477132258
+    second: hiamy_170
+  - first:
+      213: 2104511981432448547
+    second: hiamy_171
+  - first:
+      213: 4632753093640622329
+    second: hiamy_172
+  - first:
+      213: -2806712858743906598
+    second: hiamy_173
+  - first:
+      213: -3677049624370396940
+    second: hiamy_174
+  - first:
+      213: -753204758450819020
+    second: hiamy_175
+  - first:
+      213: -107929593016120740
+    second: hiamy_176
+  - first:
+      213: -3820861522008794031
+    second: hiamy_177
+  - first:
+      213: -1419134608559028710
+    second: hiamy_178
+  - first:
+      213: -6476821098546451229
+    second: hiamy_179
+  - first:
+      213: 414085647247680517
+    second: hiamy_180
+  - first:
+      213: -87143949268349015
+    second: hiamy_181
+  - first:
+      213: 8108539175993576655
+    second: hiamy_182
+  - first:
+      213: 6525463010814888357
+    second: hiamy_183
+  - first:
+      213: -7466929675064776623
+    second: hiamy_184
+  - first:
+      213: -6966733735863096640
+    second: hiamy_185
+  - first:
+      213: -2285722688717656636
+    second: hiamy_186
+  - first:
+      213: 639336875698051594
+    second: hiamy_187
+  - first:
+      213: -5124316024767438904
+    second: hiamy_188
+  - first:
+      213: 3996922808985822549
+    second: hiamy_189
+  - first:
+      213: -3140475165041790533
+    second: hiamy_190
+  - first:
+      213: -4088301801346739393
+    second: hiamy_191
+  - first:
+      213: 6872927826129252650
+    second: hiamy_192
+  - first:
+      213: 1657066332213916361
+    second: hiamy_193
+  - first:
+      213: 2634325582233281225
+    second: hiamy_194
+  - first:
+      213: -4919007480776984171
+    second: hiamy_195
+  - first:
+      213: 3546491265031276151
+    second: hiamy_196
+  - first:
+      213: 3859348620205939773
+    second: hiamy_197
+  - first:
+      213: -4105837879302628560
+    second: hiamy_198
+  - first:
+      213: -1431782308329122003
+    second: hiamy_199
+  - first:
+      213: -2947432384432140368
+    second: hiamy_200
+  - first:
+      213: -1518031200535993958
+    second: hiamy_201
+  - first:
+      213: 2558016130711964763
+    second: hiamy_202
+  - first:
+      213: -7529889311241893260
+    second: hiamy_203
+  - first:
+      213: 5402493037148255560
+    second: hiamy_204
+  - first:
+      213: -3901497446304012351
+    second: hiamy_205
+  - first:
+      213: 50597115739543327
+    second: hiamy_206
+  - first:
+      213: -1907451905763654541
+    second: hiamy_207
+  - first:
+      213: 6570199033211116704
+    second: hiamy_208
+  - first:
+      213: 3837549668608812641
+    second: hiamy_209
+  - first:
+      213: 694580965890244302
+    second: hiamy_210
+  - first:
+      213: -6287143456850782869
+    second: hiamy_211
+  - first:
+      213: -3445562429285001943
+    second: hiamy_212
+  - first:
+      213: -3430316783582575191
+    second: hiamy_213
+  - first:
+      213: 4994004101501441501
+    second: hiamy_214
+  - first:
+      213: -7156599601490393148
+    second: hiamy_215
+  - first:
+      213: -3780193716231857998
+    second: hiamy_216
+  - first:
+      213: -2827795910044798815
+    second: hiamy_217
+  - first:
+      213: 3559462180256922585
+    second: hiamy_218
+  - first:
+      213: -3117048286751638447
+    second: hiamy_219
+  - first:
+      213: -2961814730969707069
+    second: hiamy_220
+  - first:
+      213: -2639650126978081369
+    second: hiamy_221
+  - first:
+      213: -4529259505611181326
+    second: hiamy_222
+  - first:
+      213: 6771520348466556280
+    second: hiamy_223
+  - first:
+      213: 2978207840393210781
+    second: hiamy_224
+  - first:
+      213: -367487303614445877
+    second: hiamy_225
+  - first:
+      213: 2212201806819137048
+    second: hiamy_226
+  - first:
+      213: 248560311318904138
+    second: hiamy_227
+  - first:
+      213: -4921414405425159753
+    second: hiamy_228
+  - first:
+      213: 8841223885309272710
+    second: hiamy_229
+  - first:
+      213: -3137484746423538734
+    second: hiamy_230
+  - first:
+      213: 8320677562762926438
+    second: hiamy_231
+  - first:
+      213: -2995095601119326195
+    second: hiamy_232
+  - first:
+      213: -2866194988186240847
+    second: hiamy_233
+  - first:
+      213: 7636791713650571585
+    second: hiamy_234
+  - first:
+      213: -5954010954393926321
+    second: hiamy_235
+  - first:
+      213: 7415940553339945888
+    second: hiamy_236
+  - first:
+      213: -4057671928275169232
+    second: hiamy_237
+  - first:
+      213: -5426236379758774137
+    second: hiamy_238
+  - first:
+      213: 7106660555274339859
+    second: hiamy_239
+  - first:
+      213: 870468367451234668
+    second: hiamy_240
+  - first:
+      213: -1816923162792816825
+    second: hiamy_241
+  - first:
+      213: 1451650437557204593
+    second: hiamy_242
+  - first:
+      213: -5452913931276444315
+    second: hiamy_243
+  - first:
+      213: -7339479786939201931
+    second: hiamy_244
+  - first:
+      213: 1873279565985761614
+    second: hiamy_245
+  - first:
+      213: 1688413251977477743
+    second: hiamy_246
+  - first:
+      213: 3486224020664703538
+    second: hiamy_247
+  - first:
+      213: 6753320568935880646
+    second: hiamy_248
+  - first:
+      213: -8331575669354075409
+    second: hiamy_249
+  - first:
+      213: 5778324684326558495
+    second: hiamy_250
+  - first:
+      213: -4049659345614628126
+    second: hiamy_251
+  - first:
+      213: -5307764366717752977
+    second: hiamy_252
+  - first:
+      213: 7690257931835859719
+    second: hiamy_253
+  - first:
+      213: -5237349737730531469
+    second: hiamy_0
+  - first:
+      213: -2666811210947417242
+    second: hiamy_1
+  - first:
+      213: 3839511999841187738
+    second: hiamy_2
+  - first:
+      213: 3996260987072932815
+    second: hiamy_3
+  - first:
+      213: 476573401590419434
+    second: hiamy_4
+  - first:
+      213: 2737478447420029390
+    second: hiamy_5
+  - first:
+      213: -1094709190653632413
+    second: hiamy_6
+  - first:
+      213: 1815468994174095478
+    second: hiamy_7
+  - first:
+      213: -4935415555750199131
+    second: hiamy_8
+  - first:
+      213: -5502719187468465616
+    second: hiamy_9
+  - first:
+      213: 5906047646358611145
+    second: hiamy_10
+  - first:
+      213: -527548675900419087
+    second: hiamy_11
+  - first:
+      213: 4031776357710177384
+    second: hiamy_12
+  - first:
+      213: 4494777719708954643
+    second: hiamy_13
+  - first:
+      213: 1323593750935903732
+    second: hiamy_14
+  - first:
+      213: 7302485384042678515
+    second: hiamy_15
+  - first:
+      213: -4432548096524467859
+    second: hiamy_16
+  - first:
+      213: -7943314085379702088
+    second: hiamy_17
+  - first:
+      213: -4432463369920521663
+    second: hiamy_18
+  - first:
+      213: -1254943235656112425
+    second: hiamy_19
+  - first:
+      213: -9172030131334931646
+    second: hiamy_20
+  - first:
+      213: -3742021437946538710
+    second: hiamy_21
+  - first:
+      213: -7146494858395587538
+    second: hiamy_22
+  - first:
+      213: 5298104112146430488
+    second: hiamy_23
+  - first:
+      213: 5305002641019553833
+    second: hiamy_24
+  - first:
+      213: 7238350966672268177
+    second: hiamy_25
+  - first:
+      213: -4988910766710653435
+    second: hiamy_26
+  - first:
+      213: -446662817771604568
+    second: hiamy_27
+  - first:
+      213: 3974541777013195351
+    second: hiamy_28
+  - first:
+      213: 2936955750011901811
+    second: hiamy_29
+  - first:
+      213: 343958187340033988
+    second: hiamy_30
+  - first:
+      213: -768085012056526770
+    second: hiamy_31
+  - first:
+      213: 2751375214150075053
+    second: hiamy_32
+  - first:
+      213: 5828449427261910516
+    second: hiamy_33
+  - first:
+      213: 5005203578089142216
+    second: hiamy_34
+  - first:
+      213: -3180858403489018235
+    second: hiamy_35
+  - first:
+      213: 3966374112579857268
+    second: hiamy_36
+  - first:
+      213: 4268699173682195059
+    second: hiamy_37
+  - first:
+      213: -2762672479082014845
+    second: hiamy_38
+  - first:
+      213: 191669679271690366
+    second: hiamy_39
+  - first:
+      213: 7459940501823036688
+    second: hiamy_40
+  - first:
+      213: 8905921445393911885
+    second: hiamy_41
+  - first:
+      213: -5988856011063431257
+    second: hiamy_42
+  - first:
+      213: -7601282425990338728
+    second: hiamy_43
+  - first:
+      213: 3582191317900911847
+    second: hiamy_44
+  - first:
+      213: -7272850713928260224
+    second: hiamy_45
+  - first:
+      213: 7745990821552720752
+    second: hiamy_46
+  - first:
+      213: -3429145646249210757
+    second: hiamy_47
+  - first:
+      213: -174988844096366000
+    second: hiamy_48
+  - first:
+      213: 8598051827792056981
+    second: hiamy_49
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 80
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hiamy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 592
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37f161689223157b0800000000000000
+      internalID: -5237349737730531469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 592
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66b237045559dfad0800000000000000
+      internalID: -2666811210947417242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_2
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 592
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a97326d32dfa84530800000000000000
+      internalID: 3839511999841187738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_4
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 592
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aef4237dbf02d9600800000000000000
+      internalID: 476573401590419434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_5
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 592
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec932c6e42a7df520800000000000000
+      internalID: 2737478447420029390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_6
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 592
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3602cb68acfcec0f0800000000000000
+      internalID: -1094709190653632413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 511
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6709b727e67d13910800000000000000
+      internalID: 1815468994174095478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_8
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 511
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a0829473b1e18bb0800000000000000
+      internalID: -4935415555750199131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_9
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 511
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03a473cbd0a62a3b0800000000000000
+      internalID: -5502719187468465616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_11
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 511
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f35a3b3645cda8f0800000000000000
+      internalID: -527548675900419087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_12
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 511
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 864222f6c3fb3f730800000000000000
+      internalID: 4031776357710177384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_13
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 511
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 310b79f8588a06e30800000000000000
+      internalID: 4494777719708954643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 430
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fd1677f0895e5210800000000000000
+      internalID: 1323593750935903732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_15
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 430
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f8885d34c3a75560800000000000000
+      internalID: 7302485384042678515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_16
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 430
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6143d8adfc6c72c0800000000000000
+      internalID: -4432548096524467859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_18
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 430
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14ad4fb9c0abc72c0800000000000000
+      internalID: -4432463369920521663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_19
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 430
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d62071b6cb859ee0800000000000000
+      internalID: -1254943235656112425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_20
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 430
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24b1a98e03766b080800000000000000
+      internalID: -9172030131334931646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 162
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75242db20b8682730800000000000000
+      internalID: 3974541777013195351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_29
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 162
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3771088a1b922c820800000000000000
+      internalID: 2936955750011901811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_30
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 162
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cf6df5262cf5c400800000000000000
+      internalID: 343958187340033988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_32
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 164
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da2ca3b0e29de2620800000000000000
+      internalID: 2751375214150075053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_33
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 164
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fd6647afdfc2e050800000000000000
+      internalID: 5828449427261910516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_34
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 164
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c77484b22e067540800000000000000
+      internalID: 5005203578089142216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 81
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58e883b82225bd3d0800000000000000
+      internalID: -3180858403489018235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_36
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 81
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ba0aa9d346b0730800000000000000
+      internalID: 3966374112579857268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_37
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 81
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37aa45c28477d3b30800000000000000
+      internalID: 4268699173682195059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_39
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 83
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e70c33bce82f8a200800000000000000
+      internalID: 191669679271690366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_40
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 83
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d16b8ac58078760800000000000000
+      internalID: 7459940501823036688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_41
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 83
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d40dc367e50389b70800000000000000
+      internalID: 8905921445393911885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7afe991303f43eca0800000000000000
+      internalID: -5988856011063431257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_43
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 0
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8572d6928e1d28690800000000000000
+      internalID: -7601282425990338728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_44
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e4e8fc360086b130800000000000000
+      internalID: 3582191317900911847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_46
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 2
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07b0618bc994f7b60800000000000000
+      internalID: 7745990821552720752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_47
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 2
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7c0d30043a3960d0800000000000000
+      internalID: -3429145646249210757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_48
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 2
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05adafbc290529df0800000000000000
+      internalID: -174988844096366000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hiamy_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 336
+        height: 281
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59291fb359a625770800000000000000
+      internalID: 8598051827792056981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
