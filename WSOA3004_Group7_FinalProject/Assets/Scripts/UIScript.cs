@@ -8,6 +8,12 @@ using UnityEngine.UI;
 public class UIScript : MonoBehaviour
 {
     public GameObject MenuPanel;
+    public Canvas ShopCanvas;
+
+    private void Start()
+    {
+        ShopCanvas.enabled = false;
+    }
 
     public void OnClickQuests()
     {
@@ -16,7 +22,12 @@ public class UIScript : MonoBehaviour
 
     public void OnClickShop()
     {
-        //activate shop panel //not made yet
+        ShopCanvas.enabled = true;
+    }
+
+    public void CloseShop()
+    {
+        ShopCanvas.enabled = false;
     }
 
     public void OnClickMenu()
