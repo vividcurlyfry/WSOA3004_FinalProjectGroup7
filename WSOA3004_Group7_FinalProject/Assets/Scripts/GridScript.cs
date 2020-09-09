@@ -29,7 +29,6 @@ public class GridScript : MonoBehaviour
         {
             for (int j = playerTile.y-1; j <= playerTile.y+2; j++, a++)
             {
-                Debug.Log(a);
                 AvailableTiles[a] = new Vector3Int(i,j,0);
                 if (selectedTile == AvailableTiles[a])
                 {

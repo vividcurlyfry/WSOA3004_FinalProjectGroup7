@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class InventoryScript : MonoBehaviour
 {
-    public GameObject[] InventoryArr;
-    public GameObject[] DisplayInven = new GameObject[5];
+    public List<ScriptableObject> Inventory;
+    public GameObject[] DisplayInven = new GameObject[6];
     public GameObject highlight;
-
-    private void Start()
-    {
-        InventoryArr = new GameObject[25];
-    }
+    public Crop Lettuce;
 
     public void SelectObj(RectTransform posButton)
     {
         highlight.transform.position = posButton.transform.position;
     }
 
-    public BuyLettuce()
+    public void BuyLettuce()
     {
-
+        if(Inventory.Count < 5)
+        {
+            Debug.Log(Inventory);
+            DisplayInven[Inventory.Count + 1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Lettuce.SeedSprite;
+        }
     }
 }
