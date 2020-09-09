@@ -16,6 +16,7 @@ public class InventoryScript : MonoBehaviour
 
     public void BuyLettuce()
     {
+        Inventory.Add(Lettuce);
         if(Inventory.Count < 5)
         {
             Debug.Log(Inventory);
