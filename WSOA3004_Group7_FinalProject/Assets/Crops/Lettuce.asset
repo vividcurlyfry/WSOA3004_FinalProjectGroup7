@@ -14,9 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CropName: Lettuce
   CropType: AboveGround
+  CropPrice: 28
+  DaysToGrow: 2
   SeedSprite: {fileID: -8922477864516793493, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
   FullGrownSprite: {fileID: -3288577684988741257, guid: b899ca9194aac5d4bb6d8d8133fde341, type: 3}
-  GrowingSprites: []
+  GrowingTiles:
+  - {fileID: 11400000, guid: feef9c8c75683b34dad7ac0ebdb7a749, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   DaysGrown: 0
   PlantedLocation: {x: 0, y: 0, z: 0}
-  RequiredGround: {fileID: 0}
+  RequiredGround: {fileID: 11400000, guid: f3058ec4cf1f96845b8ae3af528b44c7, type: 2}

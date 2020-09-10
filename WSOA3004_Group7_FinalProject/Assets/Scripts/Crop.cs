@@ -8,9 +8,11 @@ public class Crop : ScriptableObject
 {
     public string CropName;
     public string CropType;
+    public int CropPrice;
+    public int DaysToGrow;
     public Sprite SeedSprite;
     public Sprite FullGrownSprite;
-    public Sprite[] GrowingSprites;
+    public Tile[] GrowingTiles;
     public int DaysGrown;
     public Vector3 PlantedLocation;
     public Tile RequiredGround;

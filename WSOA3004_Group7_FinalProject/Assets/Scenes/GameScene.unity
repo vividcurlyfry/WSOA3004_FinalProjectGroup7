@@ -369,9 +369,9 @@ GameObject:
   - component: {fileID: 70570553}
   - component: {fileID: 70570552}
   - component: {fileID: 70570554}
-  - component: {fileID: 70570555}
   - component: {fileID: 70570556}
   - component: {fileID: 70570557}
+  - component: {fileID: 70570555}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -434,17 +434,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 70570551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a9c5d0b73dbf0147a1efe8442360659, type: 3}
+  m_Script: {fileID: 11500000, guid: dd1cb6b6b89b24b4384633a7f75d00bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayInven:
-  - {fileID: 2036223670}
-  - {fileID: 1435743717}
-  - {fileID: 1688954134}
-  - {fileID: 242170263}
-  - {fileID: 544290936}
-  - {fileID: 1717672667}
-  highlight: {fileID: 1715997599}
+  FundsText: {fileID: 2123798678}
 --- !u!114 &70570556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,8 +465,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightedTile: {x: 0, y: 0, z: 0}
   SelectedObj: {fileID: 2036223670}
+  Funds: 0
   Lettuce: {fileID: 11400000, guid: 4a1421f4d2561b14fa5ab9e53e01f9a9, type: 2}
   Hoe: {fileID: 11400000, guid: 69676f4bb9d700b48ba75816631ce4c4, type: 2}
+  DisplayInven:
+  - {fileID: 2036223670}
+  - {fileID: 1435743717}
+  - {fileID: 1688954134}
+  - {fileID: 242170263}
+  - {fileID: 544290936}
+  - {fileID: 1717672667}
+  highlight: {fileID: 1715997599}
 --- !u!1 &72999743
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,9 +876,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: -17}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &141400402
 MonoBehaviour:
@@ -1375,8 +1377,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 70570555}
-        m_TargetAssemblyTypeName: InventoryScript, Assembly-CSharp
+      - m_Target: {fileID: 70570557}
+        m_TargetAssemblyTypeName: GameManagerScript, Assembly-CSharp
         m_MethodName: SelectObj
         m_Mode: 2
         m_Arguments:
@@ -2760,8 +2762,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 70570555}
-        m_TargetAssemblyTypeName: InventoryScript, Assembly-CSharp
+      - m_Target: {fileID: 70570557}
+        m_TargetAssemblyTypeName: GameManagerScript, Assembly-CSharp
         m_MethodName: SelectObj
         m_Mode: 2
         m_Arguments:
@@ -56973,7 +56975,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -57092,8 +57094,8 @@ RectTransform:
   m_Father: {fileID: 593269422}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.22387081}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -58613,9 +58615,9 @@ RectTransform:
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: -17}
+  m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1149717053
 MonoBehaviour:
@@ -58803,9 +58805,9 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 20}
+  m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1200047287
 MonoBehaviour:
@@ -59820,8 +59822,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 70570555}
-        m_TargetAssemblyTypeName: InventoryScript, Assembly-CSharp
+      - m_Target: {fileID: 70570557}
+        m_TargetAssemblyTypeName: GameManagerScript, Assembly-CSharp
         m_MethodName: SelectObj
         m_Mode: 2
         m_Arguments:
@@ -60854,8 +60856,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 70570555}
-        m_TargetAssemblyTypeName: InventoryScript, Assembly-CSharp
+      - m_Target: {fileID: 70570557}
+        m_TargetAssemblyTypeName: GameManagerScript, Assembly-CSharp
         m_MethodName: SelectObj
         m_Mode: 2
         m_Arguments:
@@ -61134,8 +61136,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 70570555}
-        m_TargetAssemblyTypeName: InventoryScript, Assembly-CSharp
+      - m_Target: {fileID: 70570557}
+        m_TargetAssemblyTypeName: GameManagerScript, Assembly-CSharp
         m_MethodName: SelectObj
         m_Mode: 2
         m_Arguments:
@@ -62318,7 +62320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1970430499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62694,8 +62696,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 70570555}
-        m_TargetAssemblyTypeName: InventoryScript, Assembly-CSharp
+      - m_Target: {fileID: 70570557}
+        m_TargetAssemblyTypeName: GameManagerScript, Assembly-CSharp
         m_MethodName: SelectObj
         m_Mode: 2
         m_Arguments:
@@ -63478,7 +63480,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 70570555}
-        m_TargetAssemblyTypeName: InventoryScript, Assembly-CSharp
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
         m_MethodName: BuyLettuce
         m_Mode: 1
         m_Arguments:

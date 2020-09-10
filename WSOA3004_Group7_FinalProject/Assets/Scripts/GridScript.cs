@@ -67,7 +67,7 @@ public class GridScript : MonoBehaviour
         }
         else
         {
-            GameManagerScript.instance.highlightedTile = new Vector3Int(null? , null ?, null ?);
+            GameManagerScript.instance.highlightedTile = new Vector3Int(-500, -500, -500);
         }
     }
 }
