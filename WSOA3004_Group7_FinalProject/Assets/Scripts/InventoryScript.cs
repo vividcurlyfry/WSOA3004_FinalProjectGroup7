@@ -17,10 +17,10 @@ public class InventoryScript : MonoBehaviour
     public void BuyLettuce()
     {
         Inventory.Add(Lettuce);
-        if(Inventory.Count < 5)
+        if(Inventory.Count < 7)
         {
             Debug.Log(Inventory);
-            DisplayInven[Inventory.Count + 1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Lettuce.SeedSprite;
+            DisplayInven[Inventory.Count - 1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Lettuce.SeedSprite;
         }
     }
 }
