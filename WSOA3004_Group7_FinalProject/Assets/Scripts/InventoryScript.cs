@@ -9,7 +9,6 @@ public class InventoryScript : MonoBehaviour
     public InventoryClass[] Inventory;
     public GameObject[] DisplayInven = new GameObject[6];
     public GameObject highlight;
-    public Crop Lettuce;
 
     public void Start()
     {
@@ -26,17 +25,21 @@ public class InventoryScript : MonoBehaviour
 
     public void DayOneInventory()
     {
-        Inventory = new InventoryClass[3]
+        Inventory = new InventoryClass[6]
         {
-            new InventoryClass("Lettuce",0,Lettuce.SeedSprite),
+            new InventoryClass("Hoe",1,GameManagerScript.instance.Hoe.toolSprite),
+            new InventoryClass("WateringCan",0,null),
+            new InventoryClass("Scythe",0,null),
+            new InventoryClass("Lettuce",0,GameManagerScript.instance.Lettuce.SeedSprite),
             new InventoryClass(null,0,null),
             new InventoryClass(null,0,null)
         };
     }
 
-    public void SelectObj(RectTransform posButton)
+    public void SelectObj(RectTransform posButton, GameObject selected)
     {
         highlight.transform.position = posButton.transform.position;
+        GameManagerScript.instance.SelectedObj = selected;
     }
 
     public int FindPos(string name)
@@ -63,7 +66,7 @@ public class InventoryScript : MonoBehaviour
         if (pos < 6)
         {
             DisplayInven[pos].transform.Find("Text").GetComponent<Text>().text = Inventory[pos].ItemNumber.ToString();
-            DisplayInven[pos].GetComponentInChildren<SpriteRenderer>().sprite = Lettuce.SeedSprite;
+            DisplayInven[pos].GetComponentInChildren<SpriteRenderer>().sprite = GameManagerScript.instance.Lettuce.SeedSprite;
         }
     }
 }

@@ -60,5 +60,14 @@ public class GridScript : MonoBehaviour
             tm_highlight.SetTile(HighlightedTiles[0], null);
             HighlightedTiles.RemoveAt(0);
         }
+
+        if (HighlightedTiles.Count > 0)
+        {
+            GameManagerScript.instance.highlightedTile = HighlightedTiles[0];
+        }
+        else
+        {
+            GameManagerScript.instance.highlightedTile = new Vector3Int(null? , null ?, null ?);
+        }
     }
 }
