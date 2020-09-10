@@ -1,0 +1,17 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class InventoryClass
+{
+    public string ItemName;
+    public int ItemNumber;
+    public Sprite ItemSprite;
+
+    public InventoryClass(string iName,int iNumber,Sprite ISprite)
+    {
+        ItemName = iName;
+        ItemNumber = iNumber;
+        ItemSprite = ISprite;
+    }
+}
