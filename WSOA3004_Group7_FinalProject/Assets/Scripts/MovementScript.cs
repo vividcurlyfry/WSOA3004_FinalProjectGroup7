@@ -8,6 +8,7 @@ public class MovementScript : MonoBehaviour
     public Rigidbody2D rb2D;
     public float speed = 2f;
     public Vector2 motion;
+    public Animation Demi;
 
     void Awake()
     {
@@ -17,6 +18,10 @@ public class MovementScript : MonoBehaviour
     private void Update()
     {
         motion = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            Demi.Play("WalkingBackDemi");
+        }
     }
 
 

@@ -1,43 +1,25 @@
 fileFormatVersion: 2
-guid: e3d989d24e938e2479a4b7ef5f1da96a
+guid: 5e64be2fccb8c9f4a9571b3b52afee32
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1652859022924501310
-    second: walk_cycle_demi_front_0
+      213: 8226571317937695566
+    second: walk_cycle_demi_side2_0
   - first:
-      213: -5651125212943009958
-    second: walk_cycle_demi_front_1
+      213: 7524101103179273410
+    second: walk_cycle_demi_side2_1
   - first:
-      213: -6695317107398812556
-    second: walk_cycle_demi_front_2
+      213: 5553533453087426139
+    second: walk_cycle_demi_side2_2
   - first:
-      213: 2991476439275604085
-    second: walk_cycle_demi_front_3
+      213: 3805023093152629061
+    second: walk_cycle_demi_side2_3
   - first:
-      213: -6307924782846313616
-    second: walk_cycle_demi_front_4
+      213: 2775091097821401787
+    second: walk_cycle_demi_side2_4
   - first:
-      213: 5025113871826062043
-    second: walk_cycle_demi_front_5
-  - first:
-      213: -2380947744190563619
-    second: walk_cycle_demi_front_0
-  - first:
-      213: 7220239750835163978
-    second: walk_cycle_demi_front_1
-  - first:
-      213: -4512303410405806021
-    second: walk_cycle_demi_front_2
-  - first:
-      213: 1860624684550406753
-    second: walk_cycle_demi_front_3
-  - first:
-      213: -2865105512346043288
-    second: walk_cycle_demi_front_4
-  - first:
-      213: 5424334858207962401
-    second: walk_cycle_demi_front_5
+      213: -5458380050949353125
+    second: walk_cycle_demi_side2_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -125,13 +107,97 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walk_cycle_demi_front_0
+      name: walk_cycle_demi_side2_0
       rect:
         serializedVersion: 2
-        x: 40
+        x: 66
+        y: 102
+        width: 171
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4be7150707aa2270800000000000000
+      internalID: 8226571317937695566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_cycle_demi_side2_1
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 106
+        width: 171
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c41025c61afa6860800000000000000
+      internalID: 7524101103179273410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_cycle_demi_side2_2
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 106
+        width: 171
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b56468f604d121d40800000000000000
+      internalID: 5553533453087426139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_cycle_demi_side2_3
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 106
+        width: 166
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5414585e7582ec430800000000000000
+      internalID: 3805023093152629061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_cycle_demi_side2_4
+      rect:
+        serializedVersion: 2
+        x: 981
         y: 111
-        width: 192
-        height: 287
+        width: 165
+        height: 282
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddaf0c634ac25fed0800000000000000
-      internalID: -2380947744190563619
+      spriteID: bb25ef086aa138620800000000000000
+      internalID: 2775091097821401787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_cycle_demi_front_1
+      name: walk_cycle_demi_side2_5
       rect:
         serializedVersion: 2
-        x: 273
-        y: 111
-        width: 193
-        height: 285
+        x: 1186
+        y: 106
+        width: 171
+        height: 292
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,92 +226,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a435fa58cc1733460800000000000000
-      internalID: 7220239750835163978
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk_cycle_demi_front_2
-      rect:
-        serializedVersion: 2
-        x: 509
-        y: 111
-        width: 193
-        height: 293
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b307af794f31161c0800000000000000
-      internalID: -4512303410405806021
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk_cycle_demi_front_3
-      rect:
-        serializedVersion: 2
-        x: 734
-        y: 107
-        width: 193
-        height: 286
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16243f6ea4442d910800000000000000
-      internalID: 1860624684550406753
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk_cycle_demi_front_4
-      rect:
-        serializedVersion: 2
-        x: 969
-        y: 108
-        width: 194
-        height: 283
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 86cb99c67b91d38d0800000000000000
-      internalID: -2865105512346043288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk_cycle_demi_front_5
-      rect:
-        serializedVersion: 2
-        x: 1188
-        y: 101
-        width: 193
-        height: 297
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 125214e60db174b40800000000000000
-      internalID: 5424334858207962401
+      spriteID: b51d51e6340ff34b0800000000000000
+      internalID: -5458380050949353125
       vertices: []
       indices: 
       edges: []

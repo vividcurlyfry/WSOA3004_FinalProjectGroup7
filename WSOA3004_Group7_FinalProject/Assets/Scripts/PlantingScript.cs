@@ -18,7 +18,12 @@ public class PlantingScript : MonoBehaviour
                     tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Hoe.groundAfterToolTile);
                 }
 
-                if(GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.Lettuce.SeedSprite)
+                else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.WateringCan.toolSprite)
+                {
+                    tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.WateringCan.groundAfterToolTile);
+                }
+
+                else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.Lettuce.SeedSprite)
                 {
                     if(tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.Lettuce.RequiredGround)
                     {

@@ -13,6 +13,7 @@ public class GameManagerScript : MonoBehaviour
     public InventoryClass[] Inventory;
     public Crop Lettuce;
     public Tool Hoe;
+    public Tool WateringCan;
 
     private void Awake()
     {
@@ -41,7 +42,14 @@ public class GameManagerScript : MonoBehaviour
         {
             if (GameManagerScript.instance.Inventory[i].ItemNumber > 0)
             {
-                DisplayInven[i].GetComponentInChildren<Text>().text = GameManagerScript.instance.Inventory[i].ItemNumber.ToString();
+                if ((Inventory[i].ItemName != "Hoe") && (Inventory[i].ItemName != "WateringCan"))
+                {
+                    DisplayInven[i].GetComponentInChildren<Text>().text = GameManagerScript.instance.Inventory[i].ItemNumber.ToString();
+                }
+                else
+                {
+                    DisplayInven[i].GetComponentInChildren<Text>().text = "";
+                }
                 DisplayInven[i].GetComponentInChildren<SpriteRenderer>().sprite = GameManagerScript.instance.Inventory[i].ItemSprite;
             }
             else
@@ -56,7 +64,7 @@ public class GameManagerScript : MonoBehaviour
     {
         GameManagerScript.instance.Inventory = new InventoryClass[6]
         {
-            new InventoryClass("WateringCan",0,null),
+            new InventoryClass("WateringCan",1,GameManagerScript.instance.WateringCan.toolSprite),
             new InventoryClass("Scythe",0,null),
             new InventoryClass("Lettuce",0,GameManagerScript.instance.Lettuce.SeedSprite),
             new InventoryClass(null,0,null),
