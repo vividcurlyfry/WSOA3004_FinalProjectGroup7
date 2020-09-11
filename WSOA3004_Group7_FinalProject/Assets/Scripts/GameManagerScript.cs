@@ -65,10 +65,10 @@ public class GameManagerScript : MonoBehaviour
         GameManagerScript.instance.Inventory = new InventoryClass[6]
         {
             new InventoryClass("WateringCan",1,GameManagerScript.instance.WateringCan.toolSprite),
-            new InventoryClass("Scythe",0,null),
-            new InventoryClass("Lettuce",0,GameManagerScript.instance.Lettuce.SeedSprite),
-            new InventoryClass(null,0,null),
             new InventoryClass("Hoe",1,GameManagerScript.instance.Hoe.toolSprite),
+            new InventoryClass("Lettuce",0,GameManagerScript.instance.Lettuce.SeedSprite),
+            new InventoryClass("Scythe",0,null),
+            new InventoryClass(null,0,null),
             new InventoryClass(null,0,null)
         };
 

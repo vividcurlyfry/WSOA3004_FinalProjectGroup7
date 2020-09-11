@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CropName: Lettuce
   CropType: AboveGround
-  CropPrice: 28
+  CropPrice: 15
   DaysToGrow: 2
   SeedSprite: {fileID: -8922477864516793493, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
   FullGrownSprite: {fileID: -3288577684988741257, guid: b899ca9194aac5d4bb6d8d8133fde341, type: 3}
