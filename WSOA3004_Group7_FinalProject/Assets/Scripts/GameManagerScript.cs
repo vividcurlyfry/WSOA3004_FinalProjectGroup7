@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements.Experimental;
@@ -8,12 +9,20 @@ public class GameManagerScript : MonoBehaviour
 {
     public static GameManagerScript instance = null;
     public Vector3Int highlightedTile;
+    public int DaysPlayed;
     public GameObject SelectedObj;
     public int Funds;
     public InventoryClass[] Inventory;
     public Crop Lettuce;
+    public Crop Potoato;
+    public Crop Turnip;
+    public Crop Peach;
+    public Crop Watermelon;
+    public Crop Carrot;
     public Tool Hoe;
     public Tool WateringCan;
+    public Tool Scythe;
+    public Tool Shovel;
 
     private void Awake()
     {
@@ -32,7 +41,10 @@ public class GameManagerScript : MonoBehaviour
 
     public void Start()
     {
-        DayOne();
+        for(int a = 0; a < Lettuce.PlantedLocations.Count; a++)
+        {
+            
+        }
         DisplayInvenFunc();
     }
 
@@ -73,6 +85,7 @@ public class GameManagerScript : MonoBehaviour
         };
 
         Funds = 250;
+        Lettuce.PlantedLocations.Clear();
     }
 
     public void SelectObj(RectTransform posButton)
