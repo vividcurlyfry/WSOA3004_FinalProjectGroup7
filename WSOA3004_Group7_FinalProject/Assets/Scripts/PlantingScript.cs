@@ -36,7 +36,6 @@ public class PlantingScript : MonoBehaviour
                         if (pos != -1)
                         {
                             GameManagerScript.instance.Inventory[pos].ItemNumber--;
-                            GameManagerScript.instance.Lettuce.PlantedLocations.Add(GameManagerScript.instance.highlightedTile);
                         }
 
                         GameManagerScript.instance.DisplayInvenFunc();
