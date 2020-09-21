@@ -15,5 +15,6 @@ public class Crop : ScriptableObject
     public Tile[] GrowingTiles;
     public int DaysGrown;
     public Vector3 PlantedLocation;
+    public List<Vector3> PlantedLocations;
     public Tile RequiredGround;
 }
