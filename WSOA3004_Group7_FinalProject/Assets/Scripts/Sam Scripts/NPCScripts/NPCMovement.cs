@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class NPCMovement : MonoBehaviour
 {
     public GameObject destination;
-
+    
     private Vector3 nextPosition, home;
     [SerializeField]
     private float speed = 1;
@@ -47,7 +47,7 @@ public class NPCMovement : MonoBehaviour
         }
         else
         {
-            this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 20;
+            this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 9;
         }
 
         updateAnimation(); //check this placement, might be more dynamic for Rubys movement, might look sus? Could put in if where next is set and if when paused instead??
