@@ -6,35 +6,48 @@ using UnityEngine.UIElements;
 public class ShopScript : MonoBehaviour
 {
     public Text FundsText;
-    public GameObject SeedCanvas;
-    public GameObject UtilitiesCanvas;
-    public GameObject OtherCanvas;
+    public GameObject SeedPanel;
+    public GameObject ToolPanel;
+    public GameObject FoodPanel;
+    public GameObject GiftPanel;
 
     private void Start()
     {
-        UtilitiesCanvas.SetActive(false);
-        OtherCanvas.SetActive(false);
+        ToolPanel.SetActive(false);
+        FoodPanel.SetActive(false);
+        GiftPanel.SetActive(false);
     }
 
-    public void OpenSeedCanvas()
+    public void OpenSeedPanel()
     {
-        SeedCanvas.SetActive(true);
-        UtilitiesCanvas.SetActive(false);
-        OtherCanvas.SetActive(false);
+        SeedPanel.SetActive(true);
+        ToolPanel.SetActive(false);
+        FoodPanel.SetActive(false);
+        GiftPanel.SetActive(false);
     }
 
-    public void OpenUtilitiesCanvas()
+    public void OpenToolPanel()
     {
-        SeedCanvas.SetActive(false);
-        UtilitiesCanvas.SetActive(true);
-        OtherCanvas.SetActive(false);
+        SeedPanel.SetActive(false);
+        ToolPanel.SetActive(true);
+        FoodPanel.SetActive(false);
+        GiftPanel.SetActive(false);
     }
 
-    public void OpenOtherCanvas()
+    public void OpenFoodPanel()
     {
-        SeedCanvas.SetActive(false);
-        UtilitiesCanvas.SetActive(false);
-        OtherCanvas.SetActive(true);
+        SeedPanel.SetActive(false);
+        ToolPanel.SetActive(false);
+        FoodPanel.SetActive(true);
+        GiftPanel.SetActive(false);
+    }
+
+    public void OpenGiftPanel()
+    {
+        SeedPanel.SetActive(false);
+        ToolPanel.SetActive(false);
+        FoodPanel.SetActive(false);
+        GiftPanel.SetActive(true);
     }
 
     public void BuyLettuce()

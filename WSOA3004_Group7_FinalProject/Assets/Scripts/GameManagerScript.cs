@@ -13,7 +13,7 @@ public class GameManagerScript : MonoBehaviour
     public int Funds;
     public InventoryClass[] Inventory;
     public Crop Lettuce;
-    public Crop Potoato;
+    public Crop Potato;
     public Crop Turnip;
     public Crop Peach;
     public Crop Watermelon;

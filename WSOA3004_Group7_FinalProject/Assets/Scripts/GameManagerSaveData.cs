@@ -24,7 +24,7 @@ public class GameManagerSaveData
         Funds = gm.Funds;
         Inventory = gm.Inventory;
         Lettuce = gm.Lettuce;
-        Potoato = gm.Potoato;
+        Potoato = gm.Potato;
         Turnip = gm.Turnip;
         Peach = gm.Peach;
         Watermelon = gm.Watermelon;
