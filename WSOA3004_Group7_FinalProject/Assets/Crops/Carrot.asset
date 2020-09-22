@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9fa4de3efa720846ae34ce562a8cc6d, type: 3}
-  m_Name: Lettuce
+  m_Name: Carrot
   m_EditorClassIdentifier: 
-  CropName: Lettuce
-  CropType: AboveGround
-  CropPrice: 15
+  CropName: Carrot
+  CropType: BelowGround
+  CropPrice: 10
   DaysToGrow: 2
-  SeedSprite: {fileID: -8922477864516793493, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
-  FullGrownSprite: {fileID: -3288577684988741257, guid: b899ca9194aac5d4bb6d8d8133fde341, type: 3}
+  SeedSprite: {fileID: 4152603658432830624, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
+  FullGrownSprite: {fileID: -1875783399781439255, guid: b899ca9194aac5d4bb6d8d8133fde341, type: 3}
   GrowingTiles:
   - {fileID: 11400000, guid: 1a03ac660d9b64240bfec052270d83a8, type: 2}
   - {fileID: 0}

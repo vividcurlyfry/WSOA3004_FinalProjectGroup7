@@ -22,6 +22,8 @@ public class GameManagerScript : MonoBehaviour
     public Tool WateringCan;
     public Tool Scythe;
     public Tool Shovel;
+    public GameObject[] DisplayInven = new GameObject[6];
+    public GameObject highlight;
 
     private void Awake()
     {
@@ -34,34 +36,41 @@ public class GameManagerScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public GameObject[] DisplayInven = new GameObject[6];
-    public GameObject highlight;
 
     public void Start()
     {
         DayOne();
-        for (int a = 0; a < Lettuce.PlantedLocations.Count; a++)
-        {
-
-        }
         DisplayInvenFunc();
     }
 
     public void DisplayInvenFunc()
     {
-        for (int i = 0; i < 6 && i < GameManagerScript.instance.Inventory.Length; i++)
+        for (int i = 0; i < Inventory.Length; i++)
         {
-            if (GameManagerScript.instance.Inventory[i].ItemNumber > 0)
+            if (Inventory[i].ItemNumber == 0)
+            {
+                for (int a = i; a < Inventory.Length - 1; a++)
+                {
+                    InventoryClass tmp = Inventory[a];
+                    Inventory[a] = Inventory[a + 1];
+                    Inventory[a + 1] = tmp;
+                }
+            }
+        }
+
+        for (int i = 0; i < 6 && i < Inventory.Length; i++)
+        {
+            if (Inventory[i].ItemNumber > 0)
             {
                 if ((Inventory[i].ItemName != "Hoe") && (Inventory[i].ItemName != "WateringCan"))
                 {
-                    DisplayInven[i].GetComponentInChildren<Text>().text = GameManagerScript.instance.Inventory[i].ItemNumber.ToString();
+                    DisplayInven[i].GetComponentInChildren<Text>().text = Inventory[i].ItemNumber.ToString();
                 }
                 else
                 {
                     DisplayInven[i].GetComponentInChildren<Text>().text = "";
                 }
-                DisplayInven[i].GetComponentInChildren<SpriteRenderer>().sprite = GameManagerScript.instance.Inventory[i].ItemSprite;
+                DisplayInven[i].GetComponentInChildren<SpriteRenderer>().sprite = Inventory[i].ItemSprite;
             }
             else
             {
@@ -72,14 +81,17 @@ public class GameManagerScript : MonoBehaviour
     }
     public void DayOne()
     {
-        GameManagerScript.instance.Inventory = new InventoryClass[6]
+        Inventory = new InventoryClass[9]
         {
-            new InventoryClass("WateringCan",1,GameManagerScript.instance.WateringCan.toolSprite),
-            new InventoryClass("Hoe",1,GameManagerScript.instance.Hoe.toolSprite),
-            new InventoryClass("Lettuce",0,GameManagerScript.instance.Lettuce.SeedSprite),
+            new InventoryClass("WateringCan",1,WateringCan.toolSprite),
+            new InventoryClass("Hoe",1,Hoe.toolSprite),
             new InventoryClass("Scythe",0,null),
-            new InventoryClass(null,0,null),
-            new InventoryClass(null,0,null)
+            new InventoryClass("Lettuce",0,Lettuce.SeedSprite),
+            new InventoryClass("Potato",0,Potato.SeedSprite),
+            new InventoryClass("Turnip",0,Turnip.SeedSprite),
+            new InventoryClass("Peach",0,Peach.SeedSprite),
+            new InventoryClass("Watermelon",0,Watermelon.SeedSprite),
+            new InventoryClass("Carrot",0,Carrot.SeedSprite),
         };
 
         Funds = 250;
@@ -89,13 +101,13 @@ public class GameManagerScript : MonoBehaviour
     public void SelectObj(RectTransform posButton)
     {
         highlight.transform.position = posButton.transform.position;
-        GameManagerScript.instance.SelectedObj = posButton.transform.gameObject;
+        SelectedObj = posButton.transform.gameObject;
     }
     public int FindPos(string name)
     {
-        for (int i = 0; i < GameManagerScript.instance.Inventory.Length - 1; i++)
+        for (int i = 0; i < Inventory.Length - 1; i++)
         {
-            if (GameManagerScript.instance.Inventory[i].ItemName == name)
+            if (Inventory[i].ItemName == name)
             {
                 return i;
             }

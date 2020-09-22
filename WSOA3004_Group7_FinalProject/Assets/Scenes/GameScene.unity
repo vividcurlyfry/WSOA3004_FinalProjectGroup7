@@ -472,11 +472,11 @@ MonoBehaviour:
   SelectedObj: {fileID: 2036223670}
   Funds: 0
   Lettuce: {fileID: 11400000, guid: 4a1421f4d2561b14fa5ab9e53e01f9a9, type: 2}
-  Potato: {fileID: 0}
-  Turnip: {fileID: 0}
-  Peach: {fileID: 0}
-  Watermelon: {fileID: 0}
-  Carrot: {fileID: 0}
+  Potato: {fileID: 11400000, guid: 50c8c8faec0083245ad5275e7b4e79d5, type: 2}
+  Turnip: {fileID: 11400000, guid: 998f7ea302f0179418a8d0d370e2e518, type: 2}
+  Peach: {fileID: 11400000, guid: 4f04017baeb622d46ac24a1c66a5a314, type: 2}
+  Watermelon: {fileID: 11400000, guid: 8332a8322d7210a4dba74b558919926b, type: 2}
+  Carrot: {fileID: 11400000, guid: 5a41e105a85c6c849b067bd05ba5c777, type: 2}
   Hoe: {fileID: 11400000, guid: 69676f4bb9d700b48ba75816631ce4c4, type: 2}
   WateringCan: {fileID: 11400000, guid: 690cc15d375673c42b641d4dc8e09b1c, type: 2}
   Scythe: {fileID: 0}
