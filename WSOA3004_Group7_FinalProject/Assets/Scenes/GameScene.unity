@@ -1041,7 +1041,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.028122902, y: -0.734942}
@@ -1138,7 +1138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 1985187804}
-  speed: 1.5
+  minutes: 0
+  speed: 2
 --- !u!212 &184295801
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1521,7 +1522,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 13
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 7156c3ce339fc5147abe1e2f08fc53f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4086,7 +4087,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750086559}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -58755,7 +58756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7848526175035192892, guid: 5abb1969c7cc1854697317b5c87ee3b7, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5abb1969c7cc1854697317b5c87ee3b7, type: 3}
@@ -59517,8 +59518,7 @@ MonoBehaviour:
   dawnSeconds: 0
   duskSeconds: 0
   count: 0
-  dawnAlpha: 0
-  duskAlpha: 0
+  t: 0
 --- !u!1 &1200047285
 GameObject:
   m_ObjectHideFlags: 0
@@ -59653,7 +59653,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 827215992110395498, guid: 5abb1969c7cc1854697317b5c87ee3b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.19
+      value: 23.57
       objectReference: {fileID: 0}
     - target: {fileID: 827215992110395498, guid: 5abb1969c7cc1854697317b5c87ee3b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -59701,7 +59701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7848526175035192892, guid: 5abb1969c7cc1854697317b5c87ee3b7, type: 3}
       propertyPath: m_SortingOrder
-      value: 12
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5abb1969c7cc1854697317b5c87ee3b7, type: 3}
@@ -62211,9 +62211,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: 0
-  _FirstPos: {x: 22, y: 12, z: -1}
-  _SecondPos: {x: 17, y: 8, z: -1}
-  _ThirdPos: {x: 16, y: 15, z: -1}
 --- !u!54 &1788017986
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -62325,7 +62322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1384513798008655685, guid: b867aea67e1426c43bddadab28921341, type: 3}
       propertyPath: m_SortingOrder
-      value: 14
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5901204783497044837, guid: b867aea67e1426c43bddadab28921341, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63513,9 +63510,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: 0
-  _FirstPos: {x: 24, y: -2, z: -1}
-  _SecondPos: {x: -5, y: 12, z: -1}
-  _ThirdPos: {x: 20, y: 16, z: -1}
 --- !u!1 &2017710802
 GameObject:
   m_ObjectHideFlags: 0

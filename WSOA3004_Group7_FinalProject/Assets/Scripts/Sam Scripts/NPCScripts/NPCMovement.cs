@@ -6,39 +6,53 @@ using UnityEngine.AI;
 public class NPCMovement : MonoBehaviour
 {
     public GameObject destination;
-    
-    private Vector3 nextPosition, home;
+    public float minutes;
+
+    private Vector3 nextPosition, home, middle;
     [SerializeField]
-    private float speed = 1;
-    private float pause = 0;
-    private float setPause = 2;
-    private bool isPaused = false;
+    private float speed = 2f;
+    private float pause = 0, setPause, t = 0;
+    private bool isPaused = false, dayOver = false, goHome = false;
+    private int today = 1;
 
     private void Start()
     {
+        minutes = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimerScript>().MinutesInDay;
+        minutes = minutes * 60;
+
         nextPosition = new Vector3(destination.transform.position.x, destination.transform.position.y, destination.transform.position.z);
 
         home = new Vector3(20, 16, -1);
+        middle = new Vector3(3.5f, 7, -1);
 
-        //if Day 1 set setPause to x - need a class to keep track of day cycles
+        //today = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().Today; //Amy needs to add this connection
+        if (today == 1)
+        {
+            setPause = 2;
+        }
+        else if (today == 2)
+        {
+            setPause = 4;
+        }
+        else if (today == 3)
+        {
+            setPause = 3;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = Vector3.MoveTowards(this.transform.position, nextPosition, speed * Time.deltaTime);
+        t += Time.deltaTime;
 
-        if (this.transform.position == nextPosition)
+        if(t > (0.8*minutes))
         {
-            pause += Time.deltaTime;
-            isPaused = true;
+            dayOver = true;
         }
 
-        if (pause > setPause)
+        if(t > (0.9*minutes))
         {
-            nextPosition = new Vector3(destination.transform.position.x, destination.transform.position.y, destination.transform.position.z);
-            pause = 0;
-            isPaused = false;
+            goHome = true;
         }
 
         if (this.transform.position == home)
@@ -48,6 +62,33 @@ public class NPCMovement : MonoBehaviour
         else
         {
             this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 9;
+        }
+
+        if (!dayOver)
+        {
+            this.transform.position = Vector3.MoveTowards(this.transform.position, nextPosition, speed * Time.deltaTime);
+
+            if (this.transform.position == nextPosition)
+            {
+                pause += Time.deltaTime;
+                isPaused = true;
+            }
+
+            if (pause > setPause)
+            {
+                nextPosition = new Vector3(destination.transform.position.x, destination.transform.position.y, destination.transform.position.z);
+                pause = 0;
+                isPaused = false;
+            }
+        }
+        else if(!goHome)
+        {
+            this.transform.position = Vector3.MoveTowards(this.transform.position, middle, speed * Time.deltaTime);
+        }
+
+        if(goHome)
+        {
+            this.transform.position = Vector3.MoveTowards(this.transform.position, home, speed * Time.deltaTime);
         }
 
         updateAnimation(); //check this placement, might be more dynamic for Rubys movement, might look sus? Could put in if where next is set and if when paused instead??
