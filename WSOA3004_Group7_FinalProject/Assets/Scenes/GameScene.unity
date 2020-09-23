@@ -393,7 +393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Seconds: 0
   DayImage: {fileID: 1919223644}
-  MinutesInDay: 1
+  MinutesInDay: 15
   SecondsInDay: 0
   SecondTimer: 0
   OneSecTimer: 0
@@ -2072,8 +2072,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.500061, y: 80.400024}
-  m_SizeDelta: {x: -175.76837, y: -553.59375}
+  m_AnchoredPosition: {x: 18.99997, y: -298.00006}
+  m_SizeDelta: {x: -175.76837, y: 173.29797}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348387295
 MonoBehaviour:
@@ -2318,8 +2318,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.500061, y: 80.400024}
-  m_SizeDelta: {x: -175.76837, y: -553.59375}
+  m_AnchoredPosition: {x: 19, y: -298}
+  m_SizeDelta: {x: -175.76837, y: 173.29797}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &433048228
 MonoBehaviour:
@@ -2827,7 +2827,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 70570555}
         m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
-        m_MethodName: BuyLettuce
+        m_MethodName: BuyTurnip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -57755,7 +57755,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 70570555}
         m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
-        m_MethodName: BuyLettuce
+        m_MethodName: BuyPeach
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -58006,7 +58006,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 70570555}
         m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
-        m_MethodName: BuyLettuce
+        m_MethodName: BuyWatermelon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -58390,8 +58390,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.500061, y: 80.400024}
-  m_SizeDelta: {x: -175.76837, y: -553.59375}
+  m_AnchoredPosition: {x: 18.99997, y: -298.00006}
+  m_SizeDelta: {x: -175.76837, y: 173.29797}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &911537411
 MonoBehaviour:
@@ -59014,8 +59014,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.500061, y: 80.400024}
-  m_SizeDelta: {x: -175.76837, y: -553.59375}
+  m_AnchoredPosition: {x: 18.99997, y: -298.00006}
+  m_SizeDelta: {x: -175.76837, y: 173.29797}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &958025760
 MonoBehaviour:
@@ -59805,8 +59805,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 844721301}
   m_HandleRect: {fileID: 844721300}
   m_Direction: 2
-  m_Value: 1.0000005
-  m_Size: 0.77612925
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -60095,8 +60095,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 782341430}
   m_HandleRect: {fileID: 782341429}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.99999994
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -60334,7 +60334,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 70570555}
         m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
-        m_MethodName: BuyLettuce
+        m_MethodName: BuyCarrot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -64110,7 +64110,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 70570555}
         m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
-        m_MethodName: BuyLettuce
+        m_MethodName: BuyPotato
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -65224,8 +65224,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00000022350194}
-  m_SizeDelta: {x: 0, y: 1266.5417}
+  m_AnchoredPosition: {x: 0, y: -0.000051100164}
+  m_SizeDelta: {x: 0, y: 575.23267}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2100239074
 GameObject:

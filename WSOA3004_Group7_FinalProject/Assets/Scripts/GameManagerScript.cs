@@ -45,32 +45,32 @@ public class GameManagerScript : MonoBehaviour
 
     public void DisplayInvenFunc()
     {
-        for (int i = 0; i < Inventory.Length; i++)
+        for (int i = 0; i < GameManagerScript.instance.Inventory.Length; i++)
         {
-            if (Inventory[i].ItemNumber == 0)
+            if (GameManagerScript.instance.Inventory[i].ItemNumber == 0)
             {
-                for (int a = i; a < Inventory.Length - 1; a++)
+                for (int a = i; a < GameManagerScript.instance.Inventory.Length - 1; a++)
                 {
                     InventoryClass tmp = Inventory[a];
-                    Inventory[a] = Inventory[a + 1];
-                    Inventory[a + 1] = tmp;
+                    GameManagerScript.instance.Inventory[a] = GameManagerScript.instance.Inventory[a + 1];
+                    GameManagerScript.instance.Inventory[a + 1] = tmp;
                 }
             }
         }
 
-        for (int i = 0; i < 6 && i < Inventory.Length; i++)
+        for (int i = 0; i < 6 && i < GameManagerScript.instance.Inventory.Length; i++)
         {
-            if (Inventory[i].ItemNumber > 0)
+            if (GameManagerScript.instance.Inventory[i].ItemNumber > 0)
             {
-                if ((Inventory[i].ItemName != "Hoe") && (Inventory[i].ItemName != "WateringCan"))
+                if ((GameManagerScript.instance.Inventory[i].ItemName != "Hoe") && (GameManagerScript.instance.Inventory[i].ItemName != "WateringCan"))
                 {
-                    DisplayInven[i].GetComponentInChildren<Text>().text = Inventory[i].ItemNumber.ToString();
+                    DisplayInven[i].GetComponentInChildren<Text>().text = GameManagerScript.instance.Inventory[i].ItemNumber.ToString();
                 }
                 else
                 {
                     DisplayInven[i].GetComponentInChildren<Text>().text = "";
                 }
-                DisplayInven[i].GetComponentInChildren<SpriteRenderer>().sprite = Inventory[i].ItemSprite;
+                DisplayInven[i].GetComponentInChildren<SpriteRenderer>().sprite = GameManagerScript.instance.Inventory[i].ItemSprite;
             }
             else
             {
@@ -81,7 +81,7 @@ public class GameManagerScript : MonoBehaviour
     }
     public void DayOne()
     {
-        Inventory = new InventoryClass[9]
+        GameManagerScript.instance.Inventory = new InventoryClass[9]
         {
             new InventoryClass("WateringCan",1,WateringCan.toolSprite),
             new InventoryClass("Hoe",1,Hoe.toolSprite),
@@ -105,9 +105,9 @@ public class GameManagerScript : MonoBehaviour
     }
     public int FindPos(string name)
     {
-        for (int i = 0; i < Inventory.Length - 1; i++)
+        for (int i = 0; i < GameManagerScript.instance.Inventory.Length; i++)
         {
-            if (Inventory[i].ItemName == name)
+            if (GameManagerScript.instance.Inventory[i].ItemName == name)
             {
                 return i;
             }

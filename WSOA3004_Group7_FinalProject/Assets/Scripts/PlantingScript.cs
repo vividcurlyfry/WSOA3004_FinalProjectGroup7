@@ -41,6 +41,86 @@ public class PlantingScript : MonoBehaviour
                         GameManagerScript.instance.DisplayInvenFunc();
                     }
                 }
+
+                else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.Turnip.SeedSprite)
+                {
+                    if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.Turnip.RequiredGround)
+                    {
+                        tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Turnip.GrowingTiles[0]);
+
+                        int pos = GameManagerScript.instance.FindPos("Turnip");
+                        if (pos != -1)
+                        {
+                            GameManagerScript.instance.Inventory[pos].ItemNumber--;
+                        }
+
+                        GameManagerScript.instance.DisplayInvenFunc();
+                    }
+                }
+
+                else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.Watermelon.SeedSprite)
+                {
+                    if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.Watermelon.RequiredGround)
+                    {
+                        tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Watermelon.GrowingTiles[0]);
+
+                        int pos = GameManagerScript.instance.FindPos("Watermelon");
+                        if (pos != -1)
+                        {
+                            GameManagerScript.instance.Inventory[pos].ItemNumber--;
+                        }
+
+                        GameManagerScript.instance.DisplayInvenFunc();
+                    }
+                }
+
+                else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.Peach.SeedSprite)
+                {
+                    if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.Peach.RequiredGround)
+                    {
+                        tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Peach.GrowingTiles[0]);
+
+                        int pos = GameManagerScript.instance.FindPos("Peach");
+                        if (pos != -1)
+                        {
+                            GameManagerScript.instance.Inventory[pos].ItemNumber--;
+                        }
+
+                        GameManagerScript.instance.DisplayInvenFunc();
+                    }
+                }
+
+                else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.Potato.SeedSprite)
+                {
+                    if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.Potato.RequiredGround)
+                    {
+                        tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Potato.GrowingTiles[0]);
+
+                        int pos = GameManagerScript.instance.FindPos("Potato");
+                        if (pos != -1)
+                        {
+                            GameManagerScript.instance.Inventory[pos].ItemNumber--;
+                        }
+
+                        GameManagerScript.instance.DisplayInvenFunc();
+                    }
+                }
+
+                else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.Carrot.SeedSprite)
+                {
+                    if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.Carrot.RequiredGround)
+                    {
+                        tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Carrot.GrowingTiles[0]);
+
+                        int pos = GameManagerScript.instance.FindPos("Carrot");
+                        if (pos != -1)
+                        {
+                            GameManagerScript.instance.Inventory[pos].ItemNumber--;
+                        }
+
+                        GameManagerScript.instance.DisplayInvenFunc();
+                    }
+                }
             }
         }
     }
