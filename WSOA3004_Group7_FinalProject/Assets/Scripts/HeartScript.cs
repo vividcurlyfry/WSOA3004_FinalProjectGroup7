@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HeartScript : MonoBehaviour
-{
+{/*
     public GameObject heartImg;
     private void Start()
     {
@@ -18,5 +18,5 @@ public class HeartScript : MonoBehaviour
     public void OnMouseExit()
     {
         heartImg.SetActive(false);
-    }
+    }*/
 }
