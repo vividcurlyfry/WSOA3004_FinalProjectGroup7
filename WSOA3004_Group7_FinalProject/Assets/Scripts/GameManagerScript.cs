@@ -24,6 +24,7 @@ public class GameManagerScript : MonoBehaviour
     public Tool Shovel;
     public GameObject[] DisplayInven = new GameObject[6];
     public GameObject highlight;
+    public int PosInven;
 
     private void Awake()
     {
@@ -41,6 +42,38 @@ public class GameManagerScript : MonoBehaviour
     {
         DayOne();
         DisplayInvenFunc();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            Debug.Log("should be legal");
+            if((PosInven+6) >= GameManagerScript.instance.Inventory.Length)
+            {
+                PosInven = PosInven + 6;
+                for (int i = PosInven; i < PosInven+6 && i < GameManagerScript.instance.Inventory.Length; i++)
+                {
+                    if (GameManagerScript.instance.Inventory[i].ItemNumber > 0)
+                    {
+                        if ((GameManagerScript.instance.Inventory[i].ItemName != "Hoe") && (GameManagerScript.instance.Inventory[i].ItemName != "WateringCan"))
+                        {
+                            DisplayInven[i].GetComponentInChildren<Text>().text = GameManagerScript.instance.Inventory[i].ItemNumber.ToString();
+                        }
+                        else
+                        {
+                            DisplayInven[i].GetComponentInChildren<Text>().text = "";
+                        }
+                        DisplayInven[i].GetComponentInChildren<SpriteRenderer>().sprite = GameManagerScript.instance.Inventory[i].ItemSprite;
+                    }
+                    else
+                    {
+                        DisplayInven[i].GetComponentInChildren<Text>().text = "0";
+                        DisplayInven[i].GetComponentInChildren<SpriteRenderer>().sprite = null;
+                    }
+                }
+            }
+        }
     }
 
     public void DisplayInvenFunc()
@@ -96,6 +129,7 @@ public class GameManagerScript : MonoBehaviour
 
         Funds = 250;
         Lettuce.PlantedLocations.Clear();
+        PosInven = 0;
     }
 
     public void SelectObj(RectTransform posButton)
