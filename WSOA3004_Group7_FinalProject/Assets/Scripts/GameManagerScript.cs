@@ -46,41 +46,31 @@ public class GameManagerScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if ((PosInven + 6) < GameManagerScript.instance.Inventory.Length)
             {
-                if (GameManagerScript.instance.Inventory[PosInven + 6].ItemNumber != 0)
-                {
-                    Debug.Log("Next line of inven");
-                    PosInven = PosInven + 6;
-                    for (int i = PosInven; i < GameManagerScript.instance.Inventory.Length; i++)
-                    {
-                        if (GameManagerScript.instance.Inventory[i].ItemNumber > 0)
-                        {
-                            if ((GameManagerScript.instance.Inventory[i].ItemName != "Hoe") && (GameManagerScript.instance.Inventory[i].ItemName != "WateringCan"))
-                            {
-                                DisplayInven[i%6].GetComponentInChildren<Text>().text = GameManagerScript.instance.Inventory[i].ItemNumber.ToString();
-                            }
-                            else
-                            {
-                                DisplayInven[i%6].GetComponentInChildren<Text>().text = "";
-                            }
-                            DisplayInven[i%6].GetComponentInChildren<SpriteRenderer>().sprite = GameManagerScript.instance.Inventory[i].ItemSprite;
-                        }
-                        else
-                        {
-                            DisplayInven[i%6].GetComponentInChildren<Text>().text = "0";
-                            DisplayInven[i%6].GetComponentInChildren<SpriteRenderer>().sprite = null;
-                        }
-                    }
-                }
+                TabFunc();   
             }
             else if (PosInven + 6 >= GameManagerScript.instance.Inventory.Length)
             {
-                Debug.Log("Start of inven");
-                PosInven = 0;
+                PosInven = -6;
+                TabFunc();
             }
+        }
+    }
+
+    public void TabFunc()
+    {
+        if (GameManagerScript.instance.Inventory[PosInven + 6].ItemNumber != 0)
+        {
+            for (int a = 0; a < 6; a++)
+            {
+                DisplayInven[a].GetComponentInChildren<Text>().text = "0";
+                DisplayInven[a].GetComponentInChildren<SpriteRenderer>().sprite = null;
+            }
+            PosInven = PosInven + 6;
+            DisplayInvenFunc();
         }
     }
 
@@ -99,24 +89,24 @@ public class GameManagerScript : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < 6 && i < GameManagerScript.instance.Inventory.Length; i++)
+        for (int i = PosInven; i < GameManagerScript.instance.Inventory.Length && i < PosInven + 6; i++)
         {
             if (GameManagerScript.instance.Inventory[i].ItemNumber > 0)
             {
                 if ((GameManagerScript.instance.Inventory[i].ItemName != "Hoe") && (GameManagerScript.instance.Inventory[i].ItemName != "WateringCan"))
                 {
-                    DisplayInven[i].GetComponentInChildren<Text>().text = GameManagerScript.instance.Inventory[i].ItemNumber.ToString();
+                    DisplayInven[i % 6].GetComponentInChildren<Text>().text = GameManagerScript.instance.Inventory[i].ItemNumber.ToString();
                 }
                 else
                 {
-                    DisplayInven[i].GetComponentInChildren<Text>().text = "";
+                    DisplayInven[i % 6].GetComponentInChildren<Text>().text = "";
                 }
-                DisplayInven[i].GetComponentInChildren<SpriteRenderer>().sprite = GameManagerScript.instance.Inventory[i].ItemSprite;
+                DisplayInven[i % 6].GetComponentInChildren<SpriteRenderer>().sprite = GameManagerScript.instance.Inventory[i].ItemSprite;
             }
             else
             {
-                DisplayInven[i].GetComponentInChildren<Text>().text = "0";
-                DisplayInven[i].GetComponentInChildren<SpriteRenderer>().sprite = null;
+                DisplayInven[i % 6].GetComponentInChildren<Text>().text = "0";
+                DisplayInven[i % 6].GetComponentInChildren<SpriteRenderer>().sprite = null;
             }
         }
     }
