@@ -5,14 +5,14 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public DialogueObject Day1, Day2, Day3;
-    private int today = 1;
+    private int today = 3;
 
     //on ruby click first time
     public void TriggerDialogue()
     {
-
+        //add rainy day
         //today = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().Today; //Amy needs to add this connection
-        if(today == 1)
+        if (today == 1)
         {
             FindObjectOfType<Dialogue>().StartDialogue(Day1);
         }
