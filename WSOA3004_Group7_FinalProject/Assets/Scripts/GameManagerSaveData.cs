@@ -7,13 +7,13 @@ using UnityEngine.Tilemaps;
 public class GameManagerSaveData
 {
     public int Funds;
-    public InventoryClass[] Inventory;
+    public int[] InventorySave;
     public int DaysPlayed;
-    public TileBase[] tmState;
 
     public GameManagerSaveData(GameManagerScript gm)
     {
         Funds = gm.Funds;
         DaysPlayed = gm.DaysPlayed;
+        InventorySave = gm.InventorySave;
     }
 }

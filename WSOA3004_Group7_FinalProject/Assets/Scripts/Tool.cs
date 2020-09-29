@@ -11,4 +11,5 @@ public class Tool : ScriptableObject
     public Animation toolAnim;
     public Sprite toolSprite;
     public Tile groundAfterToolTile;
+    public List<Vector3Int> TooledLocations;
 }

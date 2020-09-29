@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
@@ -14,9 +13,9 @@ public class GameManagerScript : MonoBehaviour
     public int DaysPlayed;
     public GameObject SelectedObj;
     public int Funds;
-    public InventoryClass[] Inventory;
+    public InventoryObject Inventory;
     public GameObject[] DisplayInven = new GameObject[6];
-    public string[] InventorySave;
+    public int[] InventorySave;
     public Text FundsText;
     public Crop Lettuce;
     public Crop Potato;
@@ -62,11 +61,11 @@ public class GameManagerScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if ((PosInven + 6) < GameManagerScript.instance.Inventory.Length)
+            if ((PosInven + 6) < Inventory.inven.Length)
             {
                 TabFunc();   
             }
-            else if (PosInven + 6 >= GameManagerScript.instance.Inventory.Length)
+            else if (PosInven + 6 >= Inventory.inven.Length)
             {
                 PosInven = -6;
                 TabFunc();
@@ -76,7 +75,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void TabFunc()
     {
-        if (GameManagerScript.instance.Inventory[PosInven + 6].ItemNumber != 0)
+        if (Inventory.inven[PosInven + 6].ItemNumber != 0)
         {
             for (int a = 0; a < 6; a++)
             {
@@ -90,32 +89,32 @@ public class GameManagerScript : MonoBehaviour
 
     public void DisplayInvenFunc()
     {
-        for (int i = 0; i < GameManagerScript.instance.Inventory.Length; i++)
+        for (int i = 0; i < Inventory.inven.Length; i++)
         {
-            if (GameManagerScript.instance.Inventory[i].ItemNumber == 0)
+            if (Inventory.inven[i].ItemNumber == 0)
             {
-                for (int a = i; a < GameManagerScript.instance.Inventory.Length - 1; a++)
+                for (int a = i; a < Inventory.inven.Length - 1; a++)
                 {
-                    InventoryClass tmp = Inventory[a];
-                    GameManagerScript.instance.Inventory[a] = GameManagerScript.instance.Inventory[a + 1];
-                    GameManagerScript.instance.Inventory[a + 1] = tmp;
+                    InventoryClass tmp = Inventory.inven[a];
+                   Inventory.inven[a] = Inventory.inven[a + 1];
+                   Inventory.inven[a + 1] = tmp;
                 }
             }
         }
 
-        for (int i = PosInven; i < GameManagerScript.instance.Inventory.Length && i < PosInven + 6; i++)
+        for (int i = PosInven; i < Inventory.inven.Length && i < PosInven + 6; i++)
         {
-            if (GameManagerScript.instance.Inventory[i].ItemNumber > 0)
+            if (Inventory.inven[i].ItemNumber > 0)
             {
-                if ((GameManagerScript.instance.Inventory[i].ItemName != "Hoe") && (GameManagerScript.instance.Inventory[i].ItemName != "WateringCan"))
+                if ((Inventory.inven[i].ItemName != "Hoe") && (Inventory.inven[i].ItemName != "WateringCan"))
                 {
-                    DisplayInven[i % 6].GetComponentInChildren<Text>().text = GameManagerScript.instance.Inventory[i].ItemNumber.ToString();
+                    DisplayInven[i % 6].GetComponentInChildren<Text>().text = Inventory.inven[i].ItemNumber.ToString();
                 }
                 else
                 {
                     DisplayInven[i % 6].GetComponentInChildren<Text>().text = "";
                 }
-                DisplayInven[i % 6].GetComponentInChildren<SpriteRenderer>().sprite = GameManagerScript.instance.Inventory[i].ItemSprite;
+                DisplayInven[i % 6].GetComponentInChildren<SpriteRenderer>().sprite = Inventory.inven[i].ItemSprite;
             }
             else
             {
@@ -126,19 +125,6 @@ public class GameManagerScript : MonoBehaviour
     }
     public void DayOne()
     {
-        GameManagerScript.instance.Inventory = new InventoryClass[9]
-        {
-            new InventoryClass("WateringCan",1,WateringCan.toolSprite),
-            new InventoryClass("Hoe",1,Hoe.toolSprite),
-            new InventoryClass("Scythe",0,null),
-            new InventoryClass("Lettuce",0,Lettuce.SeedSprite),
-            new InventoryClass("Potato",0,Potato.SeedSprite),
-            new InventoryClass("Turnip",0,Turnip.SeedSprite),
-            new InventoryClass("Peach",0,Peach.SeedSprite),
-            new InventoryClass("Watermelon",0,Watermelon.SeedSprite),
-            new InventoryClass("Carrot",0,Carrot.SeedSprite),
-        };
-
         Funds = 250;
         Lettuce.PlantedLocations.Clear();
         PosInven = 0;
@@ -153,9 +139,9 @@ public class GameManagerScript : MonoBehaviour
     }
     public int FindPos(string name)
     {
-        for (int i = 0; i < GameManagerScript.instance.Inventory.Length; i++)
+        for (int i = 0; i < Inventory.inven.Length; i++)
         {
-            if (GameManagerScript.instance.Inventory[i].ItemName == name)
+            if (Inventory.inven[i].ItemName == name)
             {
                 return i;
             }
@@ -163,10 +149,26 @@ public class GameManagerScript : MonoBehaviour
         return -1;
     }
 
+    public void LoadInven()
+    {
+        InventorySave = new int[Inventory.inven.Length];
+        for(int a = 0; a < Inventory.inven.Length; a++)
+        {
+            InventorySave[a] = Inventory.inven[a].ItemNumber;
+        }
+    }
+
+    public void SaveInven()
+    {
+        for (int a = 0; a < Inventory.inven.Length; a++)
+        {
+            Inventory.inven[a].ItemNumber = InventorySave[a];
+        }
+    }
+
     public void EndDay()
     {
         DaysPlayed++;
-        Lettuce.DaysGrown = 15;
         SaveGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -181,6 +183,12 @@ public class GameManagerScript : MonoBehaviour
         GameManagerSaveData data = GameManagerSaveScript.LoadGame();
         Funds = data.Funds;
         DaysPlayed = data.DaysPlayed;
-        FundsText.text = GameManagerScript.instance.Funds.ToString();
+        InventorySave = data.InventorySave;
+        for(int a = 0; a < Hoe.TooledLocations.Count; a++)
+        {
+            tm_base.SetTile(Hoe.TooledLocations[a], Hoe.groundAfterToolTile);
+        }
+        LoadInven();
+        FundsText.text = Funds.ToString();
     }
 }

@@ -469,7 +469,15 @@ MonoBehaviour:
   DaysPlayed: 0
   SelectedObj: {fileID: 2036223670}
   Funds: 0
-  Inventory: []
+  Inventory: {fileID: 11400000, guid: 3905ce573b0fc1b40b439eaf3e2a2459, type: 2}
+  DisplayInven:
+  - {fileID: 2036223670}
+  - {fileID: 1435743717}
+  - {fileID: 1688954134}
+  - {fileID: 242170263}
+  - {fileID: 544290936}
+  - {fileID: 1717672667}
+  InventorySave: 
   FundsText: {fileID: 2123798678}
   Lettuce: {fileID: 11400000, guid: 4a1421f4d2561b14fa5ab9e53e01f9a9, type: 2}
   Potato: {fileID: 11400000, guid: 50c8c8faec0083245ad5275e7b4e79d5, type: 2}
@@ -481,13 +489,6 @@ MonoBehaviour:
   WateringCan: {fileID: 11400000, guid: 690cc15d375673c42b641d4dc8e09b1c, type: 2}
   Scythe: {fileID: 0}
   Shovel: {fileID: 0}
-  DisplayInven:
-  - {fileID: 2036223670}
-  - {fileID: 1435743717}
-  - {fileID: 1688954134}
-  - {fileID: 242170263}
-  - {fileID: 544290936}
-  - {fileID: 1717672667}
   highlight: {fileID: 1715997599}
   PosInven: 0
   tmState: []

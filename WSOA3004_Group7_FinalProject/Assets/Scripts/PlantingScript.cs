@@ -9,13 +9,17 @@ public class PlantingScript : MonoBehaviour
     private void Update()
     {
         Tilemap tm_base = GameManagerScript.instance.tm_base;
-        if (Input.GetMouseButtonDown(0) && GameManagerScript.instance.highlightedTile != new Vector3Int(-500,-500,-500))
+        if (Input.GetMouseButtonDown(0) && GameManagerScript.instance.highlightedTile != new Vector3Int(-500, -500, -500))
         {
             if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite != null)
             {
                 if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.Hoe.toolSprite)
                 {
                     tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Hoe.groundAfterToolTile);
+                    if (!GameManagerScript.instance.Hoe.TooledLocations.Contains(GameManagerScript.instance.highlightedTile))
+                    {
+                        GameManagerScript.instance.Hoe.TooledLocations.Add(GameManagerScript.instance.highlightedTile);
+                    }
                 }
 
                 else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.WateringCan.toolSprite)
@@ -28,14 +32,14 @@ public class PlantingScript : MonoBehaviour
 
                 else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.Lettuce.SeedSprite)
                 {
-                    if(tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.Lettuce.RequiredGround)
+                    if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.Lettuce.RequiredGround)
                     {
                         tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Lettuce.GrowingTiles[0]);
 
                         int pos = GameManagerScript.instance.FindPos("Lettuce");
                         if (pos != -1)
                         {
-                            GameManagerScript.instance.Inventory[pos].ItemNumber--;
+                            GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                         }
 
                         GameManagerScript.instance.DisplayInvenFunc();
@@ -51,7 +55,7 @@ public class PlantingScript : MonoBehaviour
                         int pos = GameManagerScript.instance.FindPos("Turnip");
                         if (pos != -1)
                         {
-                            GameManagerScript.instance.Inventory[pos].ItemNumber--;
+                            GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                         }
 
                         GameManagerScript.instance.DisplayInvenFunc();
@@ -67,7 +71,7 @@ public class PlantingScript : MonoBehaviour
                         int pos = GameManagerScript.instance.FindPos("Watermelon");
                         if (pos != -1)
                         {
-                            GameManagerScript.instance.Inventory[pos].ItemNumber--;
+                            GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                         }
 
                         GameManagerScript.instance.DisplayInvenFunc();
@@ -83,7 +87,7 @@ public class PlantingScript : MonoBehaviour
                         int pos = GameManagerScript.instance.FindPos("Peach");
                         if (pos != -1)
                         {
-                            GameManagerScript.instance.Inventory[pos].ItemNumber--;
+                            GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                         }
 
                         GameManagerScript.instance.DisplayInvenFunc();
@@ -99,7 +103,7 @@ public class PlantingScript : MonoBehaviour
                         int pos = GameManagerScript.instance.FindPos("Potato");
                         if (pos != -1)
                         {
-                            GameManagerScript.instance.Inventory[pos].ItemNumber--;
+                            GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                         }
 
                         GameManagerScript.instance.DisplayInvenFunc();
@@ -115,7 +119,7 @@ public class PlantingScript : MonoBehaviour
                         int pos = GameManagerScript.instance.FindPos("Carrot");
                         if (pos != -1)
                         {
-                            GameManagerScript.instance.Inventory[pos].ItemNumber--;
+                            GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                         }
 
                         GameManagerScript.instance.DisplayInvenFunc();

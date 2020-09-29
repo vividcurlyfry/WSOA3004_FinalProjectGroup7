@@ -56,7 +56,7 @@ public class ShopScript : MonoBehaviour
             int pos = GameManagerScript.instance.FindPos("Lettuce");
             if (pos != -1)
             {
-                GameManagerScript.instance.Inventory[pos].ItemNumber++;
+                GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
             }
             GameManagerScript.instance.DisplayInvenFunc();
             GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.Lettuce.CropPrice;
@@ -71,7 +71,7 @@ public class ShopScript : MonoBehaviour
             int pos = GameManagerScript.instance.FindPos("Potato");
             if (pos != -1)
             {
-                GameManagerScript.instance.Inventory[pos].ItemNumber++;
+                GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
             }
             GameManagerScript.instance.DisplayInvenFunc();
             GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.Potato.CropPrice;
@@ -86,7 +86,7 @@ public class ShopScript : MonoBehaviour
             int pos = GameManagerScript.instance.FindPos("Turnip");
             if (pos != -1)
             {
-                GameManagerScript.instance.Inventory[pos].ItemNumber++;
+                GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
             }
             GameManagerScript.instance.DisplayInvenFunc();
             GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.Turnip.CropPrice;
@@ -101,7 +101,7 @@ public class ShopScript : MonoBehaviour
             int pos = GameManagerScript.instance.FindPos("Peach");
             if (pos != -1)
             {
-                GameManagerScript.instance.Inventory[pos].ItemNumber++;
+                GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
             }
             GameManagerScript.instance.DisplayInvenFunc();
             GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.Peach.CropPrice;
@@ -116,7 +116,7 @@ public class ShopScript : MonoBehaviour
             int pos = GameManagerScript.instance.FindPos("Watermelon");
             if (pos != -1)
             {
-                GameManagerScript.instance.Inventory[pos].ItemNumber++;
+                GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
             }
             GameManagerScript.instance.DisplayInvenFunc();
             GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.Watermelon.CropPrice;
@@ -131,7 +131,7 @@ public class ShopScript : MonoBehaviour
             int pos = GameManagerScript.instance.FindPos("Carrot");
             if (pos != -1)
             {
-                GameManagerScript.instance.Inventory[pos].ItemNumber++;
+                GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
             }
             GameManagerScript.instance.DisplayInvenFunc();
             GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.Carrot.CropPrice;
