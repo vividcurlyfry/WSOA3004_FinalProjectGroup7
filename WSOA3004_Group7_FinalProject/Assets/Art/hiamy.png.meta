@@ -1132,7 +1132,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 511
-        width: 81
+        width: 80
         height: 81
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1592,8 +1592,8 @@ TextureImporter:
       name: hiamy_40
       rect:
         serializedVersion: 2
-        x: 510
-        y: 83
+        x: 503
+        y: 80
         width: 81
         height: 81
       alignment: 0
@@ -1613,7 +1613,7 @@ TextureImporter:
       name: hiamy_41
       rect:
         serializedVersion: 2
-        x: 591
+        x: 590
         y: 83
         width: 81
         height: 81

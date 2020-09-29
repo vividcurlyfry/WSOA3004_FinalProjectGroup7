@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toolType: Hoe
   toolAnim: {fileID: 0}
-  toolSprite: {fileID: 1559704157218881296, guid: 982330332df35504e92c3fafa8daf8d3, type: 3}
-  groundAfterToolTile: {fileID: 11400000, guid: f3058ec4cf1f96845b8ae3af528b44c7, type: 2}
+  toolSprite: {fileID: 8699069900992395679, guid: 982330332df35504e92c3fafa8daf8d3, type: 3}
+  groundAfterToolTile: {fileID: 11400000, guid: e25c2fc38023c9b4cb58b8bf9290b988, type: 2}

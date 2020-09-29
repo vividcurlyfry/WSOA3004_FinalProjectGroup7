@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(fileName = "Crop",menuName ="Crops")]
+[System.Serializable]
 public class Crop : ScriptableObject
 {
     public string CropName;

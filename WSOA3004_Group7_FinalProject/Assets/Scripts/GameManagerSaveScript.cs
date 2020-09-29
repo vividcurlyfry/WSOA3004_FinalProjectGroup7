@@ -4,7 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class GameManagerSaveScript
 {
-    public static void SaveGameManager(GameManagerScript gm)
+    public static void SaveGame(GameManagerScript gm)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/gm.sazei";
@@ -16,7 +16,7 @@ public static class GameManagerSaveScript
         stream.Close();
     }
 
-    public static GameManagerSaveData LoadSquare()
+    public static GameManagerSaveData LoadGame()
     {
         string path = Application.persistentDataPath + "/gm.sazei";
         if (File.Exists(path))

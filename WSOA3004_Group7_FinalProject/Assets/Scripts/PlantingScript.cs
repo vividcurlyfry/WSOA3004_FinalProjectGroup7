@@ -5,10 +5,10 @@ using UnityEngine.Tilemaps;
 
 public class PlantingScript : MonoBehaviour
 {
-    public Tilemap tm_base;
 
     private void Update()
     {
+        Tilemap tm_base = GameManagerScript.instance.tm_base;
         if (Input.GetMouseButtonDown(0) && GameManagerScript.instance.highlightedTile != new Vector3Int(-500,-500,-500))
         {
             if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite != null)

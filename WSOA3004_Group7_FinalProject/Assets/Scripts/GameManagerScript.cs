@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using TMPro.EditorUtilities;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using UnityEngine.UIElements.Experimental;
+using UnityEngine.SceneManagement;
+
 public class GameManagerScript : MonoBehaviour
 {
     public static GameManagerScript instance = null;
@@ -12,6 +15,9 @@ public class GameManagerScript : MonoBehaviour
     public GameObject SelectedObj;
     public int Funds;
     public InventoryClass[] Inventory;
+    public GameObject[] DisplayInven = new GameObject[6];
+    public string[] InventorySave;
+    public Text FundsText;
     public Crop Lettuce;
     public Crop Potato;
     public Crop Turnip;
@@ -22,9 +28,10 @@ public class GameManagerScript : MonoBehaviour
     public Tool WateringCan;
     public Tool Scythe;
     public Tool Shovel;
-    public GameObject[] DisplayInven = new GameObject[6];
     public GameObject highlight;
     public int PosInven;
+    public TileBase[] tmState;
+    public Tilemap tm_base;
 
     private void Awake()
     {
@@ -40,7 +47,14 @@ public class GameManagerScript : MonoBehaviour
 
     public void Start()
     {
-        DayOne();
+        if(PlayerPrefs.GetString("DayOneDone") != "true")
+        {
+            DayOne();
+        }
+        else
+        {
+            LoadGame();
+        }
         DisplayInvenFunc();
     }
 
@@ -128,6 +142,8 @@ public class GameManagerScript : MonoBehaviour
         Funds = 250;
         Lettuce.PlantedLocations.Clear();
         PosInven = 0;
+        SaveGame();
+        PlayerPrefs.SetString("DayOneDone", "true");
     }
 
     public void SelectObj(RectTransform posButton)
@@ -145,5 +161,26 @@ public class GameManagerScript : MonoBehaviour
             }
         }
         return -1;
+    }
+
+    public void EndDay()
+    {
+        DaysPlayed++;
+        Lettuce.DaysGrown = 15;
+        SaveGame();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void SaveGame()
+    {
+        GameManagerSaveScript.SaveGame(this);
+    }
+
+    public void LoadGame()
+    {
+        GameManagerSaveData data = GameManagerSaveScript.LoadGame();
+        Funds = data.Funds;
+        DaysPlayed = data.DaysPlayed;
+        FundsText.text = GameManagerScript.instance.Funds.ToString();
     }
 }

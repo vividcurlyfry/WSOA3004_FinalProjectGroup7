@@ -5,7 +5,6 @@ using UnityEngine.UIElements;
 
 public class ShopScript : MonoBehaviour
 {
-    public Text FundsText;
     public GameObject SeedPanel;
     public GameObject ToolPanel;
     public GameObject FoodPanel;
@@ -141,6 +140,6 @@ public class ShopScript : MonoBehaviour
     }
     public void UpdateFunds()
     {
-        FundsText.text = GameManagerScript.instance.Funds.ToString();
+        GameManagerScript.instance.FundsText.text = GameManagerScript.instance.Funds.ToString();
     }
 }

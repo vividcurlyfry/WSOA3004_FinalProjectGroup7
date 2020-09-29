@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toolType: WateringCan
   toolAnim: {fileID: 0}
-  toolSprite: {fileID: 8699069900992395679, guid: 982330332df35504e92c3fafa8daf8d3, type: 3}
-  groundAfterToolTile: {fileID: 11400000, guid: 4cecb5283d97bc749b154dfe3f1d7b46, type: 2}
+  toolSprite: {fileID: 1559704157218881296, guid: 982330332df35504e92c3fafa8daf8d3, type: 3}
+  groundAfterToolTile: {fileID: 0}

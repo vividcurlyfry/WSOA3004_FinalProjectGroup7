@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class TimerScript : MonoBehaviour
 {
@@ -31,7 +30,7 @@ public class TimerScript : MonoBehaviour
 
         if(Seconds >= SecondsInDay)
         {
-            SceneManager.LoadScene("EndOfDay");
+            GameManagerScript.instance.EndDay();
         }
     }
 }

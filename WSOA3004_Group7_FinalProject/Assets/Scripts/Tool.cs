@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(fileName = "Tool", menuName = "Tools")]
+[System.Serializable]
 public class Tool : ScriptableObject
 {
     public string toolType;
