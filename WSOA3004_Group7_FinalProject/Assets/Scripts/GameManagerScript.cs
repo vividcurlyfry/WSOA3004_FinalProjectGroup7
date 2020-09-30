@@ -31,6 +31,7 @@ public class GameManagerScript : MonoBehaviour
     public int PosInven;
     public TileBase[] tmState;
     public Tilemap tm_base;
+    public Tilemap tm_water;
 
     private void Awake()
     {

@@ -41,7 +41,6 @@ public class MovementScript : MonoBehaviour
 
     }
 
-
     void FixedUpdate()
     {
         Move();

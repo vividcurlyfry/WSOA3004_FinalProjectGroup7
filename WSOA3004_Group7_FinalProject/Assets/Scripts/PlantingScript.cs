@@ -9,6 +9,7 @@ public class PlantingScript : MonoBehaviour
     private void Update()
     {
         Tilemap tm_base = GameManagerScript.instance.tm_base;
+        Tilemap tm_water = GameManagerScript.instance.tm_water;
         if (Input.GetMouseButtonDown(0) && GameManagerScript.instance.highlightedTile != new Vector3Int(-500, -500, -500))
         {
             if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite != null)
@@ -24,10 +25,7 @@ public class PlantingScript : MonoBehaviour
 
                 else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.WateringCan.toolSprite)
                 {
-                    if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.Lettuce.GrowingTiles[0])
-                    {
-                        tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.WateringCan.groundAfterToolTile);
-                    }
+                    tm_water.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.WateringCan.groundAfterToolTile);
                 }
 
                 else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.Lettuce.SeedSprite)

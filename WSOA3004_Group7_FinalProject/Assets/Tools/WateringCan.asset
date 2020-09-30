@@ -15,4 +15,5 @@ MonoBehaviour:
   toolType: WateringCan
   toolAnim: {fileID: 0}
   toolSprite: {fileID: 1559704157218881296, guid: 982330332df35504e92c3fafa8daf8d3, type: 3}
-  groundAfterToolTile: {fileID: 0}
+  groundAfterToolTile: {fileID: 11400000, guid: 9587b17375d1d4947815d42406ac943e, type: 2}
+  TooledLocations: []

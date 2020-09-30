@@ -19,24 +19,24 @@ MonoBehaviour:
   - ItemName: Hoe
     ItemNumber: 1
     ItemSprite: {fileID: 8699069900992395679, guid: 982330332df35504e92c3fafa8daf8d3, type: 3}
-  - ItemName: Watermelon
-    ItemNumber: 0
-    ItemSprite: {fileID: -7988685610230040939, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
-  - ItemName: Potato
-    ItemNumber: 0
-    ItemSprite: {fileID: 4384546269899737158, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
-  - ItemName: Peach
-    ItemNumber: 0
-    ItemSprite: {fileID: -5135926264009392143, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
   - ItemName: Lettuce
     ItemNumber: 0
     ItemSprite: {fileID: -8922477864516793493, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
-  - ItemName: Carrot
-    ItemNumber: 0
-    ItemSprite: {fileID: 4152603658432830624, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
   - ItemName: Turnip
     ItemNumber: 0
     ItemSprite: {fileID: -4797562607649658811, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
+  - ItemName: Peach
+    ItemNumber: 0
+    ItemSprite: {fileID: -5135926264009392143, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
+  - ItemName: Potato
+    ItemNumber: 0
+    ItemSprite: {fileID: 4384546269899737158, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
+  - ItemName: Watermelon
+    ItemNumber: 0
+    ItemSprite: {fileID: -7988685610230040939, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
   - ItemName: Scythe
     ItemNumber: 0
     ItemSprite: {fileID: 0}
+  - ItemName: Carrot
+    ItemNumber: 0
+    ItemSprite: {fileID: 4152603658432830624, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
