@@ -41,6 +41,15 @@ Tilemap:
   m_GameObject: {fileID: 3576724874181707775}
   m_Enabled: 1
   m_Tiles:
+  - first: {x: 2, y: -7, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 34
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
   - first: {x: -1, y: -6, z: 0}
     second:
       serializedVersion: 2
@@ -444,15 +453,15 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 8bf0f9790b71267469a22a30f442060f, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 506b97bc3db4e33499b8c186a30db229, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: c70a3c0739266494e8834ed5e49070f0, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: bf82f9e1948423c45b5f1db31ae6a366, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: c5b21301da5357f43b2c35294e2ad5e2, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 4964214281640404236, guid: 0cbff823ade769c4e9475fff721c24c6, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 7748207745452868955, guid: a2ba75966caa25c40a498a050335a3ec, type: 3}
   - m_RefCount: 1
@@ -526,7 +535,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -8942603708063033060, guid: a2ba75966caa25c40a498a050335a3ec, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 37
+  - m_RefCount: 38
     m_Data:
       e00: 1
       e01: 0
@@ -545,13 +554,13 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 37
+  - m_RefCount: 38
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -1, y: -6, z: 0}
-  m_Size: {x: 7, y: 6, z: 1}
+  m_Origin: {x: -1, y: -7, z: 0}
+  m_Size: {x: 7, y: 7, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -630,7 +639,7 @@ GameObject:
   - component: {fileID: 1510450796055202009}
   - component: {fileID: 247082446618082811}
   m_Layer: 31
-  m_Name: New Palette
+  m_Name: GroundTiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -663,7 +672,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &6330241382747915404
+--- !u!114 &957954312255470213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
