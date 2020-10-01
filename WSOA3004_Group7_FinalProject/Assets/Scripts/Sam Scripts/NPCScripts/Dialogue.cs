@@ -10,6 +10,7 @@ public class Dialogue : MonoBehaviour
     public Image RubySpeechBubble, DemiSpeechBubble;
     public Text RubyText, DemiText;
     public float secondsBetweenText = 3;
+    public bool talking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +53,7 @@ public class Dialogue : MonoBehaviour
     {
         heartImg.SetActive(true);
         StartCoroutine(LoveDisplay());
-        
+        GameObject.FindGameObjectWithTag("NPC").GetComponent<NPCMovement>().talking = false;
     }
 
     IEnumerator LoveDisplay()
@@ -80,5 +81,6 @@ public class Dialogue : MonoBehaviour
         yield return new WaitForSeconds(secondsBetweenText);
         DemiSpeechBubble.enabled = false;
         DemiText.enabled = false;
+        GameObject.FindGameObjectWithTag("NPC").GetComponent<NPCMovement>().talking = false;
     }
 }

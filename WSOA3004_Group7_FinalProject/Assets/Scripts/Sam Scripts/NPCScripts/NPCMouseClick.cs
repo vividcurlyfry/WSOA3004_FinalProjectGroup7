@@ -5,10 +5,13 @@ using UnityEngine;
 public class NPCMouseClick : MonoBehaviour
 {
     private int clicks = 0;
-
+   
     private void OnMouseDown()
     {
-        if(clicks == 0)
+
+        GameObject.FindGameObjectWithTag("NPC").GetComponent<NPCMovement>().talking = true;
+
+        if (clicks == 0)
         {
             FindObjectOfType<DialogueTrigger>().TriggerDialogue();
             clicks++;

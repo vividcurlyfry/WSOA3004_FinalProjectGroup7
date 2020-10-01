@@ -15447,6 +15447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {fileID: 1985187804}
   minutes: 0
+  talking: 0
   speed: 2
 --- !u!212 &184295801
 SpriteRenderer:
@@ -83364,6 +83365,7 @@ MonoBehaviour:
   RubyText: {fileID: 2132511717}
   DemiText: {fileID: 868273599}
   secondsBetweenText: 3
+  talking: 0
 --- !u!4 &1828055035
 Transform:
   m_ObjectHideFlags: 0

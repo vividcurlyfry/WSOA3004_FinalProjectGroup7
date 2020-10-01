@@ -7,6 +7,7 @@ public class NPCMovement : MonoBehaviour
 {
     public GameObject destination;
     public float minutes;
+    public bool talking = false;
 
     private Vector3 nextPosition, home, middle;
     [SerializeField]
@@ -45,53 +46,57 @@ public class NPCMovement : MonoBehaviour
     {
         t += Time.deltaTime;
 
-        if(t > (0.8*minutes))
-        {
-            dayOver = true;
-        }
-
-        if(t > (0.9*minutes))
-        {
-            goHome = true;
-        }
-
-        if (this.transform.position == home)
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = -1;
-        }
-        else
-        {
-            this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 9;
-        }
-
-        if (!dayOver)
-        {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, nextPosition, speed * Time.deltaTime);
-
-            if (this.transform.position == nextPosition)
+        
+            if (t > (0.8 * minutes))
             {
-                pause += Time.deltaTime;
-                isPaused = true;
+                dayOver = true;
             }
 
-            if (pause > setPause)
+            if (t > (0.9 * minutes))
             {
-                nextPosition = new Vector3(destination.transform.position.x, destination.transform.position.y, destination.transform.position.z);
-                pause = 0;
-                isPaused = false;
+                goHome = true;
             }
-        }
-        else if(!goHome)
-        {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, middle, speed * Time.deltaTime);
-        }
 
-        if(goHome)
-        {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, home, speed * Time.deltaTime);
-        }
+            if (this.transform.position == home)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = -1;
+            }
+            else
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 9;
+            }
 
-        updateAnimation(); //check this placement, might be more dynamic for Rubys movement, might look sus? Could put in if where next is set and if when paused instead??
+        if (!talking)
+        {
+            if (!dayOver)
+            {
+                this.transform.position = Vector3.MoveTowards(this.transform.position, nextPosition, speed * Time.deltaTime);
+
+                if (this.transform.position == nextPosition)
+                {
+                    pause += Time.deltaTime;
+                    isPaused = true;
+                }
+
+                if (pause > setPause)
+                {
+                    nextPosition = new Vector3(destination.transform.position.x, destination.transform.position.y, destination.transform.position.z);
+                    pause = 0;
+                    isPaused = false;
+                }
+            }
+            else if (!goHome)
+            {
+                this.transform.position = Vector3.MoveTowards(this.transform.position, middle, speed * Time.deltaTime);
+            }
+
+            if (goHome)
+            {
+                this.transform.position = Vector3.MoveTowards(this.transform.position, home, speed * Time.deltaTime);
+            }
+
+            updateAnimation(); //check this placement, might be more dynamic for Rubys movement, might look sus? Could put in if where next is set and if when paused instead??
+        }
     }
 
     public void updateAnimation()
