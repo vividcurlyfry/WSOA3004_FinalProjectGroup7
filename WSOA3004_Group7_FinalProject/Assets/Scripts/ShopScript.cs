@@ -9,6 +9,9 @@ public class ShopScript : MonoBehaviour
     public GameObject ToolPanel;
     public GameObject FoodPanel;
     public GameObject GiftPanel;
+    public Text TurnipNum;
+    public Text WatermelonNum;
+    public Text PotatoNum;
 
     private void Start()
     {
@@ -47,6 +50,11 @@ public class ShopScript : MonoBehaviour
         ToolPanel.SetActive(false);
         FoodPanel.SetActive(false);
         GiftPanel.SetActive(true);
+    }
+
+    public void CheckPrices()
+    {
+        
     }
 
     public void BuyLettuce()

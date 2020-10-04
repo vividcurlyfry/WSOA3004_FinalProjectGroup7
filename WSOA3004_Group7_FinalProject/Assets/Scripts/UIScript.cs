@@ -12,7 +12,7 @@ public class UIScript : MonoBehaviour
 
     private void Start()
     {
-        ShopCanvas.enabled = false;
+        ShopCanvas.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -30,12 +30,14 @@ public class UIScript : MonoBehaviour
 
     public void OnClickShop()
     {
-        ShopCanvas.enabled = true;
-    }
-
-    public void CloseShop()
-    {
-        ShopCanvas.enabled = false;
+        if (ShopCanvas.gameObject.activeSelf)
+        {
+            ShopCanvas.gameObject.SetActive(false);
+        }
+        else
+        {
+            ShopCanvas.gameObject.SetActive(true);
+        }
     }
 
     public void OnClickMenu()

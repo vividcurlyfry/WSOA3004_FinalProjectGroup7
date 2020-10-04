@@ -32,6 +32,7 @@ public class GameManagerScript : MonoBehaviour
     public TileBase[] tmState;
     public Tilemap tm_base;
     public Tilemap tm_water;
+    public int BuyingPrice;
 
     private void Awake()
     {
@@ -129,6 +130,13 @@ public class GameManagerScript : MonoBehaviour
         Funds = 250;
         Lettuce.PlantedLocations.Clear();
         PosInven = 0;
+        for (int a = 0; a < Inventory.inven.Length; a++)
+        {
+            if ((Inventory.inven[a].ItemName != "Hoe") && (Inventory.inven[a].ItemName != "WateringCan"))
+            {
+                Inventory.inven[a].ItemNumber = 0;
+            }
+        }
         SaveGame();
         PlayerPrefs.SetString("DayOneDone", "true");
     }
