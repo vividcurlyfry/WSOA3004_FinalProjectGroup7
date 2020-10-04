@@ -5,10 +5,11 @@ using UnityEngine;
 public class NPCPath : MonoBehaviour
 {
     public int position = 0;
+    public bool isRaining = false;
 
     private Vector3 _FirstPos, _SecondPos, _ThirdPos;
 
-    private int today = 1;
+    private int today = 3;
 
     ////////////// NOTE ////////////////
     //Day 1: Hanging on the farm
@@ -20,11 +21,18 @@ public class NPCPath : MonoBehaviour
     private void Start()
     {
         //today = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().Today; //Amy needs to add this connection
-        if(today == 1)
+        isRaining = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LivelinessEffects>().Raining;
+        if (isRaining)
         {
-            _FirstPos = new Vector3(24, -2, -1);
-            _SecondPos = new Vector3(-7, 6, -1);
-            _ThirdPos = new Vector3(6, 13, -1);
+            _FirstPos = new Vector3(10f, 15.5f, -1);
+            _SecondPos = new Vector3(7f, 15.5f, -1);
+            _ThirdPos = new Vector3(5.5f, 15.5f, -1);
+        }
+        else if (today == 1)
+        {
+            _FirstPos = new Vector3(19, 15, -1);
+            _SecondPos = new Vector3(0, 15, -1);
+            _ThirdPos = new Vector3(5.5f, 15.5f, -1);
         }
         else if (today == 2)
         {
@@ -36,7 +44,7 @@ public class NPCPath : MonoBehaviour
         {
             _FirstPos = new Vector3(24, 7, -1);
             _SecondPos = new Vector3(50, 7, -1);
-            _ThirdPos = new Vector3(52, 7, -1);
+            _ThirdPos = new Vector3(5.5f, 15.5f, -1);
         }
     }
 

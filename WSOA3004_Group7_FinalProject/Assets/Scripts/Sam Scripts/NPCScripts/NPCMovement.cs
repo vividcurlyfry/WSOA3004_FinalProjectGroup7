@@ -7,14 +7,14 @@ public class NPCMovement : MonoBehaviour
 {
     public GameObject destination;
     public float minutes;
-    public bool talking = false;
+    public bool talking = false, isRaining = false;
 
     private Vector3 nextPosition, home, middle;
     [SerializeField]
     private float speed = 2f;
     private float pause = 0, setPause, t = 0;
     private bool isPaused = false, dayOver = false, goHome = false;
-    private int today = 1;
+    private int today = 3;
 
     private void Start()
     {
@@ -23,11 +23,17 @@ public class NPCMovement : MonoBehaviour
 
         nextPosition = new Vector3(destination.transform.position.x, destination.transform.position.y, destination.transform.position.z);
 
-        home = new Vector3(20, 16, -1);
+        home = new Vector3(17, 17, -1);
         middle = new Vector3(3.5f, 7, -1);
 
         //today = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().Today; //Amy needs to add this connection
-        if (today == 1)
+        isRaining = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LivelinessEffects>().Raining;
+
+        if (isRaining)
+        {
+            setPause = 5;
+        }
+        else if (today == 1)
         {
             setPause = 2;
         }
@@ -37,7 +43,7 @@ public class NPCMovement : MonoBehaviour
         }
         else if (today == 3)
         {
-            setPause = 3;
+            setPause = 225;
         }
     }
 
