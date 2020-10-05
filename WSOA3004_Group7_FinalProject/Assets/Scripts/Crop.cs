@@ -12,7 +12,6 @@ public class Crop : ScriptableObject
     public int CropPrice;
     public int DaysToGrow;
     public Sprite SeedSprite;
-    public Sprite FullGrownSprite;
     public Tile[] GrowingTiles;
     public List<int> DaysGrown;
     public List<Vector3Int> PlantedLocations;

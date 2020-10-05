@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c1b802f2c8843e45bcadd56d07573d1, type: 3}
+  m_Name: InventoryObj
+  m_EditorClassIdentifier: 
+  inven:
+  - ItemName: WateringCan
+    ItemNumber: 1
+    ItemSprite: {fileID: 1559704157218881296, guid: 982330332df35504e92c3fafa8daf8d3, type: 3}
+  - ItemName: Hoe
+    ItemNumber: 1
+    ItemSprite: {fileID: 8699069900992395679, guid: 982330332df35504e92c3fafa8daf8d3, type: 3}
+  - ItemName: Scythe
+    ItemNumber: 1
+    ItemSprite: {fileID: 5292716684467120071, guid: 982330332df35504e92c3fafa8daf8d3, type: 3}
+  - ItemName: Shovel
+    ItemNumber: 0
+    ItemSprite: {fileID: 7155652846937496742, guid: 982330332df35504e92c3fafa8daf8d3, type: 3}
+  - ItemName: LettuceSeed
+    ItemNumber: 0
+    ItemSprite: {fileID: -8922477864516793493, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
+  - ItemName: TurnipSeed
+    ItemNumber: 0
+    ItemSprite: {fileID: -4797562607649658811, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
+  - ItemName: CarrotSeed
+    ItemNumber: 0
+    ItemSprite: {fileID: 4152603658432830624, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
+  - ItemName: WatermelonSeed
+    ItemNumber: 0
+    ItemSprite: {fileID: -7988685610230040939, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
+  - ItemName: PotatoSeed
+    ItemNumber: 0
+    ItemSprite: {fileID: 4384546269899737158, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
+  - ItemName: PeachSeed
+    ItemNumber: 0
+    ItemSprite: {fileID: -5135926264009392143, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
+  - ItemName: Peach
+    ItemNumber: 0
+    ItemSprite: {fileID: -8463513136666709997, guid: b899ca9194aac5d4bb6d8d8133fde341, type: 3}
+  - ItemName: Potato
+    ItemNumber: 0
+    ItemSprite: {fileID: 4021014766299171136, guid: b899ca9194aac5d4bb6d8d8133fde341, type: 3}
+  - ItemName: Watermelon
+    ItemNumber: 0
+    ItemSprite: {fileID: -3129466491540651883, guid: b899ca9194aac5d4bb6d8d8133fde341, type: 3}
+  - ItemName: Carrot
+    ItemNumber: 0
+    ItemSprite: {fileID: -1875783399781439255, guid: b899ca9194aac5d4bb6d8d8133fde341, type: 3}
+  - ItemName: Lettuce
+    ItemNumber: 0
+    ItemSprite: {fileID: -3288577684988741257, guid: b899ca9194aac5d4bb6d8d8133fde341, type: 3}
+  - ItemName: Turnip
+    ItemNumber: 0
+    ItemSprite: {fileID: 5842383964056853860, guid: b899ca9194aac5d4bb6d8d8133fde341, type: 3}

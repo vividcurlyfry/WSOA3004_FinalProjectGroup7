@@ -17,12 +17,12 @@ public class GameManagerScript : MonoBehaviour
     public GameObject[] DisplayInven = new GameObject[6];
     public int[] InventorySave;
     public Text FundsText;
-    public Crop Lettuce;
-    public Crop Potato;
-    public Crop Turnip;
-    public Crop Peach;
-    public Crop Watermelon;
-    public Crop Carrot;
+    public Crop LettuceSeed;
+    public Crop PotatoSeed;
+    public Crop TurnipSeed;
+    public Crop PeachSeed;
+    public Crop WatermelonSeed;
+    public Crop CarrotSeed;
     public Tool Hoe;
     public Tool WateringCan;
     public Tool Scythe;
@@ -48,6 +48,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void Start()
     {
+        Debug.Log(PlayerPrefs.GetString("DayOneDone"));
         if(PlayerPrefs.GetString("DayOneDone") != "true")
         {
             DayOne();
@@ -108,7 +109,7 @@ public class GameManagerScript : MonoBehaviour
         {
             if (Inventory.inven[i].ItemNumber > 0)
             {
-                if ((Inventory.inven[i].ItemName != "Hoe") && (Inventory.inven[i].ItemName != "WateringCan"))
+                if ((Inventory.inven[i].ItemName != "Hoe") && (Inventory.inven[i].ItemName != "WateringCan") && (Inventory.inven[i].ItemName != "Scythe") && (Inventory.inven[i].ItemName != "Shovel"))
                 {
                     DisplayInven[i % 6].GetComponentInChildren<Text>().text = Inventory.inven[i].ItemNumber.ToString();
                 }
@@ -128,13 +129,26 @@ public class GameManagerScript : MonoBehaviour
     public void DayOne()
     {
         Funds = 250;
-        Lettuce.PlantedLocations.Clear();
+        LettuceSeed.PlantedLocations.Clear();
+        PotatoSeed.PlantedLocations.Clear();
+        TurnipSeed.PlantedLocations.Clear();
+        WatermelonSeed.PlantedLocations.Clear();
+        PeachSeed.PlantedLocations.Clear();
+        CarrotSeed.PlantedLocations.Clear();
+        Hoe.TooledLocations.Clear();
+        WateringCan.TooledLocations.Clear();
+        Scythe.TooledLocations.Clear();
+        Shovel.TooledLocations.Clear();
         PosInven = 0;
         for (int a = 0; a < Inventory.inven.Length; a++)
         {
-            if ((Inventory.inven[a].ItemName != "Hoe") && (Inventory.inven[a].ItemName != "WateringCan"))
+            if ((Inventory.inven[a].ItemName != "Hoe") && (Inventory.inven[a].ItemName != "WateringCan") && (Inventory.inven[a].ItemName != "Scythe") && (Inventory.inven[a].ItemName != "Shovel"))
             {
                 Inventory.inven[a].ItemNumber = 0;
+            }
+            else
+            {
+                Inventory.inven[a].ItemNumber = 1;
             }
         }
         SaveGame();

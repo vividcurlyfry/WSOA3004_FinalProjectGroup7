@@ -59,90 +59,90 @@ public class ShopScript : MonoBehaviour
 
     public void BuyLettuce()
     {
-        if (GameManagerScript.instance.Funds >= GameManagerScript.instance.Lettuce.CropPrice)
+        if (GameManagerScript.instance.Funds >= GameManagerScript.instance.LettuceSeed.CropPrice)
         {
-            int pos = GameManagerScript.instance.FindPos("Lettuce");
+            int pos = GameManagerScript.instance.FindPos("LettuceSeed");
             if (pos != -1)
             {
                 GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
             }
             GameManagerScript.instance.DisplayInvenFunc();
-            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.Lettuce.CropPrice;
+            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.LettuceSeed.CropPrice;
             UpdateFunds();
         }
     }
 
     public void BuyPotato()
     {
-        if (GameManagerScript.instance.Funds >= GameManagerScript.instance.Potato.CropPrice)
+        if (GameManagerScript.instance.Funds >= GameManagerScript.instance.PotatoSeed.CropPrice)
         {
-            int pos = GameManagerScript.instance.FindPos("Potato");
+            int pos = GameManagerScript.instance.FindPos("PotatoSeed");
             if (pos != -1)
             {
                 GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
             }
             GameManagerScript.instance.DisplayInvenFunc();
-            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.Potato.CropPrice;
+            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.PotatoSeed.CropPrice;
             UpdateFunds();
         }
     }
 
     public void BuyTurnip()
     {
-        if (GameManagerScript.instance.Funds >= GameManagerScript.instance.Turnip.CropPrice)
+        if (GameManagerScript.instance.Funds >= GameManagerScript.instance.TurnipSeed.CropPrice)
         {
-            int pos = GameManagerScript.instance.FindPos("Turnip");
+            int pos = GameManagerScript.instance.FindPos("TurnipSeed");
             if (pos != -1)
             {
                 GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
             }
             GameManagerScript.instance.DisplayInvenFunc();
-            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.Turnip.CropPrice;
+            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.TurnipSeed.CropPrice;
             UpdateFunds();
         }
     }
 
     public void BuyPeach()
     {
-        if (GameManagerScript.instance.Funds >= GameManagerScript.instance.Peach.CropPrice)
+        if (GameManagerScript.instance.Funds >= GameManagerScript.instance.PeachSeed.CropPrice)
         {
-            int pos = GameManagerScript.instance.FindPos("Peach");
+            int pos = GameManagerScript.instance.FindPos("PeachSeed");
             if (pos != -1)
             {
                 GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
             }
             GameManagerScript.instance.DisplayInvenFunc();
-            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.Peach.CropPrice;
+            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.PeachSeed.CropPrice;
             UpdateFunds();
         }
     }
 
     public void BuyWatermelon()
     {
-        if (GameManagerScript.instance.Funds >= GameManagerScript.instance.Watermelon.CropPrice)
+        if (GameManagerScript.instance.Funds >= GameManagerScript.instance.WatermelonSeed.CropPrice)
         {
-            int pos = GameManagerScript.instance.FindPos("Watermelon");
+            int pos = GameManagerScript.instance.FindPos("WatermelonSeed");
             if (pos != -1)
             {
                 GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
             }
             GameManagerScript.instance.DisplayInvenFunc();
-            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.Watermelon.CropPrice;
+            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.WatermelonSeed.CropPrice;
             UpdateFunds();
         }
     }
 
     public void BuyCarrot()
     {
-        if (GameManagerScript.instance.Funds >= GameManagerScript.instance.Carrot.CropPrice)
+        if (GameManagerScript.instance.Funds >= GameManagerScript.instance.CarrotSeed.CropPrice)
         {
-            int pos = GameManagerScript.instance.FindPos("Carrot");
+            int pos = GameManagerScript.instance.FindPos("CarrotSeed");
             if (pos != -1)
             {
                 GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
             }
             GameManagerScript.instance.DisplayInvenFunc();
-            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.Carrot.CropPrice;
+            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.CarrotSeed.CropPrice;
             UpdateFunds();
         }
     }
