@@ -29,9 +29,10 @@ public class NPCMovement : MonoBehaviour
         //today = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().Today; //Amy needs to add this connection
         isRaining = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LivelinessEffects>().Raining;
 
+        //these times work for 15 minute day //update if day time changes
         if (isRaining)
         {
-            setPause = 5;
+            setPause = 225;
         }
         else if (today == 1)
         {

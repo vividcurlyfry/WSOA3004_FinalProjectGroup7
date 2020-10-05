@@ -26,7 +26,7 @@ public class NPCPath : MonoBehaviour
         {
             _FirstPos = new Vector3(10f, 15.5f, -1);
             _SecondPos = new Vector3(7f, 15.5f, -1);
-            _ThirdPos = new Vector3(5.5f, 15.5f, -1);
+            _ThirdPos = new Vector3(17f, 17f, -1);
         }
         else if (today == 1)
         {
