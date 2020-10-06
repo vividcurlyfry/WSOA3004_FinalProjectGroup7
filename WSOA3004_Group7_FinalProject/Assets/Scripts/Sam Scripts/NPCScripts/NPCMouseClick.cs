@@ -5,20 +5,33 @@ using UnityEngine;
 public class NPCMouseClick : MonoBehaviour
 {
     private int clicks = 0;
-   
+    private float startTime, endTime;
+    private bool next = true;
+
     private void OnMouseDown()
     {
+        startTime = Time.time;
+    }
 
-        GameObject.FindGameObjectWithTag("NPC").GetComponent<NPCMovement>().talking = true;
+    private void OnMouseUp()
+    {
+        endTime = Time.time;
+        next = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<Dialogue>().next;
 
-        if (clicks == 0)
+        if (endTime - startTime > 0.3f)
         {
-            FindObjectOfType<DialogueTrigger>().TriggerDialogue();
-            clicks++;
-        }
-        else
-        {
-            FindObjectOfType<Dialogue>().DisplayNextSentence();
+            if (clicks == 0)
+            {
+                FindObjectOfType<DialogueTrigger>().TriggerDialogue();
+                clicks++;
+            }
+            else
+            {
+                if (next == true)
+                {
+                    FindObjectOfType<Dialogue>().DisplayNextSentence();
+                }
+            }
         }
     }
 }

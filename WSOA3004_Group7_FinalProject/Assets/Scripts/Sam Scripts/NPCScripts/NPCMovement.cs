@@ -8,13 +8,16 @@ public class NPCMovement : MonoBehaviour
     public GameObject destination;
     public float minutes;
     public bool talking = false, isRaining = false;
+    public Animator anim;
 
     private Vector3 nextPosition, home, middle;
     [SerializeField]
     private float speed = 2f;
     private float pause = 0, setPause, t = 0;
+    [SerializeField]
     private bool isPaused = false, dayOver = false, goHome = false;
-    private int today = 3;
+    private int today = 1;
+    private int currDirection = 0;
 
     private void Start()
     {
@@ -83,6 +86,7 @@ public class NPCMovement : MonoBehaviour
                 {
                     pause += Time.deltaTime;
                     isPaused = true;
+                    updateAnimation();
                 }
 
                 if (pause > setPause)
@@ -90,57 +94,79 @@ public class NPCMovement : MonoBehaviour
                     nextPosition = new Vector3(destination.transform.position.x, destination.transform.position.y, destination.transform.position.z);
                     pause = 0;
                     isPaused = false;
+                    updateAnimation();
                 }
             }
             else if (!goHome)
             {
                 this.transform.position = Vector3.MoveTowards(this.transform.position, middle, speed * Time.deltaTime);
+                updateAnimation();
+
             }
 
             if (goHome)
             {
                 this.transform.position = Vector3.MoveTowards(this.transform.position, home, speed * Time.deltaTime);
-            }
+                updateAnimation();
 
-            updateAnimation(); //check this placement, might be more dynamic for Rubys movement, might look sus? Could put in if where next is set and if when paused instead??
+            }
+        }
+
+        if(talking)
+        {
+            updateAnimation();
         }
     }
 
     public void updateAnimation()
     {
-        if (!isPaused)
+        if (talking)
         {
-            if((Mathf.Abs(Mathf.Abs(nextPosition.y) - Mathf.Abs(this.transform.position.y))) > (Mathf.Abs(Mathf.Abs(nextPosition.x) - Mathf.Abs(this.transform.position.x))))
-            {
-                if (nextPosition.y < this.transform.position.y)
-                {
-                    //trigger face up animation
-                    print("face forward");
-                }
-                else if (nextPosition.y > this.transform.position.y)
-                {
-                    //trigger back animation
-                    print("backward");
-                }
-            }
-            else
-            {
-                if (nextPosition.x < this.transform.position.x)
-                {
-                    //trigger left animation
-                    print("left");
-                }
-                else if (nextPosition.x > this.transform.position.x)
-                {
-                    //trigger right animation
-                    print("right");
-                }
-            }
+            anim.Play("RubyIdle");
+            print("idle");
         }
         else
         {
-            //idle animation
-            print("idle");
+            if (!isPaused)
+            {
+                if ((Mathf.Abs(Mathf.Abs(nextPosition.y) - Mathf.Abs(this.transform.position.y))) > (Mathf.Abs(Mathf.Abs(nextPosition.x) - Mathf.Abs(this.transform.position.x))))
+                {
+                    if (nextPosition.y < this.transform.position.y)
+                    {
+                        anim.Play("WalkingFrontRuby");
+                        currDirection = 0;
+                        print("face forward");
+                    }
+                    else if (nextPosition.y > this.transform.position.y)
+                    {
+                        anim.Play("WalkingBackRuby");
+                        currDirection = 1;
+                        print("backward");
+                    }
+                }
+                else
+                {
+                    if (nextPosition.x < this.transform.position.x)
+                    {
+                        anim.Play("WalkingLeftRuby");
+                        currDirection = 2;
+                        print("left");
+                    }
+                    else if (nextPosition.x > this.transform.position.x)
+                    {
+                        anim.Play("WalkingRightRuby");
+                        currDirection = 3;
+                        print("right");
+                    }
+                }
+            }
+
+            if (isPaused)
+            {
+                anim.Play("RubyIdle");
+                print("idle");
+            }
         }
+        
     }
 }

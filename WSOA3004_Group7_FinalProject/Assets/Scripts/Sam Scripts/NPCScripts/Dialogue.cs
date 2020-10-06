@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class Dialogue : MonoBehaviour
 {
     private Queue<string> sentences;
-    public GameObject heartImg;
-    public Image RubySpeechBubble, DemiSpeechBubble;
-    public Text RubyText, DemiText;
+    public GameObject heartImg, Ruby, Demi;
+    public Image RubySpeechBubble, RubySpeechBubbleLow, DemiSpeechBubble;
+    public Text RubyText, RubyTextLow, DemiText;
     public float secondsBetweenText = 3;
-    public bool talking = false;
+    public bool talking = false, next = true;
 
     // Start is called before the first frame update
     void Start()
@@ -40,11 +40,21 @@ public class Dialogue : MonoBehaviour
             return;
         }
 
+        next = false;
         string sentence1 = sentences.Dequeue();
         Debug.Log("Ruby:" + sentence1);
-        RubySpeechBubble.enabled = true;
-        RubyText.text = sentence1.ToString();
-        RubyText.enabled = true;
+            if(Ruby.transform.position.y > Demi.transform.position.y)
+            {
+                RubySpeechBubbleLow.enabled = true;
+                RubyTextLow.text = sentence1.ToString();
+                RubyTextLow.enabled = true;
+            }
+            else
+            {
+                RubySpeechBubble.enabled = true;
+                RubyText.text = sentence1.ToString();
+                RubyText.enabled = true;
+            }
 
         StartCoroutine(RubyResponseDelay());
     }
@@ -67,6 +77,8 @@ public class Dialogue : MonoBehaviour
         yield return new WaitForSeconds(secondsBetweenText);
         RubySpeechBubble.enabled = false;
         RubyText.enabled = false;
+        RubySpeechBubbleLow.enabled = false;
+        RubyTextLow.enabled = false;
 
         string sentence2 = sentences.Dequeue();
         Debug.Log("Demi:" + sentence2);
@@ -81,6 +93,7 @@ public class Dialogue : MonoBehaviour
         yield return new WaitForSeconds(secondsBetweenText);
         DemiSpeechBubble.enabled = false;
         DemiText.enabled = false;
+        next = true;
         GameObject.FindGameObjectWithTag("NPC").GetComponent<NPCMovement>().talking = false;
     }
 }

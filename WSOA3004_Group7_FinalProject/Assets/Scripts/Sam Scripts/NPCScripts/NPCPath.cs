@@ -9,7 +9,7 @@ public class NPCPath : MonoBehaviour
 
     private Vector3 _FirstPos, _SecondPos, _ThirdPos;
 
-    private int today = 3;
+    private int today = 1;
 
     ////////////// NOTE ////////////////
     //Day 1: Hanging on the farm
