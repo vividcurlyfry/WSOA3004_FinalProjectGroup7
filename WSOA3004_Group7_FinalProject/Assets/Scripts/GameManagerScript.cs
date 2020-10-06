@@ -17,22 +17,25 @@ public class GameManagerScript : MonoBehaviour
     public GameObject[] DisplayInven = new GameObject[6];
     public int[] InventorySave;
     public Text FundsText;
+
     public Crop LettuceSeed;
     public Crop PotatoSeed;
     public Crop TurnipSeed;
     public Crop PeachSeed;
     public Crop WatermelonSeed;
     public Crop CarrotSeed;
+
     public Tool Hoe;
     public Tool WateringCan;
     public Tool Scythe;
     public Tool Shovel;
+
     public GameObject highlight;
     public int PosInven;
+
     public TileBase[] tmState;
     public Tilemap tm_base;
     public Tilemap tm_water;
-    public int BuyingPrice;
 
     private void Awake()
     {
@@ -48,7 +51,6 @@ public class GameManagerScript : MonoBehaviour
 
     public void Start()
     {
-        Debug.Log(PlayerPrefs.GetString("DayOneDone"));
         if(PlayerPrefs.GetString("DayOneDone") != "true")
         {
             DayOne();
@@ -57,6 +59,56 @@ public class GameManagerScript : MonoBehaviour
         {
             LoadGame();
         }
+
+        for (int a = 0; a < LettuceSeed.PlantedLocations.Count; a++)
+        {
+            if(LettuceSeed.DaysGrown[a] < LettuceSeed.DaysToGrow)
+            {
+                tm_base.SetTile(LettuceSeed.PlantedLocations[a], LettuceSeed.GrowingTiles[LettuceSeed.DaysGrown[a]]);
+            }
+        }
+
+        /*
+        for (int a = 0; a < TurnipSeed.PlantedLocations.Count; a++)
+        {
+            if (TurnipSeed.Watered[a] == true)
+            {
+                TurnipSeed.DaysGrown[a]++;
+            }
+        }
+
+        for (int a = 0; a < WatermelonSeed.PlantedLocations.Count; a++)
+        {
+            if (WatermelonSeed.Watered[a] == true)
+            {
+                WatermelonSeed.DaysGrown[a]++;
+            }
+        }
+
+        for (int a = 0; a < CarrotSeed.PlantedLocations.Count; a++)
+        {
+            if (CarrotSeed.Watered[a] == true)
+            {
+                CarrotSeed.DaysGrown[a]++;
+            }
+        }
+
+        for (int a = 0; a < PeachSeed.PlantedLocations.Count; a++)
+        {
+            if (PeachSeed.Watered[a] == true)
+            {
+                PeachSeed.DaysGrown[a]++;
+            }
+        }
+
+        for (int a = 0; a < PotatoSeed.PlantedLocations.Count; a++)
+        {
+            if (PotatoSeed.Watered[a] == true)
+            {
+                PotatoSeed.DaysGrown[a]++;
+            }
+        }*/
+
         DisplayInvenFunc();
     }
 
@@ -92,15 +144,16 @@ public class GameManagerScript : MonoBehaviour
 
     public void DisplayInvenFunc()
     {
-        for (int i = 0; i < Inventory.inven.Length; i++)
+
+        for (int j = 0; j <= Inventory.inven.Length - 2; j++)
         {
-            if (Inventory.inven[i].ItemNumber == 0)
+            for (int i = 0; i <= Inventory.inven.Length - 2; i++)
             {
-                for (int a = i; a < Inventory.inven.Length - 1; a++)
+                if ((Inventory.inven[i].ItemNumber < Inventory.inven[i + 1].ItemNumber) && (Inventory.inven[i].ItemName != "Hoe") && (Inventory.inven[i].ItemName != "WateringCan") && (Inventory.inven[i].ItemName != "Scythe") && (Inventory.inven[i].ItemName != "Shovel"))
                 {
-                    InventoryClass tmp = Inventory.inven[a];
-                   Inventory.inven[a] = Inventory.inven[a + 1];
-                   Inventory.inven[a + 1] = tmp;
+                    InventoryClass tmp = Inventory.inven[i];
+                    Inventory.inven[i] = Inventory.inven[i + 1];
+                    Inventory.inven[i + 1] = tmp;
                 }
             }
         }
@@ -160,6 +213,7 @@ public class GameManagerScript : MonoBehaviour
         highlight.transform.position = posButton.transform.position;
         SelectedObj = posButton.transform.gameObject;
     }
+
     public int FindPos(string name)
     {
         for (int i = 0; i < Inventory.inven.Length; i++)
@@ -192,6 +246,54 @@ public class GameManagerScript : MonoBehaviour
     public void EndDay()
     {
         DaysPlayed++;
+        for(int a = 0; a < LettuceSeed.PlantedLocations.Count; a++)
+        {
+
+            if(LettuceSeed.Watered[a] == true)
+            {
+                LettuceSeed.DaysGrown[a]++;
+            }
+        }
+
+        for (int a = 0; a < TurnipSeed.PlantedLocations.Count; a++)
+        {
+            if (TurnipSeed.Watered[a] == true)
+            {
+                TurnipSeed.DaysGrown[a]++;
+            }
+        }
+
+        for (int a = 0; a < WatermelonSeed.PlantedLocations.Count; a++)
+        {
+            if (WatermelonSeed.Watered[a] == true)
+            {
+                WatermelonSeed.DaysGrown[a]++;
+            }
+        }
+
+        for (int a = 0; a < CarrotSeed.PlantedLocations.Count; a++)
+        {
+            if (CarrotSeed.Watered[a] == true)
+            {
+                CarrotSeed.DaysGrown[a]++;
+            }
+        }
+
+        for (int a = 0; a < PeachSeed.PlantedLocations.Count; a++)
+        {
+            if (PeachSeed.Watered[a] == true)
+            {
+                PeachSeed.DaysGrown[a]++;
+            }
+        }
+
+        for (int a = 0; a < PotatoSeed.PlantedLocations.Count; a++)
+        {
+            if (PotatoSeed.Watered[a] == true)
+            {
+                PotatoSeed.DaysGrown[a]++;
+            }
+        }
         SaveGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

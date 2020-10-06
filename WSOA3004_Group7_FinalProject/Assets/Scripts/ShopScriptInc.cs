@@ -6,14 +6,24 @@ using UnityEngine.UI;
 public class ShopScriptInc : MonoBehaviour
 {
     public Text numItem;
-    
+    public Text totalPrice;
+    public int Price;
+
     public void IncText()
     {
-        numItem.text = (int.Parse(numItem.text) + 1).ToString();
+        if (int.Parse(numItem.text) != GameManagerScript.instance.Funds / Price)
+        {
+            numItem.text = (int.Parse(numItem.text) + 1).ToString();
+            totalPrice.text = (int.Parse(numItem.text) * Price).ToString();
+        }
     }
 
     public void DecText()
     {
-        numItem.text = (int.Parse(numItem.text) - 1).ToString();
+        if (int.Parse(numItem.text) != 0)
+        {
+            numItem.text = (int.Parse(numItem.text) - 1).ToString();
+            totalPrice.text = (int.Parse(numItem.text) * Price).ToString();
+        }
     }
 }

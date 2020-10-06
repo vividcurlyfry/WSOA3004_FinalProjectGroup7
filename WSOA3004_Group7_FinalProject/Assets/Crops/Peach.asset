@@ -17,14 +17,13 @@ MonoBehaviour:
   CropPrice: 20
   DaysToGrow: 5
   SeedSprite: {fileID: -5135926264009392143, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
-  FullGrownSprite: {fileID: -8463513136666709997, guid: b899ca9194aac5d4bb6d8d8133fde341, type: 3}
   GrowingTiles:
   - {fileID: 11400000, guid: e25c2fc38023c9b4cb58b8bf9290b988, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  DaysGrown: 0
-  PlantedLocation: {x: 0, y: 0, z: 0}
+  DaysGrown: 
   PlantedLocations: []
-  RequiredGround: {fileID: 0}
+  Watered: 
+  RequiredGround: {fileID: 11400000, guid: e25c2fc38023c9b4cb58b8bf9290b988, type: 2}

@@ -9,9 +9,21 @@ public class ShopScript : MonoBehaviour
     public GameObject ToolPanel;
     public GameObject FoodPanel;
     public GameObject GiftPanel;
+
     public Text TurnipNum;
     public Text WatermelonNum;
     public Text PotatoNum;
+    public Text CarrotNum;
+    public Text PeachNum;
+    public Text LettuceNum;
+
+    public Text TurnipTotalPrice;
+    public Text WatermelonTotalPrice;
+    public Text PotatoTotalPrice;
+    public Text CarrotTotalPrice;
+    public Text PeachTotalPrice;
+    public Text LettuceTotalPrice;
+
 
     private void Start()
     {
@@ -52,11 +64,6 @@ public class ShopScript : MonoBehaviour
         GiftPanel.SetActive(true);
     }
 
-    public void CheckPrices()
-    {
-        
-    }
-
     public void BuyLettuce()
     {
         if (GameManagerScript.instance.Funds >= GameManagerScript.instance.LettuceSeed.CropPrice)
@@ -64,10 +71,9 @@ public class ShopScript : MonoBehaviour
             int pos = GameManagerScript.instance.FindPos("LettuceSeed");
             if (pos != -1)
             {
-                GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
+                GameManagerScript.instance.Inventory.inven[pos].ItemNumber = GameManagerScript.instance.Inventory.inven[pos].ItemNumber + int.Parse(LettuceNum.text);
             }
-            GameManagerScript.instance.DisplayInvenFunc();
-            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.LettuceSeed.CropPrice;
+            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - int.Parse(LettuceTotalPrice.text);
             UpdateFunds();
         }
     }
@@ -79,10 +85,9 @@ public class ShopScript : MonoBehaviour
             int pos = GameManagerScript.instance.FindPos("PotatoSeed");
             if (pos != -1)
             {
-                GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
+                GameManagerScript.instance.Inventory.inven[pos].ItemNumber = GameManagerScript.instance.Inventory.inven[pos].ItemNumber + int.Parse(PotatoNum.text);
             }
-            GameManagerScript.instance.DisplayInvenFunc();
-            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.PotatoSeed.CropPrice;
+            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - int.Parse(PotatoTotalPrice.text);
             UpdateFunds();
         }
     }
@@ -94,10 +99,9 @@ public class ShopScript : MonoBehaviour
             int pos = GameManagerScript.instance.FindPos("TurnipSeed");
             if (pos != -1)
             {
-                GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
+                GameManagerScript.instance.Inventory.inven[pos].ItemNumber = GameManagerScript.instance.Inventory.inven[pos].ItemNumber + int.Parse(TurnipNum.text);
             }
-            GameManagerScript.instance.DisplayInvenFunc();
-            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.TurnipSeed.CropPrice;
+            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - int.Parse(TurnipTotalPrice.text);
             UpdateFunds();
         }
     }
@@ -109,10 +113,9 @@ public class ShopScript : MonoBehaviour
             int pos = GameManagerScript.instance.FindPos("PeachSeed");
             if (pos != -1)
             {
-                GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
+                GameManagerScript.instance.Inventory.inven[pos].ItemNumber = GameManagerScript.instance.Inventory.inven[pos].ItemNumber + int.Parse(PeachNum.text);
             }
-            GameManagerScript.instance.DisplayInvenFunc();
-            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.PeachSeed.CropPrice;
+            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - int.Parse(PeachTotalPrice.text); ;
             UpdateFunds();
         }
     }
@@ -124,10 +127,9 @@ public class ShopScript : MonoBehaviour
             int pos = GameManagerScript.instance.FindPos("WatermelonSeed");
             if (pos != -1)
             {
-                GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
+                GameManagerScript.instance.Inventory.inven[pos].ItemNumber = GameManagerScript.instance.Inventory.inven[pos].ItemNumber + int.Parse(WatermelonNum.text);
             }
-            GameManagerScript.instance.DisplayInvenFunc();
-            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.WatermelonSeed.CropPrice;
+            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - int.Parse(WatermelonTotalPrice.text); ;
             UpdateFunds();
         }
     }
@@ -139,15 +141,29 @@ public class ShopScript : MonoBehaviour
             int pos = GameManagerScript.instance.FindPos("CarrotSeed");
             if (pos != -1)
             {
-                GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
+                GameManagerScript.instance.Inventory.inven[pos].ItemNumber = GameManagerScript.instance.Inventory.inven[pos].ItemNumber + int.Parse(CarrotNum.text);
             }
-            GameManagerScript.instance.DisplayInvenFunc();
-            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - GameManagerScript.instance.CarrotSeed.CropPrice;
+            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - int.Parse(CarrotTotalPrice.text); ;
             UpdateFunds();
         }
     }
     public void UpdateFunds()
     {
         GameManagerScript.instance.FundsText.text = GameManagerScript.instance.Funds.ToString();
+        TurnipNum.text = "1";
+        WatermelonNum.text = "1";
+        PotatoNum.text = "1";
+        CarrotNum.text = "1";
+        PeachNum.text = "1";
+        LettuceNum.text = "1";
+
+        TurnipTotalPrice.text = GameManagerScript.instance.TurnipSeed.CropPrice.ToString();
+        WatermelonTotalPrice.text = GameManagerScript.instance.WatermelonSeed.CropPrice.ToString();
+        PotatoTotalPrice.text = GameManagerScript.instance.PotatoSeed.CropPrice.ToString();
+        CarrotTotalPrice.text = GameManagerScript.instance.CarrotSeed.CropPrice.ToString();
+        PeachTotalPrice.text = GameManagerScript.instance.PeachSeed.CropPrice.ToString();
+        LettuceTotalPrice.text = GameManagerScript.instance.LettuceSeed.CropPrice.ToString();
+
+        GameManagerScript.instance.DisplayInvenFunc();
     }
 }
