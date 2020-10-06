@@ -58,56 +58,81 @@ public class GameManagerScript : MonoBehaviour
         else
         {
             LoadGame();
-        }
-
-        for (int a = 0; a < LettuceSeed.PlantedLocations.Count; a++)
-        {
-            if(LettuceSeed.DaysGrown[a] < LettuceSeed.DaysToGrow)
+            if (LettuceSeed.PlantedLocations.Count != 0)
             {
-                tm_base.SetTile(LettuceSeed.PlantedLocations[a], LettuceSeed.GrowingTiles[LettuceSeed.DaysGrown[a]]);
+                for (int a = 0; a < LettuceSeed.PlantedLocations.Count; a++)
+                {
+                    if (LettuceSeed.DaysGrown[a] <= LettuceSeed.DaysToGrow)
+                    {
+                        tm_base.SetTile(LettuceSeed.PlantedLocations[a], LettuceSeed.GrowingTiles[LettuceSeed.DaysGrown[a]]);
+                    }
+                    else
+                    {
+                        tm_base.SetTile(LettuceSeed.PlantedLocations[a], LettuceSeed.GrowingTiles[LettuceSeed.DaysGrown.Count-1]);
+                    }
+                }
+            }
+
+            if (TurnipSeed.PlantedLocations.Count != 0)
+            {
+                for (int a = 0; a < TurnipSeed.PlantedLocations.Count; a++)
+                {
+                    if (TurnipSeed.DaysGrown[a] <= TurnipSeed.DaysToGrow)
+                    {
+                        tm_base.SetTile(TurnipSeed.PlantedLocations[a], TurnipSeed.GrowingTiles[TurnipSeed.DaysGrown[a]]);
+                    }
+                    else
+                    {
+                        tm_base.SetTile(TurnipSeed.PlantedLocations[a], TurnipSeed.GrowingTiles[TurnipSeed.DaysGrown.Count - 1]);
+                    }
+                }
+            }
+
+            if (PotatoSeed.PlantedLocations.Count != 0)
+            {
+                for (int a = 0; a < PotatoSeed.PlantedLocations.Count; a++)
+                {
+                    if (PotatoSeed.DaysGrown[a] <= PotatoSeed.DaysToGrow)
+                    {
+                        tm_base.SetTile(PotatoSeed.PlantedLocations[a], PotatoSeed.GrowingTiles[PotatoSeed.DaysGrown[a]]);
+                    }
+                    else
+                    {
+                        tm_base.SetTile(PotatoSeed.PlantedLocations[a], PotatoSeed.GrowingTiles[PotatoSeed.DaysGrown.Count - 1]);
+                    }
+                }
+            }
+
+            if (CarrotSeed.PlantedLocations.Count != 0)
+            {
+                for (int a = 0; a < CarrotSeed.PlantedLocations.Count; a++)
+                {
+                    if (CarrotSeed.DaysGrown[a] <= CarrotSeed.DaysToGrow)
+                    {
+                        tm_base.SetTile(CarrotSeed.PlantedLocations[a], CarrotSeed.GrowingTiles[CarrotSeed.DaysGrown[a]]);
+                    }
+                    else
+                    {
+                        tm_base.SetTile(CarrotSeed.PlantedLocations[a], CarrotSeed.GrowingTiles[CarrotSeed.DaysGrown.Count - 1]);
+                    }
+                }
+            }
+
+            if (WatermelonSeed.PlantedLocations.Count != 0)
+            {
+                for (int a = 0; a < WatermelonSeed.PlantedLocations.Count; a++)
+                {
+                    if (WatermelonSeed.DaysGrown[a] <= WatermelonSeed.DaysToGrow)
+                    {
+                        tm_base.SetTile(WatermelonSeed.PlantedLocations[a], WatermelonSeed.GrowingTiles[WatermelonSeed.DaysGrown[a]]);
+                    }
+                    else
+                    {
+                        tm_base.SetTile(WatermelonSeed.PlantedLocations[a], WatermelonSeed.GrowingTiles[WatermelonSeed.DaysGrown.Count - 1]);
+                    }
+                }
             }
         }
-
-        /*
-        for (int a = 0; a < TurnipSeed.PlantedLocations.Count; a++)
-        {
-            if (TurnipSeed.Watered[a] == true)
-            {
-                TurnipSeed.DaysGrown[a]++;
-            }
-        }
-
-        for (int a = 0; a < WatermelonSeed.PlantedLocations.Count; a++)
-        {
-            if (WatermelonSeed.Watered[a] == true)
-            {
-                WatermelonSeed.DaysGrown[a]++;
-            }
-        }
-
-        for (int a = 0; a < CarrotSeed.PlantedLocations.Count; a++)
-        {
-            if (CarrotSeed.Watered[a] == true)
-            {
-                CarrotSeed.DaysGrown[a]++;
-            }
-        }
-
-        for (int a = 0; a < PeachSeed.PlantedLocations.Count; a++)
-        {
-            if (PeachSeed.Watered[a] == true)
-            {
-                PeachSeed.DaysGrown[a]++;
-            }
-        }
-
-        for (int a = 0; a < PotatoSeed.PlantedLocations.Count; a++)
-        {
-            if (PotatoSeed.Watered[a] == true)
-            {
-                PotatoSeed.DaysGrown[a]++;
-            }
-        }*/
 
         DisplayInvenFunc();
     }
@@ -188,6 +213,18 @@ public class GameManagerScript : MonoBehaviour
         WatermelonSeed.PlantedLocations.Clear();
         PeachSeed.PlantedLocations.Clear();
         CarrotSeed.PlantedLocations.Clear();
+        LettuceSeed.DaysGrown.Clear();
+        PotatoSeed.DaysGrown.Clear();
+        TurnipSeed.DaysGrown.Clear();
+        WatermelonSeed.DaysGrown.Clear();
+        PeachSeed.DaysGrown.Clear();
+        CarrotSeed.DaysGrown.Clear();
+        LettuceSeed.Watered.Clear();
+        PotatoSeed.Watered.Clear();
+        TurnipSeed.Watered.Clear();
+        WatermelonSeed.Watered.Clear();
+        PeachSeed.Watered.Clear();
+        CarrotSeed.Watered.Clear();
         Hoe.TooledLocations.Clear();
         WateringCan.TooledLocations.Clear();
         Scythe.TooledLocations.Clear();

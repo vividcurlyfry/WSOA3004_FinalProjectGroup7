@@ -53,6 +53,33 @@ TextureImporter:
   - first:
       213: -3674391639483079963
     second: below_ground_16
+  - first:
+      213: 3217818365175096457
+    second: below_ground_0
+  - first:
+      213: 5794312448638511426
+    second: below_ground_1
+  - first:
+      213: 8257787814765667485
+    second: below_ground_2
+  - first:
+      213: 1666709079148982430
+    second: below_ground_3
+  - first:
+      213: -2883673724345706795
+    second: below_ground_4
+  - first:
+      213: 5795158735208605034
+    second: below_ground_6
+  - first:
+      213: -2067327867300083965
+    second: below_ground_7
+  - first:
+      213: -6092431044686201445
+    second: below_ground_8
+  - first:
+      213: -956203554404372545
+    second: below_ground_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -140,120 +167,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: below_ground_0
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 453
-        width: 177
-        height: 178
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 655d9192d2c845540800000000000000
-      internalID: 4995772012251698518
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: below_ground_1
-      rect:
-        serializedVersion: 2
-        x: 246
-        y: 453
-        width: 177
-        height: 178
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 861012737e8f33160800000000000000
-      internalID: 7004215517437297000
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: below_ground_2
-      rect:
-        serializedVersion: 2
-        x: 458
-        y: 453
-        width: 177
-        height: 178
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8f90cf7a26fdc72e0800000000000000
-      internalID: -2126579309207614984
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: below_ground_3
-      rect:
-        serializedVersion: 2
-        x: 669
-        y: 453
-        width: 178
-        height: 178
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4da6eb52c1caee870800000000000000
-      internalID: 8714091565900786388
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: below_ground_4
-      rect:
-        serializedVersion: 2
-        x: 876
-        y: 453
-        width: 177
-        height: 178
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: adb339810c4451ac0800000000000000
-      internalID: -3885123511700472870
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: below_ground_5
       rect:
         serializedVersion: 2
-        x: 1088
-        y: 453
-        width: 177
-        height: 178
+        x: 455
+        y: 243
+        width: 184
+        height: 201
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -266,22 +188,127 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: below_ground_6
+      name: below_ground_0
       rect:
         serializedVersion: 2
-        x: 239
-        y: 236
-        width: 177
-        height: 179
+        x: 34
+        y: 462
+        width: 183
+        height: 185
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c3d92a6b00c36540800000000000000
-      internalID: 5000051166569681862
+      spriteID: 9846dff11ccf7ac20800000000000000
+      internalID: 3217818365175096457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: below_ground_1
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 462
+        width: 184
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 249e8b2f878896050800000000000000
+      internalID: 5794312448638511426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: below_ground_2
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 462
+        width: 184
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9428a1144e899270800000000000000
+      internalID: 8257787814765667485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: below_ground_3
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 462
+        width: 183
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e90f79ea317512710800000000000000
+      internalID: 1666709079148982430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: below_ground_4
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 241
+        width: 182
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d61f3ca6022bf7d0800000000000000
+      internalID: -2883673724345706795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: below_ground_6
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 241
+        width: 183
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a656c156a2a8c6050800000000000000
+      internalID: 5795158735208605034
       vertices: []
       indices: 
       edges: []
@@ -290,19 +317,19 @@ TextureImporter:
       name: below_ground_7
       rect:
         serializedVersion: 2
-        x: 451
-        y: 235
-        width: 176
-        height: 180
+        x: 245
+        y: 24
+        width: 182
+        height: 184
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d9f0f9588dcb5440800000000000000
-      internalID: 4925756602967980500
+      spriteID: 307005302406f43e0800000000000000
+      internalID: -2067327867300083965
       vertices: []
       indices: 
       edges: []
@@ -311,19 +338,19 @@ TextureImporter:
       name: below_ground_8
       rect:
         serializedVersion: 2
-        x: 665
-        y: 238
-        width: 178
-        height: 179
+        x: 455
+        y: 26
+        width: 184
+        height: 185
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 441474a3ea7d00bb0800000000000000
-      internalID: -4971736845314997948
+      spriteID: b9dbae27e36537ba0800000000000000
+      internalID: -6092431044686201445
       vertices: []
       indices: 
       edges: []
@@ -332,166 +359,19 @@ TextureImporter:
       name: below_ground_9
       rect:
         serializedVersion: 2
-        x: 877
-        y: 238
-        width: 176
-        height: 176
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 110526db65a6d0550800000000000000
-      internalID: 6128671588698181649
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: below_ground_10
-      rect:
-        serializedVersion: 2
-        x: 1086
-        y: 236
-        width: 176
-        height: 179
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc5e6ca29fa285570800000000000000
-      internalID: 8455555550041007563
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: below_ground_11
-      rect:
-        serializedVersion: 2
-        x: 239
-        y: 24
-        width: 177
-        height: 179
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6e06a7b9dab793730800000000000000
-      internalID: 3979347731326591206
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: below_ground_12
-      rect:
-        serializedVersion: 2
-        x: 451
-        y: 24
-        width: 177
-        height: 179
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cdd6e19a2b95be4c0800000000000000
-      internalID: -4257210398872277540
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: below_ground_13
-      rect:
-        serializedVersion: 2
         x: 666
-        y: 27
-        width: 177
-        height: 178
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eee5659fc40e314b0800000000000000
-      internalID: -5470782501119697170
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: below_ground_14
-      rect:
-        serializedVersion: 2
-        x: 877
         y: 26
-        width: 176
-        height: 176
+        width: 183
+        height: 186
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72f785e6ab2f16ac0800000000000000
-      internalID: -3863540122778042585
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: below_ground_15
-      rect:
-        serializedVersion: 2
-        x: 1086
-        y: 24
-        width: 177
-        height: 179
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68ac4d65fe27f8ee0800000000000000
-      internalID: -1256659398733542778
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: below_ground_16
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1278
-        height: 673
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5e222fa8540f10dc0800000000000000
-      internalID: -3674391639483079963
+      spriteID: fbfe2c6fee1eab2f0800000000000000
+      internalID: -956203554404372545
       vertices: []
       indices: 
       edges: []
