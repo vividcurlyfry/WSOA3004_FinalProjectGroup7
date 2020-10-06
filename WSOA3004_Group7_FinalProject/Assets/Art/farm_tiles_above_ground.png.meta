@@ -152,12 +152,12 @@ TextureImporter:
       name: farm_tiles_above_ground_5
       rect:
         serializedVersion: 2
-        x: 453
-        y: 245
-        width: 184
-        height: 184
+        x: 454
+        y: 246
+        width: 181
+        height: 183
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,12 +173,12 @@ TextureImporter:
       name: farm_tiles_above_ground_6
       rect:
         serializedVersion: 2
-        x: 659
-        y: 245
-        width: 184
-        height: 184
+        x: 660
+        y: 246
+        width: 181
+        height: 183
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: farm_tiles_above_ground_0
       rect:
         serializedVersion: 2
-        x: 246
-        y: 479
-        width: 183
-        height: 185
+        x: 247
+        y: 480
+        width: 180
+        height: 183
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,12 +215,12 @@ TextureImporter:
       name: farm_tiles_above_ground_1
       rect:
         serializedVersion: 2
-        x: 453
-        y: 479
-        width: 184
-        height: 185
+        x: 454
+        y: 480
+        width: 181
+        height: 183
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,12 +236,12 @@ TextureImporter:
       name: farm_tiles_above_ground_2
       rect:
         serializedVersion: 2
-        x: 659
-        y: 479
-        width: 184
-        height: 185
+        x: 660
+        y: 480
+        width: 181
+        height: 183
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -257,12 +257,12 @@ TextureImporter:
       name: farm_tiles_above_ground_3
       rect:
         serializedVersion: 2
-        x: 873
-        y: 479
-        width: 184
-        height: 185
+        x: 874
+        y: 480
+        width: 181
+        height: 183
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -278,12 +278,12 @@ TextureImporter:
       name: farm_tiles_above_ground_4
       rect:
         serializedVersion: 2
-        x: 246
-        y: 245
-        width: 183
-        height: 184
+        x: 247
+        y: 246
+        width: 180
+        height: 183
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -299,12 +299,12 @@ TextureImporter:
       name: farm_tiles_above_ground_7
       rect:
         serializedVersion: 2
-        x: 873
-        y: 245
-        width: 184
-        height: 184
+        x: 874
+        y: 246
+        width: 181
+        height: 183
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
