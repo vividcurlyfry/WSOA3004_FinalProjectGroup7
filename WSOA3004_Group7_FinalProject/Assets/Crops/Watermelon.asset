@@ -15,23 +15,14 @@ MonoBehaviour:
   CropName: Watermelon
   CropType: AboveGround
   CropPrice: 15
-  DaysToGrow: 2
+  DaysToGrow: 3
   SeedSprite: {fileID: -7988685610230040939, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
   GrowingTiles:
-  - {fileID: 11400000, guid: e25c2fc38023c9b4cb58b8bf9290b988, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 0b142cf575eedf345a71419978ff2f23, type: 2}
+  - {fileID: 11400000, guid: 0d6098c8dd6a07f46bd40652d6cae309, type: 2}
+  - {fileID: 11400000, guid: a679d79c6c0697e43926d13f7f2a61eb, type: 2}
+  - {fileID: 11400000, guid: 0dd1353477e539943a8aa199c3385e1b, type: 2}
   DaysGrown: 
-  PlantedLocations:
-  - {x: 13, y: -1, z: 0}
-  - {x: 13, y: -1, z: 0}
-  - {x: 13, y: -1, z: 0}
-  - {x: 13, y: -1, z: 0}
-  - {x: 13, y: -1, z: 0}
-  - {x: 13, y: -1, z: 0}
-  - {x: 13, y: -1, z: 0}
-  - {x: 13, y: -1, z: 0}
-  - {x: 13, y: -1, z: 0}
-  - {x: 13, y: -1, z: 0}
-  - {x: 11, y: -3, z: 0}
+  PlantedLocations: []
   Watered: 
   RequiredGround: {fileID: 11400000, guid: e25c2fc38023c9b4cb58b8bf9290b988, type: 2}

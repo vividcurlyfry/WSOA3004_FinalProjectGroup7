@@ -18,7 +18,7 @@ MonoBehaviour:
   DaysToGrow: 5
   SeedSprite: {fileID: -5135926264009392143, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
   GrowingTiles:
-  - {fileID: 11400000, guid: e25c2fc38023c9b4cb58b8bf9290b988, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

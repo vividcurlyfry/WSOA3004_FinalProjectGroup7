@@ -18,15 +18,10 @@ MonoBehaviour:
   DaysToGrow: 2
   SeedSprite: {fileID: 4384546269899737158, guid: 5d7ff927d29e98e4c9d501f9d1c7cc5a, type: 3}
   GrowingTiles:
-  - {fileID: 11400000, guid: e25c2fc38023c9b4cb58b8bf9290b988, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: b80971f83e8954640b0d3edc2b9128d6, type: 2}
+  - {fileID: 11400000, guid: b5d70085b9698624ebb8f94499db718e, type: 2}
+  - {fileID: 11400000, guid: 30773c8ce456df44abc9aab0159d143b, type: 2}
   DaysGrown: 
-  PlantedLocations:
-  - {x: 13, y: -1, z: 0}
-  - {x: 13, y: -1, z: 0}
-  - {x: 13, y: -1, z: 0}
-  - {x: 13, y: -1, z: 0}
-  - {x: 11, y: -3, z: 0}
-  - {x: 11, y: -3, z: 0}
+  PlantedLocations: []
   Watered: 
   RequiredGround: {fileID: 11400000, guid: e25c2fc38023c9b4cb58b8bf9290b988, type: 2}

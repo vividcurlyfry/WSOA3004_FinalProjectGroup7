@@ -16,4 +16,7 @@ MonoBehaviour:
   toolAnim: {fileID: 0}
   toolSprite: {fileID: 8699069900992395679, guid: 982330332df35504e92c3fafa8daf8d3, type: 3}
   groundAfterToolTile: {fileID: 11400000, guid: e25c2fc38023c9b4cb58b8bf9290b988, type: 2}
-  TooledLocations: []
+  TooledLocations:
+  - {x: 12, y: 10, z: 0}
+  - {x: 14, y: 10, z: 0}
+  - {x: 13, y: 10, z: 0}
