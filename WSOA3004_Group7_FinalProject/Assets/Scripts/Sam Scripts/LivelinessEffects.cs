@@ -9,7 +9,7 @@ public class LivelinessEffects : MonoBehaviour
 
     private int randomNum = 0;
 
-    private void Start()
+    private void Awake()
     {
         LivelinessSet();
     }

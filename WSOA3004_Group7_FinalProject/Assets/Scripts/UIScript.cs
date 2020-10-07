@@ -9,6 +9,7 @@ public class UIScript : MonoBehaviour
 {
     public GameObject MenuPanel;
     public Canvas ShopCanvas;
+    public GridScript gs;
 
     private void Start()
     {
@@ -33,10 +34,14 @@ public class UIScript : MonoBehaviour
         if (ShopCanvas.gameObject.activeSelf)
         {
             ShopCanvas.gameObject.SetActive(false);
+            GameManagerScript.instance.highlightedTile = new Vector3Int(-500, -500, -500);
+            gs.enabled = true;
         }
         else
         {
             ShopCanvas.gameObject.SetActive(true);
+            GameManagerScript.instance.highlightedTile = new Vector3Int(-500, -500, -500);
+            gs.enabled = false;
         }
     }
 

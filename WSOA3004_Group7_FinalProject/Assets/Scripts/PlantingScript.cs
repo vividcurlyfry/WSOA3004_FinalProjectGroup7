@@ -6,6 +6,12 @@ using UnityEngine.Tilemaps;
 public class PlantingScript : MonoBehaviour
 {
     public Tile grass;
+    public bool isRaining;
+    private void Start()
+    {
+        isRaining = gameObject.GetComponent<LivelinessEffects>().Raining;
+    }
+
     private void Update()
     {
         Tilemap tm_base = GameManagerScript.instance.tm_base;
@@ -17,6 +23,10 @@ public class PlantingScript : MonoBehaviour
                 if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.Hoe.toolSprite && tm_base.GetTile(GameManagerScript.instance.highlightedTile) != grass)
                 {
                     tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Hoe.groundAfterToolTile);
+                    if (isRaining)
+                    {
+                        tm_water.SetTile(GameManagerScript.instance.highlightedTile,GameManagerScript.instance.Watered);
+                    }
                     if (!GameManagerScript.instance.Hoe.TooledLocations.Contains(GameManagerScript.instance.highlightedTile))
                     {
                         GameManagerScript.instance.Hoe.TooledLocations.Add(GameManagerScript.instance.highlightedTile);
@@ -43,6 +53,10 @@ public class PlantingScript : MonoBehaviour
                     if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.LettuceSeed.RequiredGround)
                     {
                         tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.LettuceSeed.GrowingTiles[0]);
+                        if (isRaining)
+                        {
+                            tm_water.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Watered);
+                        }
 
                         int pos = GameManagerScript.instance.FindPos("LettuceSeed");
                         if (pos != -1)
@@ -62,6 +76,10 @@ public class PlantingScript : MonoBehaviour
                     if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.TurnipSeed.RequiredGround)
                     {
                         tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.TurnipSeed.GrowingTiles[0]);
+                        if (isRaining)
+                        {
+                            tm_water.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Watered);
+                        }
 
                         int pos = GameManagerScript.instance.FindPos("TurnipSeed");
                         if (pos != -1)
@@ -81,6 +99,10 @@ public class PlantingScript : MonoBehaviour
                     if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.WatermelonSeed.RequiredGround)
                     {
                         tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.WatermelonSeed.GrowingTiles[0]);
+                        if (isRaining)
+                        {
+                            tm_water.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Watered);
+                        }
 
                         int pos = GameManagerScript.instance.FindPos("WatermelonSeed");
                         if (pos != -1)
@@ -100,6 +122,10 @@ public class PlantingScript : MonoBehaviour
                     if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.PeachSeed.RequiredGround)
                     {
                         tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.PeachSeed.GrowingTiles[0]);
+                        if (isRaining)
+                        {
+                            tm_water.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Watered);
+                        }
 
                         int pos = GameManagerScript.instance.FindPos("PeachSeed");
                         if (pos != -1)
@@ -119,6 +145,10 @@ public class PlantingScript : MonoBehaviour
                     if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.PotatoSeed.RequiredGround)
                     {
                         tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.PotatoSeed.GrowingTiles[0]);
+                        if (isRaining)
+                        {
+                            tm_water.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Watered);
+                        }
 
                         int pos = GameManagerScript.instance.FindPos("PotatoSeed");
                         if (pos != -1)
@@ -138,6 +168,10 @@ public class PlantingScript : MonoBehaviour
                     if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.CarrotSeed.RequiredGround)
                     {
                         tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.CarrotSeed.GrowingTiles[0]);
+                        if (isRaining)
+                        {
+                            tm_water.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Watered);
+                        }
 
                         int pos = GameManagerScript.instance.FindPos("CarrotSeed");
                         if (pos != -1)

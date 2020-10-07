@@ -28,7 +28,7 @@ public class TimerScript : MonoBehaviour
             OneSecTimer = 0;
         }
 
-        if(Seconds >= SecondsInDay)
+        if(Seconds > SecondsInDay + 0.1)
         {
             GameManagerScript.instance.EndDay();
         }
