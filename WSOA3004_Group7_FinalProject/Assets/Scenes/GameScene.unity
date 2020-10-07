@@ -15238,7 +15238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Seconds: 0
   DayImage: {fileID: 1919223644}
-  MinutesInDay: 15
+  MinutesInDay: 1
   SecondsInDay: 0
   SecondTimer: 0
   OneSecTimer: 0

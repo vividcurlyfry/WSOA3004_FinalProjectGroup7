@@ -35,6 +35,7 @@ public class PlantingScript : MonoBehaviour
                 else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.WateringCan.toolSprite)
                 {
                     tm_water.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.WateringCan.groundAfterToolTile);
+                    GameManagerScript.instance.WateringCan.TooledLocations.Add(GameManagerScript.instance.highlightedTile);
                 }
 
                 else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.LettuceSeed.SeedSprite)
@@ -48,7 +49,7 @@ public class PlantingScript : MonoBehaviour
                         {
                             GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                             GameManagerScript.instance.LettuceSeed.PlantedLocations.Add(GameManagerScript.instance.highlightedTile);
-                            GameManagerScript.instance.LettuceSeed.Watered.Add(true);
+                            GameManagerScript.instance.LettuceSeed.Watered.Add(false);
                             GameManagerScript.instance.LettuceSeed.DaysGrown.Add(0);
                         }
 
@@ -67,7 +68,7 @@ public class PlantingScript : MonoBehaviour
                         {
                             GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                             GameManagerScript.instance.TurnipSeed.PlantedLocations.Add(GameManagerScript.instance.highlightedTile);
-                            GameManagerScript.instance.TurnipSeed.Watered.Add(true);
+                            GameManagerScript.instance.TurnipSeed.Watered.Add(false);
                             GameManagerScript.instance.TurnipSeed.DaysGrown.Add(0);
                         }
 
@@ -86,7 +87,7 @@ public class PlantingScript : MonoBehaviour
                         {
                             GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                             GameManagerScript.instance.WatermelonSeed.PlantedLocations.Add(GameManagerScript.instance.highlightedTile);
-                            GameManagerScript.instance.WatermelonSeed.Watered.Add(true);
+                            GameManagerScript.instance.WatermelonSeed.Watered.Add(false);
                             GameManagerScript.instance.WatermelonSeed.DaysGrown.Add(0);
                         }
 
@@ -105,7 +106,7 @@ public class PlantingScript : MonoBehaviour
                         {
                             GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                             GameManagerScript.instance.PeachSeed.PlantedLocations.Add(GameManagerScript.instance.highlightedTile);
-                            GameManagerScript.instance.PeachSeed.Watered.Add(true);
+                            GameManagerScript.instance.PeachSeed.Watered.Add(false);
                             GameManagerScript.instance.PeachSeed.DaysGrown.Add(0);
                         }
 
@@ -124,7 +125,7 @@ public class PlantingScript : MonoBehaviour
                         {
                             GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                             GameManagerScript.instance.PotatoSeed.PlantedLocations.Add(GameManagerScript.instance.highlightedTile);
-                            GameManagerScript.instance.PotatoSeed.Watered.Add(true);
+                            GameManagerScript.instance.PotatoSeed.Watered.Add(false);
                             GameManagerScript.instance.PotatoSeed.DaysGrown.Add(0);
                         }
 
@@ -143,7 +144,7 @@ public class PlantingScript : MonoBehaviour
                         {
                             GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                             GameManagerScript.instance.CarrotSeed.PlantedLocations.Add(GameManagerScript.instance.highlightedTile);
-                            GameManagerScript.instance.CarrotSeed.Watered.Add(true);
+                            GameManagerScript.instance.CarrotSeed.Watered.Add(false);
                             GameManagerScript.instance.CarrotSeed.DaysGrown.Add(0);
                         }
 
