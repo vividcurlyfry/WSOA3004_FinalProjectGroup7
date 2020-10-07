@@ -19,6 +19,8 @@ public class GameManagerScript : MonoBehaviour
     public Text FundsText;
     public bool isRaining;
 
+    public Order order1;
+
     public Crop LettuceSeed;
     public Crop PotatoSeed;
     public Crop TurnipSeed;
