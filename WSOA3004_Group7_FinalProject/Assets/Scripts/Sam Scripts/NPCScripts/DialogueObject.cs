@@ -6,5 +6,5 @@ using UnityEngine;
 public class DialogueObject
 {
     [TextArea(3, 10)]
-    public string[] sentences;
+    public string[] conversations;
 }

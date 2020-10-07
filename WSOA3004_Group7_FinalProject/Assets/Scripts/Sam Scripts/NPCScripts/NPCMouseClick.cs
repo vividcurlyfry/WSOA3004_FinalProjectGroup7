@@ -29,7 +29,7 @@ public class NPCMouseClick : MonoBehaviour
             {
                 if (next == true)
                 {
-                    FindObjectOfType<Dialogue>().DisplayNextSentence();
+                    FindObjectOfType<Dialogue>().DisplayNextConversation();
                 }
             }
         }

@@ -15,7 +15,7 @@ public class NPCMovement : MonoBehaviour
     private float speed = 2f;
     private float pause = 0, setPause, t = 0;
     [SerializeField]
-    private bool isPaused = false, dayOver = false, goHome = false;
+    private bool isPaused = false, dayOver = false, goHome = false, returnFromIdleTalk = false;
     private int today = 1;
     private int currDirection = 0;
 
@@ -108,7 +108,12 @@ public class NPCMovement : MonoBehaviour
             {
                 this.transform.position = Vector3.MoveTowards(this.transform.position, home, speed * Time.deltaTime);
                 updateAnimation();
+            }
 
+            if(returnFromIdleTalk)
+            {
+                returnFromIdleTalk = false;
+                updateAnimation();
             }
         }
 
@@ -124,6 +129,7 @@ public class NPCMovement : MonoBehaviour
         {
             anim.Play("RubyIdle");
             print("idle");
+            returnFromIdleTalk = true;
         }
         else
         {

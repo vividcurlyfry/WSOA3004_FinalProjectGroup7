@@ -8,7 +8,6 @@ public class DaylightChange : MonoBehaviour
     public float minutes;
     private Color dawn, dusk, dawnEnd, duskEnd;
     public float dawnSeconds, duskSeconds, count, t = 0;
-
   
     void Start()
     {

@@ -17,7 +17,7 @@ public class LivelinessEffects : MonoBehaviour
     //maybe playtest chance of rain
     public void LivelinessSet()
     {
-        randomNum = Random.Range(0,3);
+        randomNum = 1;// Random.Range(0,3);
 
         switch (randomNum)
         {
