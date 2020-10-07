@@ -8,6 +8,7 @@ TagManager:
   - GameManager
   - Dialogue
   - DaylightChanger
+  - NPCPath
   layers:
   - Default
   - TransparentFX

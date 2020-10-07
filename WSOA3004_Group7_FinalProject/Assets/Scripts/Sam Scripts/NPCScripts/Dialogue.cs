@@ -12,7 +12,6 @@ public class Dialogue : MonoBehaviour
     public float secondsBetweenText = 4;
     public bool talking = false, next = true;
     public string[] currConvo;
-    private int today = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -84,7 +83,7 @@ public class Dialogue : MonoBehaviour
             RubyTextLow.text = line.ToString();
             RubyTextLow.enabled = true;
         }
-        if ((Ruby.transform.position.y - Demi.transform.position.y > 0.54f) && (Ruby.transform.position.x - Demi.transform.position.x > 4.48f)) //below and left
+        else if ((Ruby.transform.position.y - Demi.transform.position.y > 0.54f) && (Ruby.transform.position.x - Demi.transform.position.x > 4.48f)) //below and left
         {
             RubySpeechBubbleLow2.enabled = true;
             RubyTextLow2.text = line.ToString();

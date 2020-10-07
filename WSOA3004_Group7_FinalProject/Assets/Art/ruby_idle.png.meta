@@ -1,25 +1,37 @@
 fileFormatVersion: 2
-guid: 65432bd7120960f4390f39cd7dd54989
+guid: 5fa8e5f0693e1074b9e99865eec8b52c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7695389210151393429
-    second: ruby_walking_left_0
+      213: -1443483126790716923
+    second: ruby_idle_0
   - first:
-      213: -8134794679667115568
-    second: ruby_walking_left_1
+      213: -4532531435726379867
+    second: ruby_idle_1
   - first:
-      213: 3340714361996532296
-    second: ruby_walking_left_2
+      213: -4660995836642737824
+    second: ruby_idle_2
   - first:
-      213: 2003860384067234563
-    second: ruby_walking_left_3
+      213: 83203973745179408
+    second: ruby_idle_3
   - first:
-      213: 4282402048213107760
-    second: ruby_walking_left_4
+      213: -4697732180438926149
+    second: ruby_idle_4
   - first:
-      213: -1732187285726679909
-    second: ruby_walking_left_5
+      213: -6433782578329333109
+    second: ruby_idle_5
+  - first:
+      213: 4724496180564041161
+    second: ruby_idle_6
+  - first:
+      213: 8078047604930836492
+    second: ruby_idle_7
+  - first:
+      213: 2009381870877128169
+    second: ruby_idle_8
+  - first:
+      213: 2569137885471824555
+    second: ruby_idle_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -64,7 +76,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 135
+  spritePixelsToUnits: 130
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -119,13 +131,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ruby_walking_left_0
+      name: ruby_idle_0
       rect:
         serializedVersion: 2
-        x: 204
-        y: 313
-        width: 376
-        height: 671
+        x: 166
+        y: 149
+        width: 365
+        height: 617
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b676d88094c743590800000000000000
-      internalID: -7695389210151393429
+      spriteID: 5028e5c7eb7b7fbe0800000000000000
+      internalID: -1443483126790716923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ruby_walking_left_1
+      name: ruby_idle_1
       rect:
         serializedVersion: 2
-        x: 738
-        y: 318
-        width: 405
-        height: 632
+        x: 757
+        y: 149
+        width: 366
+        height: 618
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d934bdb6576b1f80800000000000000
-      internalID: -8134794679667115568
+      spriteID: 5a4ec307ca63911c0800000000000000
+      internalID: -4532531435726379867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ruby_walking_left_2
+      name: ruby_idle_2
       rect:
         serializedVersion: 2
-        x: 1369
-        y: 307
-        width: 378
-        height: 684
+        x: 1367
+        y: 150
+        width: 365
+        height: 618
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84a59da230a9c5e20800000000000000
-      internalID: 3340714361996532296
+      spriteID: 061c5594bf0d05fb0800000000000000
+      internalID: -4660995836642737824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ruby_walking_left_3
+      name: ruby_idle_3
       rect:
         serializedVersion: 2
-        x: 1922
-        y: 310
-        width: 376
-        height: 660
+        x: 1953
+        y: 150
+        width: 366
+        height: 619
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30b2ec307642fcb10800000000000000
-      internalID: 2003860384067234563
+      spriteID: 01b7bf2c299972100800000000000000
+      internalID: 83203973745179408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ruby_walking_left_4
+      name: ruby_idle_4
       rect:
         serializedVersion: 2
-        x: 2530
-        y: 314
-        width: 355
-        height: 612
+        x: 2539
+        y: 150
+        width: 365
+        height: 619
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 034c52549f52e6b30800000000000000
-      internalID: 4282402048213107760
+      spriteID: bbc3407b87d4eceb0800000000000000
+      internalID: -4697732180438926149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ruby_walking_left_5
+      name: ruby_idle_5
       rect:
         serializedVersion: 2
-        x: 3077
-        y: 289
-        width: 355
-        height: 670
+        x: 3117
+        y: 150
+        width: 365
+        height: 619
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,8 +250,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9c20d557d806f7e0800000000000000
-      internalID: -1732187285726679909
+      spriteID: b82559825dc96b6a0800000000000000
+      internalID: -6433782578329333109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_idle_6
+      rect:
+        serializedVersion: 2
+        x: 3700
+        y: 150
+        width: 365
+        height: 619
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cd9539ae38c09140800000000000000
+      internalID: 4724496180564041161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_idle_7
+      rect:
+        serializedVersion: 2
+        x: 4257
+        y: 150
+        width: 364
+        height: 619
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08f8925f7dfa1070800000000000000
+      internalID: 8078047604930836492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_idle_8
+      rect:
+        serializedVersion: 2
+        x: 4782
+        y: 150
+        width: 367
+        height: 619
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e5bdb75a22c2eb10800000000000000
+      internalID: 2009381870877128169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruby_idle_9
+      rect:
+        serializedVersion: 2
+        x: 5336
+        y: 150
+        width: 367
+        height: 619
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baadb828b4967a320800000000000000
+      internalID: 2569137885471824555
       vertices: []
       indices: 
       edges: []

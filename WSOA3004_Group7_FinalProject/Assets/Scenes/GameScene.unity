@@ -89358,7 +89358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8180623410663685327, guid: 9b663c4084983b448ad4c799be1e5d3c, type: 3}
       propertyPath: m_SortingOrder
-      value: 13
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b663c4084983b448ad4c799be1e5d3c, type: 3}
@@ -92939,7 +92939,7 @@ GameObject:
   - component: {fileID: 1985187809}
   m_Layer: 0
   m_Name: NPCDestination2D
-  m_TagString: Untagged
+  m_TagString: NPCPath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -17,7 +17,6 @@ public class NPCMovement : MonoBehaviour
     [SerializeField]
     private bool isPaused = false, dayOver = false, goHome = false, returnFromIdleTalk = false;
     private int today = 1;
-    private int currDirection = 0;
 
     private void Start()
     {
@@ -47,7 +46,7 @@ public class NPCMovement : MonoBehaviour
         }
         else if (today == 3)
         {
-            setPause = 225;
+            setPause = 5;//225;
         }
     }
 
@@ -140,13 +139,11 @@ public class NPCMovement : MonoBehaviour
                     if (nextPosition.y < this.transform.position.y)
                     {
                         anim.Play("WalkingFrontRuby");
-                        currDirection = 0;
                         print("face forward");
                     }
                     else if (nextPosition.y > this.transform.position.y)
                     {
                         anim.Play("WalkingBackRuby");
-                        currDirection = 1;
                         print("backward");
                     }
                 }
@@ -155,13 +152,11 @@ public class NPCMovement : MonoBehaviour
                     if (nextPosition.x < this.transform.position.x)
                     {
                         anim.Play("WalkingLeftRuby");
-                        currDirection = 2;
                         print("left");
                     }
                     else if (nextPosition.x > this.transform.position.x)
                     {
                         anim.Play("WalkingRightRuby");
-                        currDirection = 3;
                         print("right");
                     }
                 }
