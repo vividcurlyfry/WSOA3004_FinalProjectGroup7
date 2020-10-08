@@ -19,6 +19,9 @@ public class GameManagerScript : MonoBehaviour
     public Text FundsText;
     public bool isRaining;
 
+    public GameObject jute;
+    public GameObject juteClosed;
+
     public Order order1;
 
     public Crop LettuceSeed;
@@ -187,6 +190,7 @@ public class GameManagerScript : MonoBehaviour
             }
         }
 
+        juteClosed.SetActive(false);
         DisplayInvenFunc();
     }
 
@@ -302,6 +306,7 @@ public class GameManagerScript : MonoBehaviour
         order1.WatermelonAmount = 0;
         order1.DaysPassed = 0;
         PosInven = 0;
+        jute.gameObject.SetActive(false);
         for (int a = 0; a < Inventory.inven.Length; a++)
         {
             if ((Inventory.inven[a].ItemName != "Hoe") && (Inventory.inven[a].ItemName != "WateringCan") && (Inventory.inven[a].ItemName != "Scythe")) //&& (Inventory.inven[a].ItemName != "Shovel"))

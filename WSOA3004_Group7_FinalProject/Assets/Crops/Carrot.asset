@@ -21,7 +21,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9fdb368b791f54144bc13a01fe3cbce7, type: 2}
   - {fileID: 11400000, guid: 68aac0749822ada41bb300f879137269, type: 2}
   - {fileID: 11400000, guid: a3b3f5e05e4bec0408d6eb01dbd1a850, type: 2}
-  DaysGrown: 
-  PlantedLocations: []
-  Watered: 
+  DaysGrown: 01000000
+  PlantedLocations:
+  - {x: 14, y: 10, z: 0}
+  Watered: 00
   RequiredGround: {fileID: 11400000, guid: e25c2fc38023c9b4cb58b8bf9290b988, type: 2}
+  FullyGrownSprite: {fileID: -1875783399781439255, guid: b899ca9194aac5d4bb6d8d8133fde341, type: 3}

@@ -10,10 +10,12 @@ public class UIScript : MonoBehaviour
     public GameObject MenuPanel;
     public Canvas ShopCanvas;
     public GridScript gs;
+    public Canvas Delivery;
 
     private void Start()
     {
         ShopCanvas.gameObject.SetActive(false);
+        Delivery.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -27,6 +29,18 @@ public class UIScript : MonoBehaviour
     public void OnClickQuests()
     {
         //activate quests panel //not made yet
+    }
+
+    public void OnDeliveryAsk()
+    {
+        if (Delivery.gameObject.activeSelf)
+        {
+            Delivery.gameObject.SetActive(false);
+        }
+        else
+        {
+            Delivery.gameObject.SetActive(true);
+        }
     }
 
     public void OnClickShop()
