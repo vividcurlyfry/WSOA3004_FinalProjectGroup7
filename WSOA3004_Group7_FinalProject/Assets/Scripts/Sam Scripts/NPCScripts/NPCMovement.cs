@@ -25,16 +25,16 @@ public class NPCMovement : MonoBehaviour
 
         nextPosition = new Vector3(destination.transform.position.x, destination.transform.position.y, destination.transform.position.z);
 
-        home = new Vector3(17, 17, -1);
+        home = new Vector3(17.69f, 16f, -1);
         middle = new Vector3(3.5f, 7, -1);
-
+        
         //today = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().Today; //Amy needs to add this connection
         isRaining = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LivelinessEffects>().Raining;
 
         //these times work for 15 minute day //update if day time changes
         if (isRaining)
         {
-            setPause = 225;
+            setPause = 2; //225
         }
         else if (today == 1)
         {
@@ -79,8 +79,6 @@ public class NPCMovement : MonoBehaviour
         {
             if (!dayOver)
             {
-                this.transform.position = Vector3.MoveTowards(this.transform.position, nextPosition, speed * Time.deltaTime);
-
                 if (this.transform.position == nextPosition)
                 {
                     pause += Time.deltaTime;
@@ -98,14 +96,15 @@ public class NPCMovement : MonoBehaviour
             }
             else if (!goHome)
             {
-                this.transform.position = Vector3.MoveTowards(this.transform.position, middle, speed * Time.deltaTime);
+                isPaused = false;
+                nextPosition = middle;
                 updateAnimation();
-
             }
 
             if (goHome)
             {
-                this.transform.position = Vector3.MoveTowards(this.transform.position, home, speed * Time.deltaTime);
+                isPaused = false;
+                nextPosition = home;
                 updateAnimation();
             }
 
@@ -114,6 +113,8 @@ public class NPCMovement : MonoBehaviour
                 returnFromIdleTalk = false;
                 updateAnimation();
             }
+
+            this.transform.position = Vector3.MoveTowards(this.transform.position, nextPosition, speed * Time.deltaTime);
         }
 
         if(talking)
@@ -162,7 +163,7 @@ public class NPCMovement : MonoBehaviour
                 }
             }
 
-            if (isPaused)
+            if ((isPaused)&&(!dayOver))
             {
                 anim.Play("RubyIdle");
                 print("idle");

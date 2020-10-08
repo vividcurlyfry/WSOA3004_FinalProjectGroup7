@@ -15339,7 +15339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Seconds: 0
   DayImage: {fileID: 1919223644}
-  MinutesInDay: 1
+  MinutesInDay: 15
   SecondsInDay: 0
   SecondTimer: 0
   OneSecTimer: 0
@@ -17007,7 +17007,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184295794}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17, y: 17, z: -1}
+  m_LocalPosition: {x: 17.69, y: 16, z: -1}
   m_LocalScale: {x: 0.65, y: 0.65, z: 1}
   m_Children:
   - {fileID: 1821076605}
@@ -17129,16 +17129,13 @@ MonoBehaviour:
       stop, you''re making me blush.
 
       Mission accomplished then!'
-    - 'You''ve been working so hard today! I hope you''ve been drinking water.
-
-      [A
-      response?]'
+    - You've been working so hard today! I hope you've been drinking water.
     - 'Wow...
 
-      We didn''t get to see sunsets like this back in the city.
+      We didn''t get to see skies like this back in the city.
 
       It''s
-      so pretty. I''m glad I get to watch it with you.'
+      so pretty. I''m glad I get to see it with you.'
   Day2:
     conversations:
     - 'Time to tend to my bees. I''ll see you later!
@@ -17192,6 +17189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7823488b0119d479a2a0f1a9e76def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShopUI: {fileID: 1970430498}
 --- !u!1 &186707208
 GameObject:
   m_ObjectHideFlags: 0
@@ -88583,7 +88581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 827215992110395498, guid: 5abb1969c7cc1854697317b5c87ee3b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.010746
+      value: 12.37
       objectReference: {fileID: 0}
     - target: {fileID: 827215992110395498, guid: 5abb1969c7cc1854697317b5c87ee3b7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -89361,7 +89359,7 @@ RectTransform:
   m_GameObject: {fileID: 946392072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8071272, y: 1.8071272, z: 1.8071272}
   m_Children:
   - {fileID: 868273598}
   m_Father: {fileID: 1264630973}
@@ -89369,7 +89367,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14, y: 239}
+  m_AnchoredPosition: {x: -12, y: 419}
   m_SizeDelta: {x: 410.38776, y: 187.02472}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &946392074
@@ -104059,7 +104057,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1985187804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17, y: 17, z: -1}
+  m_LocalPosition: {x: 17.69, y: 16, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -104157,7 +104155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990707084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.56, y: 16.16, z: 0}
+  m_LocalPosition: {x: 5.81, y: 16.16, z: 0}
   m_LocalScale: {x: 0.40785354, y: 0.40785354, z: 0.40785354}
   m_Children: []
   m_Father: {fileID: 0}

@@ -8,6 +8,8 @@ public class NPCMouseClick : MonoBehaviour
     private float startTime, endTime;
     private bool next = true;
 
+    public GameObject ShopUI;
+    
     private void OnMouseDown()
     {
         startTime = Time.time;
@@ -18,18 +20,26 @@ public class NPCMouseClick : MonoBehaviour
         endTime = Time.time;
         next = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<Dialogue>().next;
 
-        if (endTime - startTime > 0.3f)
+        //checking if in the house or shop UI is up
+        if ((this.transform.position == new Vector3(17.69f, 16f, -1)) || (ShopUI.gameObject.activeSelf))
         {
-            if (clicks == 0)
+            print("no click");
+        }
+        else
+        {
+            if (endTime - startTime > 0.3f)
             {
-                FindObjectOfType<DialogueTrigger>().TriggerDialogue();
-                clicks++;
-            }
-            else
-            {
-                if (next == true)
+                if (clicks == 0)
                 {
-                    FindObjectOfType<Dialogue>().DisplayNextConversation();
+                    FindObjectOfType<DialogueTrigger>().TriggerDialogue();
+                    clicks++;
+                }
+                else
+                {
+                    if (next == true)
+                    {
+                        FindObjectOfType<Dialogue>().DisplayNextConversation();
+                    }
                 }
             }
         }

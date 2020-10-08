@@ -24,15 +24,15 @@ public class NPCPath : MonoBehaviour
         isRaining = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LivelinessEffects>().Raining;
         if (isRaining)
         {
-            _FirstPos = new Vector3(10f, 15.5f, -1);
-            _SecondPos = new Vector3(7f, 15.5f, -1);
-            _ThirdPos = new Vector3(17f, 17f, -1);
+            _FirstPos = new Vector3(8f, 15f, -1);
+            _SecondPos = new Vector3(4f, 15f, -1);
+            _ThirdPos = new Vector3(17.69f, 16f, -1);
         }
         else if (today == 1)
         {
-            _FirstPos = new Vector3(19, 15, -1);
+            _FirstPos = new Vector3(17.69f, 15, -1);
             _SecondPos = new Vector3(0, 15, -1);
-            _ThirdPos = new Vector3(5.5f, 15.5f, -1);
+            _ThirdPos = new Vector3(4f, 15f, -1);
         }
         else if (today == 2)
         {
