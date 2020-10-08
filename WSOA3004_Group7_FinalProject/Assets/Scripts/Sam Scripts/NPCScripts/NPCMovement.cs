@@ -128,7 +128,7 @@ public class NPCMovement : MonoBehaviour
         if (talking)
         {
             anim.Play("RubyIdle");
-            print("idle");
+           // print("idle");
             returnFromIdleTalk = true;
         }
         else
@@ -140,12 +140,12 @@ public class NPCMovement : MonoBehaviour
                     if (nextPosition.y < this.transform.position.y)
                     {
                         anim.Play("WalkingFrontRuby");
-                        print("face forward");
+                       // print("face forward");
                     }
                     else if (nextPosition.y > this.transform.position.y)
                     {
                         anim.Play("WalkingBackRuby");
-                        print("backward");
+                       // print("backward");
                     }
                 }
                 else
@@ -153,12 +153,12 @@ public class NPCMovement : MonoBehaviour
                     if (nextPosition.x < this.transform.position.x)
                     {
                         anim.Play("WalkingLeftRuby");
-                        print("left");
+                      //  print("left");
                     }
                     else if (nextPosition.x > this.transform.position.x)
                     {
                         anim.Play("WalkingRightRuby");
-                        print("right");
+                      //  print("right");
                     }
                 }
             }
@@ -166,7 +166,7 @@ public class NPCMovement : MonoBehaviour
             if ((isPaused)&&(!dayOver))
             {
                 anim.Play("RubyIdle");
-                print("idle");
+               // print("idle");
             }
         }
         

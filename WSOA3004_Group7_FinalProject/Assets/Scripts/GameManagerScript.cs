@@ -13,6 +13,8 @@ public class GameManagerScript : MonoBehaviour
     public Vector3Int highlightedTile;
     public int DaysPlayed;
 
+    public bool NearBed = false;
+
     public GameObject sv;
     public GameObject SelectedObj;
     public int Funds;
@@ -51,6 +53,7 @@ public class GameManagerScript : MonoBehaviour
     public bool MoreAcceptedOrders;
 
     public Text noteBookText;
+    public GameObject orderNotification;
 
     private void Awake()
     {
@@ -67,6 +70,7 @@ public class GameManagerScript : MonoBehaviour
     public void Start()
     {
         isRaining = gameObject.GetComponent<LivelinessEffects>().Raining;
+        NearBed = false;
         if (PlayerPrefs.GetString("DayOneDone") != "true")
         {
             DayOne();
@@ -195,6 +199,24 @@ public class GameManagerScript : MonoBehaviour
                     }
                 }
             }
+        }
+
+        if(MoreAcceptedOrders == true)
+        {
+            orderNotification.SetActive(true);
+        }
+        else
+        {
+            orderNotification.SetActive(false);
+        }
+
+        if (order1.Accepted) 
+        {
+            noteBookText.text = order1.OrderText;
+        }
+        else
+        {
+            noteBookText.text = "Hmmm... I don't seem to have any orders to complete today.";
         }
 
         juteClosed.SetActive(false);
@@ -369,7 +391,10 @@ public class GameManagerScript : MonoBehaviour
 
     public void DoorEndDay()
     {
-        EndDay();
+        if (NearBed == true)
+        {
+            EndDay();
+        }
     }
 
     public void EndDay()

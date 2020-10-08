@@ -12,7 +12,6 @@ public class UIScript : MonoBehaviour
     public Canvas OrderCanvas;
     public Canvas Delivery;
     public GridScript gs;
-    public GameObject orderNotification;
 
     private void Start()
     {
@@ -49,7 +48,7 @@ public class UIScript : MonoBehaviour
             Delivery.gameObject.SetActive(false);
             if(GameManagerScript.instance.MoreAcceptedOrders == false)
             {
-                orderNotification.SetActive(false);
+                GameManagerScript.instance.orderNotification.SetActive(false);
             }
             gs.enabled = true;
         }

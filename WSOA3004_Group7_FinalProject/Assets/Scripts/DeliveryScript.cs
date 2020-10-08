@@ -12,12 +12,12 @@ public class DeliveryScript : MonoBehaviour
     void Start()
     {
         orderText.text = GameManagerScript.instance.order1.OrderText;
-        DisplayOrder[0].GetComponentInChildren<Text>().text = "0/" + GameManagerScript.instance.order1.LettuceNeeded.ToString();
-        DisplayOrder[1].GetComponentInChildren<Text>().text = "0/" + GameManagerScript.instance.order1.PotatoNeeded.ToString();
-        DisplayOrder[2].GetComponentInChildren<Text>().text = "0/" + GameManagerScript.instance.order1.TurnipNeeded.ToString();
-        DisplayOrder[3].GetComponentInChildren<Text>().text = "0/" + GameManagerScript.instance.order1.WatermelonNeeded.ToString();
-        DisplayOrder[4].GetComponentInChildren<Text>().text = "0/" + GameManagerScript.instance.order1.CarrotNeeded.ToString();
-        DisplayOrder[5].GetComponentInChildren<Text>().text = "0/" + GameManagerScript.instance.order1.PeachNeeded.ToString();
+        DisplayOrder[0].GetComponentInChildren<Text>().text = GameManagerScript.instance.order1.LettuceAmount + "/" + GameManagerScript.instance.order1.LettuceNeeded.ToString();
+        DisplayOrder[1].GetComponentInChildren<Text>().text = GameManagerScript.instance.order1.PotatoAmount + "/" + GameManagerScript.instance.order1.PotatoNeeded.ToString();
+        DisplayOrder[2].GetComponentInChildren<Text>().text = GameManagerScript.instance.order1.TurnipAmount + "/" + GameManagerScript.instance.order1.TurnipNeeded.ToString();
+        DisplayOrder[3].GetComponentInChildren<Text>().text = GameManagerScript.instance.order1.WatermelonAmount + "/" + GameManagerScript.instance.order1.WatermelonNeeded.ToString();
+        DisplayOrder[4].GetComponentInChildren<Text>().text = GameManagerScript.instance.order1.CarrotAmount + "/" + GameManagerScript.instance.order1.CarrotNeeded.ToString();
+        DisplayOrder[5].GetComponentInChildren<Text>().text = GameManagerScript.instance.order1.PeachAmount + "/" + GameManagerScript.instance.order1.PeachNeeded.ToString();
     }
 
     public void AcceptOrder()
@@ -26,6 +26,7 @@ public class DeliveryScript : MonoBehaviour
         GameManagerScript.instance.MoreAcceptedOrders = false;
         GameManagerScript.instance.noteBookText.text = GameManagerScript.instance.order1.OrderText;
         GameManagerScript.instance.sv.SetActive(false);
+        GameManagerScript.instance.order1.Accepted = true;
     }
 
     public void Clicked()

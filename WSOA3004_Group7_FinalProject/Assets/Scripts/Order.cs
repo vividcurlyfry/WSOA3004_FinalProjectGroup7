@@ -23,4 +23,5 @@ public class Order : ScriptableObject
     public int LettuceAmount;
     public int TimeLimit;
     public int DaysPassed;
+    public bool Accepted;
 }

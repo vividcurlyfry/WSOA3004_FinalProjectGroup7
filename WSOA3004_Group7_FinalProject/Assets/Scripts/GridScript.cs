@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -10,6 +11,8 @@ public class GridScript : MonoBehaviour
     public Tile highlight;
     public List<Vector3Int> HighlightedTiles;
     public Vector3Int[] AvailableTiles;
+    public Tile Sand;
+    public Tile Weed;
 
     private void Start()
     {
@@ -25,17 +28,18 @@ public class GridScript : MonoBehaviour
 
         bool TileAvailable = false;
         int a = 0;
-        for (int i = playerTile.x-2; i <= playerTile.x+1; i++)
+        for (int i = playerTile.x - 2; i <= playerTile.x + 1; i++)
         {
             for (int j = playerTile.y - 1; j <= playerTile.y + 2; j++, a++)
             {
-                
+                if (GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0)) == Sand || GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0)) == Weed)
+                {
                     AvailableTiles[a] = new Vector3Int(i, j, 0);
                     if (selectedTile == AvailableTiles[a])
                     {
                         TileAvailable = true;
                     }
-                
+                }
             }
         }
 
