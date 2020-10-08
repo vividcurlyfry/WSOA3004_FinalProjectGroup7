@@ -9,8 +9,10 @@ public class UIScript : MonoBehaviour
 {
     public GameObject MenuPanel;
     public Canvas ShopCanvas;
-    public GridScript gs;
+    public Canvas OrderCanvas;
     public Canvas Delivery;
+    public GridScript gs;
+    public GameObject orderNotification;
 
     private void Start()
     {
@@ -28,7 +30,16 @@ public class UIScript : MonoBehaviour
 
     public void OnClickQuests()
     {
-        //activate quests panel //not made yet
+        if (OrderCanvas.gameObject.activeSelf)
+        {
+            OrderCanvas.gameObject.SetActive(false);
+            gs.enabled = true;
+        }
+        else
+        {
+            OrderCanvas.gameObject.SetActive(true);
+            gs.enabled = false;
+        }
     }
 
     public void OnDeliveryAsk()
@@ -36,10 +47,16 @@ public class UIScript : MonoBehaviour
         if (Delivery.gameObject.activeSelf)
         {
             Delivery.gameObject.SetActive(false);
+            if(GameManagerScript.instance.MoreAcceptedOrders == false)
+            {
+                orderNotification.SetActive(false);
+            }
+            gs.enabled = true;
         }
         else
         {
             Delivery.gameObject.SetActive(true);
+            gs.enabled = false;
         }
     }
 
@@ -64,10 +81,12 @@ public class UIScript : MonoBehaviour
         if(MenuPanel.activeSelf)
         {
             MenuPanel.SetActive(false);
+            gs.enabled = true;
         }
         else
         {
             MenuPanel.SetActive(true);
+            gs.enabled = false;
         }
     }
 

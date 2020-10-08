@@ -5,12 +5,15 @@ using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using UnityEngine.UIElements.Experimental;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class GameManagerScript : MonoBehaviour
 {
     public static GameManagerScript instance = null;
     public Vector3Int highlightedTile;
     public int DaysPlayed;
+
+    public GameObject sv;
     public GameObject SelectedObj;
     public int Funds;
     public InventoryObject Inventory;
@@ -44,6 +47,10 @@ public class GameManagerScript : MonoBehaviour
     public Tilemap tm_water;
 
     public Tile Watered;
+
+    public bool MoreAcceptedOrders;
+
+    public Text noteBookText;
 
     private void Awake()
     {
@@ -307,6 +314,9 @@ public class GameManagerScript : MonoBehaviour
         order1.DaysPassed = 0;
         PosInven = 0;
         jute.gameObject.SetActive(false);
+        MoreAcceptedOrders = true;
+        noteBookText.text = "Hmmm... I don't seem to have any orders to complete today.";
+        sv.SetActive(true);
         for (int a = 0; a < Inventory.inven.Length; a++)
         {
             if ((Inventory.inven[a].ItemName != "Hoe") && (Inventory.inven[a].ItemName != "WateringCan") && (Inventory.inven[a].ItemName != "Scythe")) //&& (Inventory.inven[a].ItemName != "Shovel"))

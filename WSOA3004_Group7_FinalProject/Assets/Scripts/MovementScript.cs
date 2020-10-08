@@ -9,6 +9,7 @@ public class MovementScript : MonoBehaviour
     public float speed = 2f;
     public Vector2 motion;
     public Animator anim;
+    public GridScript gs;
 
     void Awake()
     {
@@ -38,6 +39,15 @@ public class MovementScript : MonoBehaviour
             anim.SetTrigger("RightWalk");
         if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.D))
             anim.SetTrigger("Idle3");
+
+        if(transform.position.y < 9.9f && (transform.position.x >= -6f && transform.position.x <= 24.9))
+        {
+            gs.enabled = true;
+        }
+        else
+        { 
+            gs.enabled = false;
+        }
 
     }
 

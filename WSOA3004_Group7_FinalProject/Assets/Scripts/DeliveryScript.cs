@@ -20,15 +20,12 @@ public class DeliveryScript : MonoBehaviour
         DisplayOrder[5].GetComponentInChildren<Text>().text = "0/" + GameManagerScript.instance.order1.PeachNeeded.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void AcceptOrder()
     {
         GameManagerScript.instance.jute.gameObject.SetActive(true);
+        GameManagerScript.instance.MoreAcceptedOrders = false;
+        GameManagerScript.instance.noteBookText.text = GameManagerScript.instance.order1.OrderText;
+        GameManagerScript.instance.sv.SetActive(false);
     }
 
     public void Clicked()
