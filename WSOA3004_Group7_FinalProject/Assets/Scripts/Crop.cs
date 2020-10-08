@@ -17,4 +17,5 @@ public class Crop : ScriptableObject
     public List<Vector3Int> PlantedLocations;
     public List<bool> Watered;
     public Tile RequiredGround;
+    public Sprite FullyGrownSprite;
 }

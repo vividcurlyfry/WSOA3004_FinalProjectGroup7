@@ -219,6 +219,16 @@ public class GameManagerScript : MonoBehaviour
             PosInven = PosInven + 6;
             DisplayInvenFunc();
         }
+        else
+        {
+            for (int a = 0; a < 6; a++)
+            {
+                DisplayInven[a].GetComponentInChildren<Text>().text = "0";
+                DisplayInven[a].GetComponentInChildren<SpriteRenderer>().sprite = null;
+            }
+            PosInven = 0;
+            DisplayInvenFunc();
+        }
     }
 
     public void DisplayInvenFunc()
@@ -284,10 +294,17 @@ public class GameManagerScript : MonoBehaviour
         Scythe.TooledLocations.Clear();
         Shovel.TooledLocations.Clear();
         WateringCan.TooledLocations.Clear();
+        order1.CarrotAmount = 0;
+        order1.LettuceAmount = 0;
+        order1.PeachAmount = 0;
+        order1.PotatoAmount = 0;
+        order1.TurnipAmount = 0;
+        order1.WatermelonAmount = 0;
+        order1.DaysPassed = 0;
         PosInven = 0;
         for (int a = 0; a < Inventory.inven.Length; a++)
         {
-            if ((Inventory.inven[a].ItemName != "Hoe") && (Inventory.inven[a].ItemName != "WateringCan") && (Inventory.inven[a].ItemName != "Scythe") && (Inventory.inven[a].ItemName != "Shovel"))
+            if ((Inventory.inven[a].ItemName != "Hoe") && (Inventory.inven[a].ItemName != "WateringCan") && (Inventory.inven[a].ItemName != "Scythe")) //&& (Inventory.inven[a].ItemName != "Shovel"))
             {
                 Inventory.inven[a].ItemNumber = 0;
             }

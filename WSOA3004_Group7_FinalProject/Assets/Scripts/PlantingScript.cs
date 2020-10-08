@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -7,6 +8,8 @@ public class PlantingScript : MonoBehaviour
 {
     public Tile grass;
     public bool isRaining;
+    public Tile Sand;
+    public int posList;
     private void Start()
     {
         isRaining = gameObject.GetComponent<LivelinessEffects>().Raining;
@@ -18,6 +21,87 @@ public class PlantingScript : MonoBehaviour
         Tilemap tm_water = GameManagerScript.instance.tm_water;
         if (Input.GetMouseButtonDown(0) && GameManagerScript.instance.highlightedTile != new Vector3Int(-500, -500, -500))
         {
+            if(tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.LettuceSeed.GrowingTiles[GameManagerScript.instance.LettuceSeed.DaysToGrow])
+            {
+                tm_base.SetTile(GameManagerScript.instance.highlightedTile, Sand);
+                posList = GameManagerScript.instance.LettuceSeed.PlantedLocations.IndexOf(GameManagerScript.instance.highlightedTile);
+                GameManagerScript.instance.LettuceSeed.PlantedLocations.RemoveAt(posList);
+                GameManagerScript.instance.LettuceSeed.DaysGrown.RemoveAt(posList);
+                GameManagerScript.instance.LettuceSeed.Watered.RemoveAt(posList);
+                GameManagerScript.instance.Hoe.TooledLocations.Remove(GameManagerScript.instance.highlightedTile);
+                int pos = GameManagerScript.instance.FindPos("Lettuce");
+                if (pos != -1)
+                {
+                    GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
+                }
+                GameManagerScript.instance.DisplayInvenFunc();
+                return;
+            }
+            else if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.TurnipSeed.GrowingTiles[GameManagerScript.instance.TurnipSeed.DaysToGrow])
+            {
+                tm_base.SetTile(GameManagerScript.instance.highlightedTile, Sand);
+                posList = GameManagerScript.instance.TurnipSeed.PlantedLocations.IndexOf(GameManagerScript.instance.highlightedTile);
+                GameManagerScript.instance.TurnipSeed.PlantedLocations.RemoveAt(posList);
+                GameManagerScript.instance.TurnipSeed.DaysGrown.RemoveAt(posList);
+                GameManagerScript.instance.TurnipSeed.Watered.RemoveAt(posList);
+                GameManagerScript.instance.Hoe.TooledLocations.Remove(GameManagerScript.instance.highlightedTile);
+                int pos = GameManagerScript.instance.FindPos("Turnip");
+                if (pos != -1)
+                {
+                    GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
+                }
+                GameManagerScript.instance.DisplayInvenFunc();
+                return;
+            }
+            else if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.PotatoSeed.GrowingTiles[GameManagerScript.instance.PotatoSeed.DaysToGrow])
+            {
+                tm_base.SetTile(GameManagerScript.instance.highlightedTile, Sand);
+                posList = GameManagerScript.instance.PotatoSeed.PlantedLocations.IndexOf(GameManagerScript.instance.highlightedTile);
+                GameManagerScript.instance.PotatoSeed.PlantedLocations.RemoveAt(posList);
+                GameManagerScript.instance.PotatoSeed.DaysGrown.RemoveAt(posList);
+                GameManagerScript.instance.PotatoSeed.Watered.RemoveAt(posList);
+                GameManagerScript.instance.Hoe.TooledLocations.Remove(GameManagerScript.instance.highlightedTile);
+                int pos = GameManagerScript.instance.FindPos("Potato");
+                if (pos != -1)
+                {
+                    GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
+                }
+                GameManagerScript.instance.DisplayInvenFunc();
+                return;
+            }
+            else if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.CarrotSeed.GrowingTiles[GameManagerScript.instance.CarrotSeed.DaysToGrow])
+            {
+                tm_base.SetTile(GameManagerScript.instance.highlightedTile, Sand);
+                posList = GameManagerScript.instance.CarrotSeed.PlantedLocations.IndexOf(GameManagerScript.instance.highlightedTile);
+                GameManagerScript.instance.CarrotSeed.PlantedLocations.RemoveAt(posList);
+                GameManagerScript.instance.CarrotSeed.DaysGrown.RemoveAt(posList);
+                GameManagerScript.instance.CarrotSeed.Watered.RemoveAt(posList);
+                GameManagerScript.instance.Hoe.TooledLocations.Remove(GameManagerScript.instance.highlightedTile);
+                int pos = GameManagerScript.instance.FindPos("Carrot");
+                if (pos != -1)
+                {
+                    GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
+                }
+                GameManagerScript.instance.DisplayInvenFunc();
+                return;
+            }
+            else if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.WatermelonSeed.GrowingTiles[GameManagerScript.instance.WatermelonSeed.DaysToGrow])
+            {
+                tm_base.SetTile(GameManagerScript.instance.highlightedTile, Sand);
+                posList = GameManagerScript.instance.WatermelonSeed.PlantedLocations.IndexOf(GameManagerScript.instance.highlightedTile);
+                GameManagerScript.instance.WatermelonSeed.PlantedLocations.RemoveAt(posList);
+                GameManagerScript.instance.WatermelonSeed.DaysGrown.RemoveAt(posList);
+                GameManagerScript.instance.WatermelonSeed.Watered.RemoveAt(posList);
+                GameManagerScript.instance.Hoe.TooledLocations.Remove(GameManagerScript.instance.highlightedTile);
+                int pos = GameManagerScript.instance.FindPos("Watermelon");
+                if (pos != -1)
+                {
+                    GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
+                }
+                GameManagerScript.instance.DisplayInvenFunc();
+                return;
+            }
+
             if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite != null)
             {
                 if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.Hoe.toolSprite && tm_base.GetTile(GameManagerScript.instance.highlightedTile) != grass)
