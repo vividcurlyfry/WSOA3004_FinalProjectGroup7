@@ -238,7 +238,7 @@ public class GameManagerScript : MonoBehaviour
         {
             for (int i = 0; i <= Inventory.inven.Length - 2; i++)
             {
-                if ((Inventory.inven[i].ItemNumber < Inventory.inven[i + 1].ItemNumber) && (Inventory.inven[i].ItemName != "Hoe") && (Inventory.inven[i].ItemName != "WateringCan") && (Inventory.inven[i].ItemName != "Scythe") && (Inventory.inven[i].ItemName != "Shovel"))
+                if ((Inventory.inven[i].ItemNumber < Inventory.inven[i + 1].ItemNumber) && (Inventory.inven[i].ItemName != "Hoe") && (Inventory.inven[i].ItemName != "WateringCan") && (Inventory.inven[i].ItemName != "Scythe"))// && (Inventory.inven[i].ItemName != "Shovel"))
                 {
                     InventoryClass tmp = Inventory.inven[i];
                     Inventory.inven[i] = Inventory.inven[i + 1];
@@ -251,7 +251,7 @@ public class GameManagerScript : MonoBehaviour
         {
             if (Inventory.inven[i].ItemNumber > 0)
             {
-                if ((Inventory.inven[i].ItemName != "Hoe") && (Inventory.inven[i].ItemName != "WateringCan") && (Inventory.inven[i].ItemName != "Scythe") && (Inventory.inven[i].ItemName != "Shovel"))
+                if ((Inventory.inven[i].ItemName != "Hoe") && (Inventory.inven[i].ItemName != "WateringCan") && (Inventory.inven[i].ItemName != "Scythe"))// && (Inventory.inven[i].ItemName != "Shovel"))
                 {
                     DisplayInven[i % 6].GetComponentInChildren<Text>().text = Inventory.inven[i].ItemNumber.ToString();
                 }

@@ -34,7 +34,7 @@ public class NPCMovement : MonoBehaviour
         //these times work for 15 minute day //update if day time changes
         if (isRaining)
         {
-            setPause = 2; //225
+            setPause = 225;
         }
         else if (today == 1)
         {
