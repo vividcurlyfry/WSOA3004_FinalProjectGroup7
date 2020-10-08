@@ -151,7 +151,14 @@ public class PlantingScript : MonoBehaviour
                             GameManagerScript.instance.LettuceSeed.DaysGrown.Add(0);
                         }
 
-                        GameManagerScript.instance.DisplayInvenFunc();
+                        if (GameManagerScript.instance.Inventory.inven[pos].ItemNumber == 0)
+                        {
+                            GameManagerScript.instance.DisplayInvenFunc();
+                        }
+                        else
+                        {
+                            GameManagerScript.instance.DisplayInvenFuncNoSort();
+                        }
                     }
                 }
 
@@ -174,7 +181,14 @@ public class PlantingScript : MonoBehaviour
                             GameManagerScript.instance.TurnipSeed.DaysGrown.Add(0);
                         }
 
-                        GameManagerScript.instance.DisplayInvenFunc();
+                        if (GameManagerScript.instance.Inventory.inven[pos].ItemNumber == 0)
+                        {
+                            GameManagerScript.instance.DisplayInvenFunc();
+                        }
+                        else
+                        {
+                            GameManagerScript.instance.DisplayInvenFuncNoSort();
+                        }
                     }
                 }
 
@@ -197,7 +211,14 @@ public class PlantingScript : MonoBehaviour
                             GameManagerScript.instance.WatermelonSeed.DaysGrown.Add(0);
                         }
 
-                        GameManagerScript.instance.DisplayInvenFunc();
+                        if (GameManagerScript.instance.Inventory.inven[pos].ItemNumber == 0)
+                        {
+                            GameManagerScript.instance.DisplayInvenFunc();
+                        }
+                        else
+                        {
+                            GameManagerScript.instance.DisplayInvenFuncNoSort();
+                        }
                     }
                 }
 
@@ -220,7 +241,14 @@ public class PlantingScript : MonoBehaviour
                             GameManagerScript.instance.PeachSeed.DaysGrown.Add(0);
                         }
 
-                        GameManagerScript.instance.DisplayInvenFunc();
+                        if (GameManagerScript.instance.Inventory.inven[pos].ItemNumber == 0)
+                        {
+                            GameManagerScript.instance.DisplayInvenFunc();
+                        }
+                        else
+                        {
+                            GameManagerScript.instance.DisplayInvenFuncNoSort();
+                        }
                     }
                 }
 
@@ -243,7 +271,14 @@ public class PlantingScript : MonoBehaviour
                             GameManagerScript.instance.PotatoSeed.DaysGrown.Add(0);
                         }
 
-                        GameManagerScript.instance.DisplayInvenFunc();
+                        if (GameManagerScript.instance.Inventory.inven[pos].ItemNumber == 0)
+                        {
+                            GameManagerScript.instance.DisplayInvenFunc();
+                        }
+                        else
+                        {
+                            GameManagerScript.instance.DisplayInvenFuncNoSort();
+                        }
                     }
                 }
 
@@ -266,7 +301,14 @@ public class PlantingScript : MonoBehaviour
                             GameManagerScript.instance.CarrotSeed.DaysGrown.Add(0);
                         }
 
-                        GameManagerScript.instance.DisplayInvenFunc();
+                        if (GameManagerScript.instance.Inventory.inven[pos].ItemNumber == 0)
+                        {
+                            GameManagerScript.instance.DisplayInvenFunc();
+                        }
+                        else
+                        {
+                            GameManagerScript.instance.DisplayInvenFuncNoSort();
+                        }
                     }
                 }
             }

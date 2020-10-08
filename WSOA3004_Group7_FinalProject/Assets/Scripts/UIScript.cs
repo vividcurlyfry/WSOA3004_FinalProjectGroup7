@@ -104,4 +104,9 @@ public class UIScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void CloseConfirm()
+    {
+        GameManagerScript.instance.sleepConfirmCanvas.SetActive(false);
+    }
 }

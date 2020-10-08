@@ -55,6 +55,8 @@ public class GameManagerScript : MonoBehaviour
     public Text noteBookText;
     public GameObject orderNotification;
 
+    public GameObject sleepConfirmCanvas;
+
     private void Awake()
     {
         if (instance == null)
@@ -71,6 +73,7 @@ public class GameManagerScript : MonoBehaviour
     {
         isRaining = gameObject.GetComponent<LivelinessEffects>().Raining;
         NearBed = false;
+        sleepConfirmCanvas.SetActive(false);
         if (PlayerPrefs.GetString("DayOneDone") != "true")
         {
             DayOne();
@@ -301,6 +304,32 @@ public class GameManagerScript : MonoBehaviour
             }
         }
     }
+
+    public void DisplayInvenFuncNoSort()
+    {
+
+        for (int i = PosInven; i < Inventory.inven.Length && i < PosInven + 6; i++)
+        {
+            if (Inventory.inven[i].ItemNumber > 0)
+            {
+                if ((Inventory.inven[i].ItemName != "Hoe") && (Inventory.inven[i].ItemName != "WateringCan") && (Inventory.inven[i].ItemName != "Scythe"))// && (Inventory.inven[i].ItemName != "Shovel"))
+                {
+                    DisplayInven[i % 6].GetComponentInChildren<Text>().text = Inventory.inven[i].ItemNumber.ToString();
+                }
+                else
+                {
+                    DisplayInven[i % 6].GetComponentInChildren<Text>().text = "";
+                }
+                DisplayInven[i % 6].GetComponentInChildren<SpriteRenderer>().sprite = Inventory.inven[i].ItemSprite;
+            }
+            else
+            {
+                DisplayInven[i % 6].GetComponentInChildren<Text>().text = "0";
+                DisplayInven[i % 6].GetComponentInChildren<SpriteRenderer>().sprite = null;
+            }
+        }
+    }
+
     public void DayOne()
     {
         Funds = 250;
@@ -339,6 +368,7 @@ public class GameManagerScript : MonoBehaviour
         MoreAcceptedOrders = true;
         noteBookText.text = "Hmmm... I don't seem to have any orders to complete today.";
         sv.SetActive(true);
+        order1.Accepted = false;
         for (int a = 0; a < Inventory.inven.Length; a++)
         {
             if ((Inventory.inven[a].ItemName != "Hoe") && (Inventory.inven[a].ItemName != "WateringCan") && (Inventory.inven[a].ItemName != "Scythe")) //&& (Inventory.inven[a].ItemName != "Shovel"))
@@ -393,7 +423,7 @@ public class GameManagerScript : MonoBehaviour
     {
         if (NearBed == true)
         {
-            EndDay();
+            sleepConfirmCanvas.SetActive(true);
         }
     }
 

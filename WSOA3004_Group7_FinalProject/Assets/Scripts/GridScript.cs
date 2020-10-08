@@ -32,7 +32,11 @@ public class GridScript : MonoBehaviour
         {
             for (int j = playerTile.y - 1; j <= playerTile.y + 2; j++, a++)
             {
-                if (GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0)) == Sand || GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0)) == Weed)
+                if (GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0)) == Sand || GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0)) == Weed || GameManagerScript.instance.LettuceSeed.GrowingTiles.Contains(GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0))) || GameManagerScript.instance.TurnipSeed.GrowingTiles.Contains(GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0))) ||
+                  GameManagerScript.instance.WatermelonSeed.GrowingTiles.Contains(GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0))) ||
+                  GameManagerScript.instance.PotatoSeed.GrowingTiles.Contains(GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0))) ||
+                  GameManagerScript.instance.CarrotSeed.GrowingTiles.Contains(GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0))) ||
+                  GameManagerScript.instance.Hoe.groundAfterToolTile)
                 {
                     AvailableTiles[a] = new Vector3Int(i, j, 0);
                     if (selectedTile == AvailableTiles[a])

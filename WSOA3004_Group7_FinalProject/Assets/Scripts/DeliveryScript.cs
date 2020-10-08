@@ -27,6 +27,7 @@ public class DeliveryScript : MonoBehaviour
         GameManagerScript.instance.noteBookText.text = GameManagerScript.instance.order1.OrderText;
         GameManagerScript.instance.sv.SetActive(false);
         GameManagerScript.instance.order1.Accepted = true;
+        GameManagerScript.instance.order1.Completed = false;
     }
 
     public void Clicked()
@@ -117,6 +118,7 @@ public class DeliveryScript : MonoBehaviour
             {
                 GameManagerScript.instance.jute.SetActive(false);
                 GameManagerScript.instance.juteClosed.SetActive(true);
+                GameManagerScript.instance.order1.Completed = true;
             }
         }
     }

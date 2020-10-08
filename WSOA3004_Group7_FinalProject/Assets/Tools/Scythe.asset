@@ -15,5 +15,7 @@ MonoBehaviour:
   toolType: Scythe
   toolAnim: {fileID: 0}
   toolSprite: {fileID: 5292716684467120071, guid: 982330332df35504e92c3fafa8daf8d3, type: 3}
-  groundAfterToolTile: {fileID: 11400000, guid: 42be649086bbf3340b0ecc138127660e, type: 2}
-  TooledLocations: []
+  groundAfterToolTile: {fileID: 11400000, guid: 70f2876c7c1e6074c94ae7bf9b0dfcc2, type: 2}
+  TooledLocations:
+  - {x: 11, y: 5, z: 0}
+  - {x: 11, y: 4, z: 0}
