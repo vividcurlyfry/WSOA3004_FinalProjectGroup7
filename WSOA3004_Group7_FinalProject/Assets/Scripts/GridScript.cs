@@ -34,51 +34,51 @@ public class GridScript : MonoBehaviour
                   GameManagerScript.instance.PotatoSeed.GrowingTiles.Contains(GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0))) ||
                   GameManagerScript.instance.CarrotSeed.GrowingTiles.Contains(GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0))))
                 {
-            AvailableTiles.Add(new Vector3Int(i, j, 0));
+                    AvailableTiles.Add(new Vector3Int(i, j, 0));
+                }
+            }
         }
-    }
-}
 
-if (AvailableTiles.Contains(selectedTile))
-{
-    TileAvailable = true;
-}
-else
-{
-    TileAvailable = false;
-}
+        if (AvailableTiles.Contains(selectedTile))
+        {
+            TileAvailable = true;
+        }
+        else
+        {
+            TileAvailable = false;
+        }
 
-if (TileAvailable == true)
-{
-    if (!HighlightedTiles.Contains(selectedTile))
-    {
-        tm_highlight.SetTile(selectedTile, highlight);
-        HighlightedTiles.Add(selectedTile);
-    }
-}
-else
-{
-    for (int i = 0; i < HighlightedTiles.Count; i++)
-    {
-        tm_highlight.SetTile(HighlightedTiles[i], null);
-    }
+        if (TileAvailable == true)
+        {
+            if (!HighlightedTiles.Contains(selectedTile))
+            {
+                tm_highlight.SetTile(selectedTile, highlight);
+                HighlightedTiles.Add(selectedTile);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < HighlightedTiles.Count; i++)
+            {
+                tm_highlight.SetTile(HighlightedTiles[i], null);
+            }
 
-    HighlightedTiles.Clear();
-}
+            HighlightedTiles.Clear();
+        }
 
-if (HighlightedTiles.Count > 1)
-{
-    tm_highlight.SetTile(HighlightedTiles[0], null);
-    HighlightedTiles.RemoveAt(0);
-}
+        if (HighlightedTiles.Count > 1)
+        {
+            tm_highlight.SetTile(HighlightedTiles[0], null);
+            HighlightedTiles.RemoveAt(0);
+        }
 
-if (HighlightedTiles.Count > 0)
-{
-    GameManagerScript.instance.highlightedTile = HighlightedTiles[0];
-}
-else
-{
-    GameManagerScript.instance.highlightedTile = new Vector3Int(-500, -500, -500);
-}
+        if (HighlightedTiles.Count > 0)
+        {
+            GameManagerScript.instance.highlightedTile = HighlightedTiles[0];
+        }
+        else
+        {
+            GameManagerScript.instance.highlightedTile = new Vector3Int(-500, -500, -500);
+        }
     }
 }

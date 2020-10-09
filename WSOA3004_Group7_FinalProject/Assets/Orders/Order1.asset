@@ -17,6 +17,7 @@ MonoBehaviour:
     I would like: 9 x Turnips 4 x Lettuce 4 x Watermelon 1 x carrot 1 x potato  The
     dinner is in 4 days! I''ll be sure to tell them where it''s all from.  Kindest
     regards Maya Wolff'
+  TotalFunds: 0
   DaysAllocated: 4
   TurnipNeeded: 9
   PeachNeeded: 0
@@ -32,7 +33,7 @@ MonoBehaviour:
   LettuceAmount: 0
   TimeLimit: 4
   DaysPassed: 3
-  Reward: 0
+  Reward: 389
   Accepted: 1
   Completed: 0
   Delivered: 0

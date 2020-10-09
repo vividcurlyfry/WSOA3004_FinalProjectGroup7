@@ -7,6 +7,7 @@ using UnityEngine;
 public class Order : ScriptableObject
 {
     public string OrderText;
+    public int TotalFunds;
     public int DaysAllocated;
 
     public int TurnipNeeded;

@@ -59,6 +59,11 @@ public class GameManagerScript : MonoBehaviour
 
     public GameObject cross;
     public GameObject tick;
+    public GameObject line;
+
+    public GameObject orderDescription;
+
+    public Text DaysOrderLeft;
 
     private void Awake()
     {
@@ -77,6 +82,7 @@ public class GameManagerScript : MonoBehaviour
         isRaining = gameObject.GetComponent<LivelinessEffects>().Raining;
         NearBed = false;
         sleepConfirmCanvas.SetActive(false);
+        orderDescription.SetActive(false);
         if (PlayerPrefs.GetString("DayOneDone") != "true")
         {
             DayOne();
@@ -218,11 +224,14 @@ public class GameManagerScript : MonoBehaviour
 
         if (order1.Accepted) 
         {
-           // noteBookText.text = order1.OrderText;
+            // noteBookText.text = order1.OrderText;
+            orderDescription.SetActive(true);
+
         }
         else
         {
             noteBookText.text = "Hmmm... I don't seem to have any orders to complete today.";
+            orderDescription.SetActive(false);
         }
 
         if (order1.Accepted)
@@ -237,17 +246,23 @@ public class GameManagerScript : MonoBehaviour
                 order1.LettuceAmount = 0;
                 cross.SetActive(true);
                 tick.SetActive(false);
+                line.SetActive(true);
+                DaysOrderLeft.text = "0";
             }
             else if(order1.DaysPassed > order1.DaysAllocated && order1.Completed)
             {
                 jute.SetActive(false);
                 tick.SetActive(true);
                 cross.SetActive(false);
+                line.SetActive(true);
+                DaysOrderLeft.text = "0";
             }
             else
             {
                 tick.SetActive(false);
                 cross.SetActive(false);
+                jute.SetActive(true);
+                DaysOrderLeft.text = (order1.DaysAllocated - order1.DaysPassed).ToString();
             }
         }
         else
@@ -261,6 +276,7 @@ public class GameManagerScript : MonoBehaviour
         {
             jute.SetActive(false);
             juteClosed.SetActive(false);
+            line.SetActive(true);
             tick.SetActive(true);
         }
 
@@ -414,6 +430,7 @@ public class GameManagerScript : MonoBehaviour
         sv.SetActive(true);
         order1.Accepted = false;
         order1.Delivered = false;
+        order1.TotalFunds = 250;
         for (int a = 0; a < Inventory.inven.Length; a++)
         {
             if ((Inventory.inven[a].ItemName != "Hoe") && (Inventory.inven[a].ItemName != "WateringCan") && (Inventory.inven[a].ItemName != "Scythe")) //&& (Inventory.inven[a].ItemName != "Shovel"))
@@ -475,6 +492,7 @@ public class GameManagerScript : MonoBehaviour
     public void EndDay()
     {
         DaysPlayed++;
+        order1.TotalFunds = Funds;
         if (order1.Accepted)
         {
             order1.DaysPassed++;
@@ -552,8 +570,17 @@ public class GameManagerScript : MonoBehaviour
                 PotatoSeed.DaysGrown[a]++;
             }
         }
+
         SaveGame();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        if (order1.Completed && !order1.Delivered)
+        {
+            SceneManager.LoadScene("DayOver");
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     public void SaveGame()

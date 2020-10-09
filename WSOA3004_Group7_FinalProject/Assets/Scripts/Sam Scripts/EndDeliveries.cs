@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EndDeliveries : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class EndDeliveries : MonoBehaviour
     private void Start()
     {
         //order.text = //something from amy
+        money.text = (thisOrder.TotalFunds - thisOrder.Reward).ToString(); 
     }
 
     // Update is called once per frame
@@ -25,9 +27,15 @@ public class EndDeliveries : MonoBehaviour
             deliveryPanel.SetActive(true);
         }
 
-        if(truck.transform.position.x > 4)
+        if(truck.transform.position.x > 8)
         {
-            // money.text = (thisOrder.Reward + //currentTotal).ToString();
+             money.text = thisOrder.TotalFunds.ToString();
         }
+    }
+
+    public void LoadGameScene()
+    {
+        thisOrder.Delivered = true;
+        SceneManager.LoadScene("GameScene");
     }
 }

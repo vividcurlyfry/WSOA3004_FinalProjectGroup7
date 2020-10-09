@@ -17,7 +17,7 @@ public class Dialogue : MonoBehaviour
     void Start()
     {
         conversations = new Queue<string>();
-        //today = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().Today;
+       // today = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().DaysPlayed;
     }
 
     public void StartDialogue(DialogueObject D)
