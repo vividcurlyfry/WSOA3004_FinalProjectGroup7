@@ -11,7 +11,7 @@ public class DeliveryScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        orderText.text = GameManagerScript.instance.order1.OrderText;
+       // orderText.text = GameManagerScript.instance.order1.OrderText;
         DisplayOrder[0].GetComponentInChildren<Text>().text = GameManagerScript.instance.order1.LettuceAmount + "/" + GameManagerScript.instance.order1.LettuceNeeded.ToString();
         DisplayOrder[1].GetComponentInChildren<Text>().text = GameManagerScript.instance.order1.PotatoAmount + "/" + GameManagerScript.instance.order1.PotatoNeeded.ToString();
         DisplayOrder[2].GetComponentInChildren<Text>().text = GameManagerScript.instance.order1.TurnipAmount + "/" + GameManagerScript.instance.order1.TurnipNeeded.ToString();

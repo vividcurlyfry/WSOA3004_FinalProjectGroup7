@@ -218,7 +218,7 @@ public class GameManagerScript : MonoBehaviour
 
         if (order1.Accepted) 
         {
-            noteBookText.text = order1.OrderText;
+           // noteBookText.text = order1.OrderText;
         }
         else
         {

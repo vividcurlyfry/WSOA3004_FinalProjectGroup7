@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433366446b9c14b418ae840a95d309f2, type: 3}
   m_Name: Order1
   m_EditorClassIdentifier: 
-  OrderText: Bob wants some shit bro.
+  OrderText: 'Hey neighbour!  I''m planning a little birthday dinner for my son,
+    Charlie. It would be amazing to share some farm-fresh produce with our guests. 
+    I would like: 9 x Turnips 4 x Lettuce 4 x Watermelon 1 x carrot 1 x potato  The
+    dinner is in 4 days! I''ll be sure to tell them where it''s all from.  Kindest
+    regards Maya Wolff'
   DaysAllocated: 4
   TurnipNeeded: 9
   PeachNeeded: 0
@@ -27,7 +31,8 @@ MonoBehaviour:
   PotatoAmount: 0
   LettuceAmount: 0
   TimeLimit: 4
-  DaysPassed: 2
+  DaysPassed: 3
   Reward: 0
   Accepted: 1
   Completed: 0
+  Delivered: 0

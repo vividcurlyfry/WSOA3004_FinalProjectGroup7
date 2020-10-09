@@ -10,8 +10,8 @@ public class TruckMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startPosition = new Vector3(-16, -0.75f, 1);
-        endPosition = new Vector3(16, -0.75f, 1);
+        startPosition = new Vector3(-18, -1.31f, 1);
+        endPosition = new Vector3(18, -1.31f, 1);
         this.transform.position = startPosition;
     }
 
