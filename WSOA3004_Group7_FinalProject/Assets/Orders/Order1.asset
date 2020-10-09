@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Order1
   m_EditorClassIdentifier: 
   OrderText: Bob wants some shit bro.
+  DaysAllocated: 4
   TurnipNeeded: 9
   PeachNeeded: 0
   WatermelonNeeded: 4
@@ -26,4 +27,7 @@ MonoBehaviour:
   PotatoAmount: 0
   LettuceAmount: 0
   TimeLimit: 4
-  DaysPassed: 0
+  DaysPassed: 2
+  Reward: 0
+  Accepted: 1
+  Completed: 0

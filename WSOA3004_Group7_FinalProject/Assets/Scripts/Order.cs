@@ -7,6 +7,7 @@ using UnityEngine;
 public class Order : ScriptableObject
 {
     public string OrderText;
+    public int DaysAllocated;
 
     public int TurnipNeeded;
     public int PeachNeeded;
@@ -28,4 +29,6 @@ public class Order : ScriptableObject
 
     public bool Accepted;
     public bool Completed;
+
+    public bool Delivered;
 }

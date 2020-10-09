@@ -57,6 +57,9 @@ public class GameManagerScript : MonoBehaviour
 
     public GameObject sleepConfirmCanvas;
 
+    public GameObject cross;
+    public GameObject tick;
+
     private void Awake()
     {
         if (instance == null)
@@ -222,6 +225,45 @@ public class GameManagerScript : MonoBehaviour
             noteBookText.text = "Hmmm... I don't seem to have any orders to complete today.";
         }
 
+        if (order1.Accepted)
+        {
+            if(order1.DaysPassed > order1.DaysAllocated && !order1.Completed)
+            {
+                jute.SetActive(false);
+                order1.CarrotAmount = 0;
+                order1.TurnipAmount = 0;
+                order1.WatermelonAmount = 0;
+                order1.PotatoAmount = 0;
+                order1.LettuceAmount = 0;
+                cross.SetActive(true);
+                tick.SetActive(false);
+            }
+            else if(order1.DaysPassed > order1.DaysAllocated && order1.Completed)
+            {
+                jute.SetActive(false);
+                tick.SetActive(true);
+                cross.SetActive(false);
+            }
+            else
+            {
+                tick.SetActive(false);
+                cross.SetActive(false);
+            }
+        }
+        else
+        {
+            tick.SetActive(false);
+            cross.SetActive(false);
+            jute.SetActive(false);
+        }
+
+        if (order1.Completed)
+        {
+            jute.SetActive(false);
+            juteClosed.SetActive(false);
+            tick.SetActive(true);
+        }
+
         juteClosed.SetActive(false);
         DisplayInvenFunc();
     }
@@ -363,12 +405,15 @@ public class GameManagerScript : MonoBehaviour
         order1.TurnipAmount = 0;
         order1.WatermelonAmount = 0;
         order1.DaysPassed = 0;
+        order1.Completed = false;
+        order1.Accepted = false;
         PosInven = 0;
         jute.gameObject.SetActive(false);
         MoreAcceptedOrders = true;
         noteBookText.text = "Hmmm... I don't seem to have any orders to complete today.";
         sv.SetActive(true);
         order1.Accepted = false;
+        order1.Delivered = false;
         for (int a = 0; a < Inventory.inven.Length; a++)
         {
             if ((Inventory.inven[a].ItemName != "Hoe") && (Inventory.inven[a].ItemName != "WateringCan") && (Inventory.inven[a].ItemName != "Scythe")) //&& (Inventory.inven[a].ItemName != "Shovel"))
@@ -430,6 +475,10 @@ public class GameManagerScript : MonoBehaviour
     public void EndDay()
     {
         DaysPlayed++;
+        if (order1.Accepted)
+        {
+            order1.DaysPassed++;
+        }
         for (int a = 0; a < LettuceSeed.PlantedLocations.Count; a++)
         {
             if (WateringCan.TooledLocations.Contains(LettuceSeed.PlantedLocations[a]) || isRaining)
@@ -518,6 +567,7 @@ public class GameManagerScript : MonoBehaviour
         Funds = data.Funds;
         DaysPlayed = data.DaysPlayed;
         InventorySave = data.InventorySave;
+        MoreAcceptedOrders = data.MoreAcceptedOrders;
         for(int a = 0; a < Hoe.TooledLocations.Count; a++)
         {
             tm_base.SetTile(Hoe.TooledLocations[a], Hoe.groundAfterToolTile);

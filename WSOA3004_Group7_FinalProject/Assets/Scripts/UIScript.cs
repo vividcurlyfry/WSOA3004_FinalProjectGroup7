@@ -17,6 +17,7 @@ public class UIScript : MonoBehaviour
     {
         ShopCanvas.gameObject.SetActive(false);
         Delivery.gameObject.SetActive(false);
+        OrderCanvas.gameObject.SetActive(false);
     }
 
     private void Update()
