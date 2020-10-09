@@ -9,7 +9,20 @@ public class NPCMouseClick : MonoBehaviour
     private bool next = true;
 
     public GameObject ShopUI;
-    
+    public GameObject Bed;
+
+    private void Update()
+    {
+        if (this.transform.position == new Vector3(17.69f, 15, -1))
+        {
+            Bed.SetActive(false);
+        }
+        else
+        {
+            Bed.SetActive(true);
+        }
+    }
+
     private void OnMouseDown()
     {
         startTime = Time.time;

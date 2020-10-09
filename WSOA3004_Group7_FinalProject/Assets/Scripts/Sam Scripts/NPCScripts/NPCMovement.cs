@@ -16,7 +16,7 @@ public class NPCMovement : MonoBehaviour
     private float pause = 0, setPause, t = 0;
     [SerializeField]
     private bool isPaused = false, dayOver = false, goHome = false, returnFromIdleTalk = false;
-    private int today = 1;
+    private int today = 0;
 
     private void Start()
     {
@@ -27,8 +27,9 @@ public class NPCMovement : MonoBehaviour
 
         home = new Vector3(17.69f, 16f, -1);
         middle = new Vector3(3.5f, 7, -1);
-        
-        //today = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().Today; //Amy needs to add this connection
+
+        today = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().DaysPlayed;
+        print(today);
         isRaining = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LivelinessEffects>().Raining;
 
         //these times work for 15 minute day //update if day time changes
@@ -36,17 +37,17 @@ public class NPCMovement : MonoBehaviour
         {
             setPause = 225;
         }
-        else if (today == 1)
+        else if ((today == 0)|| (today == 3))
         {
             setPause = 2;
         }
-        else if (today == 2)
+        else if (today == 1)
         {
             setPause = 4;
         }
-        else if (today == 3)
+        else if (today == 2)
         {
-            setPause = 5;//225;
+            setPause = 225;
         }
     }
 

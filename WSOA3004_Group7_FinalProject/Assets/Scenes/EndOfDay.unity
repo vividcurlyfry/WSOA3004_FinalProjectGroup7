@@ -377,7 +377,6 @@ GameObject:
   m_Component:
   - component: {fileID: 601984725}
   - component: {fileID: 601984724}
-  - component: {fileID: 601984726}
   m_Layer: 0
   m_Name: demiidle_6
   m_TagString: Untagged
@@ -450,20 +449,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -11.073}
---- !u!114 &601984726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601984723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4dc3e1952d44274d9d9c227fe928c06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MenuPanel: {fileID: 0}
-  ShopCanvas: {fileID: 0}
 --- !u!1 &909699548
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,7 +531,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 601984726}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIScript, Assembly-CSharp
         m_MethodName: OnClickQuit
         m_Mode: 1
@@ -1158,7 +1143,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -END OF ALPHA-
+  m_Text: -END OF BETA-
 --- !u!222 &2134322664
 CanvasRenderer:
   m_ObjectHideFlags: 0

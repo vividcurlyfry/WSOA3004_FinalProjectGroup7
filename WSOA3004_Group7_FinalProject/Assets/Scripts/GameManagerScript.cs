@@ -79,6 +79,8 @@ public class GameManagerScript : MonoBehaviour
 
     public void Start()
     {
+        
+
         isRaining = gameObject.GetComponent<LivelinessEffects>().Raining;
         NearBed = false;
         sleepConfirmCanvas.SetActive(false);
@@ -298,6 +300,11 @@ public class GameManagerScript : MonoBehaviour
                 PosInven = -6;
                 TabFunc();
             }
+        }
+
+        if (DaysPlayed > 3)
+        {
+            SceneManager.LoadScene("EndOfDay");
         }
     }
 

@@ -9,7 +9,7 @@ public class NPCPath : MonoBehaviour
 
     private Vector3 _FirstPos, _SecondPos, _ThirdPos;
 
-    private int today = 1;
+    private int today = 0;
 
     ////////////// NOTE ////////////////
     //Day 1: Hanging on the farm
@@ -20,7 +20,7 @@ public class NPCPath : MonoBehaviour
 
     private void Start()
     {
-        //today = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().Today; //Amy needs to add this connection
+        today = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().DaysPlayed;
         isRaining = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LivelinessEffects>().Raining;
         if (isRaining)
         {
@@ -28,23 +28,23 @@ public class NPCPath : MonoBehaviour
             _SecondPos = new Vector3(4f, 15f, -1);
             _ThirdPos = new Vector3(17.69f, 16f, -1);
         }
-        else if (today == 1)
+        else if ((today == 0)||(today == 3))
         {
-            _FirstPos = new Vector3(17.69f, 15, -1);
+            _FirstPos = new Vector3(21f, 15, -1);
             _SecondPos = new Vector3(0, 15, -1);
             _ThirdPos = new Vector3(4f, 15f, -1);
         }
-        else if (today == 2)
+        else if (today == 1)
         {
             _FirstPos = new Vector3(4f, 2, -1);
             _SecondPos = new Vector3(2, -15, -1);
             _ThirdPos = new Vector3(3.5f, -16, -1);
         }
-        else if (today == 3)
+        else if (today == 2)
         {
             _FirstPos = new Vector3(24, 7, -1);
             _SecondPos = new Vector3(50, 7, -1);
-            _ThirdPos = new Vector3(5.5f, 15.5f, -1);
+            _ThirdPos = new Vector3(8f, 15f, -1);
         }
     }
 
