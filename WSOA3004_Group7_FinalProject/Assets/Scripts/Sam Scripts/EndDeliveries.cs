@@ -36,6 +36,7 @@ public class EndDeliveries : MonoBehaviour
     public void LoadGameScene()
     {
         thisOrder.Delivered = true;
-        SceneManager.LoadScene("GameScene");
+        //SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("EndOfDay");
     }
 }

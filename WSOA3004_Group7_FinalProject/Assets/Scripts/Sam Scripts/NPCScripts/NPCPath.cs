@@ -34,13 +34,13 @@ public class NPCPath : MonoBehaviour
             _SecondPos = new Vector3(0, 15, -1);
             _ThirdPos = new Vector3(4f, 15f, -1);
         }
-        else if (today == 1)
+        else if ((today == 1)|| (today == 4))
         {
             _FirstPos = new Vector3(4f, 2, -1);
             _SecondPos = new Vector3(2, -15, -1);
             _ThirdPos = new Vector3(3.5f, -16, -1);
         }
-        else if (today == 2)
+        else if ((today == 2)|| (today == 4))
         {
             _FirstPos = new Vector3(24, 7, -1);
             _SecondPos = new Vector3(50, 7, -1);

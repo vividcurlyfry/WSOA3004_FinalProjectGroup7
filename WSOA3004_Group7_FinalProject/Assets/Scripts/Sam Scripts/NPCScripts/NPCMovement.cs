@@ -41,11 +41,11 @@ public class NPCMovement : MonoBehaviour
         {
             setPause = 2;
         }
-        else if (today == 1)
+        else if ((today == 1)|| (today == 4))
         {
             setPause = 4;
         }
-        else if (today == 2)
+        else if ((today == 2)|| (today == 5))
         {
             setPause = 225;
         }

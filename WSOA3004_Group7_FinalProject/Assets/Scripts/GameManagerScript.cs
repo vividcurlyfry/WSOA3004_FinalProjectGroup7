@@ -302,7 +302,7 @@ public class GameManagerScript : MonoBehaviour
             }
         }
 
-        if (DaysPlayed > 3)
+        if (DaysPlayed > 5)
         {
             SceneManager.LoadScene("EndOfDay");
         }
