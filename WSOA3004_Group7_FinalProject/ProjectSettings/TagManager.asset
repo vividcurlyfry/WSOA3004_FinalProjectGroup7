@@ -9,6 +9,7 @@ TagManager:
   - Dialogue
   - DaylightChanger
   - NPCPath
+  - slot
   layers:
   - Default
   - TransparentFX

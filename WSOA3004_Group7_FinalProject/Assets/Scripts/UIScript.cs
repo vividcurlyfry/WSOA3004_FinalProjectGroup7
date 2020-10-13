@@ -97,7 +97,7 @@ public class UIScript : MonoBehaviour
 
     public void OnClickSaveSlots()
     {
-        //open save slots screen //not made yet
+        SceneManager.LoadScene("SaveSlots");
     }
 
     //quits game

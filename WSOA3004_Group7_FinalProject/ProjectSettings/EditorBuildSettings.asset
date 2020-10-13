@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/SaveSlots.unity
+    guid: 67c3f442263a7e2468b0d858f08e6a6d
+  - enabled: 1
     path: Assets/Scenes/Intro 1.unity
     guid: 6cb76cbd103eb0341ae3c0be2fd8214f
   - enabled: 1

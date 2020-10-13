@@ -75,17 +75,25 @@ public class GameManagerScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    public void Start()
-    {
-        
 
         isRaining = gameObject.GetComponent<LivelinessEffects>().Raining;
         NearBed = false;
         sleepConfirmCanvas.SetActive(false);
         orderDescription.SetActive(false);
-        if (PlayerPrefs.GetString("DayOneDone") != "true")
+
+        if (Slot.instance.ActiveSlot == 1 && (PlayerPrefs.GetString("DayOnePlayedSlotOne?") != "yes"))
+        { 
+            DayOne();
+        }
+        else if (Slot.instance.ActiveSlot == 2 && (PlayerPrefs.GetString("DayOnePlayedSlotTwo?") != "yes"))
+        {
+            DayOne();
+        }
+        else if (Slot.instance.ActiveSlot == 3 && (PlayerPrefs.GetString("DayOnePlayedSlotThree?") != "yes"))
+        {
+            DayOne();
+        }
+        else if (Slot.instance.ActiveSlot == 4 && (PlayerPrefs.GetString("DayOnePlayedSlotFour?") != "yes"))
         {
             DayOne();
         }
@@ -106,7 +114,7 @@ public class GameManagerScript : MonoBehaviour
                         LettuceSeed.Watered[a] = false;
                     }
 
-                   if (LettuceSeed.DaysGrown[a] <= LettuceSeed.DaysToGrow)
+                    if (LettuceSeed.DaysGrown[a] <= LettuceSeed.DaysToGrow)
                     {
                         tm_base.SetTile(LettuceSeed.PlantedLocations[a], LettuceSeed.GrowingTiles[LettuceSeed.DaysGrown[a]]);
                     }
@@ -215,7 +223,7 @@ public class GameManagerScript : MonoBehaviour
             }
         }
 
-        if(MoreAcceptedOrders == true)
+        if (MoreAcceptedOrders == true)
         {
             orderNotification.SetActive(true);
         }
@@ -224,7 +232,7 @@ public class GameManagerScript : MonoBehaviour
             orderNotification.SetActive(false);
         }
 
-        if (order1.Accepted) 
+        if (order1.Accepted)
         {
             // noteBookText.text = order1.OrderText;
             orderDescription.SetActive(true);
@@ -238,7 +246,7 @@ public class GameManagerScript : MonoBehaviour
 
         if (order1.Accepted)
         {
-            if(order1.DaysPassed > order1.DaysAllocated && !order1.Completed)
+            if (order1.DaysPassed > order1.DaysAllocated && !order1.Completed)
             {
                 jute.SetActive(false);
                 order1.CarrotAmount = 0;
@@ -251,7 +259,7 @@ public class GameManagerScript : MonoBehaviour
                 line.SetActive(true);
                 DaysOrderLeft.text = "0";
             }
-            else if(order1.DaysPassed > order1.DaysAllocated && order1.Completed)
+            else if (order1.DaysPassed > order1.DaysAllocated && order1.Completed)
             {
                 jute.SetActive(false);
                 tick.SetActive(true);
@@ -288,23 +296,18 @@ public class GameManagerScript : MonoBehaviour
 
     private void Update()
     {
-              
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if ((PosInven + 6) < Inventory.inven.Length)
             {
-                TabFunc();   
+                TabFunc();
             }
             else if (PosInven + 6 >= Inventory.inven.Length)
             {
                 PosInven = -6;
                 TabFunc();
             }
-        }
-
-        if (DaysPlayed > 5)
-        {
-            SceneManager.LoadScene("EndOfDay");
         }
     }
 
@@ -449,8 +452,6 @@ public class GameManagerScript : MonoBehaviour
                 Inventory.inven[a].ItemNumber = 1;
             }
         }
-        SaveGame();
-        PlayerPrefs.SetString("DayOneDone", "true");
     }
 
     public void SelectObj(RectTransform posButton)
@@ -474,7 +475,7 @@ public class GameManagerScript : MonoBehaviour
     public void LoadInven()
     {
         InventorySave = new int[Inventory.inven.Length];
-        for(int a = 0; a < Inventory.inven.Length; a++)
+        for (int a = 0; a < Inventory.inven.Length; a++)
         {
             InventorySave[a] = Inventory.inven[a].ItemNumber;
         }
@@ -510,7 +511,7 @@ public class GameManagerScript : MonoBehaviour
             {
                 LettuceSeed.Watered[a] = true;
             }
-            if(LettuceSeed.Watered[a] == true)
+            if (LettuceSeed.Watered[a] == true)
             {
                 LettuceSeed.DaysGrown[a]++;
             }
@@ -580,6 +581,23 @@ public class GameManagerScript : MonoBehaviour
 
         SaveGame();
 
+        if (Slot.instance.ActiveSlot == 1)
+        {
+            PlayerPrefs.SetString("DayOnePlayedSlotOne?", "yes");
+        }
+        else if (Slot.instance.ActiveSlot == 2)
+        {
+            PlayerPrefs.SetString("DayOnePlayedSlotTwo?", "yes");
+        }
+        else if (Slot.instance.ActiveSlot == 3)
+        {
+            PlayerPrefs.SetString("DayOnePlayedSlotThree?", "yes");
+        }
+        else if (Slot.instance.ActiveSlot == 4)
+        {
+            PlayerPrefs.SetString("DayOnePlayedSlotFour?", "yes");
+        }
+
         if (order1.Completed && !order1.Delivered)
         {
             SceneManager.LoadScene("DayOver");
@@ -592,21 +610,84 @@ public class GameManagerScript : MonoBehaviour
 
     public void SaveGame()
     {
-        GameManagerSaveScript.SaveGame(this);
+        if (Slot.instance.ActiveSlot == 1)
+        {
+            GameManagerSaveScript.SaveGameSlotOne(this);
+        }
+        else if (Slot.instance.ActiveSlot == 2)
+        {
+            GameManagerSaveScript.SaveGameSlotTwo(this);
+        }
+        else if (Slot.instance.ActiveSlot == 3)
+        {
+            GameManagerSaveScript.SaveGameSlotOne(this);
+        }
+        else if (Slot.instance.ActiveSlot == 4)
+        {
+            GameManagerSaveScript.SaveGameSlotOne(this);
+        }
     }
 
     public void LoadGame()
     {
-        GameManagerSaveData data = GameManagerSaveScript.LoadGame();
-        Funds = data.Funds;
-        DaysPlayed = data.DaysPlayed;
-        InventorySave = data.InventorySave;
-        MoreAcceptedOrders = data.MoreAcceptedOrders;
-        for(int a = 0; a < Hoe.TooledLocations.Count; a++)
+        if (Slot.instance.ActiveSlot == 1)
         {
-            tm_base.SetTile(Hoe.TooledLocations[a], Hoe.groundAfterToolTile);
+            GameManagerSaveData data = GameManagerSaveScript.LoadGameSlotOne();
+            Funds = data.Funds;
+            DaysPlayed = data.DaysPlayed;
+            InventorySave = data.InventorySave;
+            MoreAcceptedOrders = data.MoreAcceptedOrders;
+            for (int a = 0; a < Hoe.TooledLocations.Count; a++)
+            {
+                tm_base.SetTile(Hoe.TooledLocations[a], Hoe.groundAfterToolTile);
+            }
+            LoadInven();
+            FundsText.text = Funds.ToString();
         }
-        LoadInven();
-        FundsText.text = Funds.ToString();
+
+        else if (Slot.instance.ActiveSlot == 2)
+        {
+            GameManagerSaveData data = GameManagerSaveScript.LoadGameSlotTwo();
+            Funds = data.Funds;
+            DaysPlayed = data.DaysPlayed;
+            InventorySave = data.InventorySave;
+            MoreAcceptedOrders = data.MoreAcceptedOrders;
+            for (int a = 0; a < Hoe.TooledLocations.Count; a++)
+            {
+                tm_base.SetTile(Hoe.TooledLocations[a], Hoe.groundAfterToolTile);
+            }
+            LoadInven();
+            FundsText.text = Funds.ToString();
+        }
+
+        else if (Slot.instance.ActiveSlot == 3)
+        {
+            GameManagerSaveData data = GameManagerSaveScript.LoadGameSlotThree();
+            Funds = data.Funds;
+            DaysPlayed = data.DaysPlayed;
+            InventorySave = data.InventorySave;
+            MoreAcceptedOrders = data.MoreAcceptedOrders;
+            for (int a = 0; a < Hoe.TooledLocations.Count; a++)
+            {
+                tm_base.SetTile(Hoe.TooledLocations[a], Hoe.groundAfterToolTile);
+            }
+            LoadInven();
+            FundsText.text = Funds.ToString();
+        }
+
+        else if (Slot.instance.ActiveSlot == 4)
+        {
+            GameManagerSaveData data = GameManagerSaveScript.LoadGameSlotFour();
+            Funds = data.Funds;
+            DaysPlayed = data.DaysPlayed;
+            InventorySave = data.InventorySave;
+            MoreAcceptedOrders = data.MoreAcceptedOrders;
+            for (int a = 0; a < Hoe.TooledLocations.Count; a++)
+            {
+                tm_base.SetTile(Hoe.TooledLocations[a], Hoe.groundAfterToolTile);
+            }
+            LoadInven();
+            FundsText.text = Funds.ToString();
+        }
     }
 }
