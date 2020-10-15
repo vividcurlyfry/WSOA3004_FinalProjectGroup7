@@ -134,6 +134,7 @@ public class DeliveryScript : MonoBehaviour
                 GameManagerScript.instance.juteClosed.SetActive(true);
                 GameManagerScript.instance.order1.Completed = true;
                 GameManagerScript.instance.Funds += GameManagerScript.instance.order1.Reward;
+                GameManagerScript.instance.order1.TotalFunds += GameManagerScript.instance.order1.Reward;
                 GameManagerScript.instance.noteBookText.text = "Hmmm... I don't seem to have any orders to complete today.";
                 GameManagerScript.instance.orderDescription.SetActive(false);
             }

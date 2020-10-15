@@ -16,7 +16,8 @@ public class EndDeliveries : MonoBehaviour
     private void Start()
     {
         //order.text = //something from amy
-        money.text = (thisOrder.TotalFunds - thisOrder.Reward).ToString(); 
+        money.text = (thisOrder.TotalFunds - thisOrder.Reward).ToString();
+        thisOrder.Delivered = true;
     }
 
     // Update is called once per frame
@@ -35,8 +36,7 @@ public class EndDeliveries : MonoBehaviour
 
     public void LoadGameScene()
     {
-        thisOrder.Delivered = true;
-        //SceneManager.LoadScene("GameScene");
-        SceneManager.LoadScene("EndOfDay");
+        SceneManager.LoadScene("GameScene");
+       //SceneManager.LoadScene("EndOfDay");
     }
 }

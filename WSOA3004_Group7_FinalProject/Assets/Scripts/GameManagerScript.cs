@@ -75,14 +75,17 @@ public class GameManagerScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
 
+    private void Start()
+    {
         isRaining = gameObject.GetComponent<LivelinessEffects>().Raining;
         NearBed = false;
         sleepConfirmCanvas.SetActive(false);
         orderDescription.SetActive(false);
 
         if (Slot.instance.ActiveSlot == 1 && (PlayerPrefs.GetString("DayOnePlayedSlotOne?") != "yes"))
-        { 
+        {
             DayOne();
         }
         else if (Slot.instance.ActiveSlot == 2 && (PlayerPrefs.GetString("DayOnePlayedSlotTwo?") != "yes"))
@@ -282,12 +285,19 @@ public class GameManagerScript : MonoBehaviour
             jute.SetActive(false);
         }
 
-        if (order1.Completed)
+        if (order1.Completed && order1.Delivered)
         {
             jute.SetActive(false);
             juteClosed.SetActive(false);
             line.SetActive(true);
             tick.SetActive(true);
+        }
+        else if (order1.Completed && !order1.Delivered)
+        {
+            jute.SetActive(false);
+            juteClosed.SetActive(true);
+            line.SetActive(false);
+            tick.SetActive(false);
         }
 
         juteClosed.SetActive(false);
@@ -620,11 +630,11 @@ public class GameManagerScript : MonoBehaviour
         }
         else if (Slot.instance.ActiveSlot == 3)
         {
-            GameManagerSaveScript.SaveGameSlotOne(this);
+            GameManagerSaveScript.SaveGameSlotThree(this);
         }
         else if (Slot.instance.ActiveSlot == 4)
         {
-            GameManagerSaveScript.SaveGameSlotOne(this);
+            GameManagerSaveScript.SaveGameSlotFour(this);
         }
     }
 
