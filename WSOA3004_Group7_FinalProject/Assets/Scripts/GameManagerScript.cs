@@ -242,6 +242,7 @@ public class GameManagerScript : MonoBehaviour
         {
             orderDescription.SetActive(true);
             NoOrders.SetActive(true);
+            orderNameText.text = order1.name;
             if (order1.DaysPassed > order1.DaysAllocated && !order1.Completed)
             {
                 jute.SetActive(false);
