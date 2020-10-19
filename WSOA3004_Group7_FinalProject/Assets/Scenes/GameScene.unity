@@ -15547,8 +15547,10 @@ MonoBehaviour:
   tm_water: {fileID: 786270580}
   Watered: {fileID: 11400000, guid: 9587b17375d1d4947815d42406ac943e, type: 2}
   MoreAcceptedOrders: 0
-  noteBookText: {fileID: 1408630553}
+  orderNameText: {fileID: 0}
   orderNotification: {fileID: 1636844075}
+  orderStory: {fileID: 510139079}
+  NoOrders: {fileID: 605225842}
   sleepConfirmCanvas: {fileID: 1331099471}
   cross: {fileID: 1214311884}
   tick: {fileID: 807942753}
@@ -16877,7 +16879,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 887615321}
   m_Direction: 0
   m_Value: 1.0000092
-  m_Size: 0.99475646
+  m_Size: 0.9947358
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -21377,7 +21379,7 @@ RectTransform:
   m_Children:
   - {fileID: 686319435}
   m_Father: {fileID: 462633321}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -27.227}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -23750,6 +23752,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1408630552}
   - {fileID: 926246803}
   - {fileID: 1849049462}
   - {fileID: 1127188207}
@@ -23759,7 +23762,7 @@ RectTransform:
   - {fileID: 856728020}
   - {fileID: 673330460}
   m_Father: {fileID: 1865732485}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -28972,7 +28975,7 @@ GameObject:
   - component: {fileID: 510139080}
   - component: {fileID: 510139079}
   m_Layer: 5
-  m_Name: OrderDescription
+  m_Name: OrderStory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29030,37 +29033,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Hey neighbour!
-
-
-    I''m planning a little birthday dinner for my son,
-    Charlie. It would be amazing to share some farm-fresh produce with our guests.
-
-
-    I
-    would like:
-
-    9 x Turnips
-
-    4 x Lettuce
-
-    4 x Watermelon
-
-    1 x carrot
-
-    1
-    x potato
-
-
-    The dinner is in 4 days!
-
-    I''ll be sure to tell them where
-    it''s all from.
-
-
-    Kindest regards
-
-    Maya Wolff'
+  m_Text: 
 --- !u!222 &510139080
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31221,6 +31194,85 @@ MonoBehaviour:
   numItem: {fileID: 1356365881}
   totalPrice: {fileID: 1378083597}
   Price: 10
+--- !u!1 &605225842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 605225843}
+  - component: {fileID: 605225845}
+  - component: {fileID: 605225844}
+  m_Layer: 5
+  m_Name: NoOrders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &605225843
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605225842}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1865732485}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 95, y: -326}
+  m_SizeDelta: {x: 1203.9409, y: 581.5918}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &605225844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605225842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.39607847, g: 0.24313727, b: 0.28627452, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 97b8953c020bfa54096c2a6e20f3ccd1, type: 3}
+    m_FontSize: 60
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 100
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: ' Hmmm... I don''t seem to have any orders to complete today.'
+--- !u!222 &605225845
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605225842}
+  m_CullTransparentMesh: 0
 --- !u!1 &607647183
 GameObject:
   m_ObjectHideFlags: 0
@@ -32536,7 +32588,7 @@ RectTransform:
   - {fileID: 168010387}
   - {fileID: 1830677182}
   m_Father: {fileID: 462633321}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -34209,7 +34261,7 @@ RectTransform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 462633321}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -88670,11 +88722,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807942753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 649, y: 280, z: -9612}
+  m_LocalPosition: {x: 521.00006, y: -46.00003, z: -9612}
   m_LocalScale: {x: 38.474705, y: 41.491528, z: 44.62236}
   m_Children: []
-  m_Father: {fileID: 1408630552}
-  m_RootOrder: 1
+  m_Father: {fileID: 1865732485}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &807942755
 SpriteRenderer:
@@ -90084,7 +90136,7 @@ GameObject:
   - component: {fileID: 856728022}
   - component: {fileID: 856728021}
   m_Layer: 5
-  m_Name: OrderText (1)
+  m_Name: DaysLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90105,7 +90157,7 @@ RectTransform:
   - {fileID: 1860649138}
   - {fileID: 2028164354}
   m_Father: {fileID: 462633321}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -90683,7 +90735,7 @@ RectTransform:
   m_Father: {fileID: 545764351}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.00524354, y: 0}
+  m_AnchorMin: {x: 0.0052642226, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -91093,7 +91145,7 @@ RectTransform:
   m_Children:
   - {fileID: 180603335}
   m_Father: {fileID: 462633321}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -93156,7 +93208,7 @@ RectTransform:
   m_Children:
   - {fileID: 1504675577}
   m_Father: {fileID: 462633321}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -94978,11 +95030,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214311884}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 649.0001, y: 279.99997, z: -9612}
+  m_LocalPosition: {x: 521.00006, y: -46.00003, z: -9612}
   m_LocalScale: {x: 38.474705, y: 41.491528, z: 44.62236}
   m_Children: []
-  m_Father: {fileID: 1408630552}
-  m_RootOrder: 2
+  m_Father: {fileID: 1865732485}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1214311886
 SpriteRenderer:
@@ -99036,7 +99088,7 @@ GameObject:
   - component: {fileID: 1408630554}
   - component: {fileID: 1408630553}
   m_Layer: 5
-  m_Name: OrderText
+  m_Name: NameOrderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99052,16 +99104,13 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1862999875}
-  - {fileID: 807942754}
-  - {fileID: 1214311885}
-  m_Father: {fileID: 1865732485}
-  m_RootOrder: 2
+  m_Children: []
+  m_Father: {fileID: 462633321}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -128, y: -326}
+  m_AnchoredPosition: {x: -128.00003, y: -294.99994}
   m_SizeDelta: {x: 1203.9409, y: 581.5918}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408630553
@@ -101698,7 +101747,7 @@ RectTransform:
   m_Children:
   - {fileID: 699680671}
   m_Father: {fileID: 462633321}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -104818,7 +104867,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1865732485}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -106038,7 +106087,7 @@ RectTransform:
   m_Children:
   - {fileID: 711017796}
   m_Father: {fileID: 462633321}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -106301,11 +106350,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862999874}
   m_LocalRotation: {x: -0, y: -0, z: -0.097439006, w: 0.9952415}
-  m_LocalPosition: {x: 187, y: 167, z: -9612}
-  m_LocalScale: {x: 58.915367, y: 50.290394, z: 22.456907}
+  m_LocalPosition: {x: 58.99998, y: -159.00002, z: -9612}
+  m_LocalScale: {x: 58.915363, y: 50.290394, z: 22.456907}
   m_Children: []
-  m_Father: {fileID: 1408630552}
-  m_RootOrder: 0
+  m_Father: {fileID: 1865732485}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -11.183}
 --- !u!212 &1862999876
 SpriteRenderer:
@@ -106458,7 +106507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1865732482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106532,7 +106581,10 @@ RectTransform:
   m_Children:
   - {fileID: 1150730222}
   - {fileID: 1102105049}
-  - {fileID: 1408630552}
+  - {fileID: 1862999875}
+  - {fileID: 807942754}
+  - {fileID: 1214311885}
+  - {fileID: 605225843}
   - {fileID: 462633321}
   - {fileID: 1784534873}
   m_Father: {fileID: 0}

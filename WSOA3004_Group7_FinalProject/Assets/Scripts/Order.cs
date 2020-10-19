@@ -6,7 +6,9 @@ using UnityEngine;
 [System.Serializable]
 public class Order : ScriptableObject
 {
+    [TextArea(20, 25)]
     public string OrderText;
+    public string nameOrder;
     public int TotalFunds;
     public int DaysAllocated;
 

@@ -26,7 +26,7 @@ public class DeliveryScript : MonoBehaviour
     {
         GameManagerScript.instance.jute.gameObject.SetActive(true);
         GameManagerScript.instance.MoreAcceptedOrders = false;
-        GameManagerScript.instance.noteBookText.text = "Maya Wolff";
+        GameManagerScript.instance.orderNameText.text = "Maya Wolff";
         GameManagerScript.instance.sv.SetActive(false);
         GameManagerScript.instance.orderDescription.SetActive(true);
         noEmail.SetActive(true);
@@ -135,7 +135,7 @@ public class DeliveryScript : MonoBehaviour
                 GameManagerScript.instance.order1.Completed = true;
                 GameManagerScript.instance.Funds += GameManagerScript.instance.order1.Reward;
                 GameManagerScript.instance.order1.TotalFunds += GameManagerScript.instance.order1.Reward;
-                GameManagerScript.instance.noteBookText.text = "Hmmm... I don't seem to have any orders to complete today.";
+                GameManagerScript.instance.NoOrders.SetActive(true);
                 GameManagerScript.instance.orderDescription.SetActive(false);
             }
         }

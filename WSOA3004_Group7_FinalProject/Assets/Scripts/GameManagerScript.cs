@@ -52,8 +52,10 @@ public class GameManagerScript : MonoBehaviour
 
     public bool MoreAcceptedOrders;
 
-    public Text noteBookText;
+    public Text orderNameText;
     public GameObject orderNotification;
+    public Text orderStory;
+    public GameObject NoOrders;
 
     public GameObject sleepConfirmCanvas;
 
@@ -229,6 +231,7 @@ public class GameManagerScript : MonoBehaviour
         if (MoreAcceptedOrders == true)
         {
             orderNotification.SetActive(true);
+            orderStory.text = order1.OrderText;
         }
         else
         {
@@ -237,18 +240,8 @@ public class GameManagerScript : MonoBehaviour
 
         if (order1.Accepted)
         {
-            // noteBookText.text = order1.OrderText;
             orderDescription.SetActive(true);
-
-        }
-        else
-        {
-            noteBookText.text = "Hmmm... I don't seem to have any orders to complete today.";
-            orderDescription.SetActive(false);
-        }
-
-        if (order1.Accepted)
-        {
+            NoOrders.SetActive(true);
             if (order1.DaysPassed > order1.DaysAllocated && !order1.Completed)
             {
                 jute.SetActive(false);
@@ -283,6 +276,8 @@ public class GameManagerScript : MonoBehaviour
             tick.SetActive(false);
             cross.SetActive(false);
             jute.SetActive(false);
+            NoOrders.SetActive(true);
+            orderDescription.SetActive(false);
         }
 
         if (order1.Completed && order1.Delivered)
@@ -446,7 +441,7 @@ public class GameManagerScript : MonoBehaviour
         PosInven = 0;
         jute.gameObject.SetActive(false);
         MoreAcceptedOrders = true;
-        noteBookText.text = "Hmmm... I don't seem to have any orders to complete today.";
+        NoOrders.SetActive(true);
         sv.SetActive(true);
         order1.Accepted = false;
         order1.Delivered = false;
