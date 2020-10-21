@@ -67,6 +67,8 @@ public class GameManagerScript : MonoBehaviour
 
     public Text DaysOrderLeft;
 
+    public bool dayOver = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -85,6 +87,7 @@ public class GameManagerScript : MonoBehaviour
         NearBed = false;
         sleepConfirmCanvas.SetActive(false);
         orderDescription.SetActive(false);
+        dayOver = false;
 
         if (Slot.instance.ActiveSlot == 1 && (PlayerPrefs.GetString("DayOnePlayedSlotOne?") != "yes"))
         {
@@ -506,6 +509,7 @@ public class GameManagerScript : MonoBehaviour
     public void EndDay()
     {
         DaysPlayed++;
+        dayOver = true;
         order1.TotalFunds = Funds;
         if (order1.Accepted)
         {
@@ -610,7 +614,8 @@ public class GameManagerScript : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //disable planting and stuff
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
