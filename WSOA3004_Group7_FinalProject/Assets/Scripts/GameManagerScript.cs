@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.UIElements.Experimental;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using JetBrains.Annotations;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -27,7 +28,11 @@ public class GameManagerScript : MonoBehaviour
     public GameObject jute;
     public GameObject juteClosed;
 
-    public Order order1;
+    public Order[] orderArray;
+    public List<Order> orderList;
+    public List<Order> displayedOrders;
+    public List<Order> acceptedOrders;
+    public GameObject[] emailObjects;
 
     public Crop LettuceSeed;
     public Crop PotatoSeed;
@@ -55,6 +60,7 @@ public class GameManagerScript : MonoBehaviour
     public Text orderNameText;
     public GameObject orderNotification;
     public Text orderStory;
+    public Text veggiesStory;
     public GameObject NoOrders;
 
     public GameObject sleepConfirmCanvas;
@@ -303,6 +309,45 @@ public class GameManagerScript : MonoBehaviour
         DisplayInvenFunc();
     }
 
+    public void EmailGenerator()
+    {
+        if((DaysPlayed % 3) + 1 == 0)
+        {
+            orderList.Clear();
+            for (int l = 0; l < 6; l++)
+            {
+                orderArray[l].CarrotAmount = 0;
+                orderArray[l].LettuceAmount = 0;
+                orderArray[l].PeachAmount = 0;
+                orderArray[l].PotatoAmount = 0;
+                orderArray[l].TurnipAmount = 0;
+                orderArray[l].WatermelonAmount = 0;
+                orderArray[l].DaysPassed = 0;
+                orderArray[l].Completed = false;
+                orderArray[l].Accepted = false;
+                orderArray[l].Accepted = false;
+                orderArray[l].Delivered = false;
+                orderArray[l].TotalFunds = 250;
+                orderList.Add(orderArray[l]);
+            }
+            int ranNum = Random.Range(0, orderList.Count);
+            int otherRanNum = orderList.Count - ranNum;
+            displayedOrders.Add(orderList[ranNum]);
+            displayedOrders.Add(orderList[otherRanNum]);
+            orderList.RemoveAt(ranNum);
+            orderList.RemoveAt(otherRanNum);
+        }
+        else
+        {
+            int ranNum = Random.Range(0, orderList.Count);
+            int otherRanNum = orderList.Count - ranNum;
+            displayedOrders.Add(orderList[ranNum]);
+            displayedOrders.Add(orderList[otherRanNum]);
+            orderList.RemoveAt(ranNum);
+            orderList.RemoveAt(otherRanNum);
+        }
+    }
+
     private void Update()
     {
 
@@ -433,23 +478,30 @@ public class GameManagerScript : MonoBehaviour
         Scythe.TooledLocations.Clear();
         Shovel.TooledLocations.Clear();
         WateringCan.TooledLocations.Clear();
-        order1.CarrotAmount = 0;
-        order1.LettuceAmount = 0;
-        order1.PeachAmount = 0;
-        order1.PotatoAmount = 0;
-        order1.TurnipAmount = 0;
-        order1.WatermelonAmount = 0;
-        order1.DaysPassed = 0;
-        order1.Completed = false;
-        order1.Accepted = false;
+        orderList.Clear();
+        for (int  l = 0; l < 6; l++)
+        {
+            orderArray[l].CarrotAmount = 0;
+            orderArray[l].LettuceAmount = 0;
+            orderArray[l].PeachAmount = 0;
+            orderArray[l].PotatoAmount = 0;
+            orderArray[l].TurnipAmount = 0;
+            orderArray[l].WatermelonAmount = 0;
+            orderArray[l].DaysPassed = 0;
+            orderArray[l].Completed = false;
+            orderArray[l].Accepted = false;
+            orderArray[l].Accepted = false;
+            orderArray[l].Delivered = false;
+            orderArray[l].TotalFunds = 250;
+            orderList.Add(orderArray[l]);
+        }
+
         PosInven = 0;
         jute.gameObject.SetActive(false);
         MoreAcceptedOrders = true;
         NoOrders.SetActive(true);
         sv.SetActive(true);
-        order1.Accepted = false;
-        order1.Delivered = false;
-        order1.TotalFunds = 250;
+
         for (int a = 0; a < Inventory.inven.Length; a++)
         {
             if ((Inventory.inven[a].ItemName != "Hoe") && (Inventory.inven[a].ItemName != "WateringCan") && (Inventory.inven[a].ItemName != "Scythe")) //&& (Inventory.inven[a].ItemName != "Shovel"))

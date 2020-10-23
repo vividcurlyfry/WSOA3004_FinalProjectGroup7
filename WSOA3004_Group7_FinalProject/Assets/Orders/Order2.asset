@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433366446b9c14b418ae840a95d309f2, type: 3}
+  m_Name: Order2
+  m_EditorClassIdentifier: 
+  OrderText: Girlie help i need some shit pls
+  nameOrder: Mr Bitch
+  TotalFunds: 250
+  DaysAllocated: 4
+  TurnipNeeded: 9
+  PeachNeeded: 0
+  WatermelonNeeded: 4
+  CarrotNeeded: 1
+  PotatoNeeded: 1
+  LettuceNeeded: 4
+  TurnipAmount: 0
+  PeachAmount: 0
+  WatermelonAmount: 0
+  CarrotAmount: 0
+  PotatoAmount: 0
+  LettuceAmount: 0
+  TimeLimit: 4
+  DaysPassed: 0
+  Reward: 389
+  Accepted: 0
+  Completed: 0
+  Delivered: 0
