@@ -33,6 +33,7 @@ public class DayChangeVisual : MonoBehaviour
         timeBetween = 0;
 
         this.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0f);
+        Lamp.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 8;
         date.text = today.ToString();
         Calendar.SetActive(true);
     }
@@ -55,10 +56,15 @@ public class DayChangeVisual : MonoBehaviour
         if (dayChange)
         {
             GameObject.FindGameObjectWithTag("NPC").GetComponent<NPCMovement>().enabled = false;
-            t2 = 10f * speed * Time.deltaTime;
+            t2 = 2f * speed * Time.deltaTime;
             AS.volume = Mathf.Lerp(0, 0.5f, 0.9f);
-            Lamp.gameObject.GetComponent<SpriteRenderer>().sprite = LightOn;
-            Lamp.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 202;
+
+            if (!(timeBetween > 3f))
+            {
+                Lamp.gameObject.GetComponent<SpriteRenderer>().sprite = LightOn; 
+            }
+
+            Lamp.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 203;
 
             this.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, Mathf.Lerp(this.GetComponent<SpriteRenderer>().color.a, 1, t2));
             timeBetween += Time.deltaTime;
@@ -66,18 +72,10 @@ public class DayChangeVisual : MonoBehaviour
 
         if (timeBetween > 4f)
         {
-            Lamp.gameObject.GetComponent<SpriteRenderer>().sprite = LightOff;
-            print("yee");
-        }
-
-        if (timeBetween > 6f) // test time length
-        {
             Lamp.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 8;
-            dayChange = false;
-         
         }
 
-        if (timeBetween > 7f) // test time length
+        if (timeBetween > 5f) // test time length
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
