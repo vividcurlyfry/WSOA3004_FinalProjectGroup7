@@ -15529,7 +15529,14 @@ MonoBehaviour:
   isRaining: 0
   jute: {fileID: 825967444}
   juteClosed: {fileID: 854985767}
-  order1: {fileID: 11400000, guid: 232ebb36807b9014bad2b4c39cd30e2b, type: 2}
+  orderArray:
+  - {fileID: 0}
+  orderList:
+  - {fileID: 11400000, guid: 232ebb36807b9014bad2b4c39cd30e2b, type: 2}
+  displayedOrders: []
+  acceptedOrders: []
+  emailObjects: []
+  veggiesStory: {fileID: 0}
   LettuceSeed: {fileID: 11400000, guid: 4a1421f4d2561b14fa5ab9e53e01f9a9, type: 2}
   PotatoSeed: {fileID: 11400000, guid: 50c8c8faec0083245ad5275e7b4e79d5, type: 2}
   TurnipSeed: {fileID: 11400000, guid: 998f7ea302f0179418a8d0d370e2e518, type: 2}

@@ -27,7 +27,12 @@ public class GameManagerScript : MonoBehaviour
     public GameObject jute;
     public GameObject juteClosed;
 
-    public Order order1;
+    public Order[] orderArray;
+    public List<Order> orderList;
+    public List<Order> displayedOrders;
+    public List<Order> acceptedOrders;
+    public GameObject[] emailObjects;
+    public Text veggiesStory;
 
     public Crop LettuceSeed;
     public Crop PotatoSeed;
@@ -231,50 +236,54 @@ public class GameManagerScript : MonoBehaviour
             }
         }
 
-        if (MoreAcceptedOrders == true)
+        if (orderList.Count > 0)
         {
             orderNotification.SetActive(true);
-            orderStory.text = order1.OrderText;
+
+            orderStory.text = displayedOrders[0].OrderText;
         }
         else
         {
             orderNotification.SetActive(false);
         }
 
-        if (order1.Accepted)
-        {
-            orderDescription.SetActive(true);
-            NoOrders.SetActive(true);
-            orderNameText.text = order1.name;
-            if (order1.DaysPassed > order1.DaysAllocated && !order1.Completed)
+        //for (int f = 0; f < displayedOrders.Count; f++)
+        //{
+            if (orderList[0].Accepted)
             {
-                jute.SetActive(false);
-                order1.CarrotAmount = 0;
-                order1.TurnipAmount = 0;
-                order1.WatermelonAmount = 0;
-                order1.PotatoAmount = 0;
-                order1.LettuceAmount = 0;
-                cross.SetActive(true);
-                tick.SetActive(false);
-                line.SetActive(true);
-                DaysOrderLeft.text = "0";
-            }
-            else if (order1.DaysPassed > order1.DaysAllocated && order1.Completed)
-            {
-                jute.SetActive(false);
-                tick.SetActive(true);
-                cross.SetActive(false);
-                line.SetActive(true);
-                DaysOrderLeft.text = "0";
-            }
-            else
-            {
-                tick.SetActive(false);
-                cross.SetActive(false);
-                jute.SetActive(true);
-                DaysOrderLeft.text = (order1.DaysAllocated - order1.DaysPassed).ToString();
-            }
-        }
+                orderDescription.SetActive(true);
+                NoOrders.SetActive(true);
+                orderNameText.text = orderList[0].name;
+                if (orderList[0].DaysPassed > orderList[0].DaysAllocated && !orderList[0].Completed)
+                {
+                    jute.SetActive(false);
+                    orderList[0].CarrotAmount = 0;
+                    orderList[0].TurnipAmount = 0;
+                    orderList[0].WatermelonAmount = 0;
+                    orderList[0].PotatoAmount = 0;
+                    orderList[0].LettuceAmount = 0;
+                    cross.SetActive(true);
+                    tick.SetActive(false);
+                    line.SetActive(true);
+                    DaysOrderLeft.text = "0";
+                }
+                else if (orderList[0].DaysPassed > orderList[0].DaysAllocated && orderList[0].Completed)
+                {
+                    jute.SetActive(false);
+                    tick.SetActive(true);
+                    cross.SetActive(false);
+                    line.SetActive(true);
+                    DaysOrderLeft.text = "0";
+                }
+                else
+                {
+                    tick.SetActive(false);
+                    cross.SetActive(false);
+                    jute.SetActive(true);
+                    DaysOrderLeft.text = (orderList[0].DaysAllocated - orderList[0].DaysPassed).ToString();
+                }
+            } 
+       // }
         else
         {
             tick.SetActive(false);
@@ -284,14 +293,14 @@ public class GameManagerScript : MonoBehaviour
             orderDescription.SetActive(false);
         }
 
-        if (order1.Completed && order1.Delivered)
+        if (orderList[0].Completed && orderList[0].Delivered)
         {
             jute.SetActive(false);
             juteClosed.SetActive(false);
             line.SetActive(true);
             tick.SetActive(true);
         }
-        else if (order1.Completed && !order1.Delivered)
+        else if (orderList[0].Completed && !orderList[0].Delivered)
         {
             jute.SetActive(false);
             juteClosed.SetActive(true);
@@ -319,6 +328,46 @@ public class GameManagerScript : MonoBehaviour
             }
         }
     }
+
+    public void EmailGenerator()
+    {
+        if ((DaysPlayed % 3) + 1 == 0)
+        {
+            orderList.Clear();
+            for (int l = 0; l < 6; l++)
+            {
+                orderArray[l].CarrotAmount = 0;
+                orderArray[l].LettuceAmount = 0;
+                orderArray[l].PeachAmount = 0;
+                orderArray[l].PotatoAmount = 0;
+                orderArray[l].TurnipAmount = 0;
+                orderArray[l].WatermelonAmount = 0;
+                orderArray[l].DaysPassed = 0;
+                orderArray[l].Completed = false;
+                orderArray[l].Accepted = false;
+                orderArray[l].Accepted = false;
+                orderArray[l].Delivered = false;
+                orderArray[l].TotalFunds = 250;
+                orderList.Add(orderArray[l]);
+            }
+            int ranNum = Random.Range(0, orderList.Count);
+            int otherRanNum = orderList.Count - ranNum;
+            displayedOrders.Add(orderList[ranNum]);
+            displayedOrders.Add(orderList[otherRanNum]);
+            orderList.RemoveAt(ranNum);
+            orderList.RemoveAt(otherRanNum);
+        }
+        else
+        {
+            int ranNum = Random.Range(0, orderList.Count);
+            int otherRanNum = orderList.Count - ranNum;
+            displayedOrders.Add(orderList[ranNum]);
+            displayedOrders.Add(orderList[otherRanNum]);
+            orderList.RemoveAt(ranNum);
+            orderList.RemoveAt(otherRanNum);
+        }
+    }
+
 
     public void TabFunc()
     {
@@ -433,23 +482,28 @@ public class GameManagerScript : MonoBehaviour
         Scythe.TooledLocations.Clear();
         Shovel.TooledLocations.Clear();
         WateringCan.TooledLocations.Clear();
-        order1.CarrotAmount = 0;
-        order1.LettuceAmount = 0;
-        order1.PeachAmount = 0;
-        order1.PotatoAmount = 0;
-        order1.TurnipAmount = 0;
-        order1.WatermelonAmount = 0;
-        order1.DaysPassed = 0;
-        order1.Completed = false;
-        order1.Accepted = false;
+        orderList.Clear();
+        for (int l = 0; l < 6; l++)
+        {
+            orderArray[l].CarrotAmount = 0;
+            orderArray[l].LettuceAmount = 0;
+            orderArray[l].PeachAmount = 0;
+            orderArray[l].PotatoAmount = 0;
+            orderArray[l].TurnipAmount = 0;
+            orderArray[l].WatermelonAmount = 0;
+            orderArray[l].DaysPassed = 0;
+            orderArray[l].Completed = false;
+            orderArray[l].Accepted = false;
+            orderArray[l].Accepted = false;
+            orderArray[l].Delivered = false;
+            orderArray[l].TotalFunds = 250;
+            orderList.Add(orderArray[l]);
+        }
         PosInven = 0;
         jute.gameObject.SetActive(false);
         MoreAcceptedOrders = true;
         NoOrders.SetActive(true);
         sv.SetActive(true);
-        order1.Accepted = false;
-        order1.Delivered = false;
-        order1.TotalFunds = 250;
         for (int a = 0; a < Inventory.inven.Length; a++)
         {
             if ((Inventory.inven[a].ItemName != "Hoe") && (Inventory.inven[a].ItemName != "WateringCan") && (Inventory.inven[a].ItemName != "Scythe")) //&& (Inventory.inven[a].ItemName != "Shovel"))
@@ -510,10 +564,13 @@ public class GameManagerScript : MonoBehaviour
     {
         DaysPlayed++;
         dayOver = true;
-        order1.TotalFunds = Funds;
-        if (order1.Accepted)
+        for (int a = 0; a < displayedOrders.Count; a++)
         {
-            order1.DaysPassed++;
+            orderList[a].TotalFunds = Funds;
+            if (orderList[a].Accepted)
+            {
+                orderList[a].DaysPassed++;
+            }
         }
         for (int a = 0; a < LettuceSeed.PlantedLocations.Count; a++)
         {
@@ -608,7 +665,7 @@ public class GameManagerScript : MonoBehaviour
             PlayerPrefs.SetString("DayOnePlayedSlotFour?", "yes");
         }
 
-        if (order1.Completed && !order1.Delivered)
+        if (orderList[0].Completed && !orderList[0].Delivered)
         {
             SceneManager.LoadScene("DayOver");
         }
