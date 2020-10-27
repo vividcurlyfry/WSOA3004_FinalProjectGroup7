@@ -26,7 +26,7 @@ public class GridScript : MonoBehaviour
         int a = 0;
         for (int i = playerTile.x - 2; i <= playerTile.x + 1; i++)
         {
-            for (int j = playerTile.y - 1; j <= playerTile.y + 2; j++, a++)
+            for (int j = playerTile.y - 4; j <= playerTile.y; j++, a++)
             {
                 if ((GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0)) == Sand) || (GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0)) == Weed) || GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0)) == GameManagerScript.instance.Hoe.groundAfterToolTile
                         || GameManagerScript.instance.LettuceSeed.GrowingTiles.Contains(GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0))) || GameManagerScript.instance.TurnipSeed.GrowingTiles.Contains(GameManagerScript.instance.tm_base.GetTile(new Vector3Int(i, j, 0))) ||

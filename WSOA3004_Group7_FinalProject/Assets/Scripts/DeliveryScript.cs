@@ -13,12 +13,12 @@ public class DeliveryScript : MonoBehaviour
     void Start()
     {
        // orderText.text = GameManagerScript.instance.order1.OrderText;
-        DisplayOrder[0].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderList[0].LettuceAmount + "/" + GameManagerScript.instance.orderList[0].LettuceNeeded.ToString();
-        DisplayOrder[1].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderList[0].PotatoAmount + "/" + GameManagerScript.instance.orderList[0].PotatoNeeded.ToString();
-        DisplayOrder[2].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderList[0].TurnipAmount + "/" + GameManagerScript.instance.orderList[0].TurnipNeeded.ToString();
-        DisplayOrder[3].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderList[0].WatermelonAmount + "/" + GameManagerScript.instance.orderList[0].WatermelonNeeded.ToString();
-        DisplayOrder[4].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderList[0].CarrotAmount + "/" + GameManagerScript.instance.orderList[0].CarrotNeeded.ToString();
-        DisplayOrder[5].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderList[0].PeachAmount + "/" + GameManagerScript.instance.orderList[0].PeachNeeded.ToString();
+        DisplayOrder[0].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].LettuceAmount + "/" + GameManagerScript.instance.orderArray[0].LettuceNeeded.ToString();
+        DisplayOrder[1].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].PotatoAmount + "/" + GameManagerScript.instance.orderArray[0].PotatoNeeded.ToString();
+        DisplayOrder[2].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].TurnipAmount + "/" + GameManagerScript.instance.orderArray[0].TurnipNeeded.ToString();
+        DisplayOrder[3].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].WatermelonAmount + "/" + GameManagerScript.instance.orderArray[0].WatermelonNeeded.ToString();
+        DisplayOrder[4].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].CarrotAmount + "/" + GameManagerScript.instance.orderArray[0].CarrotNeeded.ToString();
+        DisplayOrder[5].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].PeachAmount + "/" + GameManagerScript.instance.orderArray[0].PeachNeeded.ToString();
         noEmail.SetActive(false);
     }
 

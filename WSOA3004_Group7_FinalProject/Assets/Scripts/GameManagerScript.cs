@@ -239,8 +239,6 @@ public class GameManagerScript : MonoBehaviour
         if (orderList.Count > 0)
         {
             orderNotification.SetActive(true);
-
-            orderStory.text = displayedOrders[0].OrderText;
         }
         else
         {
@@ -483,7 +481,8 @@ public class GameManagerScript : MonoBehaviour
         Shovel.TooledLocations.Clear();
         WateringCan.TooledLocations.Clear();
         orderList.Clear();
-        for (int l = 0; l < 6; l++)
+        /*
+        for (int l = 0; l < 1; l++)
         {
             orderArray[l].CarrotAmount = 0;
             orderArray[l].LettuceAmount = 0;
@@ -498,7 +497,23 @@ public class GameManagerScript : MonoBehaviour
             orderArray[l].Delivered = false;
             orderArray[l].TotalFunds = 250;
             orderList.Add(orderArray[l]);
-        }
+        }*/
+
+
+            orderArray[0].CarrotAmount = 0;
+           orderArray[0].LettuceAmount = 0;
+        orderArray[0].PeachAmount = 0;
+        orderArray[0].PotatoAmount = 0;
+        orderArray[0].TurnipAmount = 0;
+        orderArray[0].WatermelonAmount = 0;
+        orderArray[0].DaysPassed = 0;
+        orderArray[0].Completed = false;
+        orderArray[0].Accepted = false;
+        orderArray[0].Accepted = false;
+        orderArray[0].Delivered = false;
+        orderArray[0].TotalFunds = 250;
+            orderList.Add(orderArray[0]);
+        
         PosInven = 0;
         jute.gameObject.SetActive(false);
         MoreAcceptedOrders = true;

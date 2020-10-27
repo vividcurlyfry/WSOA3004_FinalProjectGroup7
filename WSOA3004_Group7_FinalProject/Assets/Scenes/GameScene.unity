@@ -15395,6 +15395,7 @@ GameObject:
   - component: {fileID: 70570554}
   - component: {fileID: 70570556}
   - component: {fileID: 70570558}
+  - component: {fileID: 70570560}
   - component: {fileID: 70570557}
   - component: {fileID: 70570555}
   - component: {fileID: 70570559}
@@ -15530,7 +15531,7 @@ MonoBehaviour:
   jute: {fileID: 825967444}
   juteClosed: {fileID: 854985767}
   orderArray:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 232ebb36807b9014bad2b4c39cd30e2b, type: 2}
   orderList:
   - {fileID: 11400000, guid: 232ebb36807b9014bad2b4c39cd30e2b, type: 2}
   displayedOrders: []
@@ -15601,6 +15602,23 @@ MonoBehaviour:
   - {fileID: 670455704}
   orderText: {fileID: 510139079}
   noEmail: {fileID: 1242101535}
+--- !u!114 &70570560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70570551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d77525e5c301b345b9a05702689f2f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DemiRend: {fileID: 750086564}
+  RubyFoot: {fileID: 453528530}
+  DemiFoot: {fileID: 748871730}
+  higherLayer: 10
+  lowerLayer: 8
 --- !u!4 &80941056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8180623410663685326, guid: 9b663c4084983b448ad4c799be1e5d3c, type: 3}
@@ -17413,7 +17431,7 @@ GameObject:
   - component: {fileID: 184295800}
   - component: {fileID: 184295802}
   - component: {fileID: 184295803}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Ruby
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -17499,6 +17517,7 @@ Transform:
   m_Children:
   - {fileID: 1821076605}
   - {fileID: 1863896445}
+  - {fileID: 453528530}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20990,7 +21009,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 350895559}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: SpeechBubbles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21783,7 +21802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945036095621774708, guid: deac7dc8a06d93c4fa937c7fb8e8afdc, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5945036095621774709, guid: deac7dc8a06d93c4fa937c7fb8e8afdc, type: 3}
       propertyPath: m_Name
@@ -23249,6 +23268,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452424266}
   m_CullTransparentMesh: 0
+--- !u!1 &453528529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 453528530}
+  m_Layer: 9
+  m_Name: footPositionRuby
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &453528530
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453528529}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.08, y: -2.24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 184295798}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &455559290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31794,7 +31843,7 @@ GameObject:
   - component: {fileID: 642113709}
   - component: {fileID: 642113711}
   - component: {fileID: 642113710}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RubyTextLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33485,7 +33534,7 @@ GameObject:
   - component: {fileID: 705887817}
   - component: {fileID: 705887819}
   - component: {fileID: 705887818}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -34530,6 +34579,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 827215992110395498, guid: 5abb1969c7cc1854697317b5c87ee3b7, type: 3}
   m_PrefabInstance: {fileID: 760640330}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &748871729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 748871730}
+  m_Layer: 9
+  m_Name: footPositionDemi
+  m_TagString: Untagged
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &748871730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748871729}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.01, y: -3.32, z: 0}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
+  m_Children: []
+  m_Father: {fileID: 750086565}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &750086559
 GameObject:
   m_ObjectHideFlags: 0
@@ -34545,7 +34624,7 @@ GameObject:
   - component: {fileID: 750086561}
   - component: {fileID: 750086560}
   - component: {fileID: 750086566}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Demi
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -34688,6 +34767,7 @@ Transform:
   m_Children:
   - {fileID: 705887817}
   - {fileID: 1264630973}
+  - {fileID: 748871730}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -96332,7 +96412,7 @@ GameObject:
   - component: {fileID: 857421268}
   - component: {fileID: 857421270}
   - component: {fileID: 857421269}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RubyTextLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96572,7 +96652,7 @@ GameObject:
   - component: {fileID: 868273598}
   - component: {fileID: 868273600}
   - component: {fileID: 868273599}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: DemiText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97803,7 +97883,7 @@ GameObject:
   - component: {fileID: 946392073}
   - component: {fileID: 946392075}
   - component: {fileID: 946392074}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: DemiSpeechBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98931,7 +99011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945036095621774708, guid: deac7dc8a06d93c4fa937c7fb8e8afdc, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5945036095621774709, guid: deac7dc8a06d93c4fa937c7fb8e8afdc, type: 3}
       propertyPath: m_Name
@@ -99454,7 +99534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945036095621774708, guid: deac7dc8a06d93c4fa937c7fb8e8afdc, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5945036095621774709, guid: deac7dc8a06d93c4fa937c7fb8e8afdc, type: 3}
       propertyPath: m_Name
@@ -101801,7 +101881,7 @@ GameObject:
   - component: {fileID: 1253705249}
   - component: {fileID: 1253705251}
   - component: {fileID: 1253705250}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RubySpeechBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101965,7 +102045,7 @@ GameObject:
   - component: {fileID: 1264630976}
   - component: {fileID: 1264630975}
   - component: {fileID: 1264630974}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102491,7 +102571,7 @@ GameObject:
   - component: {fileID: 1282870762}
   - component: {fileID: 1282870764}
   - component: {fileID: 1282870763}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RubySpeechBubbleLeftTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104740,7 +104820,7 @@ GameObject:
   - component: {fileID: 1382614106}
   - component: {fileID: 1382614108}
   - component: {fileID: 1382614107}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RubySpeechBubbleRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105137,7 +105217,7 @@ GameObject:
   - component: {fileID: 1395318313}
   - component: {fileID: 1395318315}
   - component: {fileID: 1395318314}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RubySpeechBubbleLow2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108662,7 +108742,7 @@ GameObject:
   - component: {fileID: 1613249741}
   - component: {fileID: 1613249743}
   - component: {fileID: 1613249742}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RubySpeechBubbleLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108875,7 +108955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945036095621774708, guid: deac7dc8a06d93c4fa937c7fb8e8afdc, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5945036095621774709, guid: deac7dc8a06d93c4fa937c7fb8e8afdc, type: 3}
       propertyPath: m_Name
@@ -111154,7 +111234,7 @@ GameObject:
   - component: {fileID: 1754004210}
   - component: {fileID: 1754004212}
   - component: {fileID: 1754004211}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RubyTextRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111823,7 +111903,7 @@ GameObject:
   - component: {fileID: 1796475311}
   - component: {fileID: 1796475313}
   - component: {fileID: 1796475312}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RubyTextLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112221,7 +112301,7 @@ GameObject:
   - component: {fileID: 1821076608}
   - component: {fileID: 1821076607}
   - component: {fileID: 1821076606}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CanvasRuby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112870,7 +112950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945036095621774708, guid: deac7dc8a06d93c4fa937c7fb8e8afdc, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5945036095621774709, guid: deac7dc8a06d93c4fa937c7fb8e8afdc, type: 3}
       propertyPath: m_Name
@@ -112976,7 +113056,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1863896445}
   - component: {fileID: 1863896444}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: heart_ruby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114467,7 +114547,7 @@ GameObject:
   - component: {fileID: 1935081273}
   - component: {fileID: 1935081275}
   - component: {fileID: 1935081274}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: HeartOutline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114991,7 +115071,7 @@ GameObject:
   - component: {fileID: 1966329339}
   - component: {fileID: 1966329341}
   - component: {fileID: 1966329340}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: HeartFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115861,7 +115941,7 @@ GameObject:
   - component: {fileID: 2002413778}
   - component: {fileID: 2002413780}
   - component: {fileID: 2002413779}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RubyTextLow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116021,7 +116101,7 @@ GameObject:
   - component: {fileID: 2006064507}
   - component: {fileID: 2006064509}
   - component: {fileID: 2006064508}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RubySpeechBubbleLow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117352,7 +117432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945036095621774708, guid: deac7dc8a06d93c4fa937c7fb8e8afdc, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5945036095621774709, guid: deac7dc8a06d93c4fa937c7fb8e8afdc, type: 3}
       propertyPath: m_Name
@@ -117509,7 +117589,7 @@ GameObject:
   - component: {fileID: 2078993040}
   - component: {fileID: 2078993042}
   - component: {fileID: 2078993041}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RubyTextRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117950,7 +118030,7 @@ GameObject:
   - component: {fileID: 2113181699}
   - component: {fileID: 2113181701}
   - component: {fileID: 2113181700}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RubySpeechBubbleRightTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118487,7 +118567,7 @@ GameObject:
   - component: {fileID: 2132511716}
   - component: {fileID: 2132511718}
   - component: {fileID: 2132511717}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RubyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
