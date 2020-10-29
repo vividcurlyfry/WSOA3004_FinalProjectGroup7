@@ -222,36 +222,6 @@ public class PlantingScript : MonoBehaviour
                     }
                 }
 
-                else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.PeachSeed.SeedSprite)
-                {
-                    if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.PeachSeed.RequiredGround)
-                    {
-                        tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.PeachSeed.GrowingTiles[0]);
-                        if (isRaining)
-                        {
-                            tm_water.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Watered);
-                        }
-
-                        int pos = GameManagerScript.instance.FindPos("PeachSeed");
-                        if (pos != -1)
-                        {
-                            GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
-                            GameManagerScript.instance.PeachSeed.PlantedLocations.Add(GameManagerScript.instance.highlightedTile);
-                            GameManagerScript.instance.PeachSeed.Watered.Add(false);
-                            GameManagerScript.instance.PeachSeed.DaysGrown.Add(0);
-                        }
-
-                        if (GameManagerScript.instance.Inventory.inven[pos].ItemNumber == 0)
-                        {
-                            GameManagerScript.instance.DisplayInvenFunc();
-                        }
-                        else
-                        {
-                            GameManagerScript.instance.DisplayInvenFuncNoSort();
-                        }
-                    }
-                }
-
                 else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.PotatoSeed.SeedSprite)
                 {
                     if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.PotatoSeed.RequiredGround)

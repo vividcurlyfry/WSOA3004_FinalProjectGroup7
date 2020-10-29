@@ -18,7 +18,6 @@ public class DeliveryScript : MonoBehaviour
         DisplayOrder[2].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].TurnipAmount + "/" + GameManagerScript.instance.orderArray[0].TurnipNeeded.ToString();
         DisplayOrder[3].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].WatermelonAmount + "/" + GameManagerScript.instance.orderArray[0].WatermelonNeeded.ToString();
         DisplayOrder[4].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].CarrotAmount + "/" + GameManagerScript.instance.orderArray[0].CarrotNeeded.ToString();
-        DisplayOrder[5].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].PeachAmount + "/" + GameManagerScript.instance.orderArray[0].PeachNeeded.ToString();
         noEmail.SetActive(false);
     }
 

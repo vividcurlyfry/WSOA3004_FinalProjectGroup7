@@ -37,7 +37,6 @@ public class GameManagerScript : MonoBehaviour
     public Crop LettuceSeed;
     public Crop PotatoSeed;
     public Crop TurnipSeed;
-    public Crop PeachSeed;
     public Crop WatermelonSeed;
     public Crop CarrotSeed;
 
@@ -73,6 +72,8 @@ public class GameManagerScript : MonoBehaviour
     public Text DaysOrderLeft;
 
     public bool dayOver = false;
+
+    public float percentageFunds = 75 / 100;
 
     private void Awake()
     {
@@ -247,41 +248,41 @@ public class GameManagerScript : MonoBehaviour
 
         //for (int f = 0; f < displayedOrders.Count; f++)
         //{
-            if (orderList[0].Accepted)
+        if (orderList[0].Accepted)
+        {
+            orderDescription.SetActive(true);
+            NoOrders.SetActive(true);
+            orderNameText.text = orderList[0].name;
+            if (orderList[0].DaysPassed > orderList[0].DaysAllocated && !orderList[0].Completed)
             {
-                orderDescription.SetActive(true);
-                NoOrders.SetActive(true);
-                orderNameText.text = orderList[0].name;
-                if (orderList[0].DaysPassed > orderList[0].DaysAllocated && !orderList[0].Completed)
-                {
-                    jute.SetActive(false);
-                    orderList[0].CarrotAmount = 0;
-                    orderList[0].TurnipAmount = 0;
-                    orderList[0].WatermelonAmount = 0;
-                    orderList[0].PotatoAmount = 0;
-                    orderList[0].LettuceAmount = 0;
-                    cross.SetActive(true);
-                    tick.SetActive(false);
-                    line.SetActive(true);
-                    DaysOrderLeft.text = "0";
-                }
-                else if (orderList[0].DaysPassed > orderList[0].DaysAllocated && orderList[0].Completed)
-                {
-                    jute.SetActive(false);
-                    tick.SetActive(true);
-                    cross.SetActive(false);
-                    line.SetActive(true);
-                    DaysOrderLeft.text = "0";
-                }
-                else
-                {
-                    tick.SetActive(false);
-                    cross.SetActive(false);
-                    jute.SetActive(true);
-                    DaysOrderLeft.text = (orderList[0].DaysAllocated - orderList[0].DaysPassed).ToString();
-                }
-            } 
-       // }
+                jute.SetActive(false);
+                orderList[0].CarrotAmount = 0;
+                orderList[0].TurnipAmount = 0;
+                orderList[0].WatermelonAmount = 0;
+                orderList[0].PotatoAmount = 0;
+                orderList[0].LettuceAmount = 0;
+                cross.SetActive(true);
+                tick.SetActive(false);
+                line.SetActive(true);
+                DaysOrderLeft.text = "0";
+            }
+            else if (orderList[0].DaysPassed > orderList[0].DaysAllocated && orderList[0].Completed)
+            {
+                jute.SetActive(false);
+                tick.SetActive(true);
+                cross.SetActive(false);
+                line.SetActive(true);
+                DaysOrderLeft.text = "0";
+            }
+            else
+            {
+                tick.SetActive(false);
+                cross.SetActive(false);
+                jute.SetActive(true);
+                DaysOrderLeft.text = (orderList[0].DaysAllocated - orderList[0].DaysPassed).ToString();
+            }
+        }
+        // }
         else
         {
             tick.SetActive(false);
@@ -308,11 +309,11 @@ public class GameManagerScript : MonoBehaviour
 
         juteClosed.SetActive(false);
         DisplayInvenFunc();
+        EmailGenerator();
     }
 
     private void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if ((PosInven + 6) < Inventory.inven.Length)
@@ -329,14 +330,13 @@ public class GameManagerScript : MonoBehaviour
 
     public void EmailGenerator()
     {
-        if ((DaysPlayed % 3) + 1 == 0)
+        if ((DaysPlayed % 3) == 0)
         {
             orderList.Clear();
-            for (int l = 0; l < 6; l++)
+            for (int l = 0; l < orderArray.Length; l++)
             {
                 orderArray[l].CarrotAmount = 0;
                 orderArray[l].LettuceAmount = 0;
-                orderArray[l].PeachAmount = 0;
                 orderArray[l].PotatoAmount = 0;
                 orderArray[l].TurnipAmount = 0;
                 orderArray[l].WatermelonAmount = 0;
@@ -345,11 +345,11 @@ public class GameManagerScript : MonoBehaviour
                 orderArray[l].Accepted = false;
                 orderArray[l].Accepted = false;
                 orderArray[l].Delivered = false;
-                orderArray[l].TotalFunds = 250;
+                orderArray[l].TotalFunds = Funds;
                 orderList.Add(orderArray[l]);
             }
             int ranNum = Random.Range(0, orderList.Count);
-            int otherRanNum = orderList.Count - ranNum;
+            int otherRanNum = orderList.Count - 1 - ranNum;
             displayedOrders.Add(orderList[ranNum]);
             displayedOrders.Add(orderList[otherRanNum]);
             orderList.RemoveAt(ranNum);
@@ -358,14 +358,163 @@ public class GameManagerScript : MonoBehaviour
         else
         {
             int ranNum = Random.Range(0, orderList.Count);
-            int otherRanNum = orderList.Count - ranNum;
+            int otherRanNum = orderList.Count - 1 - ranNum;
             displayedOrders.Add(orderList[ranNum]);
             displayedOrders.Add(orderList[otherRanNum]);
             orderList.RemoveAt(ranNum);
             orderList.RemoveAt(otherRanNum);
         }
+
+        OrderCalc(displayedOrders[displayedOrders.Count - 1],displayedOrders[displayedOrders.Count - 2]);
+        DisplayOrderEmail();
     }
 
+    public void OrderCalc(Order order1, Order order2)
+    {
+        float fundCalcFloat = Funds * percentageFunds;
+        int fundCalc = (int)fundCalcFloat;
+        int maxBelowGround = (int)(fundCalc / 10);
+
+        int belowGround = Random.Range(1, maxBelowGround);
+        int maxAboveGround = (int)(fundCalc - 10 * belowGround) / 15;
+
+        int aboveGround = Random.Range(1, maxAboveGround);
+
+        int totalBelowGround = 0;
+        int totalAboveGround = 0;
+
+        order1.CarrotNeeded = Random.Range(1, belowGround + 1);
+        totalBelowGround += order1.CarrotNeeded;
+
+        if (totalBelowGround != belowGround)
+        {
+            order1.PotatoNeeded = Random.Range(1, belowGround - totalBelowGround);
+        }
+
+        totalBelowGround += order1.PotatoNeeded;
+
+        if (totalBelowGround != belowGround)
+        {
+            order1.TurnipNeeded = Random.Range(1, belowGround - totalBelowGround);
+        }
+
+        totalBelowGround += order1.TurnipNeeded;
+
+        if (totalBelowGround != belowGround)
+        {
+            order2.CarrotNeeded = Random.Range(1, belowGround - totalBelowGround);
+        }
+
+        totalBelowGround += order2.CarrotNeeded;
+
+        if (totalBelowGround != belowGround)
+        {
+            order2.PotatoNeeded = Random.Range(1, belowGround - totalBelowGround);
+        }
+
+        totalBelowGround += order2.PotatoNeeded;
+
+        if (totalBelowGround != belowGround)
+        {
+            order2.TurnipNeeded = Random.Range(1, belowGround - totalBelowGround);
+        }
+
+        while(totalBelowGround != belowGround)
+        {
+            if(totalBelowGround != belowGround)
+            {
+                order1.CarrotNeeded++;
+                totalBelowGround++;
+            }
+
+            if (totalBelowGround != belowGround)
+            {
+                order2.CarrotNeeded++;
+                totalBelowGround++;
+            }
+
+            if (totalBelowGround != belowGround)
+            {
+                order1.TurnipNeeded++;
+                totalBelowGround++;
+            }
+
+            if (totalBelowGround != belowGround)
+            {
+                order2.TurnipNeeded++;
+                totalBelowGround++;
+            }
+
+            if (totalBelowGround != belowGround)
+            {
+                order2.PotatoNeeded++;
+                totalBelowGround++;
+            }
+
+            if (totalBelowGround != belowGround)
+            {
+                order1.PotatoNeeded++;
+                totalBelowGround++;
+            }
+        }
+
+        order1.LettuceNeeded = Random.Range(1, aboveGround + 1);
+        totalAboveGround += order1.LettuceNeeded;
+
+        if (totalAboveGround != aboveGround)
+        {
+            order1.WatermelonNeeded = Random.Range(1, aboveGround - totalAboveGround);
+        }
+
+        totalAboveGround += order1.WatermelonNeeded;
+
+        if (totalAboveGround != aboveGround)
+        {
+            order2.LettuceNeeded = Random.Range(1, aboveGround - totalAboveGround);
+        }
+
+        totalAboveGround += order2.LettuceNeeded;
+
+        if (totalAboveGround != aboveGround)
+        {
+            order2.WatermelonNeeded = Random.Range(1, aboveGround - totalAboveGround);
+        }
+
+        while (totalAboveGround != aboveGround)
+        {
+            if (totalAboveGround != aboveGround)
+            {
+                order1.LettuceNeeded++;
+                totalAboveGround++;
+            }
+
+            if (totalAboveGround != aboveGround)
+            {
+                order2.LettuceNeeded++;
+                totalAboveGround++;
+            }
+
+            if (totalAboveGround != aboveGround)
+            {
+                order2.WatermelonNeeded++;
+                totalAboveGround++;
+            }
+
+            if (totalAboveGround != aboveGround)
+            {
+                order1.WatermelonNeeded++;
+                totalAboveGround++;
+            }
+        }
+    }
+
+    public void DisplayOrderEmail()
+    {
+        //for(int a= 0; a < displayedOrders.Count; a++)
+        //{
+        orderStory.text = displayedOrders[1].OrderText.ToString();
+        //}
+    }
 
     public void TabFunc()
     {
@@ -461,19 +610,16 @@ public class GameManagerScript : MonoBehaviour
         PotatoSeed.PlantedLocations.Clear();
         TurnipSeed.PlantedLocations.Clear();
         WatermelonSeed.PlantedLocations.Clear();
-        PeachSeed.PlantedLocations.Clear();
         CarrotSeed.PlantedLocations.Clear();
         LettuceSeed.DaysGrown.Clear();
         PotatoSeed.DaysGrown.Clear();
         TurnipSeed.DaysGrown.Clear();
         WatermelonSeed.DaysGrown.Clear();
-        PeachSeed.DaysGrown.Clear();
         CarrotSeed.DaysGrown.Clear();
         LettuceSeed.Watered.Clear();
         PotatoSeed.Watered.Clear();
         TurnipSeed.Watered.Clear();
         WatermelonSeed.Watered.Clear();
-        PeachSeed.Watered.Clear();
         CarrotSeed.Watered.Clear();
         Hoe.TooledLocations.Clear();
         WateringCan.TooledLocations.Clear();
@@ -481,12 +627,10 @@ public class GameManagerScript : MonoBehaviour
         Shovel.TooledLocations.Clear();
         WateringCan.TooledLocations.Clear();
         orderList.Clear();
-        /*
-        for (int l = 0; l < 1; l++)
+        for (int l = 0; l < orderArray.Length; l++)
         {
             orderArray[l].CarrotAmount = 0;
             orderArray[l].LettuceAmount = 0;
-            orderArray[l].PeachAmount = 0;
             orderArray[l].PotatoAmount = 0;
             orderArray[l].TurnipAmount = 0;
             orderArray[l].WatermelonAmount = 0;
@@ -497,23 +641,7 @@ public class GameManagerScript : MonoBehaviour
             orderArray[l].Delivered = false;
             orderArray[l].TotalFunds = 250;
             orderList.Add(orderArray[l]);
-        }*/
-
-
-            orderArray[0].CarrotAmount = 0;
-           orderArray[0].LettuceAmount = 0;
-        orderArray[0].PeachAmount = 0;
-        orderArray[0].PotatoAmount = 0;
-        orderArray[0].TurnipAmount = 0;
-        orderArray[0].WatermelonAmount = 0;
-        orderArray[0].DaysPassed = 0;
-        orderArray[0].Completed = false;
-        orderArray[0].Accepted = false;
-        orderArray[0].Accepted = false;
-        orderArray[0].Delivered = false;
-        orderArray[0].TotalFunds = 250;
-            orderList.Add(orderArray[0]);
-        
+        }
         PosInven = 0;
         jute.gameObject.SetActive(false);
         MoreAcceptedOrders = true;
@@ -633,19 +761,6 @@ public class GameManagerScript : MonoBehaviour
             if (CarrotSeed.Watered[a] == true)
             {
                 CarrotSeed.DaysGrown[a]++;
-            }
-        }
-
-        for (int a = 0; a < PeachSeed.PlantedLocations.Count; a++)
-        {
-            if (WateringCan.TooledLocations.Contains(PeachSeed.PlantedLocations[a]) || isRaining)
-            {
-                PeachSeed.Watered[a] = true;
-            }
-
-            if (PeachSeed.Watered[a] == true)
-            {
-                PeachSeed.DaysGrown[a]++;
             }
         }
 

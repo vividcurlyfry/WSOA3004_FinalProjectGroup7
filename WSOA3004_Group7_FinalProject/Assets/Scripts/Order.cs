@@ -13,14 +13,12 @@ public class Order : ScriptableObject
     public int DaysAllocated;
 
     public int TurnipNeeded;
-    public int PeachNeeded;
     public int WatermelonNeeded;
     public int CarrotNeeded;
     public int PotatoNeeded;
     public int LettuceNeeded;
 
     public int TurnipAmount;
-    public int PeachAmount;
     public int WatermelonAmount;
     public int CarrotAmount;
     public int PotatoAmount;

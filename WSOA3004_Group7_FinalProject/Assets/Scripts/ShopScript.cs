@@ -14,14 +14,12 @@ public class ShopScript : MonoBehaviour
     public Text WatermelonNum;
     public Text PotatoNum;
     public Text CarrotNum;
-    public Text PeachNum;
     public Text LettuceNum;
 
     public Text TurnipTotalPrice;
     public Text WatermelonTotalPrice;
     public Text PotatoTotalPrice;
     public Text CarrotTotalPrice;
-    public Text PeachTotalPrice;
     public Text LettuceTotalPrice;
 
 
@@ -108,22 +106,6 @@ public class ShopScript : MonoBehaviour
             GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - int.Parse(TurnipTotalPrice.text);
             TurnipNum.text = "1";
             TurnipTotalPrice.text = GameManagerScript.instance.TurnipSeed.CropPrice.ToString();
-            UpdateFunds();
-        }
-    }
-
-    public void BuyPeach()
-    {
-        if (GameManagerScript.instance.Funds >= GameManagerScript.instance.PeachSeed.CropPrice)
-        {
-            int pos = GameManagerScript.instance.FindPos("PeachSeed");
-            if (pos != -1)
-            {
-                GameManagerScript.instance.Inventory.inven[pos].ItemNumber = GameManagerScript.instance.Inventory.inven[pos].ItemNumber + int.Parse(PeachNum.text);
-            }
-            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - int.Parse(PeachTotalPrice.text);
-            PeachNum.text = "1";
-            PeachTotalPrice.text = GameManagerScript.instance.PeachSeed.CropPrice.ToString();
             UpdateFunds();
         }
     }
