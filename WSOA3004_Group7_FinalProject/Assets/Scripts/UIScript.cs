@@ -12,6 +12,7 @@ public class UIScript : MonoBehaviour
     public Canvas OrderCanvas;
     public Canvas Delivery;
     public GridScript gs;
+    public GameObject crossMenu, iconMenu, crossShop, iconShop, crossNotepad, iconNotepad, crossEmail;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class UIScript : MonoBehaviour
         OrderCanvas.gameObject.SetActive(false);
     }
 
+    //remove for final
     private void Update()
     {
         if(Input.GetKey(KeyCode.Escape))
@@ -32,11 +34,15 @@ public class UIScript : MonoBehaviour
     {
         if (OrderCanvas.gameObject.activeSelf)
         {
+            crossNotepad.SetActive(false);
+            iconNotepad.SetActive(true);
             OrderCanvas.gameObject.SetActive(false);
             gs.enabled = true;
         }
         else
         {
+            crossNotepad.SetActive(true);
+            iconNotepad.SetActive(false);
             OrderCanvas.gameObject.SetActive(true);
             gs.enabled = false;
         }
@@ -47,7 +53,8 @@ public class UIScript : MonoBehaviour
         if (Delivery.gameObject.activeSelf)
         {
             Delivery.gameObject.SetActive(false);
-            if(GameManagerScript.instance.MoreAcceptedOrders == false)
+            crossEmail.SetActive(false);
+            if (GameManagerScript.instance.MoreAcceptedOrders == false)
             {
                 GameManagerScript.instance.orderNotification.SetActive(false);
             }
@@ -55,6 +62,7 @@ public class UIScript : MonoBehaviour
         }
         else
         {
+            crossEmail.SetActive(true);
             Delivery.gameObject.SetActive(true);
             gs.enabled = false;
         }
@@ -65,12 +73,16 @@ public class UIScript : MonoBehaviour
         if (ShopCanvas.gameObject.activeSelf)
         {
             ShopCanvas.gameObject.SetActive(false);
+            crossShop.SetActive(false);
+            iconShop.SetActive(true);
             GameManagerScript.instance.highlightedTile = new Vector3Int(-500, -500, -500);
             gs.enabled = true;
         }
         else
         {
             ShopCanvas.gameObject.SetActive(true);
+            iconShop.SetActive(false);
+            crossShop.SetActive(true);
             GameManagerScript.instance.highlightedTile = new Vector3Int(-500, -500, -500);
             gs.enabled = false;
         }
@@ -81,11 +93,15 @@ public class UIScript : MonoBehaviour
         if(MenuPanel.activeSelf)
         {
             MenuPanel.SetActive(false);
+            crossMenu.SetActive(false);
+            iconMenu.SetActive(true);
             gs.enabled = true;
         }
         else
         {
             MenuPanel.SetActive(true);
+            crossMenu.SetActive(true);
+            iconMenu.SetActive(false);
             gs.enabled = false;
         }
     }
