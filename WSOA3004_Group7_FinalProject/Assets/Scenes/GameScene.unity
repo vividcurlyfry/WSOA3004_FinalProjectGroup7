@@ -99179,12 +99179,13 @@ MonoBehaviour:
   dayChange: 0
   Lamp: {fileID: 667077951}
   Calendar: {fileID: 1482547500}
+  confirmationPanel: {fileID: 1331099471}
   date: {fileID: 1707668832}
   LightOn: {fileID: 21300000, guid: 3952df06fa3b01748b69b2cac848a9c1, type: 3}
   LightOff: {fileID: 21300000, guid: 58542374c3b448a43a47a505b1723690, type: 3}
   AS: {fileID: 375225511}
   nightAudio: {fileID: 8300000, guid: 91667f35e2f135c4790956ec9ba6c0f7, type: 3}
-  Ruby: {fileID: 0}
+  Ruby: {fileID: 184295794}
 --- !u!212 &999368226
 SpriteRenderer:
   m_ObjectHideFlags: 0

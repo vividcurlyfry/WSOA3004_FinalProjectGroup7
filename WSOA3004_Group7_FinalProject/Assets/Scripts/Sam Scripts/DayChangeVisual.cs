@@ -7,12 +7,11 @@ using UnityEngine.SceneManagement;
 public class DayChangeVisual : MonoBehaviour
 {
     public bool dayOver = false, dayChange = false;
-    public GameObject Lamp, Calendar;
+    public GameObject Lamp, Calendar, confirmationPanel;
     public Text date;
     public Sprite LightOn, LightOff;
     public AudioSource AS;
     public AudioClip nightAudio;
-    public GameObject Ruby;
 
     private float t1 = 0, t2 = 0, speed = 1f, timeBetween = 0, timeStart = 0;
     private int today = 0;
@@ -55,7 +54,7 @@ public class DayChangeVisual : MonoBehaviour
         //end of day
         if (dayChange)
         {
-            GameObject.FindGameObjectWithTag("NPC").GetComponent<NPCMovement>().enabled = false;
+            confirmationPanel.SetActive(false);
             t2 = 2f * speed * Time.deltaTime;
             AS.volume = Mathf.Lerp(0, 0.5f, 0.9f);
 
