@@ -43,7 +43,6 @@ public class GameManagerScript : MonoBehaviour
     public Tool Hoe;
     public Tool WateringCan;
     public Tool Scythe;
-    public Tool Shovel;
 
     public GameObject highlight;
     public int PosInven;
@@ -74,6 +73,8 @@ public class GameManagerScript : MonoBehaviour
     public bool dayOver = false;
 
     public float percentageFunds = 75 / 100;
+
+    public int orderRewardText;
 
     private void Awake()
     {
@@ -383,6 +384,9 @@ public class GameManagerScript : MonoBehaviour
         int totalBelowGround = 0;
         int totalAboveGround = 0;
 
+        int order1Reward = 0;
+        int order2Reward = 0;
+
         order1.CarrotNeeded = Random.Range(1, belowGround + 1);
         totalBelowGround += order1.CarrotNeeded;
 
@@ -506,6 +510,22 @@ public class GameManagerScript : MonoBehaviour
                 totalAboveGround++;
             }
         }
+
+        order1Reward += order1.CarrotNeeded * 15;
+        order1Reward += order1.PotatoNeeded * 15;
+        order1Reward += order1.TurnipNeeded * 15;
+        order1Reward += order1.WatermelonNeeded * 28;
+        order1Reward += order1.LettuceNeeded * 28;
+
+        order1.Reward = order1Reward;
+
+        order2Reward += order2.CarrotNeeded * 15;
+        order2Reward += order2.PotatoNeeded * 15;
+        order2Reward += order2.TurnipNeeded * 15;
+        order2Reward += order2.WatermelonNeeded * 28;
+        order2Reward += order2.LettuceNeeded * 28;
+
+        order2.Reward = order2Reward;
     }
 
     public void DisplayOrderEmail()
@@ -547,7 +567,7 @@ public class GameManagerScript : MonoBehaviour
         {
             for (int i = 0; i <= Inventory.inven.Length - 2; i++)
             {
-                if ((Inventory.inven[i].ItemNumber < Inventory.inven[i + 1].ItemNumber) && (Inventory.inven[i].ItemName != "Hoe") && (Inventory.inven[i].ItemName != "WateringCan") && (Inventory.inven[i].ItemName != "Scythe"))// && (Inventory.inven[i].ItemName != "Shovel"))
+                if ((Inventory.inven[i].ItemNumber < Inventory.inven[i + 1].ItemNumber) && (Inventory.inven[i].ItemName != "Hoe") && (Inventory.inven[i].ItemName != "WateringCan") && (Inventory.inven[i].ItemName != "Scythe"))
                 {
                     InventoryClass tmp = Inventory.inven[i];
                     Inventory.inven[i] = Inventory.inven[i + 1];
@@ -560,7 +580,7 @@ public class GameManagerScript : MonoBehaviour
         {
             if (Inventory.inven[i].ItemNumber > 0)
             {
-                if ((Inventory.inven[i].ItemName != "Hoe") && (Inventory.inven[i].ItemName != "WateringCan") && (Inventory.inven[i].ItemName != "Scythe"))// && (Inventory.inven[i].ItemName != "Shovel"))
+                if ((Inventory.inven[i].ItemName != "Hoe") && (Inventory.inven[i].ItemName != "WateringCan") && (Inventory.inven[i].ItemName != "Scythe"))
                 {
                     DisplayInven[i % 6].GetComponentInChildren<Text>().text = Inventory.inven[i].ItemNumber.ToString();
                 }
@@ -585,7 +605,7 @@ public class GameManagerScript : MonoBehaviour
         {
             if (Inventory.inven[i].ItemNumber > 0)
             {
-                if ((Inventory.inven[i].ItemName != "Hoe") && (Inventory.inven[i].ItemName != "WateringCan") && (Inventory.inven[i].ItemName != "Scythe"))// && (Inventory.inven[i].ItemName != "Shovel"))
+                if ((Inventory.inven[i].ItemName != "Hoe") && (Inventory.inven[i].ItemName != "WateringCan") && (Inventory.inven[i].ItemName != "Scythe"))
                 {
                     DisplayInven[i % 6].GetComponentInChildren<Text>().text = Inventory.inven[i].ItemNumber.ToString();
                 }
@@ -624,7 +644,6 @@ public class GameManagerScript : MonoBehaviour
         Hoe.TooledLocations.Clear();
         WateringCan.TooledLocations.Clear();
         Scythe.TooledLocations.Clear();
-        Shovel.TooledLocations.Clear();
         WateringCan.TooledLocations.Clear();
         orderList.Clear();
         for (int l = 0; l < orderArray.Length; l++)
@@ -649,7 +668,7 @@ public class GameManagerScript : MonoBehaviour
         sv.SetActive(true);
         for (int a = 0; a < Inventory.inven.Length; a++)
         {
-            if ((Inventory.inven[a].ItemName != "Hoe") && (Inventory.inven[a].ItemName != "WateringCan") && (Inventory.inven[a].ItemName != "Scythe")) //&& (Inventory.inven[a].ItemName != "Shovel"))
+            if ((Inventory.inven[a].ItemName != "Hoe") && (Inventory.inven[a].ItemName != "WateringCan") && (Inventory.inven[a].ItemName != "Scythe"))
             {
                 Inventory.inven[a].ItemNumber = 0;
             }
