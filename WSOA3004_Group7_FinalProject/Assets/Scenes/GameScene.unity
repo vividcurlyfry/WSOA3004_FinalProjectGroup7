@@ -15650,7 +15650,7 @@ MonoBehaviour:
   DaysOrderLeft: {fileID: 673330461}
   dayOver: 0
   percentageFunds: 0.75
-  orderRewardText: 0
+  orderRewardText: {fileID: 542208503}
 --- !u!114 &70570558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16989,8 +16989,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 887615322}
   m_HandleRect: {fileID: 887615321}
   m_Direction: 0
-  m_Value: 1.0001004
-  m_Size: 0.994757
+  m_Value: 1.0000092
+  m_Size: 0.9947601
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -29921,7 +29921,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: a02f4c2ce82a3c1479ed0d63a2262b85, type: 3}
     m_FontSize: 20
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
@@ -30462,7 +30462,7 @@ GameObject:
   - component: {fileID: 542208504}
   - component: {fileID: 542208503}
   m_Layer: 5
-  m_Name: Price
+  m_Name: Reward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31286,7 +31286,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: a02f4c2ce82a3c1479ed0d63a2262b85, type: 3}
     m_FontSize: 20
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -34218,7 +34218,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: a02f4c2ce82a3c1479ed0d63a2262b85, type: 3}
     m_FontSize: 20
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -34856,7 +34856,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: a02f4c2ce82a3c1479ed0d63a2262b85, type: 3}
     m_FontSize: 20
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -98083,7 +98083,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: a02f4c2ce82a3c1479ed0d63a2262b85, type: 3}
     m_FontSize: 20
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -98651,7 +98651,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: a02f4c2ce82a3c1479ed0d63a2262b85, type: 3}
     m_FontSize: 20
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -113866,7 +113866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1276.7274, y: -0.0007872918}
+  m_AnchoredPosition: {x: -1276.7267, y: -0.0007872918}
   m_SizeDelta: {x: 1276.7268, y: 1308.8889}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1860649137

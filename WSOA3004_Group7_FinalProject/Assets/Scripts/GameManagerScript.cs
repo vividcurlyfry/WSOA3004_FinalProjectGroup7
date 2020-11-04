@@ -74,7 +74,7 @@ public class GameManagerScript : MonoBehaviour
 
     public float percentageFunds = 75 / 100;
 
-    public int orderRewardText;
+    public Text orderRewardText;
 
     private void Awake()
     {
@@ -533,6 +533,7 @@ public class GameManagerScript : MonoBehaviour
         //for(int a= 0; a < displayedOrders.Count; a++)
         //{
         orderStory.text = displayedOrders[1].OrderText.ToString();
+        orderRewardText.text = displayedOrders[1].Reward.ToString();
         //}
     }
 
