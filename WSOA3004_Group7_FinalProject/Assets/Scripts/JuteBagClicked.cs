@@ -8,7 +8,7 @@ public class JuteBagClicked : MonoBehaviour
     public GameObject jutecanvas;
     private void OnMouseDown()
     {
-        gm.GetComponent<DeliveryScript>().Clicked();
+        gm.GetComponent<DeliveryScript>().Clicked(1);
     }
 
     private void OnMouseOver()

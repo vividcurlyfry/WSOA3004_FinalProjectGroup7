@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Order", menuName = "Orders")]
-[System.Serializable]
+[System.Serializable] 
 public class Order : ScriptableObject
 {
     [TextArea(20, 25)]
