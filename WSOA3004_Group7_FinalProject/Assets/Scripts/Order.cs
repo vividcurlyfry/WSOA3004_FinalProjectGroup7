@@ -29,6 +29,7 @@ public class Order : ScriptableObject
     public int Reward;
 
     public bool Accepted;
+    public bool Rejected;
     public bool Completed;
 
     public bool Delivered;

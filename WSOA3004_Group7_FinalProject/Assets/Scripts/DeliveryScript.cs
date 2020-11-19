@@ -12,7 +12,7 @@ public class DeliveryScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // orderText.text = GameManagerScript.instance.order1.OrderText;
+        // orderText.text = GameManagerScript.instance.order1.OrderText;
         DisplayOrder[0].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].LettuceAmount + "/" + GameManagerScript.instance.orderArray[0].LettuceNeeded.ToString();
         DisplayOrder[1].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].PotatoAmount + "/" + GameManagerScript.instance.orderArray[0].PotatoNeeded.ToString();
         DisplayOrder[2].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].TurnipAmount + "/" + GameManagerScript.instance.orderArray[0].TurnipNeeded.ToString();
@@ -23,33 +23,71 @@ public class DeliveryScript : MonoBehaviour
 
     public void AcceptOrder()
     {
+        Order order;
+        if (GameManagerScript.instance.Email1.activeSelf)
+        {
+            order = GameManagerScript.instance.displayedOrders[0];
+        }
+        else
+        {
+            order = GameManagerScript.instance.displayedOrders[1];
+        }
         GameManagerScript.instance.jute.gameObject.SetActive(true);
-        GameManagerScript.instance.MoreAcceptedOrders = false;
-        GameManagerScript.instance.orderNameText.text = "Maya Wolff";
-        GameManagerScript.instance.sv.SetActive(false);
-        GameManagerScript.instance.orderDescription.SetActive(true);
-        noEmail.SetActive(true);
-        GameManagerScript.instance.orderList[0].Accepted = true;
-        GameManagerScript.instance.orderList[0].Completed = false;
-        GameManagerScript.instance.DaysOrderLeft.text = (GameManagerScript.instance.orderList[0].DaysAllocated - GameManagerScript.instance.orderList[0].DaysPassed).ToString();
+        order.Accepted = true;
+        order.Completed = false;
+        order.Rejected = false;
+        CloseEmails();
     }
 
     public void RejectOrder()
     {
-        GameManagerScript.instance.sv.SetActive(false);
-        noEmail.SetActive(true);
-        GameManagerScript.instance.orderList[0].Accepted = false;
-        GameManagerScript.instance.orderList[0].Completed = false;
-        GameManagerScript.instance.MoreAcceptedOrders = false;
+        Order order;
+        if(GameManagerScript.instance.Email1.activeSelf)
+        {
+            order = GameManagerScript.instance.displayedOrders[0];
+        }
+        else
+        {
+            order = GameManagerScript.instance.displayedOrders[1];
+        }
+
+        order.Accepted = false;
+        order.Completed = false;
+        order.Rejected = true;
+        CloseEmails();
+    }
+
+    public void CloseEmails()
+    {
+        if ((GameManagerScript.instance.displayedOrders[0].Accepted == true && GameManagerScript.instance.displayedOrders[1].Accepted == true) || (GameManagerScript.instance.displayedOrders[0].Accepted == true && GameManagerScript.instance.displayedOrders[1].Rejected == true) || (GameManagerScript.instance.displayedOrders[0].Rejected == true && GameManagerScript.instance.displayedOrders[1].Accepted == true) || (GameManagerScript.instance.displayedOrders[0].Rejected == true && GameManagerScript.instance.displayedOrders[1].Rejected == true))
+        {
+            GameManagerScript.instance.MoreAcceptedOrders = false;
+            GameManagerScript.instance.scrollView.SetActive(false);
+            GameManagerScript.instance.orderDescription.SetActive(true);
+            noEmail.SetActive(true);
+        }
+        else
+        {
+            if(GameManagerScript.instance.displayedOrders[0].Accepted || GameManagerScript.instance.displayedOrders[0].Rejected)
+            {
+                GameManagerScript.instance.Email1.SetActive(false);
+                GameManagerScript.instance.Email2.SetActive(true);
+            }
+            else
+            {
+                GameManagerScript.instance.Email1.SetActive(true);
+                GameManagerScript.instance.Email2.SetActive(false);
+            }
+        }
     }
 
     public void Clicked()
     {
-        if(GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite != null)
+        if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite != null)
         {
-            if(GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.LettuceSeed.FullyGrownSprite)
+            if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.LettuceSeed.FullyGrownSprite)
             {
-                if(GameManagerScript.instance.orderList[0].LettuceNeeded != 0 && GameManagerScript.instance.orderList[0].LettuceAmount != GameManagerScript.instance.orderList[0].LettuceNeeded)
+                if (GameManagerScript.instance.orderList[0].LettuceNeeded != 0 && GameManagerScript.instance.orderList[0].LettuceAmount != GameManagerScript.instance.orderList[0].LettuceNeeded)
                 {
                     GameManagerScript.instance.orderList[0].LettuceAmount++;
 
@@ -127,14 +165,14 @@ public class DeliveryScript : MonoBehaviour
                 }
             }
 
-            if((GameManagerScript.instance.orderList[0].CarrotAmount == GameManagerScript.instance.orderList[0].CarrotNeeded) && (GameManagerScript.instance.orderList[0].TurnipAmount == GameManagerScript.instance.orderList[0].TurnipNeeded) && (GameManagerScript.instance.orderList[0].WatermelonAmount == GameManagerScript.instance.orderList[0].WatermelonNeeded) && (GameManagerScript.instance.orderList[0].LettuceAmount == GameManagerScript.instance.orderList[0].LettuceNeeded) && (GameManagerScript.instance.orderList[0].PotatoAmount == GameManagerScript.instance.orderList[0].PotatoNeeded))
+            if ((GameManagerScript.instance.orderList[0].CarrotAmount == GameManagerScript.instance.orderList[0].CarrotNeeded) && (GameManagerScript.instance.orderList[0].TurnipAmount == GameManagerScript.instance.orderList[0].TurnipNeeded) && (GameManagerScript.instance.orderList[0].WatermelonAmount == GameManagerScript.instance.orderList[0].WatermelonNeeded) && (GameManagerScript.instance.orderList[0].LettuceAmount == GameManagerScript.instance.orderList[0].LettuceNeeded) && (GameManagerScript.instance.orderList[0].PotatoAmount == GameManagerScript.instance.orderList[0].PotatoNeeded))
             {
                 GameManagerScript.instance.jute.SetActive(false);
                 GameManagerScript.instance.juteClosed.SetActive(true);
                 GameManagerScript.instance.orderList[0].Completed = true;
                 GameManagerScript.instance.Funds += GameManagerScript.instance.orderList[0].Reward;
                 GameManagerScript.instance.orderList[0].TotalFunds += GameManagerScript.instance.orderList[0].Reward;
-                GameManagerScript.instance.NoOrders.SetActive(true);
+                GameManagerScript.instance.notebookNoOrders.SetActive(true);
                 GameManagerScript.instance.orderDescription.SetActive(false);
             }
         }

@@ -6,10 +6,10 @@ public class BedScript : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collided");
+       // Debug.Log("collided");
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("true");
+          //  Debug.Log("true");
             GameManagerScript.instance.NearBed = true;
         }
     }

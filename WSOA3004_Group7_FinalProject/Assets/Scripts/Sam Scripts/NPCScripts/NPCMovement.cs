@@ -29,7 +29,7 @@ public class NPCMovement : MonoBehaviour
         middle = new Vector3(3.5f, 7, -1);
 
         today = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().DaysPlayed;
-        print(today);
+        //print(today);
         isRaining = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LivelinessEffects>().Raining;
 
         //these times work for 15 minute day //update if day time changes

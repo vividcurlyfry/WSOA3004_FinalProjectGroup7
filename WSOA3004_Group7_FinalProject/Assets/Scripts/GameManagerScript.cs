@@ -15,7 +15,6 @@ public class GameManagerScript : MonoBehaviour
 
     public bool NearBed = false;
 
-    public GameObject sv;
     public GameObject SelectedObj;
     public int Funds;
     public InventoryObject Inventory;
@@ -55,10 +54,21 @@ public class GameManagerScript : MonoBehaviour
 
     public bool MoreAcceptedOrders;
 
-    public Text orderNameText;
     public GameObject orderNotification;
-    public Text orderStory;
-    public GameObject NoOrders;
+    public Text orderNameText;
+    public GameObject scrollView;
+
+    public GameObject Email1;
+    public GameObject Email2;
+    public Text emailOrderStory1;
+    public Text emailVeggiesNeeded1;
+    public Text emailRewardText1;
+
+    public Text emailOrderStory2;
+    public Text emailVeggiesNeeded2;
+    public Text emailRewardText2;
+
+    public GameObject notebookNoOrders;
 
     public GameObject sleepConfirmCanvas;
 
@@ -73,8 +83,6 @@ public class GameManagerScript : MonoBehaviour
     public bool dayOver = false;
 
     public float percentageFunds = 75 / 100;
-
-    public Text orderRewardText;
 
     private void Awake()
     {
@@ -95,6 +103,7 @@ public class GameManagerScript : MonoBehaviour
         sleepConfirmCanvas.SetActive(false);
         orderDescription.SetActive(false);
         dayOver = false;
+        Email2.SetActive(false);
 
         if (Slot.instance.ActiveSlot == 1 && (PlayerPrefs.GetString("DayOnePlayedSlotOne?") != "yes"))
         {
@@ -252,7 +261,7 @@ public class GameManagerScript : MonoBehaviour
         if (orderList[0].Accepted)
         {
             orderDescription.SetActive(true);
-            NoOrders.SetActive(true);
+            notebookNoOrders.SetActive(true);
             orderNameText.text = orderList[0].name;
             if (orderList[0].DaysPassed > orderList[0].DaysAllocated && !orderList[0].Completed)
             {
@@ -289,7 +298,7 @@ public class GameManagerScript : MonoBehaviour
             tick.SetActive(false);
             cross.SetActive(false);
             jute.SetActive(false);
-            NoOrders.SetActive(true);
+            notebookNoOrders.SetActive(true);
             orderDescription.SetActive(false);
         }
 
@@ -372,6 +381,8 @@ public class GameManagerScript : MonoBehaviour
 
     public void OrderCalc(Order order1, Order order2)
     {
+        Order order1Backup = order1;
+        Order order2Backup = order2;
         float fundCalcFloat = Funds * percentageFunds;
         int fundCalc = (int)fundCalcFloat;
         int maxBelowGround = (int)(fundCalc / 10);
@@ -526,15 +537,66 @@ public class GameManagerScript : MonoBehaviour
         order2Reward += order2.LettuceNeeded * 28;
 
         order2.Reward = order2Reward;
+
+        if(order1.Reward == 0 || order2.Reward == 0)
+        {
+            OrderCalc(order1Backup, order2Backup);
+        }
     }
 
     public void DisplayOrderEmail()
     {
-        //for(int a= 0; a < displayedOrders.Count; a++)
-        //{
-        orderStory.text = displayedOrders[1].OrderText.ToString();
-        orderRewardText.text = displayedOrders[1].Reward.ToString();
-        //}
+        emailOrderStory1.text = displayedOrders[0].OrderText.ToString();
+        emailRewardText1.text = displayedOrders[0].Reward.ToString();
+
+        string veggiesNeeded = "";
+        if(displayedOrders[0].CarrotNeeded != 0)
+        {
+            veggiesNeeded = displayedOrders[0].CarrotNeeded.ToString() + " x Carrot(s)";
+        }
+        if (displayedOrders[0].TurnipNeeded != 0)
+        {
+            veggiesNeeded += System.Environment.NewLine + displayedOrders[0].TurnipNeeded.ToString() + " x Turnip(s)";
+        }
+        if (displayedOrders[0].PotatoNeeded != 0)
+        {
+            veggiesNeeded += System.Environment.NewLine + displayedOrders[0].PotatoNeeded.ToString() + " x Potato(s)";
+        }
+        if (displayedOrders[0].WatermelonNeeded != 0)
+        {
+            veggiesNeeded += System.Environment.NewLine + displayedOrders[0].WatermelonNeeded.ToString() + " x Watermelon(s)";
+        }
+        if (displayedOrders[0].LettuceNeeded != 0)
+        {
+            veggiesNeeded += System.Environment.NewLine + displayedOrders[0].LettuceNeeded.ToString() + " x Lettuce(s)";
+        }
+        emailVeggiesNeeded1.text = veggiesNeeded;
+
+
+        emailOrderStory2.text = displayedOrders[1].OrderText.ToString();
+        emailRewardText2.text = displayedOrders[1].Reward.ToString();
+
+        if (displayedOrders[1].CarrotNeeded != 0)
+        {
+            veggiesNeeded = displayedOrders[1].CarrotNeeded.ToString() + " x Carrot(s)";
+        }
+        if (displayedOrders[1].TurnipNeeded != 0)
+        {
+            veggiesNeeded += System.Environment.NewLine + displayedOrders[1].TurnipNeeded.ToString() + " x Turnip(s)";
+        }
+        if (displayedOrders[1].PotatoNeeded != 0)
+        {
+            veggiesNeeded += System.Environment.NewLine + displayedOrders[1].PotatoNeeded.ToString() + " x Potato(s)";
+        }
+        if (displayedOrders[1].WatermelonNeeded != 0)
+        {
+            veggiesNeeded += System.Environment.NewLine + displayedOrders[1].WatermelonNeeded.ToString() + " x Watermelon(s)";
+        }
+        if (displayedOrders[1].LettuceNeeded != 0)
+        {
+            veggiesNeeded += System.Environment.NewLine + displayedOrders[1].LettuceNeeded.ToString() + " x Lettuce(s)";
+        }
+        emailVeggiesNeeded2.text = veggiesNeeded;
     }
 
     public void TabFunc()
@@ -665,8 +727,8 @@ public class GameManagerScript : MonoBehaviour
         PosInven = 0;
         jute.gameObject.SetActive(false);
         MoreAcceptedOrders = true;
-        NoOrders.SetActive(true);
-        sv.SetActive(true);
+        notebookNoOrders.SetActive(true);
+        scrollView.SetActive(true);
         for (int a = 0; a < Inventory.inven.Length; a++)
         {
             if ((Inventory.inven[a].ItemName != "Hoe") && (Inventory.inven[a].ItemName != "WateringCan") && (Inventory.inven[a].ItemName != "Scythe"))
