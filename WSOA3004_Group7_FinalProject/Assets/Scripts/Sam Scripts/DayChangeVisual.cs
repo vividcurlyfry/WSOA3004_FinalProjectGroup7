@@ -12,6 +12,7 @@ public class DayChangeVisual : MonoBehaviour
     public Sprite LightOn, LightOff;
     public AudioSource AS;
     public AudioClip nightAudio;
+    public TransitionScript transition;
 
     private float t1 = 0, t2 = 0, speed = 1f, timeBetween = 0, timeStart = 0;
     private int today = 0;
@@ -76,7 +77,7 @@ public class DayChangeVisual : MonoBehaviour
 
         if (timeBetween > 5f) // test time length
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            transition.TransitionToScene(SceneManager.GetActiveScene().name);
         }
 
     }

@@ -83,6 +83,8 @@ public class GameManagerScript : MonoBehaviour
 
     public bool dayOver = false;
 
+    public TransitionScript transition;
+
     public float percentageFunds = 75 / 100;
 
     private void Awake()
@@ -891,7 +893,8 @@ public class GameManagerScript : MonoBehaviour
 
         if (orderList[0].Completed && !orderList[0].Delivered)
         {
-            SceneManager.LoadScene("DayOver");
+            //SceneManager.LoadScene("DayOver");
+            transition.TransitionToScene("DayOver");
         }
         else
         {
