@@ -116,7 +116,7 @@ public class SaveSlotScript : MonoBehaviour
     {
         if (clear == false)
         {
-            Slot.instance.ActiveSlot = 3;
+            Slot.instance.ActiveSlot = 4;
             if (PlayerPrefs.GetString("DayOnePlayedSlotFour?") == "yes")
             {
                 SceneManager.LoadScene("GameScene");

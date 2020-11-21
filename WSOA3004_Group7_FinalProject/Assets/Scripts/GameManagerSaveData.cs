@@ -11,13 +11,11 @@ public class GameManagerSaveData
     public List<int> orderListSave;
     public List<int> orderAcceptedSave;
     public int DaysPlayed;
-    public bool MoreAcceptedOrders;
     public GameManagerSaveData(GameManagerScript gm)
     {
         Funds = gm.Funds;
         DaysPlayed = gm.DaysPlayed;
         InventorySave = gm.InventorySave;
-        MoreAcceptedOrders = gm.MoreAcceptedOrders;
         orderListSave = gm.orderListSave;
         orderAcceptedSave = gm.orderAcceptedSave;
     }

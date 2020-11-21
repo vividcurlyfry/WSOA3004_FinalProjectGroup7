@@ -54,7 +54,7 @@ public class UIScript : MonoBehaviour
         {
             Delivery.gameObject.SetActive(false);
             crossEmail.SetActive(false);
-            if (GameManagerScript.instance.MoreAcceptedOrders == false)
+            if ((GameManagerScript.instance.displayedOrders[0].Accepted == true && GameManagerScript.instance.displayedOrders[1].Accepted == true) || (GameManagerScript.instance.displayedOrders[0].Accepted == true && GameManagerScript.instance.displayedOrders[1].Rejected == true) || (GameManagerScript.instance.displayedOrders[0].Rejected == true && GameManagerScript.instance.displayedOrders[1].Accepted == true) || (GameManagerScript.instance.displayedOrders[0].Rejected == true && GameManagerScript.instance.displayedOrders[1].Rejected == true))
             {
                 GameManagerScript.instance.orderNotification.SetActive(false);
             }

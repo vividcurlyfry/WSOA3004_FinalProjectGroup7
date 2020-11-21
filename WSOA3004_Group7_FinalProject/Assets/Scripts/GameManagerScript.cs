@@ -32,7 +32,6 @@ public class GameManagerScript : MonoBehaviour
     public Order[] acceptedOrders;
     public GameObject[] juteBags;
     public bool[] acceptedOrderBool;
-    public GameObject[] emailObjects;
     public Text veggiesStory;
 
     public Crop LettuceSeed;
@@ -54,8 +53,6 @@ public class GameManagerScript : MonoBehaviour
 
     public Tile Watered;
 
-    public bool MoreAcceptedOrders;
-
     public GameObject orderNotification;
     public Text orderNameText;
     public GameObject scrollView;
@@ -70,7 +67,9 @@ public class GameManagerScript : MonoBehaviour
     public Text emailVeggiesNeeded2;
     public Text emailRewardText2;
 
-    public GameObject notebookNoOrders;
+    public GameObject[] NoteBookOrders;
+
+    public GameObject noNotebookOrders;
 
     public GameObject sleepConfirmCanvas;
 
@@ -253,101 +252,229 @@ public class GameManagerScript : MonoBehaviour
 
         EmailGenerator();
 
-        for(int a = 0; a < acceptedOrders.Length; a++)
+        bool accepted = false;
+        for(int a = 0; a < acceptedOrderBool.Length; a++)
         {
-            if (acceptedOrderBool[a] == true)
+            if(acceptedOrderBool[a] == true)
             {
-                if (acceptedOrders[a].DaysPassed > acceptedOrders[a].DaysAllocated && !acceptedOrders[a].Completed)
-                {
-                    acceptedOrders[a].OrderText = "";
-                    acceptedOrders[a].nameOrder = "";
-                    acceptedOrders[a].TotalFunds = 0;
-                    acceptedOrders[a].DaysAllocated = 0;
-                    acceptedOrders[a].DaysPassed = 0;
-                    acceptedOrders[a].Reward = 0;
-                    acceptedOrders[a].Accepted = false;
-                    acceptedOrders[a].Rejected = false;
-                    acceptedOrders[a].Completed = false;
-                    acceptedOrders[a].Delivered = false;
-                    acceptedOrders[a].TurnipNeeded = 0;
-                    acceptedOrders[a].WatermelonNeeded = 0;
-                    acceptedOrders[a].CarrotNeeded = 0;
-                    acceptedOrders[a].PotatoNeeded = 0;
-                    acceptedOrders[a].LettuceNeeded = 0;
-                    acceptedOrders[a].TurnipAmount = 0;
-                    acceptedOrders[a].WatermelonAmount = 0;
-                    acceptedOrders[a].CarrotAmount = 0;
-                    acceptedOrders[a].PotatoAmount = 0;
-                    acceptedOrders[a].LettuceAmount = 0;
-                }
-                else if (orderList[0].DaysPassed > orderList[0].DaysAllocated && orderList[0].Completed)
-                {
-
-                }
-            }
-        }
-        /*
-        if (orderList[0].Accepted)
-        {
-            orderDescription.SetActive(true);
-            notebookNoOrders.SetActive(true);
-            orderNameText.text = orderList[0].name;
-            if (orderList[0].DaysPassed > orderList[0].DaysAllocated && !orderList[0].Completed)
-            {
-                jute.SetActive(false);
-                orderList[0].CarrotAmount = 0;
-                orderList[0].TurnipAmount = 0;
-                orderList[0].WatermelonAmount = 0;
-                orderList[0].PotatoAmount = 0;
-                orderList[0].LettuceAmount = 0;
-                cross.SetActive(true);
-                tick.SetActive(false);
-                line.SetActive(true);
-                DaysOrderLeft.text = "0";
-            }
-            else if (orderList[0].DaysPassed > orderList[0].DaysAllocated && orderList[0].Completed)
-            {
-                jute.SetActive(false);
-                tick.SetActive(true);
-                cross.SetActive(false);
-                line.SetActive(true);
-                DaysOrderLeft.text = "0";
+                accepted = true;
             }
             else
             {
-                tick.SetActive(false);
-                cross.SetActive(false);
-                jute.SetActive(true);
-                DaysOrderLeft.text = (orderList[0].DaysAllocated - orderList[0].DaysPassed).ToString();
+                accepted = false;
             }
         }
-        // }
+
+        if (accepted == false)
+        {
+            noNotebookOrders.SetActive(true);
+            for (int a = 0; a < NoteBookOrders.Length; a++)
+            {
+                NoteBookOrders[a].SetActive(false);
+            }
+        }
         else
         {
-            tick.SetActive(false);
-            cross.SetActive(false);
-            jute.SetActive(false);
-            notebookNoOrders.SetActive(true);
-            orderDescription.SetActive(false);
+            for (int a = 0; a < acceptedOrders.Length; a++)
+            {
+                if (acceptedOrderBool[a] == true)
+                {
+                    if (acceptedOrders[a].DaysPassed > acceptedOrders[a].DaysAllocated && !acceptedOrders[a].Completed)
+                    {
+                        acceptedOrders[a].OrderText = "";
+                        acceptedOrders[a].nameOrder = "";
+                        acceptedOrders[a].TotalFunds = 0;
+                        acceptedOrders[a].DaysAllocated = 0;
+                        acceptedOrders[a].DaysPassed = 0;
+                        acceptedOrders[a].Reward = 0;
+                        acceptedOrders[a].Accepted = false;
+                        acceptedOrders[a].Rejected = false;
+                        acceptedOrders[a].Completed = false;
+                        acceptedOrders[a].Delivered = false;
+                        acceptedOrders[a].TurnipNeeded = 0;
+                        acceptedOrders[a].WatermelonNeeded = 0;
+                        acceptedOrders[a].CarrotNeeded = 0;
+                        acceptedOrders[a].PotatoNeeded = 0;
+                        acceptedOrders[a].LettuceNeeded = 0;
+                        acceptedOrders[a].TurnipAmount = 0;
+                        acceptedOrders[a].WatermelonAmount = 0;
+                        acceptedOrders[a].CarrotAmount = 0;
+                        acceptedOrders[a].PotatoAmount = 0;
+                        acceptedOrders[a].LettuceAmount = 0;
+                        acceptedOrderBool[a] = false;
+                        juteBags[a].SetActive(false);
+                    }
+                    else if (orderList[0].DaysPassed > orderList[0].DaysAllocated && orderList[0].Completed)
+                    {
+                        acceptedOrders[a].OrderText = "";
+                        acceptedOrders[a].nameOrder = "";
+                        acceptedOrders[a].TotalFunds = 0;
+                        acceptedOrders[a].DaysAllocated = 0;
+                        acceptedOrders[a].DaysPassed = 0;
+                        acceptedOrders[a].Reward = 0;
+                        acceptedOrders[a].Accepted = false;
+                        acceptedOrders[a].Rejected = false;
+                        acceptedOrders[a].Completed = false;
+                        acceptedOrders[a].Delivered = false;
+                        acceptedOrders[a].TurnipNeeded = 0;
+                        acceptedOrders[a].WatermelonNeeded = 0;
+                        acceptedOrders[a].CarrotNeeded = 0;
+                        acceptedOrders[a].PotatoNeeded = 0;
+                        acceptedOrders[a].LettuceNeeded = 0;
+                        acceptedOrders[a].TurnipAmount = 0;
+                        acceptedOrders[a].WatermelonAmount = 0;
+                        acceptedOrders[a].CarrotAmount = 0;
+                        acceptedOrders[a].PotatoAmount = 0;
+                        acceptedOrders[a].LettuceAmount = 0;
+                        acceptedOrderBool[a] = false;
+                        juteBags[a].SetActive(false);
+                    }
+                    else
+                    {
+                        juteBags[a].SetActive(true);
+                        SetupNotebook();
+                        DisplayNotebook();
+                    }
+                }
+
+                if (acceptedOrders[a].Completed && acceptedOrders[a].Delivered)
+                {
+                    juteBags[a].SetActive(false);
+                    juteBags[a].transform.Find("closed").gameObject.SetActive(false);
+                }
+                else if (acceptedOrders[a].Completed && !acceptedOrders[a].Delivered)
+                {
+                    juteBags[a].SetActive(false);
+                    juteBags[a].transform.Find("closed").gameObject.SetActive(true);
+                }
+            }
         }
 
-        if (orderList[0].Completed && orderList[0].Delivered)
-        {
-            jute.SetActive(false);
-            juteClosed.SetActive(false);
-            line.SetActive(true);
-            tick.SetActive(true);
-        }
-        else if (orderList[0].Completed && !orderList[0].Delivered)
-        {
-            jute.SetActive(false);
-            juteClosed.SetActive(true);
-            line.SetActive(false);
-            tick.SetActive(false);
-        }
-
-        juteClosed.SetActive(false);*/
         DisplayInvenFunc();
+    }
+
+    public void SetupNotebook()
+    {
+        for (int k = 0; k < acceptedOrders.Length; k++)
+        {
+            if (acceptedOrderBool[k])
+            {
+                NoteBookOrders[k].transform.Find("NameOrderer").GetComponent<Text>().text = acceptedOrders[k].nameOrder;
+                NoteBookOrders[k].transform.Find("DAYS").GetComponent<Text>().text = (acceptedOrders[k].DaysAllocated-acceptedOrders[k].DaysPassed).ToString();
+                if (acceptedOrders[k].PotatoNeeded == 0)
+                {
+                    NoteBookOrders[k].transform.Find("PotatoDraw").GetComponentInChildren<Text>().text = "-1";
+                }
+                else
+                {
+                    NoteBookOrders[k].transform.Find("PotatoDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].PotatoNeeded - 1).ToString();
+                }
+
+                if (acceptedOrders[k].TurnipNeeded == 0)
+                {
+                    NoteBookOrders[k].transform.Find("TurnipDraw").GetComponentInChildren<Text>().text = "-1";
+                }
+                else
+                {
+                    NoteBookOrders[k].transform.Find("TurnipDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].TurnipNeeded - 1).ToString();
+                }
+
+                if (acceptedOrders[k].CarrotNeeded == 0)
+                {
+                    NoteBookOrders[k].transform.Find("CarrotDraw").GetComponentInChildren<Text>().text = "-1";
+                }
+                else
+                {
+                    NoteBookOrders[k].transform.Find("CarrotDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].CarrotNeeded - 1).ToString();
+                }
+
+                if (acceptedOrders[k].LettuceNeeded == 0)
+                {
+                    NoteBookOrders[k].transform.Find("LettuceDraw").GetComponentInChildren<Text>().text = "-1";
+                }
+                else
+                {
+                    NoteBookOrders[k].transform.Find("LettuceDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].LettuceNeeded - 1).ToString();
+                }
+
+                if (acceptedOrders[k].WatermelonNeeded == 0)
+                {
+                    NoteBookOrders[k].transform.Find("WatermelonDraw").GetComponentInChildren<Text>().text = "-1";
+                }
+
+                else
+                {
+                    NoteBookOrders[k].transform.Find("WatermelonDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].WatermelonNeeded - 1).ToString();
+                }
+
+            }
+        }
+        noNotebookOrders.SetActive(false);
+    }
+
+    public void DisplayNotebook()
+    {
+        bool displayed = false;
+        for (int k = 0; k < acceptedOrders.Length && !displayed; k++)
+        {
+            if (acceptedOrderBool[k])
+            {
+                NoteBookOrders[k].SetActive(true);
+                displayed = true;
+            }
+            else
+            {
+                NoteBookOrders[k].SetActive(false);
+                displayed = false;
+            }
+        }
+        noNotebookOrders.SetActive(false);
+    }
+
+    public void NextOrder(Transform trans)
+    {
+        int num = (int)trans.gameObject.name[13];
+        bool displayed = false;
+        for (int k = num; k < acceptedOrders.Length && !displayed; k++)
+        {
+            if (acceptedOrderBool[k])
+            {
+                NoteBookOrders[k].SetActive(true);
+            }
+            else
+            {
+                NoteBookOrders[k].SetActive(false);
+            }
+
+            if (k == acceptedOrders.Length - 1)
+            {
+                k = 0;
+            }
+        }
+        noNotebookOrders.SetActive(false);
+    }
+
+    public void PreviousOrder(Transform trans)
+    {
+        int num = (int)trans.gameObject.name[13];
+        bool displayed = false;
+        for (int k = num; k < acceptedOrders.Length && !displayed; k--)
+        {
+            if (acceptedOrderBool[k])
+            {
+                NoteBookOrders[k].SetActive(true);
+            }
+            else
+            {
+                NoteBookOrders[k].SetActive(false);
+            }
+
+            if (k == 0)
+            {
+                k = acceptedOrders.Length-1;
+            }
+        }
+        noNotebookOrders.SetActive(false);
     }
 
     private void Update()
@@ -575,6 +702,24 @@ public class GameManagerScript : MonoBehaviour
         {
             OrderCalc(order1Backup, order2Backup);
         }
+
+        if(order1.LettuceNeeded == 0 && order1.WatermelonNeeded == 0)
+        {
+            order1.DaysAllocated = 3;
+        }
+        else
+        {
+            order1.DaysAllocated = 4;
+        }
+
+        if (order2.LettuceNeeded == 0 && order2.WatermelonNeeded == 0)
+        {
+            order2.DaysAllocated = 3;
+        }
+        else
+        {
+            order2.DaysAllocated = 4;
+        }
     }
 
     public void DisplayOrderEmail()
@@ -747,8 +892,7 @@ public class GameManagerScript : MonoBehaviour
         {
             juteBags[b].SetActive(false);
         }
-        MoreAcceptedOrders = true;
-        notebookNoOrders.SetActive(true);
+        noNotebookOrders.SetActive(true);
         scrollView.SetActive(true);
         for (int a = 0; a < Inventory.inven.Length; a++)
         {
@@ -967,7 +1111,6 @@ public class GameManagerScript : MonoBehaviour
         Funds = data.Funds;
         DaysPlayed = data.DaysPlayed;
         InventorySave = data.InventorySave;
-        MoreAcceptedOrders = data.MoreAcceptedOrders;
         orderListSave = data.orderListSave;
         orderAcceptedSave = data.orderAcceptedSave;
         for (int a = 0; a < Hoe.TooledLocations.Count; a++)
