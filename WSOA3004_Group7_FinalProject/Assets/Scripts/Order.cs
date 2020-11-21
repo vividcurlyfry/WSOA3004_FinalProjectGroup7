@@ -11,6 +11,15 @@ public class Order : ScriptableObject
     public string nameOrder;
     public int TotalFunds;
     public int DaysAllocated;
+    public int DaysPassed;
+
+    public int Reward;
+
+    public bool Accepted;
+    public bool Rejected;
+    public bool Completed;
+
+    public bool Delivered;
 
     public int TurnipNeeded;
     public int WatermelonNeeded;
@@ -23,14 +32,4 @@ public class Order : ScriptableObject
     public int CarrotAmount;
     public int PotatoAmount;
     public int LettuceAmount;
-    public int TimeLimit;
-    public int DaysPassed;
-
-    public int Reward;
-
-    public bool Accepted;
-    public bool Rejected;
-    public bool Completed;
-
-    public bool Delivered;
 }

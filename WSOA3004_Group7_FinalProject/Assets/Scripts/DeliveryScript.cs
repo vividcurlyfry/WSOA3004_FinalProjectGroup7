@@ -18,17 +18,12 @@ public class DeliveryScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // orderText.text = GameManagerScript.instance.order1.OrderText;
-        DisplayOrder[0].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].LettuceAmount + "/" + GameManagerScript.instance.orderArray[0].LettuceNeeded.ToString();
-        DisplayOrder[1].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].PotatoAmount + "/" + GameManagerScript.instance.orderArray[0].PotatoNeeded.ToString();
-        DisplayOrder[2].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].TurnipAmount + "/" + GameManagerScript.instance.orderArray[0].TurnipNeeded.ToString();
-        DisplayOrder[3].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].WatermelonAmount + "/" + GameManagerScript.instance.orderArray[0].WatermelonNeeded.ToString();
-        DisplayOrder[4].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].CarrotAmount + "/" + GameManagerScript.instance.orderArray[0].CarrotNeeded.ToString();
-        noEmail.SetActive(false);
+        //DisplayOrder[0].GetComponentInChildren<Text>().text = GameManagerScript.instance.orderArray[0].LettuceAmount + "/" + GameManagerScript.instance.orderArray[0].LettuceNeeded.ToString();
     }
 
-    public void AcceptOrder()
+    public void AcceptOrder(Transform trans)
     {
+        int num = (int)trans.gameObject.name[0]; 
         Order order;
         if (GameManagerScript.instance.Email1.activeSelf)
         {
@@ -38,11 +33,20 @@ public class DeliveryScript : MonoBehaviour
         {
             order = GameManagerScript.instance.displayedOrders[1];
         }
-        GameManagerScript.instance.jute.gameObject.SetActive(true);
+        GameManagerScript.instance.juteBags[num].SetActive(true);
         order.Accepted = true;
         order.Completed = false;
         order.Rejected = false;
-        GameManagerScript.instance.acceptedOrders.Add(order);
+        bool done = false;
+        for (int a = 0; a < GameManagerScript.instance.acceptedOrders.Length && !done; a++)
+        {
+            if(GameManagerScript.instance.acceptedOrders[a].OrderText == "")
+            {
+                GameManagerScript.instance.acceptedOrders[a] = order;
+                GameManagerScript.instance.acceptedOrderBool[a] = true;
+                done = true;
+            }
+        }
         CloseEmails();
     }
 
@@ -88,34 +92,10 @@ public class DeliveryScript : MonoBehaviour
         }
     }
 
-    public void Clicked(int numOrder)
+    public void Clicked(Transform trans)
     {
-        Order activeOrder = null;
-        if(numOrder == 1)
-        {
-            activeOrder = order1;
-        }
-        else if (numOrder == 2)
-        {
-            activeOrder = order2;
-        }
-        else if (numOrder == 3)
-        {
-            activeOrder = order3;
-        }
-        else if (numOrder == 4)
-        {
-            activeOrder = order4;
-        }
-        else if (numOrder == 5)
-        {
-            activeOrder = order5;
-        }
-        else if (numOrder == 6)
-        {
-            activeOrder = order6;
-        }
-
+        int num = (int)trans.gameObject.name[0];
+        Order activeOrder = GameManagerScript.instance.acceptedOrders[num];
         if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite != null)
         {
             if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.LettuceSeed.FullyGrownSprite)
@@ -200,8 +180,9 @@ public class DeliveryScript : MonoBehaviour
 
             if ((activeOrder.CarrotAmount == activeOrder.CarrotNeeded) && (activeOrder.TurnipAmount == activeOrder.TurnipNeeded) && (activeOrder.WatermelonAmount == activeOrder.WatermelonNeeded) && (activeOrder.LettuceAmount == activeOrder.LettuceNeeded) && (activeOrder.PotatoAmount == activeOrder.PotatoNeeded))
             {
-                GameManagerScript.instance.jute.SetActive(false);
-                GameManagerScript.instance.juteClosed.SetActive(true);
+                GameManagerScript.instance.juteBags[num].SetActive(false);
+                GameObject jute = GameManagerScript.instance.juteBags[num];
+                jute.transform.Find("closed").gameObject.SetActive(true);
                 activeOrder.Completed = true;
                 GameManagerScript.instance.Funds += activeOrder.Reward;
                 activeOrder.TotalFunds += activeOrder.Reward;
