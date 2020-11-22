@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BedScript : MonoBehaviour
 {
+    public GameObject showDoor;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
        // Debug.Log("collided");
@@ -11,6 +13,7 @@ public class BedScript : MonoBehaviour
         {
           //  Debug.Log("true");
             GameManagerScript.instance.NearBed = true;
+            showDoor.SetActive(true);
         }
     }
 
@@ -19,6 +22,7 @@ public class BedScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             GameManagerScript.instance.NearBed = false;
+            showDoor.SetActive(false);
         }
     }
 }

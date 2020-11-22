@@ -8,7 +8,7 @@ public class DayChangeVisual : MonoBehaviour
 {
     public bool dayOver = false, dayChange = false;
     public GameObject Lamp, Calendar, confirmationPanel;
-    public Text date;
+    public Text date, calendarTextonScreen;
     public Sprite LightOn, LightOff;
     public AudioSource AS;
     public AudioClip nightAudio;
@@ -35,6 +35,7 @@ public class DayChangeVisual : MonoBehaviour
         this.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0f);
         Lamp.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 8;
         date.text = today.ToString();
+        calendarTextonScreen.text = today.ToString();
         Calendar.SetActive(true);
     }
 

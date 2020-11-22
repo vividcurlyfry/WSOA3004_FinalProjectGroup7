@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GroceriesTrack : MonoBehaviour
 {
     public int GroceriesDays; //Day to buy groceries, Day 1 i.e. first day to buy groceries in this period
-    public bool GroceriesNotBought, GroceriesBought; //connect to amy
+    public bool GroceriesNotBought, GroceriesBought; //connect to amy to save
     public int daysLeftInt;
     public Text daysLeft, GroceriesBoughtText, GroceriesLate;
     public GameObject HungryRuby;
@@ -14,7 +14,8 @@ public class GroceriesTrack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // GroceriesDays connect to AMy //put a bought check, if bought loop back to one it not bought keep counting
+        //GroceriesDays connect to AMy //put a bought check, if bought loop back to one it not bought keep counting
+        //GroceriesBought 
         GroceriesLate.enabled = false;
         GroceriesBoughtText.enabled = false;
         daysLeft.enabled = true;
@@ -36,6 +37,7 @@ public class GroceriesTrack : MonoBehaviour
         {
             daysLeftInt = 4 - GroceriesDays;
             daysLeft.text = daysLeftInt.ToString() + " days left to buy groceries";
+            HungryRuby.SetActive(false);
         }
 
         if ((GroceriesNotBought) && (GroceriesDays > 3))
@@ -81,6 +83,7 @@ public class GroceriesTrack : MonoBehaviour
                 GroceriesBoughtText.enabled = true;
                 daysLeft.enabled = false;
                 GroceriesBought = true;
+                HungryRuby.SetActive(false);
                 break;
         }
     }
