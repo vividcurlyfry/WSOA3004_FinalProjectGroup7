@@ -57,6 +57,9 @@ public class GameManagerScript : MonoBehaviour
     public Text orderNameText;
     public GameObject scrollView;
 
+    public GameObject nextButt;
+    public GameObject prevButt;
+
     public GameObject Email1;
     public GameObject Email2;
     public Text emailOrderStory1;
@@ -68,6 +71,7 @@ public class GameManagerScript : MonoBehaviour
     public Text emailRewardText2;
 
     public GameObject[] NoteBookOrders;
+    public int activeNoteBookOrder;
 
     public GameObject noNotebookOrders;
 
@@ -107,7 +111,7 @@ public class GameManagerScript : MonoBehaviour
         orderDescription.SetActive(false);
         dayOver = false;
         Email2.SetActive(false);
-
+        DisplayNotebook();
         if (Slot.instance.ActiveSlot == 1 && (PlayerPrefs.GetString("DayOnePlayedSlotOne?") != "yes"))
         {
             DayOne();
@@ -415,12 +419,22 @@ public class GameManagerScript : MonoBehaviour
     public void DisplayNotebook()
     {
         bool displayed = false;
+        for (int k = 0; k < acceptedOrders.Length; k++)
+        {
+            NoteBookOrders[k].SetActive(false);
+            noNotebookOrders.SetActive(true);
+            nextButt.SetActive(false);
+            prevButt.SetActive(false);
+        }
+
         for (int k = 0; k < acceptedOrders.Length && !displayed; k++)
         {
             if (acceptedOrderBool[k])
             {
                 NoteBookOrders[k].SetActive(true);
+                activeNoteBookOrder = k;
                 displayed = true;
+                noNotebookOrders.SetActive(false);
             }
             else
             {
@@ -428,51 +442,134 @@ public class GameManagerScript : MonoBehaviour
                 displayed = false;
             }
         }
-        noNotebookOrders.SetActive(false);
+
+
+        int count = 0;
+        for (int a = 0; a < acceptedOrderBool.Length; a++)
+        {
+            if (acceptedOrderBool[a] == true)
+            {
+                count++;
+            }
+        }
+
+        if (count <= 1)
+        {
+            nextButt.SetActive(false);
+            prevButt.SetActive(false);
+        }
+        else
+        {
+            nextButt.SetActive(true);
+            prevButt.SetActive(true);
+        }
     }
 
-    public void NextOrder(Transform trans)
+    public void NextOrder()
     {
-        int num = (int)trans.gameObject.name[13];
+        int num = activeNoteBookOrder;
         bool displayed = false;
-        for (int k = num; k < acceptedOrders.Length && !displayed; k++)
+        for (int k = 0; k < acceptedOrders.Length; k++)
         {
-            if (acceptedOrderBool[k])
-            {
-                NoteBookOrders[k].SetActive(true);
-            }
-            else
-            {
-                NoteBookOrders[k].SetActive(false);
-            }
+            NoteBookOrders[k].SetActive(false);
+        }
 
-            if (k == acceptedOrders.Length - 1)
+        int count = 0;
+
+        for(int a = 0; a < acceptedOrderBool.Length; a++)
+        {
+            if(acceptedOrderBool[a] == true)
             {
-                k = 0;
+                count++;
             }
+        }
+
+        if (count != 1)
+        {
+            if (num == acceptedOrders.Length)
+            {
+                num = -1;
+            }
+            for (int k = num + 1; k < acceptedOrders.Length && !displayed; k++)
+            {
+                if (k == -1)
+                {
+                    k = acceptedOrders.Length - 1;
+                }
+
+                if (acceptedOrderBool[k])
+                {
+                    NoteBookOrders[k].SetActive(true);
+                    activeNoteBookOrder = k;
+                    displayed = true;
+                }
+                else
+                {
+                    NoteBookOrders[k].SetActive(false);
+                }
+
+                if(k == acceptedOrders.Length-1)
+                {
+                    k = -1;
+                }
+            }
+        }
+        else
+        {
+            NoteBookOrders[num].SetActive(true);
+            activeNoteBookOrder = num;
         }
         noNotebookOrders.SetActive(false);
     }
 
-    public void PreviousOrder(Transform trans)
+    public void PreviousOrder()
     {
-        int num = (int)trans.gameObject.name[13];
+        int num = activeNoteBookOrder;
         bool displayed = false;
-        for (int k = num; k < acceptedOrders.Length && !displayed; k--)
+        for (int k = 0; k < acceptedOrders.Length; k++)
         {
-            if (acceptedOrderBool[k])
-            {
-                NoteBookOrders[k].SetActive(true);
-            }
-            else
-            {
-                NoteBookOrders[k].SetActive(false);
-            }
+            NoteBookOrders[k].SetActive(false);
+        }
 
-            if (k == 0)
+        int count = 0;
+
+        for (int a = 0; a < acceptedOrderBool.Length; a++)
+        {
+            if (acceptedOrderBool[a] == true)
             {
-                k = acceptedOrders.Length-1;
+                count++;
             }
+        }
+
+        if (count != 1)
+        {
+            if (num == 0)
+            {
+                num = acceptedOrders.Length;
+            }
+            for (int k = num - 1; k >= 0 && !displayed; k--)
+            {
+                if (acceptedOrderBool[k])
+                {
+                    NoteBookOrders[k].SetActive(true);
+                    activeNoteBookOrder = k;
+                    displayed = true;
+                }
+                else
+                {
+                    NoteBookOrders[k].SetActive(false);
+                }
+
+                if (k == 0 && !displayed)
+                {
+                    k = acceptedOrders.Length-1;
+                }
+            }
+        }
+        else
+        {
+            NoteBookOrders[num].SetActive(true);
+            activeNoteBookOrder = num;
         }
         noNotebookOrders.SetActive(false);
     }

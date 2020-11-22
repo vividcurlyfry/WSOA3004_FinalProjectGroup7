@@ -12,7 +12,7 @@ public class DeliveryScript : MonoBehaviour
     public GameObject[] DisplayOrderCarrot = new GameObject[10];
     public Text orderText;
     public GameObject noEmail;
-    public 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -93,9 +93,6 @@ public class DeliveryScript : MonoBehaviour
 
         GameManagerScript.instance.juteBags[num].SetActive(true);
         CloseEmails();
-        GameManagerScript.instance.SetupNotebook();
-        GameManagerScript.instance.DisplayNotebook();
-        JuteCanvasDisplayers();
     }
 
     public void RejectOrder()
@@ -137,6 +134,9 @@ public class DeliveryScript : MonoBehaviour
                 GameManagerScript.instance.Email2.SetActive(false);
             }
         }
+        GameManagerScript.instance.SetupNotebook();
+        GameManagerScript.instance.DisplayNotebook();
+        JuteCanvasDisplayers();
     }
 
     public void Clicked(Transform trans)
