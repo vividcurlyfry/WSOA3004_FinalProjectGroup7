@@ -142,7 +142,7 @@ public class DeliveryScript : MonoBehaviour
     public void Clicked(Transform trans)
     {
         int num = (int)char.GetNumericValue(trans.gameObject.name[0]);
-        Order activeOrder = GameManagerScript.instance.acceptedOrders[num];
+        Order activeOrder = GameManagerScript.instance.acceptedOrders[num-1];
         if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite != null)
         {
             if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.LettuceSeed.FullyGrownSprite)
@@ -236,6 +236,7 @@ public class DeliveryScript : MonoBehaviour
                 GameManagerScript.instance.noNotebookOrders.SetActive(true);
                 GameManagerScript.instance.orderDescription.SetActive(false);
             }
+            JuteCanvasDisplayers();
         }
     }
 }

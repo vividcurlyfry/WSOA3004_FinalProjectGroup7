@@ -257,7 +257,7 @@ public class GameManagerScript : MonoBehaviour
         EmailGenerator();
 
         bool accepted = false;
-        for(int a = 0; a < acceptedOrderBool.Length; a++)
+        for(int a = 0; a < acceptedOrderBool.Length && !accepted; a++)
         {
             if(acceptedOrderBool[a] == true)
             {
@@ -275,6 +275,7 @@ public class GameManagerScript : MonoBehaviour
             for (int a = 0; a < NoteBookOrders.Length; a++)
             {
                 NoteBookOrders[a].SetActive(false);
+                juteBags[a].SetActive(false);
             }
         }
         else
@@ -308,7 +309,7 @@ public class GameManagerScript : MonoBehaviour
                         acceptedOrderBool[a] = false;
                         juteBags[a].SetActive(false);
                     }
-                    else if (orderList[0].DaysPassed > orderList[0].DaysAllocated && orderList[0].Completed)
+                    else if (acceptedOrders[a].DaysPassed > acceptedOrders[a].DaysAllocated && acceptedOrders[a].Completed)
                     {
                         acceptedOrders[a].OrderText = "";
                         acceptedOrders[a].nameOrder = "";
@@ -336,9 +337,11 @@ public class GameManagerScript : MonoBehaviour
                     else
                     {
                         juteBags[a].SetActive(true);
-                        SetupNotebook();
-                        DisplayNotebook();
                     }
+                }
+                else
+                {
+                    juteBags[a].SetActive(false);
                 }
 
                 if (acceptedOrders[a].Completed && acceptedOrders[a].Delivered)
@@ -355,6 +358,8 @@ public class GameManagerScript : MonoBehaviour
         }
 
         DisplayInvenFunc();
+        SetupNotebook();
+        DisplayNotebook();
     }
 
     public void SetupNotebook()
@@ -1143,6 +1148,7 @@ public class GameManagerScript : MonoBehaviour
             PlayerPrefs.SetString("DayOnePlayedSlotFour?", "yes");
         }
 
+        /*
         if (orderList[0].Completed && !orderList[0].Delivered)
         {
             //SceneManager.LoadScene("DayOver");
@@ -1152,7 +1158,7 @@ public class GameManagerScript : MonoBehaviour
         {
             //disable planting and stuff
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        }*/
     }
 
     public void SaveGame()
@@ -1187,7 +1193,6 @@ public class GameManagerScript : MonoBehaviour
         {
             GameManagerSaveData data = GameManagerSaveScript.LoadGameSlotTwo();
             SlotLoad(data);
-
         }
 
         else if (Slot.instance.ActiveSlot == 3)
@@ -1210,6 +1215,7 @@ public class GameManagerScript : MonoBehaviour
         InventorySave = data.InventorySave;
         orderListSave = data.orderListSave;
         orderAcceptedSave = data.orderAcceptedSave;
+        acceptedOrderBool = data.acceptedOrderBool;
         for (int a = 0; a < Hoe.TooledLocations.Count; a++)
         {
             tm_base.SetTile(Hoe.TooledLocations[a], Hoe.groundAfterToolTile);
