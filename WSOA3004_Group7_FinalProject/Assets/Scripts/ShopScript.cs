@@ -22,9 +22,12 @@ public class ShopScript : MonoBehaviour
     public Text CarrotTotalPrice;
     public Text LettuceTotalPrice;
 
+    public GroceriesTrack groceries;
+
 
     private void Start()
     {
+        SeedPanel.SetActive(true);
         ToolPanel.SetActive(false);
         FoodPanel.SetActive(false);
         GiftPanel.SetActive(false);
@@ -141,6 +144,28 @@ public class ShopScript : MonoBehaviour
             UpdateFunds();
         }
     }
+
+    //groceries
+    public void BuyBasicBag()
+    {
+        if (GameManagerScript.instance.Funds >= 50)
+        {
+            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - 50;
+            groceries.CheckGroceries();
+            UpdateFunds();
+        }
+    }
+
+    public void BuyFancyBag()
+    {
+        if (GameManagerScript.instance.Funds >= 75)
+        {
+            GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - 75;
+            groceries.CheckGroceries();
+            UpdateFunds();
+        }
+    }
+
     public void UpdateFunds()
     {
         GameManagerScript.instance.FundsText.text = GameManagerScript.instance.Funds.ToString();
