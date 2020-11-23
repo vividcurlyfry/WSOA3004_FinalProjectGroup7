@@ -31,6 +31,7 @@ public class GameManagerScript : MonoBehaviour
     public List<Order> displayedOrders;
     public Order[] acceptedOrders;
     public GameObject[] juteBags;
+    public GameObject[] closedJute;
     public bool[] acceptedOrderBool;
     public Text veggiesStory;
 
@@ -347,12 +348,12 @@ public class GameManagerScript : MonoBehaviour
                 if (acceptedOrders[a].Completed && acceptedOrders[a].Delivered)
                 {
                     juteBags[a].SetActive(false);
-                    juteBags[a].transform.Find("closed").gameObject.SetActive(false);
+                    closedJute[a].SetActive(false);
                 }
                 else if (acceptedOrders[a].Completed && !acceptedOrders[a].Delivered)
                 {
                     juteBags[a].SetActive(false);
-                    juteBags[a].transform.Find("closed").gameObject.SetActive(true);
+                    closedJute[a].SetActive(true);
                 }
             }
         }
@@ -372,48 +373,52 @@ public class GameManagerScript : MonoBehaviour
                 NoteBookOrders[k].transform.Find("DAYS").GetComponent<Text>().text = (acceptedOrders[k].DaysAllocated-acceptedOrders[k].DaysPassed).ToString();
                 if (acceptedOrders[k].PotatoNeeded == 0)
                 {
-                    NoteBookOrders[k].transform.Find("PotatoDraw").GetComponentInChildren<Text>().text = "-1";
+                    NoteBookOrders[k].transform.Find("PotatoDraw").gameObject.SetActive(false);
                 }
                 else
                 {
                     NoteBookOrders[k].transform.Find("PotatoDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].PotatoNeeded - 1).ToString();
+                    NoteBookOrders[k].transform.Find("PotatoDraw").gameObject.SetActive(true);
                 }
 
                 if (acceptedOrders[k].TurnipNeeded == 0)
                 {
-                    NoteBookOrders[k].transform.Find("TurnipDraw").GetComponentInChildren<Text>().text = "-1";
+                    NoteBookOrders[k].transform.Find("TurnipDraw").gameObject.SetActive(false);
                 }
                 else
                 {
                     NoteBookOrders[k].transform.Find("TurnipDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].TurnipNeeded - 1).ToString();
+                    NoteBookOrders[k].transform.Find("TurnipDraw").gameObject.SetActive(true);
                 }
 
                 if (acceptedOrders[k].CarrotNeeded == 0)
                 {
-                    NoteBookOrders[k].transform.Find("CarrotDraw").GetComponentInChildren<Text>().text = "-1";
+                    NoteBookOrders[k].transform.Find("CarrotDraw").gameObject.SetActive(false);
                 }
                 else
                 {
                     NoteBookOrders[k].transform.Find("CarrotDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].CarrotNeeded - 1).ToString();
+                    NoteBookOrders[k].transform.Find("CarrotDraw").gameObject.SetActive(true);
                 }
 
                 if (acceptedOrders[k].LettuceNeeded == 0)
                 {
-                    NoteBookOrders[k].transform.Find("LettuceDraw").GetComponentInChildren<Text>().text = "-1";
+                    NoteBookOrders[k].transform.Find("LettuceDraw").gameObject.SetActive(false);
                 }
                 else
                 {
                     NoteBookOrders[k].transform.Find("LettuceDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].LettuceNeeded - 1).ToString();
+                    NoteBookOrders[k].transform.Find("LettuceDraw").gameObject.SetActive(true);
                 }
 
                 if (acceptedOrders[k].WatermelonNeeded == 0)
                 {
-                    NoteBookOrders[k].transform.Find("WatermelonDraw").GetComponentInChildren<Text>().text = "-1";
+                    NoteBookOrders[k].transform.Find("WatermelonDraw").gameObject.SetActive(false);
                 }
-
                 else
                 {
                     NoteBookOrders[k].transform.Find("WatermelonDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].WatermelonNeeded - 1).ToString();
+                    NoteBookOrders[k].transform.Find("WatermelonDraw").gameObject.SetActive(true);
                 }
 
             }
@@ -1057,6 +1062,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void EndDay()
     {
+
         DaysPlayed++;
         dayOver = true;
         for (int a = 0; a < acceptedOrders.Length; a++)
@@ -1159,6 +1165,21 @@ public class GameManagerScript : MonoBehaviour
             //disable planting and stuff
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }*/
+
+
+
+        for (int f = 0; f < acceptedOrders.Length; f++)
+        {
+            if (acceptedOrderBool[f])
+            {
+                if (acceptedOrders[f].Completed && !acceptedOrders[f].Delivered)
+                {
+                    transition.TransitionToScene("DayOver");
+                }
+            }
+        }
+
+
     }
 
     public void SaveGame()

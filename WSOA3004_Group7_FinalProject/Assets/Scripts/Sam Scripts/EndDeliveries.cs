@@ -8,7 +8,7 @@ public class EndDeliveries : MonoBehaviour
 {
     public GameObject truck;
     public GameObject deliveryPanel;
-    public Order thisOrder;
+    public Order[] acceptedOrders;
     public Text money;
     public Text order;
     
@@ -16,8 +16,8 @@ public class EndDeliveries : MonoBehaviour
     private void Start()
     {
         //order.text = //something from amy
-        money.text = (thisOrder.TotalFunds - thisOrder.Reward).ToString();
-        thisOrder.Delivered = true;
+       // money.text = (thisOrder.TotalFunds - thisOrder.Reward).ToString();
+       // thisOrder.Delivered = true;
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class EndDeliveries : MonoBehaviour
 
         if(truck.transform.position.x > 8)
         {
-             money.text = thisOrder.TotalFunds.ToString();
+            // money.text = thisOrder.TotalFunds.ToString();
         }
     }
 
