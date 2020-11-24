@@ -11,21 +11,27 @@ public class EndDeliveries : MonoBehaviour
     public Order[] acceptedOrders;
     public Text money;
     public Text order;
+    public string deliveredString;
+    public Text rewardText;
     
     //set up delivered order and money increase
     private void Start()
     {
         int reward = 0;
+        deliveredString = "";
         for(int a = 0; a < acceptedOrders.Length; a++)
         {
             if(acceptedOrders[a].Completed == true)
             {
+                deliveredString += "Delivered to " + acceptedOrders[a].nameOrder + System.Environment.NewLine;
                 reward += acceptedOrders[a].Reward;
                 acceptedOrders[a].Delivered = true;
             }
         }
 
         money.text = (acceptedOrders[0].TotalFunds - reward).ToString();
+        order.text = deliveredString;
+        rewardText.text = reward.ToString();
     }
 
     // Update is called once per frame
@@ -45,6 +51,5 @@ public class EndDeliveries : MonoBehaviour
     public void LoadGameScene()
     {
         SceneManager.LoadScene("GameScene");
-       //SceneManager.LoadScene("EndOfDay");
     }
 }

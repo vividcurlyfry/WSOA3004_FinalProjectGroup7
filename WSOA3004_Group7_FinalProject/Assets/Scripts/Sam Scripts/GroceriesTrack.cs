@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class GroceriesTrack : MonoBehaviour
 {
-    public int GroceriesDays; //Day to buy groceries, Day 1 i.e. first day to buy groceries in this period
-    public bool GroceriesNotBought, GroceriesBought; //connect to amy to save
+    public bool GroceriesNotBought; //connect to amy to save
     public int daysLeftInt;
     public Text daysLeft, GroceriesBoughtText, GroceriesLate;
     public GameObject HungryRuby;
@@ -24,7 +23,7 @@ public class GroceriesTrack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GroceriesBought)
+        if(GameManagerScript.instance.GroceriesBought)
         {
             GroceriesNotBought = false;
         }
@@ -33,14 +32,14 @@ public class GroceriesTrack : MonoBehaviour
             GroceriesNotBought = true;
         }
 
-        if((GroceriesNotBought)&&(GroceriesDays < 4))
+        if((GroceriesNotBought)&&(GameManagerScript.instance.GroceriesDays < 4))
         {
-            daysLeftInt = 4 - GroceriesDays;
+            daysLeftInt = 4 - GameManagerScript.instance.GroceriesDays;
             daysLeft.text = daysLeftInt.ToString() + " days left to buy groceries";
             HungryRuby.SetActive(false);
         }
 
-        if ((GroceriesNotBought) && (GroceriesDays > 3))
+        if ((GroceriesNotBought) && (GameManagerScript.instance.GroceriesDays > 3))
         {
             //make Ruby Hungry
             HungryRuby.SetActive(true);
@@ -54,35 +53,35 @@ public class GroceriesTrack : MonoBehaviour
 
     public void CheckGroceries()
     {
-        switch (GroceriesDays)
+        switch (GameManagerScript.instance.GroceriesDays)
         {
             case 1:
                 //display groceries bought for today and next 2 days
                 GroceriesLate.enabled = false;
                 GroceriesBoughtText.enabled = true;
                 daysLeft.enabled = false;
-                GroceriesBought = true;
+                GameManagerScript.instance.GroceriesBought = true;
                 break;
             case 2:
                 //display groceries bought for today and 1 day
                 GroceriesLate.enabled = false;
                 GroceriesBoughtText.enabled = true;
                 daysLeft.enabled = false;
-                GroceriesBought = true;
+                GameManagerScript.instance.GroceriesBought = true;
                 break;
             case 3:
                 //display groceries bought for today
                 GroceriesLate.enabled = false;
                 GroceriesBoughtText.enabled = true;
                 daysLeft.enabled = false;
-                GroceriesBought = true;
+                GameManagerScript.instance.GroceriesBought = true;
                 break;
             default:
                 //reset to 3 days to buy groceries the next day
                 GroceriesLate.enabled = false;
                 GroceriesBoughtText.enabled = true;
                 daysLeft.enabled = false;
-                GroceriesBought = true;
+                GameManagerScript.instance.GroceriesBought = true;
                 HungryRuby.SetActive(false);
                 break;
         }

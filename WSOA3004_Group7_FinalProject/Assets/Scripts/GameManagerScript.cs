@@ -12,6 +12,7 @@ public class GameManagerScript : MonoBehaviour
     public static GameManagerScript instance = null;
     public Vector3Int highlightedTile;
     public int DaysPlayed;
+    public bool hovering;
 
     public bool NearBed = false;
 
@@ -91,6 +92,17 @@ public class GameManagerScript : MonoBehaviour
     public TransitionScript transition;
 
     public float percentageFunds = 75 / 100;
+    public bool GroceriesBought;
+    public int GroceriesDays;
+
+    public GameObject noEmail;
+    public GameObject nextEmail;
+    public GameObject prevEmail;
+    public GameObject Failure;
+
+    public GameObject fal;
+    public int FailureSorting = 25;
+    public Tile Sand;
 
     private void Awake()
     {
@@ -253,6 +265,14 @@ public class GameManagerScript : MonoBehaviour
                     }
                 }
             }
+
+            if (Scythe.TooledLocations.Count != 0)
+            {
+                for(int a = 0; a <Scythe.TooledLocations.Count; a++)
+                {
+                    tm_base.SetTile(Scythe.TooledLocations[a], Sand);
+                }
+            }
         }
 
         EmailGenerator();
@@ -281,12 +301,19 @@ public class GameManagerScript : MonoBehaviour
         }
         else
         {
+            FailureSorting = 25;
             for (int a = 0; a < acceptedOrders.Length; a++)
             {
                 if (acceptedOrderBool[a] == true)
                 {
                     if (acceptedOrders[a].DaysPassed > acceptedOrders[a].DaysAllocated && !acceptedOrders[a].Completed)
                     {
+                        GameObject fal = Instantiate(Failure, new Vector3(0, 0, 0), Quaternion.identity);
+                        fal.transform.Find("Name").GetComponent<Canvas>().sortingOrder = FailureSorting;
+                        fal.transform.Find("Name").gameObject.GetComponent<Text>().GetComponent<Canvas>().sortingOrder = FailureSorting;
+                        fal.transform.Find("Name").gameObject.GetComponent<Text>().text = "Oops! You ran out of time for " + acceptedOrders[a].nameOrder +
+                        "'s order!";
+                        FailureSorting++;
                         acceptedOrders[a].OrderText = "";
                         acceptedOrders[a].nameOrder = "";
                         acceptedOrders[a].TotalFunds = 0;
@@ -310,7 +337,7 @@ public class GameManagerScript : MonoBehaviour
                         acceptedOrderBool[a] = false;
                         juteBags[a].SetActive(false);
                     }
-                    else if (acceptedOrders[a].DaysPassed > acceptedOrders[a].DaysAllocated && acceptedOrders[a].Completed)
+                    else if (acceptedOrders[a].Completed && acceptedOrders[a].Delivered)
                     {
                         acceptedOrders[a].OrderText = "";
                         acceptedOrders[a].nameOrder = "";
@@ -655,8 +682,6 @@ public class GameManagerScript : MonoBehaviour
     public void OrderCalc(Order order1, Order order2)
     {
         Random.InitState(System.DateTime.Now.Millisecond);
-        Order order1Backup = order1;
-        Order order2Backup = order2;
         float fundCalcFloat = Funds * percentageFunds;
         int fundCalc = (int)fundCalcFloat;
         int maxBelowGround = (int)(fundCalc / 10);
@@ -832,10 +857,10 @@ public class GameManagerScript : MonoBehaviour
         emailOrderStory1.text = displayedOrders[0].OrderText.ToString();
         emailRewardText1.text = displayedOrders[0].Reward.ToString();
 
-        string veggiesNeeded = "";
+        string veggiesNeeded = "Veggies required:" + System.Environment.NewLine;
         if(displayedOrders[0].CarrotNeeded != 0)
         {
-            veggiesNeeded = displayedOrders[0].CarrotNeeded.ToString() + " x Carrot(s)";
+            veggiesNeeded += System.Environment.NewLine + displayedOrders[0].CarrotNeeded.ToString() + " x Carrot(s)";
         }
         if (displayedOrders[0].TurnipNeeded != 0)
         {
@@ -859,9 +884,10 @@ public class GameManagerScript : MonoBehaviour
         emailOrderStory2.text = displayedOrders[1].OrderText.ToString();
         emailRewardText2.text = displayedOrders[1].Reward.ToString();
 
+        veggiesNeeded = "Veggies required:";
         if (displayedOrders[1].CarrotNeeded != 0)
         {
-            veggiesNeeded = displayedOrders[1].CarrotNeeded.ToString() + " x Carrot(s)";
+            veggiesNeeded += System.Environment.NewLine + displayedOrders[1].CarrotNeeded.ToString() + " x Carrot(s)";
         }
         if (displayedOrders[1].TurnipNeeded != 0)
         {
@@ -885,25 +911,65 @@ public class GameManagerScript : MonoBehaviour
         {
             Email1.SetActive(false);
             displayedOrders[0].Rejected = true;
-            if(displayedOrders[1].Reward == 0)
+            prevEmail.SetActive(false);
+            nextEmail.SetActive(false);
+            if (displayedOrders[1].Reward == 0)
             {
                 Email2.SetActive(false);
+                noEmail.SetActive(true);
+                prevEmail.SetActive(false);
+                nextEmail.SetActive(false);
+                displayedOrders[1].Rejected = true;
+            }
+            else
+            {
+                Email2.SetActive(true);
+                noEmail.SetActive(false);
+                prevEmail.SetActive(false);
+                nextEmail.SetActive(false);
             }
         }
         else
         {
             Email1.SetActive(true);
+            noEmail.SetActive(false);
+            prevEmail.SetActive(false);
+            nextEmail.SetActive(true);
         }
 
-        if(displayedOrders[1].Reward == 0)
+        if (displayedOrders[1].Reward == 0)
         {
             Email2.SetActive(false);
             displayedOrders[1].Rejected = true;
+            prevEmail.SetActive(false);
+            nextEmail.SetActive(false);
         }
-        else
+
+        if(displayedOrders[0].Reward != 0 && displayedOrders[1].Reward != 0)
         {
             Email1.SetActive(true);
+            Email2.SetActive(false);
+            nextEmail.SetActive(true);
+            prevEmail.SetActive(false);
+            displayedOrders[0].Rejected = false;
+            displayedOrders[1].Rejected = false;
         }
+    }
+
+    public void nextEmailButt()
+    {
+        Email2.SetActive(true);
+        Email1.SetActive(false);
+        prevEmail.SetActive(true);
+        nextEmail.SetActive(false);
+    }
+
+    public void prevEmailButt()
+    {
+        Email2.SetActive(false);
+        Email1.SetActive(true);
+        prevEmail.SetActive(false);
+        nextEmail.SetActive(true);
     }
 
     public void TabFunc()
@@ -1015,6 +1081,8 @@ public class GameManagerScript : MonoBehaviour
         Scythe.TooledLocations.Clear();
         WateringCan.TooledLocations.Clear();
         orderList.Clear();
+        GroceriesBought = false;
+        GroceriesDays = 1;
 
         PosInven = 0;
         for(int b = 0; b < juteBags.Length; b++)
@@ -1084,7 +1152,12 @@ public class GameManagerScript : MonoBehaviour
 
     public void EndDay()
     {
-
+        GroceriesDays++;
+        if(GroceriesDays == 4 && GroceriesBought)
+        {
+            GroceriesBought = false;
+            GroceriesDays = 1;
+        }
         DaysPlayed++;
         dayOver = true;
         for (int a = 0; a < acceptedOrders.Length; a++)
@@ -1176,18 +1249,6 @@ public class GameManagerScript : MonoBehaviour
             PlayerPrefs.SetString("DayOnePlayedSlotFour?", "yes");
         }
 
-        /*
-        if (orderList[0].Completed && !orderList[0].Delivered)
-        {
-            //SceneManager.LoadScene("DayOver");
-            transition.TransitionToScene("DayOver");
-        }
-        else
-        {
-            //disable planting and stuff
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }*/
-
         for (int a = 0; a < GameManagerScript.instance.acceptedOrders.Length; a++)
         {
             acceptedOrders[a].TotalFunds = Funds;
@@ -1260,6 +1321,8 @@ public class GameManagerScript : MonoBehaviour
         orderListSave = data.orderListSave;
         orderAcceptedSave = data.orderAcceptedSave;
         acceptedOrderBool = data.acceptedOrderBool;
+        GroceriesBought = data.GroceriesBought;
+        GroceriesDays = data.GroceriesDays;
         for (int a = 0; a < Hoe.TooledLocations.Count; a++)
         {
             tm_base.SetTile(Hoe.TooledLocations[a], Hoe.groundAfterToolTile);

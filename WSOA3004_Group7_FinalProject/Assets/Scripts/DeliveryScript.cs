@@ -98,7 +98,7 @@ public class DeliveryScript : MonoBehaviour
         bool done = false;
         for (int a = 0; a < GameManagerScript.instance.acceptedOrders.Length && !done; a++)
         {
-            if(GameManagerScript.instance.acceptedOrders[a].OrderText == "")
+            if(!GameManagerScript.instance.acceptedOrderBool[a])
             {
                 GameManagerScript.instance.acceptedOrders[a].OrderText = order.OrderText;
                 GameManagerScript.instance.acceptedOrders[a].nameOrder = order.nameOrder;
@@ -125,21 +125,22 @@ public class DeliveryScript : MonoBehaviour
             }
         }
 
-        int num = 0;
-
         for (int a = 0; a < GameManagerScript.instance.acceptedOrders.Length; a++)
         {
             if (GameManagerScript.instance.displayedOrders[0].OrderText == GameManagerScript.instance.acceptedOrders[a].OrderText)
             {
-                num = a;
+                GameManagerScript.instance.juteBags[a].SetActive(true);
             }
             else if (GameManagerScript.instance.displayedOrders[1].OrderText == GameManagerScript.instance.acceptedOrders[a].OrderText)
             {
-                num = a;
+                GameManagerScript.instance.juteBags[a].SetActive(true);
+            }
+            else
+            {
+                GameManagerScript.instance.juteBags[a].SetActive(false);
             }
         }
 
-        GameManagerScript.instance.juteBags[num].SetActive(true);
         CloseEmails();
     }
 
@@ -168,25 +169,50 @@ public class DeliveryScript : MonoBehaviour
             GameManagerScript.instance.scrollView.SetActive(false);
             GameManagerScript.instance.orderDescription.SetActive(true);
             noEmail.SetActive(true);
+            GameManagerScript.instance.prevEmail.SetActive(false);
+            GameManagerScript.instance.nextEmail.SetActive(false);
         }
         else
         {
-            if ((GameManagerScript.instance.displayedOrders[0].Accepted || GameManagerScript.instance.displayedOrders[0].Rejected) && GameManagerScript.instance.displayedOrders[1].Reward != 0)
+            if ((GameManagerScript.instance.displayedOrders[0].Rejected || GameManagerScript.instance.displayedOrders[0].Accepted) && GameManagerScript.instance.Email1.activeSelf)
             {
-                GameManagerScript.instance.Email1.SetActive(false);
-                GameManagerScript.instance.Email2.SetActive(true);
+                if (GameManagerScript.instance.displayedOrders[1].Reward != 0)
+                {
+                    GameManagerScript.instance.Email2.SetActive(true);
+                    GameManagerScript.instance.Email1.SetActive(false);
+                    noEmail.SetActive(false);
+                    GameManagerScript.instance.prevEmail.SetActive(false);
+                    GameManagerScript.instance.nextEmail.SetActive(false);
+                }
+                else if (GameManagerScript.instance.displayedOrders[1].Reward == 0)
+                {
+                    GameManagerScript.instance.Email1.SetActive(false);
+                    GameManagerScript.instance.Email2.SetActive(false);
+                    noEmail.SetActive(true);
+                    GameManagerScript.instance.prevEmail.SetActive(false);
+                    GameManagerScript.instance.nextEmail.SetActive(false);
+                } 
             }
-            else if (GameManagerScript.instance.displayedOrders[1].Reward == 0)
+            else if ((GameManagerScript.instance.displayedOrders[1].Rejected || GameManagerScript.instance.displayedOrders[1].Accepted) && GameManagerScript.instance.Email2.activeSelf)
             {
-                GameManagerScript.instance.Email1.SetActive(false);
-                GameManagerScript.instance.Email2.SetActive(false);
-                noEmail.SetActive(true);
-            }
-            else
-            {
-                GameManagerScript.instance.Email1.SetActive(true);
-                GameManagerScript.instance.Email2.SetActive(false);
-            }
+                if (GameManagerScript.instance.displayedOrders[0].Reward != 0)
+                {
+                    GameManagerScript.instance.Email1.SetActive(true);
+                    GameManagerScript.instance.Email2.SetActive(false);
+                    noEmail.SetActive(false);
+                    GameManagerScript.instance.prevEmail.SetActive(false);
+                    GameManagerScript.instance.nextEmail.SetActive(false);
+                }
+                else if (GameManagerScript.instance.displayedOrders[0].Reward == 0)
+                {
+                    GameManagerScript.instance.Email2.SetActive(false);
+                    GameManagerScript.instance.Email1.SetActive(false);
+                    noEmail.SetActive(true);
+                    GameManagerScript.instance.prevEmail.SetActive(false);
+                    GameManagerScript.instance.nextEmail.SetActive(false);
+                }
+            } 
+            
         }
         GameManagerScript.instance.SetupNotebook();
         GameManagerScript.instance.DisplayNotebook();

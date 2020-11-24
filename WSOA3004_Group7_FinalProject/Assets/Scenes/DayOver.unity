@@ -2717,7 +2717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1788480886
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3391,6 +3391,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5c488537093c38b49857c9e5eb4d4851, type: 2}
   money: {fileID: 57643453}
   order: {fileID: 31678577}
+  deliveredString: 
+  rewardText: {fileID: 255389958}
 --- !u!4 &2123179100
 Transform:
   m_ObjectHideFlags: 0

@@ -12,25 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433366446b9c14b418ae840a95d309f2, type: 3}
   m_Name: Order3
   m_EditorClassIdentifier: 
-  OrderText: some asshole needs shit
-  nameOrder: some asshole
-  TotalFunds: 0
+  OrderText: 'Good day, Demi!
+
+    
+
+    I would like to order some fruits and
+    vegetables for my book club''s annual spring tea.
+
+    We''d like to quell our
+    heated discussions over literature with something fresh.
+
+    
+
+    Warm regards
+
+    Faith
+    Khumalo'
+  nameOrder: Faith Khumalo
+  TotalFunds: 250
   DaysAllocated: 0
+  DaysPassed: 0
+  Reward: 0
+  Accepted: 0
+  Rejected: 0
+  Completed: 0
+  Delivered: 0
   TurnipNeeded: 0
-  PeachNeeded: 0
   WatermelonNeeded: 0
   CarrotNeeded: 0
   PotatoNeeded: 0
   LettuceNeeded: 0
   TurnipAmount: 0
-  PeachAmount: 0
   WatermelonAmount: 0
   CarrotAmount: 0
   PotatoAmount: 0
   LettuceAmount: 0
-  TimeLimit: 0
-  DaysPassed: 0
-  Reward: 0
-  Accepted: 0
-  Completed: 0
-  Delivered: 0

@@ -12,25 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433366446b9c14b418ae840a95d309f2, type: 3}
   m_Name: Order6
   m_EditorClassIdentifier: 
-  OrderText: i am stresseds
-  nameOrder: stressed
-  TotalFunds: 0
-  DaysAllocated: 0
+  OrderText: 'Good day!
+
+    
+
+    I''m cooking dinner for my husband for our anniversary.
+    I thought I''d impress him with some fresh fruits and vegetables as part of our
+    meal.
+
+    
+
+    Thank you, I greatly appreciate it.
+
+    
+
+    Regards
+
+    Nigel
+    Oren'
+  nameOrder: Nigel Oren
+  TotalFunds: 250
+  DaysAllocated: 3
+  DaysPassed: 0
+  Reward: 0
+  Accepted: 0
+  Rejected: 1
+  Completed: 0
+  Delivered: 0
   TurnipNeeded: 0
-  PeachNeeded: 0
   WatermelonNeeded: 0
   CarrotNeeded: 0
   PotatoNeeded: 0
   LettuceNeeded: 0
   TurnipAmount: 0
-  PeachAmount: 0
   WatermelonAmount: 0
   CarrotAmount: 0
   PotatoAmount: 0
   LettuceAmount: 0
-  TimeLimit: 0
-  DaysPassed: 0
-  Reward: 0
-  Accepted: 0
-  Completed: 0
-  Delivered: 0

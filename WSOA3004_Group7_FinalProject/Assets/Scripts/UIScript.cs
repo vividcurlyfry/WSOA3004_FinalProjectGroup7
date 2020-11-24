@@ -13,12 +13,15 @@ public class UIScript : MonoBehaviour
     public Canvas Delivery;
     public GridScript gs;
     public GameObject crossMenu, iconMenu, crossShop, iconShop, crossNotepad, iconNotepad, crossEmail;
-
+    public int shopSorting, orderSorting, deliverySorting, menuSorting;
     private void Start()
     {
         ShopCanvas.gameObject.SetActive(false);
         Delivery.gameObject.SetActive(false);
         OrderCanvas.gameObject.SetActive(false);
+        orderSorting = OrderCanvas.sortingOrder;
+        deliverySorting = Delivery.sortingOrder;
+        shopSorting = ShopCanvas.sortingOrder;
     }
 
     //remove for final
@@ -38,6 +41,7 @@ public class UIScript : MonoBehaviour
             iconNotepad.SetActive(true);
             OrderCanvas.gameObject.SetActive(false);
             gs.enabled = true;
+            OrderCanvas.sortingOrder = orderSorting;
         }
         else
         {
@@ -45,6 +49,9 @@ public class UIScript : MonoBehaviour
             iconNotepad.SetActive(false);
             OrderCanvas.gameObject.SetActive(true);
             gs.enabled = false;
+            OrderCanvas.sortingOrder = orderSorting + 1;
+            ShopCanvas.sortingOrder = shopSorting;
+            Delivery.sortingOrder = deliverySorting;
         }
     }
 
@@ -59,12 +66,16 @@ public class UIScript : MonoBehaviour
                 GameManagerScript.instance.orderNotification.SetActive(false);
             }
             gs.enabled = true;
+            Delivery.sortingOrder = deliverySorting;
         }
         else
         {
             crossEmail.SetActive(true);
             Delivery.gameObject.SetActive(true);
             gs.enabled = false;
+            Delivery.sortingOrder = deliverySorting + 1;
+            OrderCanvas.sortingOrder = orderSorting;
+            ShopCanvas.sortingOrder = shopSorting;
         }
     }
 
@@ -77,6 +88,7 @@ public class UIScript : MonoBehaviour
             iconShop.SetActive(true);
             GameManagerScript.instance.highlightedTile = new Vector3Int(-500, -500, -500);
             gs.enabled = true;
+            ShopCanvas.sortingOrder = shopSorting;
         }
         else
         {
@@ -85,6 +97,9 @@ public class UIScript : MonoBehaviour
             crossShop.SetActive(true);
             GameManagerScript.instance.highlightedTile = new Vector3Int(-500, -500, -500);
             gs.enabled = false;
+            ShopCanvas.sortingOrder = shopSorting + 1;
+            OrderCanvas.sortingOrder = orderSorting;
+            Delivery.sortingOrder = deliverySorting;
         }
     }
 
@@ -104,11 +119,6 @@ public class UIScript : MonoBehaviour
             iconMenu.SetActive(false);
             gs.enabled = false;
         }
-    }
-
-    public void OnClickMainMenu()
-    {
-        //open main menu screen //not made yet
     }
 
     public void OnClickSaveSlots()

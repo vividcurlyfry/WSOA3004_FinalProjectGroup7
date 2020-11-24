@@ -12,6 +12,9 @@ public class GameManagerSaveData
     public List<int> orderAcceptedSave;
     public int DaysPlayed;
     public bool[] acceptedOrderBool;
+    public bool GroceriesBought;
+    public int GroceriesDays;
+
     public GameManagerSaveData(GameManagerScript gm)
     {
         Funds = gm.Funds;
@@ -20,5 +23,7 @@ public class GameManagerSaveData
         orderListSave = gm.orderListSave;
         orderAcceptedSave = gm.orderAcceptedSave;
         acceptedOrderBool = gm.acceptedOrderBool;
+        GroceriesDays = gm.GroceriesDays;
+        GroceriesBought = gm.GroceriesBought;
     }
 }

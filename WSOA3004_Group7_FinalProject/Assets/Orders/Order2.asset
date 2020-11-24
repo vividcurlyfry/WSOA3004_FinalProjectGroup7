@@ -12,25 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433366446b9c14b418ae840a95d309f2, type: 3}
   m_Name: Order2
   m_EditorClassIdentifier: 
-  OrderText: bitch needs some shit
-  nameOrder: bitch
-  TotalFunds: 0
-  DaysAllocated: 0
+  OrderText: 'Hey!
+
+    
+
+    My friends and I are planning a picnic and I''m in
+    charge of bringing something healthy. It''s going to be quite a creative salad.
+
+    
+
+    Thanks
+    so much!
+
+    From Natasha Hassim'
+  nameOrder: Natasha Hassim
+  TotalFunds: 250
+  DaysAllocated: 3
+  DaysPassed: 0
+  Reward: 15
+  Accepted: 1
+  Rejected: 0
+  Completed: 0
+  Delivered: 0
   TurnipNeeded: 0
-  PeachNeeded: 0
   WatermelonNeeded: 0
-  CarrotNeeded: 0
+  CarrotNeeded: 1
   PotatoNeeded: 0
   LettuceNeeded: 0
   TurnipAmount: 0
-  PeachAmount: 0
   WatermelonAmount: 0
   CarrotAmount: 0
   PotatoAmount: 0
   LettuceAmount: 0
-  TimeLimit: 0
-  DaysPassed: 0
-  Reward: 0
-  Accepted: 0
-  Completed: 0
-  Delivered: 0
