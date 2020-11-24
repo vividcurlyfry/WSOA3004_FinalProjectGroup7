@@ -3077,7 +3077,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   truck: {fileID: 889819654}
   deliveryPanel: {fileID: 1714550560}
-  thisOrder: {fileID: 11400000, guid: 232ebb36807b9014bad2b4c39cd30e2b, type: 2}
+  acceptedOrders:
+  - {fileID: 11400000, guid: 033c3476b47e37845990397096149267, type: 2}
+  - {fileID: 11400000, guid: 11284d95a85d9714ea800da9c746702a, type: 2}
+  - {fileID: 11400000, guid: 6855bc59e90e8b24eb09773a3582df47, type: 2}
+  - {fileID: 11400000, guid: 15487b814805604438ff2543f22488cb, type: 2}
+  - {fileID: 11400000, guid: 7604d3433fedd9d4c8945457013fcec6, type: 2}
+  - {fileID: 11400000, guid: 34b937dcf2b6e394a8e2972b8d82ae44, type: 2}
+  - {fileID: 11400000, guid: a513bc00a1ec78144a0fa3ddb2c3ec1f, type: 2}
+  - {fileID: 11400000, guid: 3965aec119f9886409e7b3bc31fe8f7c, type: 2}
+  - {fileID: 11400000, guid: e14b03e47d33e6f42b6825f7b8626a7e, type: 2}
+  - {fileID: 11400000, guid: 5c488537093c38b49857c9e5eb4d4851, type: 2}
   money: {fileID: 57643453}
   order: {fileID: 31678577}
 --- !u!4 &2123179100

@@ -171,10 +171,16 @@ public class DeliveryScript : MonoBehaviour
         }
         else
         {
-            if(GameManagerScript.instance.displayedOrders[0].Accepted || GameManagerScript.instance.displayedOrders[0].Rejected)
+            if ((GameManagerScript.instance.displayedOrders[0].Accepted || GameManagerScript.instance.displayedOrders[0].Rejected) && GameManagerScript.instance.displayedOrders[1].Reward != 0)
             {
                 GameManagerScript.instance.Email1.SetActive(false);
                 GameManagerScript.instance.Email2.SetActive(true);
+            }
+            else if (GameManagerScript.instance.displayedOrders[1].Reward == 0)
+            {
+                GameManagerScript.instance.Email1.SetActive(false);
+                GameManagerScript.instance.Email2.SetActive(false);
+                noEmail.SetActive(true);
             }
             else
             {
@@ -279,7 +285,6 @@ public class DeliveryScript : MonoBehaviour
                 GameManagerScript.instance.closedJute[num - 1].SetActive(true);
                 activeOrder.Completed = true;
                 GameManagerScript.instance.Funds += activeOrder.Reward;
-                activeOrder.TotalFunds += activeOrder.Reward;
                 GameManagerScript.instance.noNotebookOrders.SetActive(true);
                 GameManagerScript.instance.orderDescription.SetActive(false);
             }

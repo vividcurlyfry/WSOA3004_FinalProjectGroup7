@@ -371,13 +371,14 @@ public class GameManagerScript : MonoBehaviour
             {
                 NoteBookOrders[k].transform.Find("NameOrderer").GetComponent<Text>().text = acceptedOrders[k].nameOrder;
                 NoteBookOrders[k].transform.Find("DAYS").GetComponent<Text>().text = (acceptedOrders[k].DaysAllocated-acceptedOrders[k].DaysPassed).ToString();
+                NoteBookOrders[k].transform.Find("Reward").GetComponent<Text>().text = acceptedOrders[k].Reward.ToString();
                 if (acceptedOrders[k].PotatoNeeded == 0)
                 {
                     NoteBookOrders[k].transform.Find("PotatoDraw").gameObject.SetActive(false);
                 }
                 else
                 {
-                    NoteBookOrders[k].transform.Find("PotatoDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].PotatoNeeded - 1).ToString();
+                    NoteBookOrders[k].transform.Find("PotatoDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].PotatoNeeded).ToString();
                     NoteBookOrders[k].transform.Find("PotatoDraw").gameObject.SetActive(true);
                 }
 
@@ -387,7 +388,7 @@ public class GameManagerScript : MonoBehaviour
                 }
                 else
                 {
-                    NoteBookOrders[k].transform.Find("TurnipDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].TurnipNeeded - 1).ToString();
+                    NoteBookOrders[k].transform.Find("TurnipDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].TurnipNeeded).ToString();
                     NoteBookOrders[k].transform.Find("TurnipDraw").gameObject.SetActive(true);
                 }
 
@@ -397,7 +398,7 @@ public class GameManagerScript : MonoBehaviour
                 }
                 else
                 {
-                    NoteBookOrders[k].transform.Find("CarrotDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].CarrotNeeded - 1).ToString();
+                    NoteBookOrders[k].transform.Find("CarrotDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].CarrotNeeded).ToString();
                     NoteBookOrders[k].transform.Find("CarrotDraw").gameObject.SetActive(true);
                 }
 
@@ -407,7 +408,7 @@ public class GameManagerScript : MonoBehaviour
                 }
                 else
                 {
-                    NoteBookOrders[k].transform.Find("LettuceDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].LettuceNeeded - 1).ToString();
+                    NoteBookOrders[k].transform.Find("LettuceDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].LettuceNeeded).ToString();
                     NoteBookOrders[k].transform.Find("LettuceDraw").gameObject.SetActive(true);
                 }
 
@@ -417,7 +418,7 @@ public class GameManagerScript : MonoBehaviour
                 }
                 else
                 {
-                    NoteBookOrders[k].transform.Find("WatermelonDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].WatermelonNeeded - 1).ToString();
+                    NoteBookOrders[k].transform.Find("WatermelonDraw").GetComponentInChildren<Text>().text = (acceptedOrders[k].WatermelonNeeded).ToString();
                     NoteBookOrders[k].transform.Find("WatermelonDraw").gameObject.SetActive(true);
                 }
 
@@ -603,6 +604,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void EmailGenerator()
     {
+        Random.InitState(System.DateTime.Now.Millisecond);
         if ((DaysPlayed % 3) == 0)
         {
             orderList.Clear();
@@ -652,6 +654,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void OrderCalc(Order order1, Order order2)
     {
+        Random.InitState(System.DateTime.Now.Millisecond);
         Order order1Backup = order1;
         Order order2Backup = order2;
         float fundCalcFloat = Funds * percentageFunds;
@@ -805,11 +808,6 @@ public class GameManagerScript : MonoBehaviour
 
         order2.Reward = order2Reward;
 
-        if(order1.Reward == 0 || order2.Reward == 0)
-        {
-            OrderCalc(order1Backup, order2Backup);
-        }
-
         if(order1.LettuceNeeded == 0 && order1.WatermelonNeeded == 0)
         {
             order1.DaysAllocated = 3;
@@ -882,6 +880,30 @@ public class GameManagerScript : MonoBehaviour
             veggiesNeeded += System.Environment.NewLine + displayedOrders[1].LettuceNeeded.ToString() + " x Lettuce(s)";
         }
         emailVeggiesNeeded2.text = veggiesNeeded;
+
+        if(displayedOrders[0].Reward == 0)
+        {
+            Email1.SetActive(false);
+            displayedOrders[0].Rejected = true;
+            if(displayedOrders[1].Reward == 0)
+            {
+                Email2.SetActive(false);
+            }
+        }
+        else
+        {
+            Email1.SetActive(true);
+        }
+
+        if(displayedOrders[1].Reward == 0)
+        {
+            Email2.SetActive(false);
+            displayedOrders[1].Rejected = true;
+        }
+        else
+        {
+            Email1.SetActive(true);
+        }
     }
 
     public void TabFunc()
@@ -1166,7 +1188,10 @@ public class GameManagerScript : MonoBehaviour
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }*/
 
-
+        for (int a = 0; a < GameManagerScript.instance.acceptedOrders.Length; a++)
+        {
+            acceptedOrders[a].TotalFunds = Funds;
+        }
 
         for (int f = 0; f < acceptedOrders.Length; f++)
         {
@@ -1178,8 +1203,6 @@ public class GameManagerScript : MonoBehaviour
                 }
             }
         }
-
-
     }
 
     public void SaveGame()

@@ -15,9 +15,17 @@ public class EndDeliveries : MonoBehaviour
     //set up delivered order and money increase
     private void Start()
     {
-        //order.text = //something from amy
-       // money.text = (thisOrder.TotalFunds - thisOrder.Reward).ToString();
-       // thisOrder.Delivered = true;
+        int reward = 0;
+        for(int a = 0; a < acceptedOrders.Length; a++)
+        {
+            if(acceptedOrders[a].Completed == true)
+            {
+                reward += acceptedOrders[a].Reward;
+                acceptedOrders[a].Delivered = true;
+            }
+        }
+
+        money.text = (acceptedOrders[0].TotalFunds - reward).ToString();
     }
 
     // Update is called once per frame
@@ -30,7 +38,7 @@ public class EndDeliveries : MonoBehaviour
 
         if(truck.transform.position.x > 8)
         {
-            // money.text = thisOrder.TotalFunds.ToString();
+            money.text = acceptedOrders[0].TotalFunds.ToString();
         }
     }
 
