@@ -16,35 +16,32 @@ MonoBehaviour:
 
 
     I''m planning a little birthday dinner for my
-    son, Charlie. It would be amazing to share some farm-fresh produce with our guests.
+    son, Luke. It would be amazing to share some farm-fresh produce with our guests.
 
 
-    The
-    dinner is in 4 days!
-
-    I''ll be sure to tell them where it''s all from.
+    I''ll
+    be sure to tell them where it''s all from.
 
 
-    Kindest
-    regards
+    Kindest regards
 
     Maya Wolff'
   nameOrder: Maya Wolff
   TotalFunds: 250
-  DaysAllocated: 4
-  TurnipNeeded: 715827891
-  WatermelonNeeded: 7
-  CarrotNeeded: 715827883
-  PotatoNeeded: 715827882
-  LettuceNeeded: 2
+  DaysAllocated: 3
+  DaysPassed: 0
+  Reward: 15
+  Accepted: 1
+  Rejected: 0
+  Completed: 0
+  Delivered: 0
+  TurnipNeeded: 0
+  WatermelonNeeded: 0
+  CarrotNeeded: 1
+  PotatoNeeded: 0
+  LettuceNeeded: 0
   TurnipAmount: 0
   WatermelonAmount: 0
   CarrotAmount: 0
   PotatoAmount: 0
   LettuceAmount: 0
-  TimeLimit: 4
-  DaysPassed: 0
-  Reward: -2147483276
-  Accepted: 0
-  Completed: 0
-  Delivered: 0
