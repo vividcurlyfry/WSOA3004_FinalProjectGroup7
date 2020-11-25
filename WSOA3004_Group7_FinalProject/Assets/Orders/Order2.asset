@@ -14,12 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrderText: 'Hey!
 
-    
 
-    My friends and I are planning a picnic and I''m in
-    charge of bringing something healthy. It''s going to be quite a creative salad.
+    My friends and I are planning a picnic and I''m in charge
+    of bringing something healthy. It''s going to be quite a creative salad.
 
-    
 
     Thanks
     so much!
@@ -30,13 +28,13 @@ MonoBehaviour:
   DaysAllocated: 3
   DaysPassed: 0
   Reward: 15
-  Accepted: 1
+  Accepted: 0
   Rejected: 0
   Completed: 0
   Delivered: 0
   TurnipNeeded: 0
   WatermelonNeeded: 0
-  CarrotNeeded: 1
+  CarrotNeeded: 0
   PotatoNeeded: 0
   LettuceNeeded: 0
   TurnipAmount: 0

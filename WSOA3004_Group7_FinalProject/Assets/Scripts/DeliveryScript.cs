@@ -10,6 +10,7 @@ public class DeliveryScript : MonoBehaviour
     public GameObject[] DisplayOrderTurnip = new GameObject[10];
     public GameObject[] DisplayOrderWatermelon = new GameObject[10];
     public GameObject[] DisplayOrderCarrot = new GameObject[10];
+    public GameObject[] DisplayOrderName = new GameObject[10];
     public Text orderText;
     public GameObject noEmail;
 
@@ -26,6 +27,7 @@ public class DeliveryScript : MonoBehaviour
         {
             if (GameManagerScript.instance.acceptedOrderBool[a])
             {
+                DisplayOrderName[a].GetComponentInChildren<Text>().text = GameManagerScript.instance.acceptedOrders[a].nameOrder;
                 if (GameManagerScript.instance.acceptedOrders[a].LettuceNeeded != 0)
                 {
                     DisplayOrderLettuce[a].GetComponentInChildren<Text>().text = GameManagerScript.instance.acceptedOrders[a].LettuceAmount + "/" + GameManagerScript.instance.acceptedOrders[a].LettuceNeeded.ToString();
@@ -127,17 +129,19 @@ public class DeliveryScript : MonoBehaviour
 
         for (int a = 0; a < GameManagerScript.instance.acceptedOrders.Length; a++)
         {
-            if (GameManagerScript.instance.displayedOrders[0].OrderText == GameManagerScript.instance.acceptedOrders[a].OrderText)
+            if (GameManagerScript.instance.acceptedOrderBool[a] && !GameManagerScript.instance.acceptedOrders[a].Completed) 
             {
                 GameManagerScript.instance.juteBags[a].SetActive(true);
             }
-            else if (GameManagerScript.instance.displayedOrders[1].OrderText == GameManagerScript.instance.acceptedOrders[a].OrderText)
+            else if (GameManagerScript.instance.acceptedOrderBool[a] && GameManagerScript.instance.acceptedOrders[a].Completed && !GameManagerScript.instance.acceptedOrders[a].Delivered)
             {
-                GameManagerScript.instance.juteBags[a].SetActive(true);
+                GameManagerScript.instance.juteBags[a].SetActive(false);
+                GameManagerScript.instance.closedJute[a].SetActive(true);
             }
             else
             {
                 GameManagerScript.instance.juteBags[a].SetActive(false);
+                GameManagerScript.instance.closedJute[a].SetActive(false);
             }
         }
 
@@ -310,9 +314,8 @@ public class DeliveryScript : MonoBehaviour
                 GameManagerScript.instance.juteBags[num-1].SetActive(false);
                 GameManagerScript.instance.closedJute[num - 1].SetActive(true);
                 activeOrder.Completed = true;
-                GameManagerScript.instance.Funds += activeOrder.Reward;
-                GameManagerScript.instance.noNotebookOrders.SetActive(true);
-                GameManagerScript.instance.orderDescription.SetActive(false);
+                GameManagerScript.instance.SetupNotebook();
+                GameManagerScript.instance.DisplayNotebook();
             }
             JuteCanvasDisplayers();
         }

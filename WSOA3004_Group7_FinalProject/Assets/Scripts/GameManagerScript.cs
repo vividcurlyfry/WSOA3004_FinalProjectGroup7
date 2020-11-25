@@ -273,6 +273,24 @@ public class GameManagerScript : MonoBehaviour
                     tm_base.SetTile(Scythe.TooledLocations[a], Sand);
                 }
             }
+
+            int reward = 0;
+            for (int a = 0; a < acceptedOrders.Length; a++)
+            {
+                if (acceptedOrders[a].Completed == true && acceptedOrders[a].Delivered)
+                {
+                    reward += acceptedOrders[a].Reward;
+                }
+            }
+
+            if (PlayerPrefs.GetString("HoneyDelivered") == "true")
+            {
+                Funds = Funds + reward + PlayerPrefs.GetInt("Honey");
+            }
+            else
+            {
+                Funds = Funds + reward;
+            }
         }
 
         EmailGenerator();
@@ -394,10 +412,19 @@ public class GameManagerScript : MonoBehaviour
     {
         for (int k = 0; k < acceptedOrders.Length; k++)
         {
-            if (acceptedOrderBool[k])
+            if (acceptedOrderBool[k] && !acceptedOrders[k].Completed)
             {
                 NoteBookOrders[k].transform.Find("NameOrderer").GetComponent<Text>().text = acceptedOrders[k].nameOrder;
-                NoteBookOrders[k].transform.Find("DAYS").GetComponent<Text>().text = (acceptedOrders[k].DaysAllocated-acceptedOrders[k].DaysPassed).ToString();
+                if ((acceptedOrders[k].DaysAllocated - acceptedOrders[k].DaysPassed) != 0)
+                {
+                    NoteBookOrders[k].transform.Find("DAYS").GetComponent<Text>().text = (acceptedOrders[k].DaysAllocated - acceptedOrders[k].DaysPassed).ToString();
+                    NoteBookOrders[k].transform.Find("DaysLeft").gameObject.SetActive(true);
+                }
+                else
+                {
+                    NoteBookOrders[k].transform.Find("DAYS").GetComponent<Text>().text = "DUE TODAY!";
+                    NoteBookOrders[k].transform.Find("DaysLeft").gameObject.SetActive(false);
+                }
                 NoteBookOrders[k].transform.Find("Reward").GetComponent<Text>().text = acceptedOrders[k].Reward.ToString();
                 if (acceptedOrders[k].PotatoNeeded == 0)
                 {
@@ -451,7 +478,6 @@ public class GameManagerScript : MonoBehaviour
 
             }
         }
-        noNotebookOrders.SetActive(false);
     }
 
     public void DisplayNotebook()
@@ -467,7 +493,7 @@ public class GameManagerScript : MonoBehaviour
 
         for (int k = 0; k < acceptedOrders.Length && !displayed; k++)
         {
-            if (acceptedOrderBool[k])
+            if (acceptedOrderBool[k] && !acceptedOrders[k].Completed)
             {
                 NoteBookOrders[k].SetActive(true);
                 activeNoteBookOrder = k;
@@ -480,7 +506,6 @@ public class GameManagerScript : MonoBehaviour
                 displayed = false;
             }
         }
-
 
         int count = 0;
         for (int a = 0; a < acceptedOrderBool.Length; a++)
@@ -857,7 +882,7 @@ public class GameManagerScript : MonoBehaviour
         emailOrderStory1.text = displayedOrders[0].OrderText.ToString();
         emailRewardText1.text = displayedOrders[0].Reward.ToString();
 
-        string veggiesNeeded = "Veggies required:" + System.Environment.NewLine;
+        string veggiesNeeded = "Items needed:" + System.Environment.NewLine;
         if(displayedOrders[0].CarrotNeeded != 0)
         {
             veggiesNeeded += System.Environment.NewLine + displayedOrders[0].CarrotNeeded.ToString() + " x Carrot(s)";
@@ -884,7 +909,7 @@ public class GameManagerScript : MonoBehaviour
         emailOrderStory2.text = displayedOrders[1].OrderText.ToString();
         emailRewardText2.text = displayedOrders[1].Reward.ToString();
 
-        veggiesNeeded = "Veggies required:";
+        veggiesNeeded = "Items needed:";
         if (displayedOrders[1].CarrotNeeded != 0)
         {
             veggiesNeeded += System.Environment.NewLine + displayedOrders[1].CarrotNeeded.ToString() + " x Carrot(s)";
@@ -1083,6 +1108,8 @@ public class GameManagerScript : MonoBehaviour
         orderList.Clear();
         GroceriesBought = false;
         GroceriesDays = 1;
+        PlayerPrefs.SetInt("Honey", 0);
+        PlayerPrefs.SetString("HoneyDelivered", "false");
 
         PosInven = 0;
         for(int b = 0; b < juteBags.Length; b++)
@@ -1101,6 +1128,32 @@ public class GameManagerScript : MonoBehaviour
             {
                 Inventory.inven[a].ItemNumber = 1;
             }
+        }
+
+        for(int a = 0; a < acceptedOrders.Length; a++)
+        {
+            acceptedOrders[a].OrderText = "";
+            acceptedOrders[a].nameOrder = "";
+            acceptedOrders[a].TotalFunds = 0;
+            acceptedOrders[a].DaysAllocated = 0;
+            acceptedOrders[a].DaysPassed = 0;
+            acceptedOrders[a].Reward = 0;
+            acceptedOrders[a].Accepted = false;
+            acceptedOrders[a].Rejected = false;
+            acceptedOrders[a].Completed = false;
+            acceptedOrders[a].Delivered = false;
+            acceptedOrders[a].TurnipNeeded = 0;
+            acceptedOrders[a].WatermelonNeeded = 0;
+            acceptedOrders[a].CarrotNeeded = 0;
+            acceptedOrders[a].PotatoNeeded = 0;
+            acceptedOrders[a].LettuceNeeded = 0;
+            acceptedOrders[a].TurnipAmount = 0;
+            acceptedOrders[a].WatermelonAmount = 0;
+            acceptedOrders[a].CarrotAmount = 0;
+            acceptedOrders[a].PotatoAmount = 0;
+            acceptedOrders[a].LettuceAmount = 0;
+            acceptedOrderBool[a] = false;
+            juteBags[a].SetActive(false);
         }
     }
 
@@ -1142,18 +1195,10 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
-    public void DoorEndDay()
-    {
-        if (NearBed == true)
-        {
-            sleepConfirmCanvas.SetActive(true);
-        }
-    }
-
-    public void EndDay()
+    public void QuitEndDay()
     {
         GroceriesDays++;
-        if(GroceriesDays == 4 && GroceriesBought)
+        if (GroceriesDays == 4 && GroceriesBought)
         {
             GroceriesBought = false;
             GroceriesDays = 1;
@@ -1166,7 +1211,7 @@ public class GameManagerScript : MonoBehaviour
             {
                 acceptedOrders[a].TotalFunds = Funds;
                 acceptedOrders[a].DaysPassed++;
-            }            
+            }
         }
         for (int a = 0; a < LettuceSeed.PlantedLocations.Count; a++)
         {
@@ -1254,12 +1299,28 @@ public class GameManagerScript : MonoBehaviour
             acceptedOrders[a].TotalFunds = Funds;
         }
 
+        PlayerPrefs.SetString("HoneyDelivered","false");
+    }
+
+    public void DoorEndDay()
+    {
+        if (NearBed == true)
+        {
+            sleepConfirmCanvas.SetActive(true);
+        }
+    }
+
+    public void EndDay()
+    {
+        QuitEndDay();
+
         for (int f = 0; f < acceptedOrders.Length; f++)
         {
             if (acceptedOrderBool[f])
             {
                 if (acceptedOrders[f].Completed && !acceptedOrders[f].Delivered)
                 {
+                    PlayerPrefs.SetString("HoneyDelivered", "true");
                     transition.TransitionToScene("DayOver");
                 }
             }
@@ -1323,10 +1384,6 @@ public class GameManagerScript : MonoBehaviour
         acceptedOrderBool = data.acceptedOrderBool;
         GroceriesBought = data.GroceriesBought;
         GroceriesDays = data.GroceriesDays;
-        for (int a = 0; a < Hoe.TooledLocations.Count; a++)
-        {
-            tm_base.SetTile(Hoe.TooledLocations[a], Hoe.groundAfterToolTile);
-        }
         LoadOrderList();
         FundsText.text = Funds.ToString();
     }

@@ -41,6 +41,7 @@ public class PlantingScript : MonoBehaviour
                     }
                     GameManagerScript.instance.DisplayInvenFunc();
                     Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+                    tm_water.SetTile(GameManagerScript.instance.highlightedTile, null);
                     return;
                 }
             }
@@ -62,8 +63,9 @@ public class PlantingScript : MonoBehaviour
                     }
                     GameManagerScript.instance.DisplayInvenFunc();
                     Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+                    tm_water.SetTile(GameManagerScript.instance.highlightedTile, null);
+                    return;
                 }
-                return;
             }
             else if (tm_base.GetTile(GameManagerScript.instance.highlightedTile) == GameManagerScript.instance.PotatoSeed.GrowingTiles[GameManagerScript.instance.PotatoSeed.DaysToGrow])
             {
@@ -82,6 +84,7 @@ public class PlantingScript : MonoBehaviour
                         GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
                     }
                     GameManagerScript.instance.DisplayInvenFunc();
+                    tm_water.SetTile(GameManagerScript.instance.highlightedTile, null);
                     return;
                 }
             }
@@ -102,6 +105,7 @@ public class PlantingScript : MonoBehaviour
                         GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
                     }
                     GameManagerScript.instance.DisplayInvenFunc();
+                    tm_water.SetTile(GameManagerScript.instance.highlightedTile, null);
                     return;
                 }
             }
@@ -122,6 +126,7 @@ public class PlantingScript : MonoBehaviour
                         GameManagerScript.instance.Inventory.inven[pos].ItemNumber++;
                     }
                     GameManagerScript.instance.DisplayInvenFunc();
+                    tm_water.SetTile(GameManagerScript.instance.highlightedTile, null);
                     return;
                 }
             }

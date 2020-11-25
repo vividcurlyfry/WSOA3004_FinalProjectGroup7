@@ -6,40 +6,98 @@ using UnityEngine.UI;
 
 public class SaveSlotScript : MonoBehaviour
 {
-    public bool clear;
-    public Button butt1;
-    public Button butt2;
-    public Button butt3;
-    public Button butt4;
+    public bool clear1;
+    public bool clear2;
+    public bool clear3;
+    public bool clear4;
+    public GameObject youSure1;
+    public GameObject youSure2;
+    public GameObject youSure3;
+    public GameObject youSure4;
 
     private void Start()
     {
-        clear = false;
+        clear1 = false;
+        clear2 = false;
+        clear3 = false;
+        clear4 = false;
+        youSure1.SetActive(false);
+        youSure2.SetActive(false);
+        youSure3.SetActive(false);
+        youSure4.SetActive(false);
     }
 
-    public void ClearButt() //hehe, butt
+    public void clear1Sure()
     {
-        if (clear == false)
-        {
-            clear = true;
-            butt1.GetComponent<Image>().color = Color.HSVToRGB(0, 45, 100);
-            butt2.GetComponent<Image>().color = Color.HSVToRGB(0, 45, 100);
-            butt3.GetComponent<Image>().color = Color.HSVToRGB(0, 45, 100);
-            butt4.GetComponent<Image>().color = Color.HSVToRGB(0, 45, 100);
-        }
-        else
-        {
-            clear = false;
-            butt1.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
-            butt2.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
-            butt3.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
-            butt4.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
-        }
+        youSure1.SetActive(true);
+    }
+
+    public void sure1Yes()
+    {
+        clear1 = true;
+        youSure1.SetActive(false);
+    }
+
+    public void sure1No()
+    {
+        clear1 = false;
+        youSure1.SetActive(false);
+    }
+
+    public void clear2Sure()
+    {
+        youSure2.SetActive(true);
+    }
+
+    public void sure2Yes()
+    {
+        clear2 = true;
+        youSure2.SetActive(false);
+    }
+
+    public void sure2No()
+    {
+        clear1 = false;
+        youSure2.SetActive(false);
+    }
+
+    public void clear3Sure()
+    {
+        youSure3.SetActive(true);
+    }
+
+    public void sure3Yes()
+    {
+        clear3 = true;
+        youSure3.SetActive(false);
+    }
+
+    public void sure3No()
+    {
+        clear3 = false;
+        youSure3.SetActive(false);
+    }
+
+    public void clear4Sure()
+    {
+        youSure4.SetActive(true);
+    }
+
+    public void sure4Yes()
+    {
+        clear4 = true;
+        youSure4.SetActive(false);
+    }
+
+    public void sure4No()
+    {
+        clear4 = false;
+        youSure4.SetActive(false);
     }
 
     public void SlotOne()
     {
-        if (clear == false)
+        if (clear1 == false)
         {
             Slot.instance.ActiveSlot = 1;
             if (PlayerPrefs.GetString("DayOnePlayedSlotOne?") == "yes")
@@ -53,18 +111,16 @@ public class SaveSlotScript : MonoBehaviour
         }
         else
         {
+            Slot.instance.ActiveSlot = 1;
             PlayerPrefs.SetString("DayOnePlayedSlotOne?", "no");
-            clear = false;
-            butt1.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
-            butt2.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
-            butt3.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
-            butt4.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
+            clear1 = false;
+            SceneManager.LoadScene("Intro 1");
         }
     }
 
     public void SlotTwo()
     {
-        if (clear == false)
+        if (clear2 == false)
         {
             Slot.instance.ActiveSlot = 2;
             if (PlayerPrefs.GetString("DayOnePlayedSlotTwo?") == "yes")
@@ -78,18 +134,16 @@ public class SaveSlotScript : MonoBehaviour
         }
         else
         {
+            Slot.instance.ActiveSlot = 2;
             PlayerPrefs.SetString("DayOnePlayedSlotTwo?", "no");
-            clear = false;
-            butt1.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
-            butt2.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
-            butt3.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
-            butt4.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
+            clear2 = false;
+            SceneManager.LoadScene("Intro 1");
         }
     }
 
     public void SlotThree()
     {
-        if (clear == false)
+        if (clear3 == false)
         {
             Slot.instance.ActiveSlot = 3;
             if (PlayerPrefs.GetString("DayOnePlayedSlotThree?") == "yes")
@@ -103,18 +157,16 @@ public class SaveSlotScript : MonoBehaviour
         }
         else
         {
+            Slot.instance.ActiveSlot = 3;
             PlayerPrefs.SetString("DayOnePlayedSlotThree?", "no");
-            clear = false;
-            butt1.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
-            butt2.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
-            butt3.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
-            butt4.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
+            clear3 = false;
+            SceneManager.LoadScene("Intro 1");
         }
     }
 
     public void SlotFour()
     {
-        if (clear == false)
+        if (clear4 == false)
         {
             Slot.instance.ActiveSlot = 4;
             if (PlayerPrefs.GetString("DayOnePlayedSlotFour?") == "yes")
@@ -128,12 +180,10 @@ public class SaveSlotScript : MonoBehaviour
         }
         else
         {
+            Slot.instance.ActiveSlot = 4;
             PlayerPrefs.SetString("DayOnePlayedSlotFour?", "no");
-            clear = false;
-            butt1.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
-            butt2.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
-            butt3.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
-            butt4.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
+            clear4 = false;
+            SceneManager.LoadScene("Intro 1");
         }
     }
 }

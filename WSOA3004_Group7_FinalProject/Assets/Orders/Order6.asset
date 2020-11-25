@@ -14,22 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrderText: 'Good day!
 
-    
 
     I''m cooking dinner for my husband for our anniversary.
     I thought I''d impress him with some fresh fruits and vegetables as part of our
     meal.
 
-    
 
     Thank you, I greatly appreciate it.
 
-    
 
     Regards
 
-    Nigel
-    Oren'
+    Nigel Oren'
   nameOrder: Nigel Oren
   TotalFunds: 250
   DaysAllocated: 3

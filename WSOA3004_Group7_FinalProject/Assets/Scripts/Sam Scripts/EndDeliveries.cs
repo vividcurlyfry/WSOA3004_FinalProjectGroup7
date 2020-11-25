@@ -14,11 +14,17 @@ public class EndDeliveries : MonoBehaviour
     public string deliveredString;
     public Text rewardText;
     public AudioSource AS;
-    
+    public int reward;
+    public Text honeyText;
+    public int honey;
+
     //set up delivered order and money increase
     private void Start()
     {
-        int reward = 0;
+        int honey = Random.Range(50, 151);
+        PlayerPrefs.SetInt("Honey", honey);
+        reward = honey;
+        honeyText.text = honey.ToString();
         deliveredString = "";
         for(int a = 0; a < acceptedOrders.Length; a++)
         {
@@ -30,7 +36,7 @@ public class EndDeliveries : MonoBehaviour
             }
         }
 
-        money.text = (acceptedOrders[0].TotalFunds - reward).ToString();
+        money.text = (acceptedOrders[0].TotalFunds).ToString();
         order.text = deliveredString;
         rewardText.text = reward.ToString();
     }
@@ -45,7 +51,7 @@ public class EndDeliveries : MonoBehaviour
 
         if(truck.transform.position.x > 8)
         {
-            money.text = acceptedOrders[0].TotalFunds.ToString();
+            money.text = (acceptedOrders[0].TotalFunds + reward).ToString();
             AS.volume = 1;
         }
 

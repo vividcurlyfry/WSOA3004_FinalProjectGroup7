@@ -14,20 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrderText: 'Good day, Demi!
 
-    
 
-    I would like to order some fruits and
-    vegetables for my book club''s annual spring tea.
+    I would like to order some fruits and vegetables
+    for my book club''s annual spring tea.
 
-    We''d like to quell our
-    heated discussions over literature with something fresh.
+    We''d like to quell our heated discussions
+    over literature with something fresh.
 
-    
 
     Warm regards
 
-    Faith
-    Khumalo'
+    Faith Khumalo'
   nameOrder: Faith Khumalo
   TotalFunds: 250
   DaysAllocated: 0

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433366446b9c14b418ae840a95d309f2, type: 3}
   m_Name: Order4
   m_EditorClassIdentifier: 
-  OrderText: "Hello there, Demi!\r\n\r\nI run Waka Waka Juice Bar and I've been struck
+  OrderText: "Hello there, Demi!\r\n\nI run Waka Waka Juice Bar and I've been struck
     with inspiration for a brand new juice. It's going to be a great addition to
-    the menu. \r\n\r\nThanks for your help!\r\n\r\nKind regards\r\nTim Flusk"
+    the menu. \r\n\nThanks for your help!\r\n\r\nKind regards\r\nTim Flusk"
   nameOrder: Tim Flusk
   TotalFunds: 250
   DaysAllocated: 3
@@ -26,7 +26,7 @@ MonoBehaviour:
   Delivered: 0
   TurnipNeeded: 0
   WatermelonNeeded: 0
-  CarrotNeeded: 1
+  CarrotNeeded: 0
   PotatoNeeded: 0
   LettuceNeeded: 0
   TurnipAmount: 0

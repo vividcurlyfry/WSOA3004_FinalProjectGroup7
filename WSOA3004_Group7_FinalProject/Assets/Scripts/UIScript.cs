@@ -14,6 +14,13 @@ public class UIScript : MonoBehaviour
     public GridScript gs;
     public GameObject crossMenu, iconMenu, crossShop, iconShop, crossNotepad, iconNotepad, crossEmail;
     public int shopSorting, orderSorting, deliverySorting, menuSorting;
+    public DayChangeVisual dcv;
+
+    public void Awake()
+    {
+        dcv.enabled = true;
+    }
+
     private void Start()
     {
         ShopCanvas.gameObject.SetActive(false);
@@ -22,15 +29,6 @@ public class UIScript : MonoBehaviour
         orderSorting = OrderCanvas.sortingOrder;
         deliverySorting = Delivery.sortingOrder;
         shopSorting = ShopCanvas.sortingOrder;
-    }
-
-    //remove for final
-    private void Update()
-    {
-        if(Input.GetKey(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
     }
 
     public void OnClickQuests()
@@ -121,19 +119,18 @@ public class UIScript : MonoBehaviour
         }
     }
 
-    public void OnClickSaveSlots()
-    {
-        SceneManager.LoadScene("SaveSlots");
-    }
-
     public void OnClickMainMenu()
     {
+        dcv.enabled = false;
+        GameManagerScript.instance.QuitEndDay();
         SceneManager.LoadScene("Menu");
     }
 
     //quits game
     public void OnClickQuit()
     {
+        dcv.enabled = false;
+        GameManagerScript.instance.QuitEndDay();
         Application.Quit();
     }
 
