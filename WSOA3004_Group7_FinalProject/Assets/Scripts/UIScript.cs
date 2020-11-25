@@ -126,6 +126,11 @@ public class UIScript : MonoBehaviour
         SceneManager.LoadScene("SaveSlots");
     }
 
+    public void OnClickMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
     //quits game
     public void OnClickQuit()
     {

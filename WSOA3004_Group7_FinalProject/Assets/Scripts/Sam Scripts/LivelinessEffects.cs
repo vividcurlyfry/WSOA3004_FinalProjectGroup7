@@ -5,7 +5,7 @@ using UnityEngine;
 public class LivelinessEffects : MonoBehaviour
 {
     public bool Raining = false;
-    public GameObject RainEffect, BeesEffect;
+    public GameObject RainEffect, BeesEffect, RainNoise;
 
     private int randomNum = 0;
 
@@ -25,11 +25,13 @@ public class LivelinessEffects : MonoBehaviour
                 RainEffect.SetActive(true);
                 BeesEffect.SetActive(false);
                 Raining = true;
+                RainNoise.SetActive(true);
                 break;
             default:
                 RainEffect.SetActive(false);
                 BeesEffect.SetActive(true);
                 Raining = false;
+                RainNoise.SetActive(false);
                 break;
         }
     }

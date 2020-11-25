@@ -13,6 +13,7 @@ public class EndDeliveries : MonoBehaviour
     public Text order;
     public string deliveredString;
     public Text rewardText;
+    public AudioSource AS;
     
     //set up delivered order and money increase
     private void Start()
@@ -45,6 +46,12 @@ public class EndDeliveries : MonoBehaviour
         if(truck.transform.position.x > 8)
         {
             money.text = acceptedOrders[0].TotalFunds.ToString();
+            AS.volume = 1;
+        }
+
+        if (truck.transform.position.x > 11.8f)
+        {
+            AS.volume = 0;
         }
     }
 

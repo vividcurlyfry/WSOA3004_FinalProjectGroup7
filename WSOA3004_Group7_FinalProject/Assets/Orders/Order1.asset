@@ -25,19 +25,19 @@ MonoBehaviour:
 
     Kindest regards
 
-    Maya Wolff'
-  nameOrder: Maya Wolff
+    Mandy Wolff'
+  nameOrder: Mandy Wolff
   TotalFunds: 250
-  DaysAllocated: 3
+  DaysAllocated: 4
   DaysPassed: 0
-  Reward: 15
-  Accepted: 1
+  Reward: 176
+  Accepted: 0
   Rejected: 0
   Completed: 0
   Delivered: 0
   TurnipNeeded: 0
   WatermelonNeeded: 0
-  CarrotNeeded: 1
+  CarrotNeeded: 0
   PotatoNeeded: 0
   LettuceNeeded: 0
   TurnipAmount: 0
