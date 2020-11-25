@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: b6019c321600ba9409706d2b1cbbef86
+  - enabled: 1
     path: Assets/Scenes/SaveSlots.unity
     guid: 67c3f442263a7e2468b0d858f08e6a6d
   - enabled: 1
@@ -29,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DayOver.unity
     guid: 6a4b406f125308746ada79c6705fb5d6
+  - enabled: 1
+    path: Assets/Scenes/How to.unity
+    guid: 79c5da57d6117b0419c717736f4fe32d
+  - enabled: 1
+    path: Assets/Scenes/credits.unity
+    guid: 02cd9f7eaf713a7409fe312e83a8749d
   m_configObjects: {}
