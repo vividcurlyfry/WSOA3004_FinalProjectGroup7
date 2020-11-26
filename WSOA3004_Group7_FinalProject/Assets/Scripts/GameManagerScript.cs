@@ -106,6 +106,7 @@ public class GameManagerScript : MonoBehaviour
 
     public int RubyLoop;
     public int weedNumRandom;
+    public Scrollbar scrollVert;
 
     private void Awake()
     {
@@ -987,6 +988,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void nextEmailButt()
     {
+        scrollVert.value = 1;
         Email2.SetActive(true);
         Email1.SetActive(false);
         prevEmail.SetActive(true);
@@ -995,6 +997,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void prevEmailButt()
     {
+        scrollVert.value = 1;
         Email2.SetActive(false);
         Email1.SetActive(true);
         prevEmail.SetActive(false);

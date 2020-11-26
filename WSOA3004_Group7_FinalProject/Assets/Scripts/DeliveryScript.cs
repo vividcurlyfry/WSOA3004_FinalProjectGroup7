@@ -11,9 +11,13 @@ public class DeliveryScript : MonoBehaviour
     public GameObject[] DisplayOrderWatermelon = new GameObject[10];
     public GameObject[] DisplayOrderCarrot = new GameObject[10];
     public GameObject[] DisplayOrderName = new GameObject[10];
+    public Transform[] JPSTransforms = new Transform[10];
+    public ParticleSystem JPS;
     public Text orderText;
     public GameObject noEmail;
     public Scrollbar scrollVert;
+    public AudioSource AS;
+    public AudioClip jute;
 
     // Start is called before the first frame update
     void Start()
@@ -152,6 +156,7 @@ public class DeliveryScript : MonoBehaviour
 
     public void RejectOrder()
     {
+        scrollVert.value = 1;
         Order order;
         if(GameManagerScript.instance.Email1.activeSelf)
         {
@@ -313,8 +318,13 @@ public class DeliveryScript : MonoBehaviour
 
             if ((activeOrder.CarrotAmount == activeOrder.CarrotNeeded) && (activeOrder.TurnipAmount == activeOrder.TurnipNeeded) && (activeOrder.WatermelonAmount == activeOrder.WatermelonNeeded) && (activeOrder.LettuceAmount == activeOrder.LettuceNeeded) && (activeOrder.PotatoAmount == activeOrder.PotatoNeeded))
             {
+
                 GameManagerScript.instance.juteBags[num-1].SetActive(false);
                 GameManagerScript.instance.closedJute[num - 1].SetActive(true);
+                AS.PlayOneShot(jute);
+                JPS.transform.position = JPSTransforms[num - 1].position;
+                JPS.Clear();
+                JPS.Play();
                 activeOrder.Completed = true;
                 GameManagerScript.instance.SetupNotebook();
                 GameManagerScript.instance.DisplayNotebook();

@@ -20,7 +20,7 @@ public class ShopScriptInc : MonoBehaviour
 
     public void DecText()
     {
-        if (int.Parse(numItem.text) != 0)
+        if (int.Parse(numItem.text) != 0 && int.Parse(numItem.text) !=1)
         {
             numItem.text = (int.Parse(numItem.text) - 1).ToString();
             totalPrice.text = (int.Parse(numItem.text) * Price).ToString();
