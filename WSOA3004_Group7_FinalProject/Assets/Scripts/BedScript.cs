@@ -14,6 +14,7 @@ public class BedScript : MonoBehaviour
           //  Debug.Log("true");
             GameManagerScript.instance.NearBed = true;
             showDoor.SetActive(true);
+            GameManagerScript.instance.hovering = true;
         }
     }
 
@@ -23,6 +24,7 @@ public class BedScript : MonoBehaviour
         {
             GameManagerScript.instance.NearBed = false;
             showDoor.SetActive(false);
+            GameManagerScript.instance.hovering = false;
         }
     }
 }

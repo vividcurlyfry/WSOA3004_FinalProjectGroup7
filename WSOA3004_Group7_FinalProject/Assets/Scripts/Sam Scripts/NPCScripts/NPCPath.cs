@@ -9,8 +9,6 @@ public class NPCPath : MonoBehaviour
 
     private Vector3 _FirstPos, _SecondPos, _ThirdPos;
 
-    private int today = 0;
-
     ////////////// NOTE ////////////////
     //Day 1: Hanging on the farm
     //Day 2: Beekeeping
@@ -20,27 +18,27 @@ public class NPCPath : MonoBehaviour
 
     private void Start()
     {
-        today = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().DaysPlayed;
         isRaining = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LivelinessEffects>().Raining;
+        Debug.Log("Ruby today " + GameManagerScript.instance.RubyLoop);
         if (isRaining)
         {
             _FirstPos = new Vector3(8f, 15f, -1);
             _SecondPos = new Vector3(4f, 15f, -1);
             _ThirdPos = new Vector3(17.69f, 16f, -1);
         }
-        else if ((today == 0)||(today == 3))
+        else if (GameManagerScript.instance.RubyLoop == 0)
         {
             _FirstPos = new Vector3(21f, 15, -1);
             _SecondPos = new Vector3(0, 15, -1);
             _ThirdPos = new Vector3(4f, 15f, -1);
         }
-        else if ((today == 1)|| (today == 4))
+        else if (GameManagerScript.instance.RubyLoop == 1)
         {
             _FirstPos = new Vector3(4f, 2, -1);
             _SecondPos = new Vector3(2, -15, -1);
             _ThirdPos = new Vector3(3.5f, -16, -1);
         }
-        else if ((today == 2)|| (today == 4))
+        else if (GameManagerScript.instance.RubyLoop == 2)
         {
             _FirstPos = new Vector3(24, 7, -1);
             _SecondPos = new Vector3(50, 7, -1);

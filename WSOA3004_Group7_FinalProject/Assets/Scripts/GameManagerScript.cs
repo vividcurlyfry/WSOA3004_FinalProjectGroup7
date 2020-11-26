@@ -104,6 +104,8 @@ public class GameManagerScript : MonoBehaviour
     public int FailureSorting = 25;
     public Tile Sand;
 
+    public int RubyLoop;
+
     private void Awake()
     {
         if (instance == null)
@@ -292,6 +294,7 @@ public class GameManagerScript : MonoBehaviour
                 Funds = Funds + reward;
             }
         }
+        FundsText.text = Funds.ToString();
 
         EmailGenerator();
 
@@ -422,7 +425,7 @@ public class GameManagerScript : MonoBehaviour
                 }
                 else
                 {
-                    NoteBookOrders[k].transform.Find("DAYS").GetComponent<Text>().text = "DUE TODAY!";
+                    NoteBookOrders[k].transform.Find("DAYS").GetComponent<Text>().text = "Due Today!";
                     NoteBookOrders[k].transform.Find("DaysLeft").gameObject.SetActive(false);
                 }
                 NoteBookOrders[k].transform.Find("Reward").GetComponent<Text>().text = acceptedOrders[k].Reward.ToString();
@@ -510,7 +513,7 @@ public class GameManagerScript : MonoBehaviour
         int count = 0;
         for (int a = 0; a < acceptedOrderBool.Length; a++)
         {
-            if (acceptedOrderBool[a] == true)
+            if (acceptedOrderBool[a] == true && !acceptedOrders[a].Completed)
             {
                 count++;
             }
@@ -639,7 +642,7 @@ public class GameManagerScript : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(orderList.Count);
+        Debug.Log(RubyLoop);
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if ((PosInven + 6) < Inventory.inven.Length)
@@ -1110,6 +1113,7 @@ public class GameManagerScript : MonoBehaviour
         GroceriesDays = 1;
         PlayerPrefs.SetInt("Honey", 0);
         PlayerPrefs.SetString("HoneyDelivered", "false");
+        RubyLoop = DaysPlayed % 3;
 
         PosInven = 0;
         for(int b = 0; b < juteBags.Length; b++)
@@ -1203,6 +1207,7 @@ public class GameManagerScript : MonoBehaviour
             GroceriesBought = false;
             GroceriesDays = 1;
         }
+
         DaysPlayed++;
         dayOver = true;
         for (int a = 0; a < acceptedOrders.Length; a++)
@@ -1280,18 +1285,22 @@ public class GameManagerScript : MonoBehaviour
         if (Slot.instance.ActiveSlot == 1)
         {
             PlayerPrefs.SetString("DayOnePlayedSlotOne?", "yes");
+            PlayerPrefs.SetInt("SlotOneDay",DaysPlayed+1);
         }
         else if (Slot.instance.ActiveSlot == 2)
         {
             PlayerPrefs.SetString("DayOnePlayedSlotTwo?", "yes");
+            PlayerPrefs.SetInt("SlotTwoDay", DaysPlayed+1);
         }
         else if (Slot.instance.ActiveSlot == 3)
         {
             PlayerPrefs.SetString("DayOnePlayedSlotThree?", "yes");
+            PlayerPrefs.GetInt("SlotThreeDay", DaysPlayed+1);
         }
         else if (Slot.instance.ActiveSlot == 4)
         {
             PlayerPrefs.SetString("DayOnePlayedSlotFour?", "yes");
+            PlayerPrefs.GetInt("SlotFourDay", DaysPlayed+1);
         }
 
         for (int a = 0; a < GameManagerScript.instance.acceptedOrders.Length; a++)
@@ -1385,6 +1394,6 @@ public class GameManagerScript : MonoBehaviour
         GroceriesBought = data.GroceriesBought;
         GroceriesDays = data.GroceriesDays;
         LoadOrderList();
-        FundsText.text = Funds.ToString();
+        RubyLoop = DaysPlayed % 3;
     }
 }

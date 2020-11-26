@@ -16,7 +16,6 @@ public class NPCMovement : MonoBehaviour
     private float pause = 0, setPause, t = 0;
     [SerializeField]
     private bool isPaused = false, dayOver = false, goHome = false, returnFromIdleTalk = false;
-    private int today = 0;
 
     private void Start()
     {
@@ -28,7 +27,7 @@ public class NPCMovement : MonoBehaviour
         home = new Vector3(17.69f, 16f, -1);
         middle = new Vector3(3.5f, 7, -1);
 
-        today = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().DaysPlayed;
+        Debug.Log("Ruby today " + GameManagerScript.instance.RubyLoop);
         //print(today);
         isRaining = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LivelinessEffects>().Raining;
 
@@ -37,15 +36,15 @@ public class NPCMovement : MonoBehaviour
         {
             setPause = 225;
         }
-        else if ((today == 0)|| (today == 3))
+        else if (GameManagerScript.instance.RubyLoop == 0)
         {
             setPause = 2;
         }
-        else if ((today == 1)|| (today == 4))
+        else if (GameManagerScript.instance.RubyLoop == 1)
         {
             setPause = 4;
         }
-        else if ((today == 2)|| (today == 5))
+        else if (GameManagerScript.instance.RubyLoop == 2)
         {
             setPause = 225;
         }

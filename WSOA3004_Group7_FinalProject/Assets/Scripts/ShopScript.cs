@@ -23,7 +23,7 @@ public class ShopScript : MonoBehaviour
     public Text LettuceTotalPrice;
 
     public GroceriesTrack groceries;
-
+    public Scrollbar scrollVert;
 
     private void Start()
     {
@@ -35,6 +35,7 @@ public class ShopScript : MonoBehaviour
 
     public void OpenSeedPanel()
     {
+        scrollVert.value = 1;
         SeedPanel.SetActive(true);
         ToolPanel.SetActive(false);
         FoodPanel.SetActive(false);
@@ -51,6 +52,7 @@ public class ShopScript : MonoBehaviour
 
     public void OpenFoodPanel()
     {
+        scrollVert.value = 1;
         SeedPanel.SetActive(false);
         ToolPanel.SetActive(false);
         FoodPanel.SetActive(true);

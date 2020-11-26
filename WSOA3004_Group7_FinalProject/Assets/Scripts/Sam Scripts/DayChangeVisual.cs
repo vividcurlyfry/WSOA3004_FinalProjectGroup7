@@ -13,6 +13,7 @@ public class DayChangeVisual : MonoBehaviour
     public AudioSource AS;
     public AudioClip nightAudio;
     public TransitionScript transition;
+    public MovementScript demiMove;
 
     private float t1 = 0, t2 = 0, speed = 1f, timeBetween = 0, timeStart = 0;
     private int today = 0;
@@ -20,6 +21,7 @@ public class DayChangeVisual : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        demiMove.enabled = true;
         AS.volume = 0;
         dayChange = false;
         today = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>().DaysPlayed + 1;
@@ -69,6 +71,7 @@ public class DayChangeVisual : MonoBehaviour
 
             this.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, Mathf.Lerp(this.GetComponent<SpriteRenderer>().color.a, 1, t2));
             timeBetween += Time.deltaTime;
+            demiMove.enabled = false;
         }
 
         if (timeBetween > 4f)

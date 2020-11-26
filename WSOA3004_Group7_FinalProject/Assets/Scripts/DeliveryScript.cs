@@ -13,6 +13,7 @@ public class DeliveryScript : MonoBehaviour
     public GameObject[] DisplayOrderName = new GameObject[10];
     public Text orderText;
     public GameObject noEmail;
+    public Scrollbar scrollVert;
 
     // Start is called before the first frame update
     void Start()
@@ -84,6 +85,7 @@ public class DeliveryScript : MonoBehaviour
 
     public void AcceptOrder()
     {
+        scrollVert.value = 1;
         Order order;
         if (GameManagerScript.instance.Email1.activeSelf)
         {

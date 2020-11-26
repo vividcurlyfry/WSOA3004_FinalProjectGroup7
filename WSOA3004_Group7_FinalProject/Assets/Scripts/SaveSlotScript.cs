@@ -14,6 +14,10 @@ public class SaveSlotScript : MonoBehaviour
     public GameObject youSure2;
     public GameObject youSure3;
     public GameObject youSure4;
+    public Text Slot1Day;
+    public Text Slot2Day;
+    public Text Slot3Day;
+    public Text Slot4Day;
 
     private void Start()
     {
@@ -25,6 +29,42 @@ public class SaveSlotScript : MonoBehaviour
         youSure2.SetActive(false);
         youSure3.SetActive(false);
         youSure4.SetActive(false);
+
+        if (PlayerPrefs.GetString("DayOnePlayedSlotOne?") == "yes")
+        {
+            Slot1Day.text = "DAY" + PlayerPrefs.GetInt("SlotOneDay").ToString();
+        }
+        else
+        {
+            Slot1Day.text = "EMPTY";
+        }
+
+        if (PlayerPrefs.GetString("DayOnePlayedSlotTwo?") == "yes")
+        {
+            Slot2Day.text = "DAY" + PlayerPrefs.GetInt("SlotTwoDay").ToString();
+        }
+        else
+        {
+            Slot2Day.text = "EMPTY";
+        }
+
+        if (PlayerPrefs.GetString("DayOnePlayedSlotThree?") == "yes")
+        {
+            Slot3Day.text = "DAY" + PlayerPrefs.GetInt("SlotThreeDay").ToString();
+        }
+        else
+        {
+            Slot3Day.text = "EMPTY";
+        }
+
+        if (PlayerPrefs.GetString("DayOnePlayedSlotFour?") == "yes")
+        {
+            Slot4Day.text = "DAY" +  PlayerPrefs.GetInt("SlotFourDay").ToString();
+        }
+        else
+        {
+            Slot4Day.text = "EMPTY";
+        }
     }
 
     public void clear1Sure()
@@ -36,6 +76,7 @@ public class SaveSlotScript : MonoBehaviour
     {
         clear1 = true;
         youSure1.SetActive(false);
+        Slot1Day.text = "EMPTY";
     }
 
     public void sure1No()
@@ -53,6 +94,7 @@ public class SaveSlotScript : MonoBehaviour
     {
         clear2 = true;
         youSure2.SetActive(false);
+        Slot2Day.text = "EMPTY";
     }
 
     public void sure2No()
@@ -70,6 +112,7 @@ public class SaveSlotScript : MonoBehaviour
     {
         clear3 = true;
         youSure3.SetActive(false);
+        Slot3Day.text = "EMPTY";
     }
 
     public void sure3No()
@@ -87,6 +130,7 @@ public class SaveSlotScript : MonoBehaviour
     {
         clear4 = true;
         youSure4.SetActive(false);
+        Slot4Day.text = "EMPTY";
     }
 
     public void sure4No()

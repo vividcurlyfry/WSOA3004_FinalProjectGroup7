@@ -24,13 +24,13 @@ public class EndDeliveries : MonoBehaviour
         int honey = Random.Range(50, 151);
         PlayerPrefs.SetInt("Honey", honey);
         reward = honey;
-        honeyText.text = honey.ToString();
+        honeyText.text = "+ " + honey.ToString();
         deliveredString = "";
         for(int a = 0; a < acceptedOrders.Length; a++)
         {
             if(acceptedOrders[a].Completed == true)
             {
-                deliveredString += "Delivered to " + acceptedOrders[a].nameOrder + System.Environment.NewLine;
+                deliveredString += "Delivered to " + acceptedOrders[a].nameOrder + " + " + acceptedOrders[a].Reward + System.Environment.NewLine;
                 reward += acceptedOrders[a].Reward;
                 acceptedOrders[a].Delivered = true;
             }

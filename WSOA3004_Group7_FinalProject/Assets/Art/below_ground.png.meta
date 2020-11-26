@@ -173,10 +173,10 @@ TextureImporter:
       name: below_ground_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 479
-        width: 184
-        height: 184
+        x: 26
+        y: 481
+        width: 179
+        height: 180
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +194,10 @@ TextureImporter:
       name: below_ground_1
       rect:
         serializedVersion: 2
-        x: 240
-        y: 479
-        width: 184
-        height: 184
+        x: 243
+        y: 481
+        width: 179
+        height: 180
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +215,10 @@ TextureImporter:
       name: below_ground_2
       rect:
         serializedVersion: 2
-        x: 449
-        y: 479
-        width: 184
-        height: 184
+        x: 451
+        y: 481
+        width: 179
+        height: 180
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,10 +236,10 @@ TextureImporter:
       name: below_ground_3
       rect:
         serializedVersion: 2
-        x: 659
-        y: 479
-        width: 183
-        height: 184
+        x: 661
+        y: 481
+        width: 178
+        height: 180
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,10 +257,10 @@ TextureImporter:
       name: below_ground_4
       rect:
         serializedVersion: 2
-        x: 233
-        y: 257
-        width: 184
-        height: 184
+        x: 236
+        y: 259
+        width: 179
+        height: 180
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,10 +278,10 @@ TextureImporter:
       name: below_ground_6
       rect:
         serializedVersion: 2
-        x: 657
-        y: 257
-        width: 183
-        height: 184
+        x: 659
+        y: 259
+        width: 178
+        height: 180
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,10 +299,10 @@ TextureImporter:
       name: below_ground_7
       rect:
         serializedVersion: 2
-        x: 231
-        y: 40
-        width: 186
-        height: 185
+        x: 236
+        y: 42
+        width: 179
+        height: 181
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,10 +320,10 @@ TextureImporter:
       name: below_ground_8
       rect:
         serializedVersion: 2
-        x: 445
-        y: 43
-        width: 184
-        height: 184
+        x: 447
+        y: 45
+        width: 179
+        height: 180
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,10 +341,10 @@ TextureImporter:
       name: below_ground_9
       rect:
         serializedVersion: 2
-        x: 653
-        y: 43
-        width: 184
-        height: 185
+        x: 658
+        y: 45
+        width: 179
+        height: 180
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -362,10 +362,10 @@ TextureImporter:
       name: below_ground_5
       rect:
         serializedVersion: 2
-        x: 445
-        y: 259
-        width: 184
-        height: 184
+        x: 447
+        y: 261
+        width: 179
+        height: 181
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

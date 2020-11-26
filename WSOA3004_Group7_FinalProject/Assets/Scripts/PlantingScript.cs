@@ -11,7 +11,6 @@ public class PlantingScript : MonoBehaviour
     public Tile Sand;
     public int posList;
     public Texture2D cursor;
-    public Vector3Int cursorTileLoc;
     private void Start()
     {
         isRaining = gameObject.GetComponent<LivelinessEffects>().Raining;
@@ -255,28 +254,30 @@ public class PlantingScript : MonoBehaviour
                     {
                         Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
                         if (Input.GetMouseButtonDown(0))
+                        {
                             tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.WatermelonSeed.GrowingTiles[0]);
-                        if (isRaining)
-                        {
-                            tm_water.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Watered);
-                        }
+                            if (isRaining)
+                            {
+                                tm_water.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Watered);
+                            }
 
-                        int pos = GameManagerScript.instance.FindPos("WatermelonSeed");
-                        if (pos != -1)
-                        {
-                            GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
-                            GameManagerScript.instance.WatermelonSeed.PlantedLocations.Add(GameManagerScript.instance.highlightedTile);
-                            GameManagerScript.instance.WatermelonSeed.Watered.Add(false);
-                            GameManagerScript.instance.WatermelonSeed.DaysGrown.Add(0);
-                        }
+                            int pos = GameManagerScript.instance.FindPos("WatermelonSeed");
+                            if (pos != -1)
+                            {
+                                GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
+                                GameManagerScript.instance.WatermelonSeed.PlantedLocations.Add(GameManagerScript.instance.highlightedTile);
+                                GameManagerScript.instance.WatermelonSeed.Watered.Add(false);
+                                GameManagerScript.instance.WatermelonSeed.DaysGrown.Add(0);
+                            }
 
-                        if (GameManagerScript.instance.Inventory.inven[pos].ItemNumber == 0)
-                        {
-                            GameManagerScript.instance.DisplayInvenFunc();
-                        }
-                        else
-                        {
-                            GameManagerScript.instance.DisplayInvenFuncNoSort();
+                            if (GameManagerScript.instance.Inventory.inven[pos].ItemNumber == 0)
+                            {
+                                GameManagerScript.instance.DisplayInvenFunc();
+                            }
+                            else
+                            {
+                                GameManagerScript.instance.DisplayInvenFuncNoSort();
+                            }
                         }
                     }
                     else
