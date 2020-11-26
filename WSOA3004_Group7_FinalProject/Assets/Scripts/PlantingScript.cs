@@ -11,6 +11,7 @@ public class PlantingScript : MonoBehaviour
     public Tile Sand;
     public int posList;
     public Texture2D cursor;
+    public ParticleSystem dandPS;
     private void Start()
     {
         isRaining = gameObject.GetComponent<LivelinessEffects>().Raining;
@@ -155,6 +156,9 @@ public class PlantingScript : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                     {
                         tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Scythe.groundAfterToolTile);
+                        dandPS.transform.position = new Vector3(GameManagerScript.instance.highlightedTile.x + 0.5f, GameManagerScript.instance.highlightedTile.y + 0.7f, GameManagerScript.instance.highlightedTile.y);
+                        dandPS.Clear();
+                        dandPS.Play();
                         if (!GameManagerScript.instance.Scythe.TooledLocations.Contains(GameManagerScript.instance.highlightedTile))
                         {
                             GameManagerScript.instance.Scythe.TooledLocations.Add(GameManagerScript.instance.highlightedTile);
