@@ -105,6 +105,7 @@ public class GameManagerScript : MonoBehaviour
     public Tile Sand;
 
     public int RubyLoop;
+    public int weedNumRandom;
 
     private void Awake()
     {
