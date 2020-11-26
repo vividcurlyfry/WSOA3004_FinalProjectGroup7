@@ -7,5 +7,6 @@ public class closeFailure : MonoBehaviour
     public void CloseFailure(Transform trans)
     {
         trans.gameObject.SetActive(false);
+        GameManagerScript.instance.Failure.SetActive(false);
     }
 }

@@ -100,7 +100,6 @@ public class GameManagerScript : MonoBehaviour
     public GameObject prevEmail;
     public GameObject Failure;
 
-    public GameObject fal;
     public int FailureSorting = 25;
     public Tile Sand;
 
@@ -122,6 +121,7 @@ public class GameManagerScript : MonoBehaviour
 
     private void Start()
     {
+        Failure.SetActive(false);
         isRaining = gameObject.GetComponent<LivelinessEffects>().Raining;
         NearBed = false;
         sleepConfirmCanvas.SetActive(false);
@@ -324,19 +324,16 @@ public class GameManagerScript : MonoBehaviour
         }
         else
         {
-            FailureSorting = 25;
+            string FailureText = "";
             for (int a = 0; a < acceptedOrders.Length; a++)
             {
                 if (acceptedOrderBool[a] == true)
                 {
-                    if (acceptedOrders[a].DaysPassed > acceptedOrders[a].DaysAllocated && !acceptedOrders[a].Completed)
+                    if (acceptedOrders[a].DaysPassed > acceptedOrders[a].DaysAllocated && !acceptedOrders[a].Completed && !acceptedOrders[a].Delivered)
                     {
-                        GameObject fal = Instantiate(Failure, new Vector3(0, 0, 0), Quaternion.identity);
-                        fal.transform.Find("Name").GetComponent<Canvas>().sortingOrder = FailureSorting;
-                        fal.transform.Find("Name").gameObject.GetComponent<Text>().GetComponent<Canvas>().sortingOrder = FailureSorting;
-                        fal.transform.Find("Name").gameObject.GetComponent<Text>().text = "Oops! You ran out of time for " + acceptedOrders[a].nameOrder +
+                        Failure.SetActive(true);
+                        FailureText += System.Environment.NewLine + "Oops! You ran out of time for " + acceptedOrders[a].nameOrder +
                         "'s order!";
-                        FailureSorting++;
                         acceptedOrders[a].OrderText = "";
                         acceptedOrders[a].nameOrder = "";
                         acceptedOrders[a].TotalFunds = 0;
@@ -406,6 +403,7 @@ public class GameManagerScript : MonoBehaviour
                     closedJute[a].SetActive(true);
                 }
             }
+            Failure.transform.Find("Name").gameObject.GetComponent<Text>().text = FailureText;
         }
 
         DisplayInvenFunc();
