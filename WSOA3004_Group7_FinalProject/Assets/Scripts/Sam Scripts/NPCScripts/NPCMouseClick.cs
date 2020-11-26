@@ -27,7 +27,7 @@ public class NPCMouseClick : MonoBehaviour
         
         if(clicked)
         {
-            fillHeart.fillAmount += 0.03f;
+            fillHeart.fillAmount += 0.025f;
         }
 
 

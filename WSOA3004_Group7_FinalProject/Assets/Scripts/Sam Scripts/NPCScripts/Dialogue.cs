@@ -7,8 +7,8 @@ public class Dialogue : MonoBehaviour
 {
     private Queue<string> conversations;
     public GameObject heartImg, Ruby, Demi;
-    public Image RubySpeechBubble, RubySpeechBubbleLow, RubySpeechBubbleLow2, RubySpeechBubbleRight, RubySpeechBubbleLeft, RubySpeechBubbleRightTop, RubySpeechBubbleLeftTop, DemiSpeechBubble;
-    public Text RubyText, RubyTextLow, RubyTextLow2, RubyTextRight, RubyTextLeft, RubyTextRightTop, RubyTextLeftTop, DemiText;
+    public Image RubySpeechBubbleLow, RubySpeechBubbleLow2, RubySpeechBubbleRight, RubySpeechBubbleLeft, RubySpeechBubbleRightTop, RubySpeechBubbleLeftTop, DemiSpeechBubble;
+    public Text RubyTextLow, RubyTextLow2, RubyTextRight, RubyTextLeft, RubyTextRightTop, RubyTextLeftTop, DemiText;
     public float secondsBetweenText = 4;
     public bool talking = false, next = true;
     public string[] currConvo;
@@ -77,56 +77,54 @@ public class Dialogue : MonoBehaviour
     private void RubySpeechRun(string line)
     {
         Debug.Log("Ruby:" + line);
-        if ((Ruby.transform.position.y - Demi.transform.position.y > 0.54f)&&(Demi.transform.position.x - Ruby.transform.position.x > 4.39f)) //below and right
+        if ((Ruby.transform.position.y - Demi.transform.position.y > 2f)&&(Demi.transform.position.x - Ruby.transform.position.x > 3.8f)) //below and right
         {
             RubySpeechBubbleLow.enabled = true;
             RubyTextLow.text = line.ToString();
             RubyTextLow.enabled = true;
         }
-        else if ((Ruby.transform.position.y - Demi.transform.position.y > 0.54f) && (Ruby.transform.position.x - Demi.transform.position.x > 4.48f)) //below and left
+        else if ((Ruby.transform.position.y - Demi.transform.position.y > 2.2f) && (Ruby.transform.position.x - Demi.transform.position.x > 4.43f)) //below and left
         {
             RubySpeechBubbleLow2.enabled = true;
             RubyTextLow2.text = line.ToString();
             RubyTextLow2.enabled = true;
         }
-        else if ((Demi.transform.position.y - Ruby.transform.position.y > 1.63f)&& (Demi.transform.position.x - Ruby.transform.position.x > 4.39f)) //above and right
+        else if ((Demi.transform.position.y - Ruby.transform.position.y > 2.17f)&& (Demi.transform.position.x - Ruby.transform.position.x > 3.8f)) //above and right
         {
             RubySpeechBubbleRightTop.enabled = true;
             RubyTextRightTop.text = line.ToString();
             RubyTextRightTop.enabled = true;
         }
-        else if ((Demi.transform.position.y - Ruby.transform.position.y > 1.63f) && (Ruby.transform.position.x - Demi.transform.position.x > 4.48f)) //above and left
+        else if ((Demi.transform.position.y - Ruby.transform.position.y > 2.17f) && (Ruby.transform.position.x - Demi.transform.position.x > 4.43f)) //above and left
         {
             RubySpeechBubbleLeftTop.enabled = true;
             RubyTextLeftTop.text = line.ToString();
             RubyTextLeftTop.enabled = true;
         }
-        else if (Demi.transform.position.x - Ruby.transform.position.x > 4.39f) //right
+        else if (Demi.transform.position.x - Ruby.transform.position.x > 3.8f) //right
         {
             print((Demi.transform.position.x - Ruby.transform.position.x).ToString());
             RubySpeechBubbleRight.enabled = true;
             RubyTextRight.text = line.ToString();
             RubyTextRight.enabled = true;
         }
-        else if (Ruby.transform.position.x - Demi.transform.position.x > 4.48f) //left
+        else if (Ruby.transform.position.x - Demi.transform.position.x > 4.43f) //left
         {
             RubySpeechBubbleLeft.enabled = true;
             RubyTextLeft.text = line.ToString();
             RubyTextLeft.enabled = true;
         }
         else
-        {
-            RubySpeechBubble.enabled = true;
-            RubyText.text = line.ToString();
-            RubyText.enabled = true;
+         {
+            RubySpeechBubbleRight.enabled = true;
+            RubyTextRight.text = line.ToString();
+            RubyTextRight.enabled = true;
         }
     }
 
     IEnumerator RubyResponseDelay()
     {
         yield return new WaitForSeconds(secondsBetweenText);
-        RubySpeechBubble.enabled = false;
-        RubyText.enabled = false;
         RubySpeechBubbleLow.enabled = false;
         RubyTextLow.enabled = false;
         RubySpeechBubbleLow2.enabled = false;

@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class NPCMovement : MonoBehaviour
 {
-    public GameObject destination, rubyHungry;
+    public GameObject destination, rubyHungry, rubyHeart;
     public float minutes;
     public bool talking = false, isRaining = false;
     public Animator anim;
@@ -70,12 +70,13 @@ public class NPCMovement : MonoBehaviour
             {
                 this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = -1;
                 rubyHungry.gameObject.GetComponent<SpriteRenderer>().sortingOrder = -1;
+            rubyHeart.SetActive(false);
             }
             else
             {
                 this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 9;
                 rubyHungry.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 9;
-            }
+        }
 
         if (!talking)
         {

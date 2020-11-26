@@ -20,15 +20,15 @@ public class DialogueTrigger : MonoBehaviour
         }
         else
         {
-            if ((today == 0)|| (today == 3))
+            if (GameManagerScript.instance.RubyLoop == 0)
             {
                 FindObjectOfType<Dialogue>().StartDialogue(Day1);
             }
-            else if ((today == 1) || (today == 4))
+            else if (GameManagerScript.instance.RubyLoop == 1)
             {
                 FindObjectOfType<Dialogue>().StartDialogue(Day2);
             }
-            else if ((today == 2)|| (today == 4))
+            else if (GameManagerScript.instance.RubyLoop == 2)
             {
                 FindObjectOfType<Dialogue>().StartDialogue(Day3);
             }
