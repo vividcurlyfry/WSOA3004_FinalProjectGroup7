@@ -12,6 +12,9 @@ public class PlantingScript : MonoBehaviour
     public int posList;
     public Texture2D cursor;
     public ParticleSystem dandPS;
+    public ParticleSystem waterPS;
+    public ParticleSystem hoePS;
+
     private void Start()
     {
         isRaining = gameObject.GetComponent<LivelinessEffects>().Raining;
@@ -139,6 +142,9 @@ public class PlantingScript : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                     {
                         tm_base.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Hoe.groundAfterToolTile);
+                        hoePS.transform.position = new Vector3(GameManagerScript.instance.highlightedTile.x + 0.5f, GameManagerScript.instance.highlightedTile.y + 0.5f, GameManagerScript.instance.highlightedTile.y);
+                        hoePS.Clear();
+                        hoePS.Play();
                         if (isRaining)
                         {
                             tm_water.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.Watered);
@@ -173,6 +179,9 @@ public class PlantingScript : MonoBehaviour
                     {
                         tm_water.SetTile(GameManagerScript.instance.highlightedTile, GameManagerScript.instance.WateringCan.groundAfterToolTile);
                         GameManagerScript.instance.WateringCan.TooledLocations.Add(GameManagerScript.instance.highlightedTile);
+                        waterPS.transform.position = new Vector3(GameManagerScript.instance.highlightedTile.x + 0.5f, GameManagerScript.instance.highlightedTile.y + 0.5f, GameManagerScript.instance.highlightedTile.y);
+                        waterPS.Clear();
+                        waterPS.Play();
                     }
                 }
 
