@@ -30,36 +30,36 @@ public class SaveSlotScript : MonoBehaviour
         youSure3.SetActive(false);
         youSure4.SetActive(false);
 
-        if (PlayerPrefs.GetString("DayOnePlayedSlotOne?") == "yes")
+        if (PlayerPrefs.GetString("DayOnePlayedSlotOne?") == "yes" && PlayerPrefs.GetInt("SlotOneDay") != 0)
         {
-            Slot1Day.text = "DAY" + PlayerPrefs.GetInt("SlotOneDay").ToString();
+            Slot1Day.text = "DAY " + PlayerPrefs.GetInt("SlotOneDay").ToString();
         }
         else
         {
             Slot1Day.text = "EMPTY";
         }
 
-        if (PlayerPrefs.GetString("DayOnePlayedSlotTwo?") == "yes")
+        if (PlayerPrefs.GetString("DayOnePlayedSlotTwo?") == "yes" && PlayerPrefs.GetInt("SlotTwoDay") != 0)
         {
-            Slot2Day.text = "DAY" + PlayerPrefs.GetInt("SlotTwoDay").ToString();
+            Slot2Day.text = "DAY " + PlayerPrefs.GetInt("SlotTwoDay").ToString();
         }
         else
         {
             Slot2Day.text = "EMPTY";
         }
 
-        if (PlayerPrefs.GetString("DayOnePlayedSlotThree?") == "yes")
+        if (PlayerPrefs.GetString("DayOnePlayedSlotThree?") == "yes" && PlayerPrefs.GetInt("SlotThreeDay") != 0)
         {
-            Slot3Day.text = "DAY" + PlayerPrefs.GetInt("SlotThreeDay").ToString();
+            Slot3Day.text = "DAY " + PlayerPrefs.GetInt("SlotThreeDay").ToString();
         }
         else
         {
             Slot3Day.text = "EMPTY";
         }
 
-        if (PlayerPrefs.GetString("DayOnePlayedSlotFour?") == "yes")
+        if (PlayerPrefs.GetString("DayOnePlayedSlotFour?") == "yes" && PlayerPrefs.GetInt("SlotFourDay") != 0)
         {
-            Slot4Day.text = "DAY" +  PlayerPrefs.GetInt("SlotFourDay").ToString();
+            Slot4Day.text = "DAY " +  PlayerPrefs.GetInt("SlotFourDay").ToString();
         }
         else
         {

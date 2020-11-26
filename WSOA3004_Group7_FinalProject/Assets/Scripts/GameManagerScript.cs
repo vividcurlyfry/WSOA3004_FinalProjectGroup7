@@ -129,19 +129,20 @@ public class GameManagerScript : MonoBehaviour
         dayOver = false;
         Email2.SetActive(false);
         DisplayNotebook();
-        if (Slot.instance.ActiveSlot == 1 && (PlayerPrefs.GetString("DayOnePlayedSlotOne?") != "yes"))
+        tm_water.ClearAllTiles();
+        if (Slot.instance.ActiveSlot == 1 && ((PlayerPrefs.GetString("DayOnePlayedSlotOne?") != "yes") || PlayerPrefs.GetInt("SlotOneDay") == 0))
         {
             DayOne();
         }
-        else if (Slot.instance.ActiveSlot == 2 && (PlayerPrefs.GetString("DayOnePlayedSlotTwo?") != "yes"))
+        else if (Slot.instance.ActiveSlot == 2 && ((PlayerPrefs.GetString("DayOnePlayedSlotTwo?") != "yes") || PlayerPrefs.GetInt("SlotTwoDay") == 0))
         {
             DayOne();
         }
-        else if (Slot.instance.ActiveSlot == 3 && (PlayerPrefs.GetString("DayOnePlayedSlotThree?") != "yes"))
+        else if (Slot.instance.ActiveSlot == 3 && ((PlayerPrefs.GetString("DayOnePlayedSlotThree?") != "yes") || PlayerPrefs.GetInt("SlotThreeDay") == 0))
         {
             DayOne();
         }
-        else if (Slot.instance.ActiveSlot == 4 && (PlayerPrefs.GetString("DayOnePlayedSlotFour?") != "yes"))
+        else if (Slot.instance.ActiveSlot == 4 && ((PlayerPrefs.GetString("DayOnePlayedSlotFour?") != "yes") || PlayerPrefs.GetInt("SlotFourDay") == 0))
         {
             DayOne();
         }
@@ -1289,21 +1290,33 @@ public class GameManagerScript : MonoBehaviour
         {
             PlayerPrefs.SetString("DayOnePlayedSlotOne?", "yes");
             PlayerPrefs.SetInt("SlotOneDay", DaysPlayed + 1);
+            PlayerPrefs.SetInt("SlotTwoDay", PlayerPrefs.GetInt("SlotTwoDay"));
+            PlayerPrefs.SetInt("SlotThreeDay", PlayerPrefs.GetInt("SlotThreeDay"));
+            PlayerPrefs.SetInt("SlotFourDay", PlayerPrefs.GetInt("SlotFourDay"));
         }
         else if (Slot.instance.ActiveSlot == 2)
         {
             PlayerPrefs.SetString("DayOnePlayedSlotTwo?", "yes");
             PlayerPrefs.SetInt("SlotTwoDay", DaysPlayed + 1);
+            PlayerPrefs.SetInt("SlotOneDay", PlayerPrefs.GetInt("SlotOneDay"));
+            PlayerPrefs.SetInt("SlotThreeDay", PlayerPrefs.GetInt("SlotThreeDay"));
+            PlayerPrefs.SetInt("SlotFourDay", PlayerPrefs.GetInt("SlotFourDay"));
         }
         else if (Slot.instance.ActiveSlot == 3)
         {
             PlayerPrefs.SetString("DayOnePlayedSlotThree?", "yes");
-            PlayerPrefs.GetInt("SlotThreeDay", DaysPlayed + 1);
+            PlayerPrefs.SetInt("SlotThreeDay", DaysPlayed + 1);
+            PlayerPrefs.SetInt("SlotOneDay", PlayerPrefs.GetInt("SlotOneDay"));
+            PlayerPrefs.SetInt("SlotTwoDay", PlayerPrefs.GetInt("SlotTwoDay"));
+            PlayerPrefs.SetInt("SlotFourDay", PlayerPrefs.GetInt("SlotFourDay"));
         }
         else if (Slot.instance.ActiveSlot == 4)
         {
             PlayerPrefs.SetString("DayOnePlayedSlotFour?", "yes");
-            PlayerPrefs.GetInt("SlotFourDay", DaysPlayed + 1);
+            PlayerPrefs.SetInt("SlotFourDay", DaysPlayed + 1);
+            PlayerPrefs.SetInt("SlotOneDay", PlayerPrefs.GetInt("SlotOneDay"));
+            PlayerPrefs.SetInt("SlotThreeDay", PlayerPrefs.GetInt("SlotThreeDay"));
+            PlayerPrefs.SetInt("SlotFourDay", PlayerPrefs.GetInt("SlotFourDay"));
         }
 
         for (int a = 0; a < GameManagerScript.instance.acceptedOrders.Length; a++)

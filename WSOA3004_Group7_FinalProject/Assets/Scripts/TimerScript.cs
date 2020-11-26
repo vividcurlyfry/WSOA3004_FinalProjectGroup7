@@ -11,11 +11,13 @@ public class TimerScript : MonoBehaviour
     public float SecondsInDay;
     public float SecondTimer;
     public float OneSecTimer = 0;
+    public bool Ended;
 
     private void Start()
     {
         SecondsInDay = MinutesInDay * 60;
         SecondTimer = 1 / SecondsInDay;
+        Ended = false;
     }
 
     void Update()
@@ -28,8 +30,9 @@ public class TimerScript : MonoBehaviour
             OneSecTimer = 0;
         }
 
-        if(Seconds > SecondsInDay + 0.1)
+        if((Seconds > SecondsInDay + 0.1) && !Ended)
         {
+            Ended = true;
             GameManagerScript.instance.EndDay();
         }
     }
