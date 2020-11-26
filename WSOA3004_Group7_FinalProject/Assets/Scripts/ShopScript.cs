@@ -25,6 +25,9 @@ public class ShopScript : MonoBehaviour
     public GroceriesTrack groceries;
     public Scrollbar scrollVert;
 
+    public AudioSource AS;
+    public AudioClip chaching;
+
     private void Start()
     {
         SeedPanel.SetActive(true);
@@ -80,6 +83,7 @@ public class ShopScript : MonoBehaviour
             LettuceNum.text = "1";
             LettuceTotalPrice.text = GameManagerScript.instance.LettuceSeed.CropPrice.ToString();
             UpdateFunds();
+            AS.PlayOneShot(chaching);
         }
     }
 
@@ -96,6 +100,7 @@ public class ShopScript : MonoBehaviour
             PotatoNum.text = "1";
             PotatoTotalPrice.text = GameManagerScript.instance.PotatoSeed.CropPrice.ToString();
             UpdateFunds();
+            AS.PlayOneShot(chaching);
         }
     }
 
@@ -112,6 +117,7 @@ public class ShopScript : MonoBehaviour
             TurnipNum.text = "1";
             TurnipTotalPrice.text = GameManagerScript.instance.TurnipSeed.CropPrice.ToString();
             UpdateFunds();
+            AS.PlayOneShot(chaching);
         }
     }
 
@@ -128,6 +134,7 @@ public class ShopScript : MonoBehaviour
             WatermelonNum.text = "1";
             WatermelonTotalPrice.text = GameManagerScript.instance.WatermelonSeed.CropPrice.ToString();
             UpdateFunds();
+            AS.PlayOneShot(chaching);
         }
     }
 
@@ -144,6 +151,7 @@ public class ShopScript : MonoBehaviour
             CarrotNum.text = "1";
             CarrotTotalPrice.text = GameManagerScript.instance.CarrotSeed.CropPrice.ToString();
             UpdateFunds();
+            AS.PlayOneShot(chaching);
         }
     }
 
@@ -155,6 +163,7 @@ public class ShopScript : MonoBehaviour
             GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - 50;
             groceries.CheckGroceries();
             UpdateFunds();
+            AS.PlayOneShot(chaching);
         }
     }
 
@@ -165,6 +174,7 @@ public class ShopScript : MonoBehaviour
             GameManagerScript.instance.Funds = GameManagerScript.instance.Funds - 75;
             groceries.CheckGroceries();
             UpdateFunds();
+            AS.PlayOneShot(chaching);
         }
     }
 

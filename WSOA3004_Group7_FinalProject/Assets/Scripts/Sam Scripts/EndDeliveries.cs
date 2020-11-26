@@ -49,13 +49,13 @@ public class EndDeliveries : MonoBehaviour
             deliveryPanel.SetActive(true);
         }
 
-        if(truck.transform.position.x > 8)
+        if(truck.transform.position.x > 12.7f)
         {
             money.text = (acceptedOrders[0].TotalFunds + reward).ToString();
             AS.volume = 1;
         }
 
-        if (truck.transform.position.x > 11.8f)
+        if (truck.transform.position.x > 16.5f)
         {
             AS.volume = 0;
         }

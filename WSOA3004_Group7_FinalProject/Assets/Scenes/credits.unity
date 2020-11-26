@@ -238,7 +238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 304, y: -50}
+  m_AnchoredPosition: {x: 303.99997, y: -77}
   m_SizeDelta: {x: 482.04645, y: 832.4613}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &70450820
@@ -917,8 +917,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 679.2206, y: -49.999996}
-  m_SizeDelta: {x: 482.04645, y: 832.4613}
+  m_AnchoredPosition: {x: 668.24, y: -77}
+  m_SizeDelta: {x: 460.0813, y: 832.4613}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1132964130
 MonoBehaviour:
@@ -942,7 +942,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a02f4c2ce82a3c1479ed0d63a2262b85, type: 3}
-    m_FontSize: 20
+    m_FontSize: 21
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -953,40 +953,41 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Jason Shaw - ONE FINE DAY 00:01:43 : Game background music
+  m_Text: 'Game background music:
 
-
+    Jason Shaw - ONE FINE DAY 00:01:43
 
     https://freemusicarchive.org/music/Jason_Shaw/
 
 
+    Delivery
+    Scene background music:
+
+    Jason Shaw - LANDRA''S DREAM
+
+    https://freemusicarchive.org/music/Jason_Shaw/Audionautix_Acoustic/LANDRAS_DREAM__________________-47
+
 
     Rope
-    and Sound Cha Ching sound : https://freesound.org/people/Huggy13ear/sounds/138959/
+    Sound, Buy Cha-ching sound : https://freesound.org/people/Huggy13ear/sounds/138959/
 
 
-
-    Juntos,
-    Accomplished : https://notificationsounds.com/notification-sounds/accomplished-579
-
+    Nightime
+    Ambiance: https://youtu.be/06To2CU1y08
 
 
-    Water
-    Drop Sound Effect : https://youtu.be/1haqk8fNL3Y
+    Car honking: https://www.freesoundeffects.com/free-sounds/cars-10069/
 
 
-
-    Nightime Ambiance : https://youtu.be/06To2CU1y08
-
-
-
-    Car
-    honking https://www.freesoundeffects.com/free-sounds/cars-10069/
+    Rain:
+    Idomusics https://freesound.org/people/idomusics/sounds/518863/
 
 
+    Coins and
+    Button click: https://freesound.org/
 
-    Car Engine
-    - https://freesound.org/people/InspectorJ/sounds/345559/'
+
+    Paper turning sound : https://www.soundjay.com/page-flip-sounds-1.html'
 --- !u!222 &1132964131
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1148,7 +1149,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.8862746, b: 0.7490196, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1214,7 +1215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5762496058769901223, guid: 95de4c3ca72f89e45adac195b00d615c, type: 3}
+  m_Sprite: {fileID: -4074710529904804489, guid: 95de4c3ca72f89e45adac195b00d615c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

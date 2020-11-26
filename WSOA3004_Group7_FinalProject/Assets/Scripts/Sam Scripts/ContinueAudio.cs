@@ -20,6 +20,8 @@ public class ContinueAudio : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        AS.volume = 0.3f;
     }
 
     private void Update()
@@ -30,7 +32,7 @@ public class ContinueAudio : MonoBehaviour
         }
         else
         {
-            AS.volume = 0.5f;
+            AS.volume = 0.3f;
         }
     }
 }

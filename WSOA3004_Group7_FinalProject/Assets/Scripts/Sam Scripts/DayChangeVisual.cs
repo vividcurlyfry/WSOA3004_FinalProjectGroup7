@@ -8,6 +8,7 @@ public class DayChangeVisual : MonoBehaviour
 {
     public bool dayOver = false, dayChange = false;
     public GameObject Lamp, Calendar, confirmationPanel;
+    public Canvas CalendarScene;
     public Text date, calendarTextonScreen;
     public Sprite LightOn, LightOff;
     public AudioSource AS;
@@ -39,6 +40,7 @@ public class DayChangeVisual : MonoBehaviour
         date.text = today.ToString();
         calendarTextonScreen.text = today.ToString();
         Calendar.SetActive(true);
+        CalendarScene.GetComponent<CanvasGroup>().alpha = 1;
     }
 
     // Update is called once per frame
@@ -49,10 +51,17 @@ public class DayChangeVisual : MonoBehaviour
 
         //start of day
         timeStart += Time.deltaTime;
-        if(timeStart > 2f)
+
+        if(timeStart > 1.5f)
+        {
+            CalendarScene.GetComponent<CanvasGroup>().alpha -= 0.01f;
+        }
+
+        if (timeStart > 2f)
         {
             t1 = speed * Time.deltaTime;
             Calendar.SetActive(false);
+            CalendarScene.GetComponent<CanvasGroup>().alpha = 0f;
         }
 
         //end of day
@@ -60,7 +69,7 @@ public class DayChangeVisual : MonoBehaviour
         {
             confirmationPanel.SetActive(false);
             t2 = 2f * speed * Time.deltaTime;
-            AS.volume = Mathf.Lerp(0, 0.5f, 0.9f);
+            AS.volume = Mathf.Lerp(0, 0.9f, 0.9f);
 
             if (!(timeBetween > 3f))
             {

@@ -11,6 +11,8 @@ public class UIScript : MonoBehaviour
     public Canvas ShopCanvas;
     public Canvas OrderCanvas;
     public Canvas Delivery;
+    public GameObject HowToPanel;
+    public Text HowToText;
     public GridScript gs;
     public GameObject crossMenu, iconMenu, crossShop, iconShop, crossNotepad, iconNotepad, crossEmail;
     public int shopSorting, orderSorting, deliverySorting, menuSorting;
@@ -137,5 +139,21 @@ public class UIScript : MonoBehaviour
     public void CloseConfirm()
     {
         GameManagerScript.instance.sleepConfirmCanvas.SetActive(false);
+    }
+
+    public void onHowToClick()
+    {
+        if (HowToPanel.activeSelf)
+        {
+            HowToPanel.SetActive(false);
+            HowToText.text = "?";
+            gs.enabled = true;
+        }
+        else
+        {
+            HowToPanel.SetActive(true);
+            HowToText.text = "X";
+            gs.enabled = false;
+        }
     }
 }
