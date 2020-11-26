@@ -193,9 +193,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Delivered to Maya Wolff + 300
+  m_Text: 'Delivered to Mandy Wolff + 300
 
-    Delivered to Maya Wolff + 300
+    Delivered to Mandy Wolff + 300
 
 '
 --- !u!222 &31678578
@@ -2000,7 +2000,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
+  m_DynamicPixelsPerUnit: 3
 --- !u!223 &1009827921
 Canvas:
   m_ObjectHideFlags: 0

@@ -29,20 +29,20 @@ public class NPCPath : MonoBehaviour
         else if (GameManagerScript.instance.RubyLoop == 0)
         {
             _FirstPos = new Vector3(21f, 15, -1);
-            _SecondPos = new Vector3(0, 15, -1);
-            _ThirdPos = new Vector3(4f, 15f, -1);
+            _SecondPos = new Vector3(4f, 15, -1);
+            _ThirdPos = new Vector3(8f, 15f, -1);
         }
         else if (GameManagerScript.instance.RubyLoop == 1)
         {
-            _FirstPos = new Vector3(4f, 2, -1);
-            _SecondPos = new Vector3(2, -15, -1);
-            _ThirdPos = new Vector3(3.5f, -16, -1);
+            _FirstPos = new Vector3(4f, -1.98f, -1);
+            _SecondPos = new Vector3(2, -10, -1);
+            _ThirdPos = new Vector3(3.5f, -10, -1);
         }
         else if (GameManagerScript.instance.RubyLoop == 2)
         {
-            _FirstPos = new Vector3(24, 7, -1);
-            _SecondPos = new Vector3(50, 7, -1);
-            _ThirdPos = new Vector3(8f, 15f, -1);
+            _FirstPos = new Vector3(26.2900009f, 7.46000004f, -1);
+            _SecondPos = new Vector3(37, 7.46000004f, -1);
+            _ThirdPos = new Vector3(38, 7.46000004f, -1);
         }
     }
 

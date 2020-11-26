@@ -31,22 +31,22 @@ public class NPCMovement : MonoBehaviour
         //print(today);
         isRaining = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LivelinessEffects>().Raining;
 
-        //these times work for 15 minute day //update if day time changes
+        //these times work for 10 minute day
         if (isRaining)
         {
-            setPause = 225;
+            setPause = 150; //(quarter of total time)
         }
         else if (GameManagerScript.instance.RubyLoop == 0)
         {
-            setPause = 2;
+            setPause = 60;
         }
         else if (GameManagerScript.instance.RubyLoop == 1)
         {
-            setPause = 4;
+            setPause = 35;
         }
         else if (GameManagerScript.instance.RubyLoop == 2)
         {
-            setPause = 225;
+            setPause = 120;
         }
     }
 
@@ -56,12 +56,12 @@ public class NPCMovement : MonoBehaviour
         t += Time.deltaTime;
 
         
-            if (t > (0.8 * minutes))
+            if (t > (0.75 * minutes))
             {
                 dayOver = true;
             }
 
-            if (t > (0.9 * minutes))
+            if (t > (0.755 * minutes))
             {
                 goHome = true;
             }
@@ -70,7 +70,7 @@ public class NPCMovement : MonoBehaviour
             {
                 this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = -1;
                 rubyHungry.gameObject.GetComponent<SpriteRenderer>().sortingOrder = -1;
-            rubyHeart.SetActive(false);
+                rubyHeart.SetActive(false);
             }
             else
             {

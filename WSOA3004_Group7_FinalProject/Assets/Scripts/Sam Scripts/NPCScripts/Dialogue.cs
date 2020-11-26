@@ -9,7 +9,7 @@ public class Dialogue : MonoBehaviour
     public GameObject heartImg, Ruby, Demi;
     public Image RubySpeechBubbleLow, RubySpeechBubbleLow2, RubySpeechBubbleRight, RubySpeechBubbleLeft, RubySpeechBubbleRightTop, RubySpeechBubbleLeftTop, DemiSpeechBubble;
     public Text RubyTextLow, RubyTextLow2, RubyTextRight, RubyTextLeft, RubyTextRightTop, RubyTextLeftTop, DemiText;
-    public float secondsBetweenText = 4;
+    public float secondsBetweenText = 5;
     public bool talking = false, next = true;
     public string[] currConvo;
 
