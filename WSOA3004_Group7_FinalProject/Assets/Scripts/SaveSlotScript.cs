@@ -76,6 +76,8 @@ public class SaveSlotScript : MonoBehaviour
     {
         clear1 = true;
         youSure1.SetActive(false);
+        PlayerPrefs.SetString("DayOnePlayedSlotOne?", "no");
+        PlayerPrefs.SetInt("SlotOneDay?", 0);
         Slot1Day.text = "EMPTY";
     }
 
@@ -94,6 +96,8 @@ public class SaveSlotScript : MonoBehaviour
     {
         clear2 = true;
         youSure2.SetActive(false);
+        PlayerPrefs.SetString("DayOnePlayedSlotTwo?", "no");
+        PlayerPrefs.SetInt("SlotTwoDay?", 0);
         Slot2Day.text = "EMPTY";
     }
 
@@ -111,7 +115,9 @@ public class SaveSlotScript : MonoBehaviour
     public void sure3Yes()
     {
         clear3 = true;
-        youSure3.SetActive(false);
+        youSure3.SetActive(false);        
+        PlayerPrefs.SetString("DayOnePlayedSlotThree?", "no");
+        PlayerPrefs.SetInt("SlotThreeDay?", 0);
         Slot3Day.text = "EMPTY";
     }
 
@@ -130,6 +136,8 @@ public class SaveSlotScript : MonoBehaviour
     {
         clear4 = true;
         youSure4.SetActive(false);
+        PlayerPrefs.SetString("DayOnePlayedSlotFour?", "no");
+        PlayerPrefs.SetInt("SlotFourDay?", 0);
         Slot4Day.text = "EMPTY";
     }
 

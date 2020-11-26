@@ -107,6 +107,40 @@ public class GameManagerScript : MonoBehaviour
     public int weedNumRandom;
     public Scrollbar scrollVert;
 
+    public List<int> LettuceDaysGrown;
+    public List<int> LettucePlantedLocationsX;
+    public List<int> LettucePlantedLocationsY;
+    public List<int> LettucePlantedLocationsZ;
+    public List<bool> LettuceWatered;
+
+    public List<int> WatermelonDaysGrown;
+    public List<int> WatermelonPlantedLocationsX;
+    public List<int> WatermelonPlantedLocationsY;
+    public List<int> WatermelonPlantedLocationsZ;
+    public List<bool> WatermelonWatered;
+
+    public List<int> PotatoDaysGrown;
+    public List<int> PotatoPlantedLocationsX;
+    public List<int> PotatoPlantedLocationsY;
+    public List<int> PotatoPlantedLocationsZ;
+    public List<bool> PotatoWatered;
+
+    public List<int> CarrotDaysGrown;
+    public List<int> CarrotPlantedLocationsX;
+    public List<int> CarrotPlantedLocationsY;
+    public List<int> CarrotPlantedLocationsZ;
+    public List<bool> CarrotWatered;
+
+    public List<int> TurnipDaysGrown;
+    public List<int> TurnipPlantedLocationsX;
+    public List<int> TurnipPlantedLocationsY;
+    public List<int> TurnipPlantedLocationsZ;
+    public List<bool> TurnipWatered;
+
+    public List<int> ScytheTooledX;
+    public List<int> ScytheTooledY;
+    public List<int> ScytheTooledZ;
+
     private void Awake()
     {
         if (instance == null)
@@ -149,6 +183,15 @@ public class GameManagerScript : MonoBehaviour
         else
         {
             LoadGame();
+
+            if (Scythe.TooledLocations.Count != 0)
+            {
+                for (int a = 0; a < Scythe.TooledLocations.Count; a++)
+                {
+                    tm_base.SetTile(Scythe.TooledLocations[a], Sand);
+                }
+            }
+
             if (LettuceSeed.PlantedLocations.Count != 0)
             {
                 for (int a = 0; a < LettuceSeed.PlantedLocations.Count; a++)
@@ -268,14 +311,6 @@ public class GameManagerScript : MonoBehaviour
                     {
                         tm_base.SetTile(WatermelonSeed.PlantedLocations[a], WatermelonSeed.GrowingTiles[WatermelonSeed.DaysToGrow]);
                     }
-                }
-            }
-
-            if (Scythe.TooledLocations.Count != 0)
-            {
-                for (int a = 0; a < Scythe.TooledLocations.Count; a++)
-                {
-                    tm_base.SetTile(Scythe.TooledLocations[a], Sand);
                 }
             }
 
@@ -1183,6 +1218,23 @@ public class GameManagerScript : MonoBehaviour
         return -1;
     }
 
+    public void LoadInven()
+    {
+        for (int a = 0; a < Inventory.inven.Length; a++)
+        {
+            Inventory.inven[a].ItemNumber = InventorySave[a];
+        }
+    }
+
+    public void SaveInven()
+    {
+        InventorySave = new int[Inventory.inven.Length];
+        for(int a = 0; a < Inventory.inven.Length; a++)
+        {
+            InventorySave[a] = Inventory.inven[a].ItemNumber;
+        }
+    }
+
     public void LoadOrderList()
     {
         orderList.Clear();
@@ -1283,8 +1335,75 @@ public class GameManagerScript : MonoBehaviour
             }
         }
 
-        SaveOrderList();
-        SaveGame();
+        LettuceDaysGrown = LettuceSeed.DaysGrown;
+        LettucePlantedLocationsX.Clear();
+        LettucePlantedLocationsY.Clear();
+        LettucePlantedLocationsZ.Clear();
+        for (int a = 0; a < LettuceSeed.PlantedLocations.Count; a++)
+        {
+            LettucePlantedLocationsX.Add(LettuceSeed.PlantedLocations[a].x);
+            LettucePlantedLocationsY.Add(LettuceSeed.PlantedLocations[a].y);
+            LettucePlantedLocationsZ.Add(LettuceSeed.PlantedLocations[a].z);
+        }
+        LettuceWatered = LettuceSeed.Watered;
+
+        WatermelonDaysGrown = WatermelonSeed.DaysGrown;
+        WatermelonPlantedLocationsX.Clear();
+        WatermelonPlantedLocationsY.Clear();
+        WatermelonPlantedLocationsZ.Clear();
+        for (int a = 0; a < WatermelonSeed.PlantedLocations.Count; a++)
+        {
+            WatermelonPlantedLocationsX.Add(WatermelonSeed.PlantedLocations[a].x);
+            WatermelonPlantedLocationsY.Add(WatermelonSeed.PlantedLocations[a].y);
+            WatermelonPlantedLocationsZ.Add(WatermelonSeed.PlantedLocations[a].z);
+        }
+        WatermelonWatered = WatermelonSeed.Watered;
+
+        TurnipDaysGrown = TurnipSeed.DaysGrown;
+        TurnipPlantedLocationsX.Clear();
+        TurnipPlantedLocationsY.Clear();
+        TurnipPlantedLocationsZ.Clear();
+        for (int a = 0; a < TurnipSeed.PlantedLocations.Count; a++)
+        {
+            TurnipPlantedLocationsX.Add(TurnipSeed.PlantedLocations[a].x);
+            TurnipPlantedLocationsY.Add(TurnipSeed.PlantedLocations[a].y);
+            TurnipPlantedLocationsZ.Add(TurnipSeed.PlantedLocations[a].z);
+        }
+        TurnipWatered = TurnipSeed.Watered;
+
+        CarrotDaysGrown = CarrotSeed.DaysGrown;
+        CarrotPlantedLocationsX.Clear();
+        CarrotPlantedLocationsY.Clear();
+        CarrotPlantedLocationsZ.Clear();
+        for (int a = 0; a < CarrotSeed.PlantedLocations.Count; a++)
+        {
+            CarrotPlantedLocationsX.Add(CarrotSeed.PlantedLocations[a].x);
+            CarrotPlantedLocationsY.Add(CarrotSeed.PlantedLocations[a].y);
+            CarrotPlantedLocationsZ.Add(CarrotSeed.PlantedLocations[a].z);
+        }
+        CarrotWatered = CarrotSeed.Watered;
+
+        PotatoDaysGrown = PotatoSeed.DaysGrown;
+        PotatoPlantedLocationsX.Clear();
+        PotatoPlantedLocationsY.Clear();
+        PotatoPlantedLocationsZ.Clear();
+        for (int a = 0; a < PotatoSeed.PlantedLocations.Count; a++)
+        {
+            PotatoPlantedLocationsX.Add(PotatoSeed.PlantedLocations[a].x);
+            PotatoPlantedLocationsY.Add(PotatoSeed.PlantedLocations[a].y);
+            PotatoPlantedLocationsZ.Add(PotatoSeed.PlantedLocations[a].z);
+        }
+        PotatoWatered = LettuceSeed.Watered;
+
+        ScytheTooledX.Clear();
+        ScytheTooledY.Clear();
+        ScytheTooledZ.Clear();
+        for (int a = 0; a < Scythe.TooledLocations.Count; a++)
+        {
+            ScytheTooledX.Add(Scythe.TooledLocations[a].x);
+            ScytheTooledY.Add(Scythe.TooledLocations[a].y);
+            ScytheTooledZ.Add(Scythe.TooledLocations[a].z);
+        }
 
         if (Slot.instance.ActiveSlot == 1)
         {
@@ -1325,6 +1444,10 @@ public class GameManagerScript : MonoBehaviour
         }
 
         PlayerPrefs.SetString("HoneyDelivered", "false");
+
+        SaveOrderList();
+        SaveInven();
+        SaveGame();
     }
 
     public void DoorEndDay()
@@ -1369,6 +1492,8 @@ public class GameManagerScript : MonoBehaviour
                 if (acceptedOrders[f].Completed && !acceptedOrders[f].Delivered)
                 {
                     PlayerPrefs.SetString("HoneyDelivered", "true");
+                    SaveOrderList();
+                    SaveGame();
                     transition.TransitionToScene("DayOver");
                 }
             }
@@ -1432,7 +1557,93 @@ public class GameManagerScript : MonoBehaviour
         acceptedOrderBool = data.acceptedOrderBool;
         GroceriesBought = data.GroceriesBought;
         GroceriesDays = data.GroceriesDays;
+
+        LettuceDaysGrown = data.LettuceDaysGrown;
+        LettucePlantedLocationsX = data.LettucePlantedLocationsX;
+        LettucePlantedLocationsY = data.LettucePlantedLocationsY;
+        LettucePlantedLocationsZ = data.LettucePlantedLocationsZ;
+        LettuceWatered = data.LettuceWatered;
+
+        WatermelonDaysGrown = data.WatermelonDaysGrown;
+        WatermelonPlantedLocationsX = data.WatermelonPlantedLocationsX;
+        WatermelonPlantedLocationsY = data.WatermelonPlantedLocationsY;
+        WatermelonPlantedLocationsZ = data.WatermelonPlantedLocationsZ;
+        WatermelonWatered = data.WatermelonWatered;
+
+        TurnipDaysGrown = data.TurnipDaysGrown;
+        TurnipPlantedLocationsX = data.TurnipPlantedLocationsX;
+        TurnipPlantedLocationsY = data.TurnipPlantedLocationsY;
+        TurnipPlantedLocationsZ = data.TurnipPlantedLocationsZ;
+        TurnipWatered = data.TurnipWatered;
+
+        CarrotDaysGrown = data.CarrotDaysGrown;
+        CarrotPlantedLocationsX = data.CarrotPlantedLocationsX;
+        CarrotPlantedLocationsY = data.CarrotPlantedLocationsY;
+        CarrotPlantedLocationsZ = data.CarrotPlantedLocationsZ;
+        CarrotWatered = data.CarrotWatered;
+
+        PotatoDaysGrown = data.PotatoDaysGrown;
+        PotatoPlantedLocationsX = data.PotatoPlantedLocationsX;
+        PotatoPlantedLocationsY = data.PotatoPlantedLocationsY;
+        PotatoPlantedLocationsZ = data.PotatoPlantedLocationsZ;
+        PotatoWatered = data.PotatoWatered;
+
         LoadOrderList();
+        LoadInven();
         RubyLoop = DaysPlayed % 3;
+
+        LettuceSeed.DaysGrown = LettuceDaysGrown;
+        List<Vector3Int> LettucePlantedLocations = new List<Vector3Int>();
+        for(int b = 0; b < LettucePlantedLocationsX.Count; b++)
+        {
+            LettucePlantedLocations.Add(new Vector3Int(LettucePlantedLocationsX[b], LettucePlantedLocationsY[b], LettucePlantedLocationsZ[b]));
+        }
+        LettuceSeed.PlantedLocations = LettucePlantedLocations;
+        LettuceSeed.Watered = LettuceWatered;
+
+        WatermelonSeed.DaysGrown = WatermelonDaysGrown;
+        List<Vector3Int> WatermelonPlantedLocations = new List<Vector3Int>();
+        for (int b = 0; b < WatermelonPlantedLocationsX.Count; b++)
+        {
+            WatermelonPlantedLocations.Add(new Vector3Int(WatermelonPlantedLocationsX[b], WatermelonPlantedLocationsY[b], WatermelonPlantedLocationsZ[b]));
+        }
+        WatermelonSeed.PlantedLocations = WatermelonPlantedLocations;
+        WatermelonSeed.Watered = WatermelonWatered;
+
+        TurnipSeed.DaysGrown = TurnipDaysGrown;
+        List<Vector3Int> TurnipPlantedLocations = new List<Vector3Int>();
+        for (int b = 0; b < TurnipPlantedLocationsX.Count; b++)
+        {
+            TurnipPlantedLocations.Add(new Vector3Int(TurnipPlantedLocationsX[b], TurnipPlantedLocationsY[b], TurnipPlantedLocationsZ[b]));
+        }
+        TurnipSeed.PlantedLocations = TurnipPlantedLocations;
+        TurnipSeed.Watered = TurnipWatered;
+
+        CarrotSeed.DaysGrown = CarrotDaysGrown;
+        List<Vector3Int> CarrotPlantedLocations = new List<Vector3Int>();
+        for (int b = 0; b < CarrotPlantedLocationsX.Count; b++)
+        {
+            CarrotPlantedLocations.Add(new Vector3Int(CarrotPlantedLocationsX[b], CarrotPlantedLocationsY[b], CarrotPlantedLocationsZ[b]));
+        }
+        CarrotSeed.PlantedLocations = CarrotPlantedLocations;
+        CarrotSeed.Watered = CarrotWatered;
+
+        PotatoSeed.DaysGrown = PotatoDaysGrown;
+        List<Vector3Int> PotatoPlantedLocations = new List<Vector3Int>();
+        for (int b = 0; b < PotatoPlantedLocationsX.Count; b++)
+        {
+            PotatoPlantedLocations.Add(new Vector3Int(PotatoPlantedLocationsX[b], PotatoPlantedLocationsY[b], PotatoPlantedLocationsZ[b]));
+        }
+        PotatoSeed.PlantedLocations = PotatoPlantedLocations;
+        PotatoSeed.Watered = PotatoWatered;
+
+        List<Vector3Int> ScytheTooledLocations = new List<Vector3Int>();
+        for (int b = 0; b < ScytheTooledX.Count; b++)
+        {
+            ScytheTooledLocations.Add(new Vector3Int(ScytheTooledX[b], ScytheTooledY[b], ScytheTooledZ[b]));
+        }
+
+        Scythe.TooledLocations = ScytheTooledLocations;
+
     }
 }
