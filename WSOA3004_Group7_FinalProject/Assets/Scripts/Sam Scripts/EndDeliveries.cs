@@ -21,24 +21,38 @@ public class EndDeliveries : MonoBehaviour
     //set up delivered order and money increase
     private void Start()
     {
-        int honey = Random.Range(50, 151);
-        PlayerPrefs.SetInt("Honey", honey);
-        reward = honey;
-        honeyText.text = "+ " + honey.ToString();
-        deliveredString = "";
-        for(int a = 0; a < acceptedOrders.Length; a++)
+        if (PlayerPrefs.GetString("NeedHoney") == "no")
         {
-            if(acceptedOrders[a].Completed == true)
+            int honey = Random.Range(50, 151);
+            PlayerPrefs.SetInt("Honey", honey);
+            reward = honey;
+            honeyText.text = "+ " + honey.ToString();
+            deliveredString = "";
+            for (int a = 0; a < acceptedOrders.Length; a++)
             {
-                deliveredString += "Delivered to " + acceptedOrders[a].nameOrder + " + " + acceptedOrders[a].Reward + System.Environment.NewLine;
-                reward += acceptedOrders[a].Reward;
-                acceptedOrders[a].Delivered = true;
+                if (acceptedOrders[a].Completed == true)
+                {
+                    deliveredString += "Delivered to " + acceptedOrders[a].nameOrder + " + " + acceptedOrders[a].Reward + System.Environment.NewLine;
+                    reward += acceptedOrders[a].Reward;
+                    acceptedOrders[a].Delivered = true;
+                }
             }
-        }
 
-        money.text = (acceptedOrders[0].TotalFunds).ToString();
-        order.text = deliveredString;
-        rewardText.text = reward.ToString();
+            money.text = (acceptedOrders[0].TotalFunds).ToString();
+            order.text = deliveredString;
+            rewardText.text = reward.ToString();
+        }
+        else
+        {
+            int honey = 75;
+            PlayerPrefs.SetInt("Honey", honey);
+            reward = honey;
+            honeyText.text = "+ " + honey.ToString();
+
+            money.text = (acceptedOrders[0].TotalFunds).ToString();
+            order.text = "No orders delivered today. But Ruby sold some honey!";
+            rewardText.text = reward.ToString();
+        }
     }
 
     // Update is called once per frame
