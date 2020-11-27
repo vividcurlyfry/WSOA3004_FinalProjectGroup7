@@ -942,7 +942,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a02f4c2ce82a3c1479ed0d63a2262b85, type: 3}
-    m_FontSize: 11
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -987,7 +987,11 @@ MonoBehaviour:
     Button click: https://freesound.org/
 
 
-    Paper turning sound : https://www.soundjay.com/page-flip-sounds-1.html'
+    Paper turning sound : https://www.soundjay.com/page-flip-sounds-1.html
+
+
+    Error
+    sound: Computer_Error_Alert-SoundBible.com-783113881.wav'
 --- !u!222 &1132964131
 CanvasRenderer:
   m_ObjectHideFlags: 0

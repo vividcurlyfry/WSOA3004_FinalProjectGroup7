@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -25,8 +26,9 @@ public class ShopScript : MonoBehaviour
     public GroceriesTrack groceries;
     public Scrollbar scrollVert;
 
-    public AudioSource AS;
-    public AudioClip chaching;
+    public AudioSource AS, AS2;
+    public AudioClip chaching, errorNoise;
+    public UnityEngine.UI.Image MoneyImage;
 
     private void Start()
     {
@@ -85,6 +87,11 @@ public class ShopScript : MonoBehaviour
             UpdateFunds();
             AS.PlayOneShot(chaching);
         }
+        else
+        {
+            AS2.PlayOneShot(errorNoise);
+            StartCoroutine(FlashMoney());
+        }
     }
 
     public void BuyPotato()
@@ -101,6 +108,11 @@ public class ShopScript : MonoBehaviour
             PotatoTotalPrice.text = GameManagerScript.instance.PotatoSeed.CropPrice.ToString();
             UpdateFunds();
             AS.PlayOneShot(chaching);
+        }
+        else
+        {
+            AS2.PlayOneShot(errorNoise);
+            StartCoroutine(FlashMoney());
         }
     }
 
@@ -119,6 +131,11 @@ public class ShopScript : MonoBehaviour
             UpdateFunds();
             AS.PlayOneShot(chaching);
         }
+        else
+        {
+            AS2.PlayOneShot(errorNoise);
+            StartCoroutine(FlashMoney());
+        }
     }
 
     public void BuyWatermelon()
@@ -135,6 +152,11 @@ public class ShopScript : MonoBehaviour
             WatermelonTotalPrice.text = GameManagerScript.instance.WatermelonSeed.CropPrice.ToString();
             UpdateFunds();
             AS.PlayOneShot(chaching);
+        }
+        else
+        {
+            AS2.PlayOneShot(errorNoise);
+            StartCoroutine(FlashMoney());
         }
     }
 
@@ -153,6 +175,11 @@ public class ShopScript : MonoBehaviour
             UpdateFunds();
             AS.PlayOneShot(chaching);
         }
+        else
+        {
+            AS2.PlayOneShot(errorNoise);
+            StartCoroutine(FlashMoney());
+        }
     }
 
     //groceries
@@ -165,6 +192,11 @@ public class ShopScript : MonoBehaviour
             UpdateFunds();
             AS.PlayOneShot(chaching);
         }
+        else
+        {
+            AS2.PlayOneShot(errorNoise);
+            StartCoroutine(FlashMoney());
+        }
     }
 
     public void BuyFancyBag()
@@ -176,11 +208,23 @@ public class ShopScript : MonoBehaviour
             UpdateFunds();
             AS.PlayOneShot(chaching);
         }
+        else
+        {
+            AS2.PlayOneShot(errorNoise);
+            StartCoroutine(FlashMoney());
+        }
     }
 
     public void UpdateFunds()
     {
         GameManagerScript.instance.FundsText.text = GameManagerScript.instance.Funds.ToString();
         GameManagerScript.instance.DisplayInvenFunc();
+    }
+
+    IEnumerator FlashMoney()
+    {
+        MoneyImage.material.color = new Color32(230, 101, 115, 255);
+        yield return new WaitForSeconds(0.5f);
+        MoneyImage.material.color = new Color32(255, 255, 255, 255);
     }
 }
