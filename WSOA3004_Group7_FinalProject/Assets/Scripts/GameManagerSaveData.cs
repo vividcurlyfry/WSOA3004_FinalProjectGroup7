@@ -67,6 +67,10 @@ public class GameManagerSaveData
     public int[] PotatoAmountSave = new int[10];
     public int[] LettuceAmountSave = new int[10];
 
+    public List<int> ScytheTooledX;
+    public List<int> ScytheTooledY;
+    public List<int> ScytheTooledZ;
+
     public GameManagerSaveData(GameManagerScript gm)
     {
         Funds = gm.Funds;
@@ -129,5 +133,9 @@ public class GameManagerSaveData
         CarrotAmountSave = gm.CarrotAmountSave;
         PotatoAmountSave = gm.PotatoAmountSave;
         LettuceAmountSave = gm.LettuceAmountSave;
+
+        ScytheTooledX = gm.ScytheTooledX;
+        ScytheTooledY = gm.ScytheTooledY;
+        ScytheTooledZ = gm.ScytheTooledZ;
     }
 }

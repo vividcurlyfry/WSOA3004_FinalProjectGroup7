@@ -160,6 +160,10 @@ public class GameManagerScript : MonoBehaviour
     public int[] LettuceAmountSave = new int[10];
     public int[] AcceptedOrderBoolSave = new int[10];
 
+    public List<int> ScytheTooledX;
+    public List<int> ScytheTooledY;
+    public List<int> ScytheTooledZ;
+
     private void Awake()
     {
         if (instance == null)
@@ -183,6 +187,7 @@ public class GameManagerScript : MonoBehaviour
         Email2.SetActive(false);
         DisplayNotebook();
         tm_water.ClearAllTiles();
+        WateringCan.TooledLocations.Clear();
         if (Slot.instance.ActiveSlot == 1 && ((PlayerPrefs.GetString("DayOnePlayedSlotOne?") != "yes") || PlayerPrefs.GetInt("SlotOneDay") == 0))
         {
             DayOne();
@@ -202,7 +207,6 @@ public class GameManagerScript : MonoBehaviour
         else
         {
             LoadGame();
-
             if (Scythe.TooledLocations.Count != 0)
             {
                 for (int a = 0; a < Scythe.TooledLocations.Count; a++)
@@ -1306,6 +1310,10 @@ public class GameManagerScript : MonoBehaviour
             {
                 LettuceSeed.Watered[a] = true;
             }
+            else
+            {
+                LettuceSeed.Watered[a] = false;
+            }
             if (LettuceSeed.Watered[a] == true)
             {
                 LettuceSeed.DaysGrown[a]++;
@@ -1317,6 +1325,10 @@ public class GameManagerScript : MonoBehaviour
             if (WateringCan.TooledLocations.Contains(TurnipSeed.PlantedLocations[a]) || isRaining)
             {
                 TurnipSeed.Watered[a] = true;
+            }
+            else
+            {
+                TurnipSeed.Watered[a] = false;
             }
             if (TurnipSeed.Watered[a] == true)
             {
@@ -1330,6 +1342,10 @@ public class GameManagerScript : MonoBehaviour
             {
                 WatermelonSeed.Watered[a] = true;
             }
+            else
+            {
+                WatermelonSeed.Watered[a] = false;
+            }
             if (WatermelonSeed.Watered[a] == true)
             {
                 WatermelonSeed.DaysGrown[a]++;
@@ -1342,7 +1358,10 @@ public class GameManagerScript : MonoBehaviour
             {
                 CarrotSeed.Watered[a] = true;
             }
-
+            else
+            {
+                CarrotSeed.Watered[a] = false;
+            }
             if (CarrotSeed.Watered[a] == true)
             {
                 CarrotSeed.DaysGrown[a]++;
@@ -1354,6 +1373,10 @@ public class GameManagerScript : MonoBehaviour
             if (WateringCan.TooledLocations.Contains(PotatoSeed.PlantedLocations[a]) || isRaining)
             {
                 PotatoSeed.Watered[a] = true;
+            }
+            else
+            {
+                PotatoSeed.Watered[a] = false;
             }
             if (PotatoSeed.Watered[a] == true)
             {
@@ -1394,6 +1417,7 @@ public class GameManagerScript : MonoBehaviour
             LettucePlantedLocationsX.Add(LettuceSeed.PlantedLocations[a].x);
             LettucePlantedLocationsY.Add(LettuceSeed.PlantedLocations[a].y);
             LettucePlantedLocationsZ.Add(LettuceSeed.PlantedLocations[a].z);
+            LettuceSeed.Watered[a] = false;
         }
         LettuceWatered = LettuceSeed.Watered;
 
@@ -1406,6 +1430,7 @@ public class GameManagerScript : MonoBehaviour
             WatermelonPlantedLocationsX.Add(WatermelonSeed.PlantedLocations[a].x);
             WatermelonPlantedLocationsY.Add(WatermelonSeed.PlantedLocations[a].y);
             WatermelonPlantedLocationsZ.Add(WatermelonSeed.PlantedLocations[a].z);
+            WatermelonSeed.Watered[a] = false;
         }
         WatermelonWatered = WatermelonSeed.Watered;
 
@@ -1418,6 +1443,7 @@ public class GameManagerScript : MonoBehaviour
             TurnipPlantedLocationsX.Add(TurnipSeed.PlantedLocations[a].x);
             TurnipPlantedLocationsY.Add(TurnipSeed.PlantedLocations[a].y);
             TurnipPlantedLocationsZ.Add(TurnipSeed.PlantedLocations[a].z);
+            TurnipSeed.Watered[a] = false;
         }
         TurnipWatered = TurnipSeed.Watered;
 
@@ -1430,6 +1456,7 @@ public class GameManagerScript : MonoBehaviour
             CarrotPlantedLocationsX.Add(CarrotSeed.PlantedLocations[a].x);
             CarrotPlantedLocationsY.Add(CarrotSeed.PlantedLocations[a].y);
             CarrotPlantedLocationsZ.Add(CarrotSeed.PlantedLocations[a].z);
+            CarrotSeed.Watered[a] = false;
         }
         CarrotWatered = CarrotSeed.Watered;
 
@@ -1442,8 +1469,19 @@ public class GameManagerScript : MonoBehaviour
             PotatoPlantedLocationsX.Add(PotatoSeed.PlantedLocations[a].x);
             PotatoPlantedLocationsY.Add(PotatoSeed.PlantedLocations[a].y);
             PotatoPlantedLocationsZ.Add(PotatoSeed.PlantedLocations[a].z);
+            PotatoSeed.Watered[a] = false;
         }
         PotatoWatered = PotatoSeed.Watered;
+
+        ScytheTooledX.Clear();
+        ScytheTooledY.Clear();
+        ScytheTooledZ.Clear();
+        for (int a = 0; a < Scythe.TooledLocations.Count; a++)
+        {
+            ScytheTooledX.Add(Scythe.TooledLocations[a].x);
+            ScytheTooledY.Add(Scythe.TooledLocations[a].y);
+            ScytheTooledZ.Add(Scythe.TooledLocations[a].z);
+        }
 
         if (Slot.instance.ActiveSlot == 1)
         {
@@ -1532,8 +1570,6 @@ public class GameManagerScript : MonoBehaviour
                 if (acceptedOrders[f].Completed && !acceptedOrders[f].Delivered)
                 {
                     PlayerPrefs.SetString("HoneyDelivered", "true");
-                    SaveOrderList();
-                    SaveGame();
                     transition.TransitionToScene("DayOver");
                 }
             }
@@ -1721,5 +1757,13 @@ public class GameManagerScript : MonoBehaviour
         }
         PotatoSeed.PlantedLocations = PotatoPlantedLocations;
         PotatoSeed.Watered = PotatoWatered;
+
+        List<Vector3Int> ScytheTooledLocations = new List<Vector3Int>();
+        for (int b = 0; b < ScytheTooledX.Count; b++)
+        {
+            ScytheTooledLocations.Add(new Vector3Int(ScytheTooledX[b], ScytheTooledY[b], ScytheTooledZ[b]));
+        }
+
+        Scythe.TooledLocations = ScytheTooledLocations;
     }
 }
