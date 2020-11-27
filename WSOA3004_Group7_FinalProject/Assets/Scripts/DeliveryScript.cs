@@ -233,14 +233,13 @@ public class DeliveryScript : MonoBehaviour
     public void Clicked(Transform trans)
     {
         int num = (int)char.GetNumericValue(trans.gameObject.name[0]);
-        Order activeOrder = GameManagerScript.instance.acceptedOrders[num-1];
         if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite != null)
         {
             if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.LettuceSeed.FullyGrownSprite)
             {
-                if (activeOrder.LettuceNeeded != 0 && activeOrder.LettuceAmount != activeOrder.LettuceNeeded)
+                if (  GameManagerScript.instance.acceptedOrders[num-1].LettuceNeeded != 0 &&   GameManagerScript.instance.acceptedOrders[num-1].LettuceAmount !=   GameManagerScript.instance.acceptedOrders[num-1].LettuceNeeded)
                 {
-                    activeOrder.LettuceAmount++;
+                      GameManagerScript.instance.acceptedOrders[num-1].LettuceAmount++;
 
                     int pos = GameManagerScript.instance.FindPos("Lettuce");
                     if (pos != -1)
@@ -248,15 +247,15 @@ public class DeliveryScript : MonoBehaviour
                         GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                     }
                     GameManagerScript.instance.DisplayInvenFuncNoSort();
-                    DisplayOrderLettuce[num].GetComponentInChildren<Text>().text = activeOrder.LettuceAmount.ToString() + "/" + activeOrder.LettuceNeeded.ToString();
+                    DisplayOrderLettuce[num].GetComponentInChildren<Text>().text =   GameManagerScript.instance.acceptedOrders[num-1].LettuceAmount.ToString() + "/" +   GameManagerScript.instance.acceptedOrders[num-1].LettuceNeeded.ToString();
                 }
             }
 
             else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.TurnipSeed.FullyGrownSprite)
             {
-                if (activeOrder.TurnipNeeded != 0 && activeOrder.TurnipAmount != activeOrder.TurnipNeeded)
+                if (  GameManagerScript.instance.acceptedOrders[num-1].TurnipNeeded != 0 &&   GameManagerScript.instance.acceptedOrders[num-1].TurnipAmount !=   GameManagerScript.instance.acceptedOrders[num-1].TurnipNeeded)
                 {
-                    activeOrder.TurnipAmount++;
+                      GameManagerScript.instance.acceptedOrders[num-1].TurnipAmount++;
 
                     int pos = GameManagerScript.instance.FindPos("Turnip");
                     if (pos != -1)
@@ -264,15 +263,15 @@ public class DeliveryScript : MonoBehaviour
                         GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                     }
                     GameManagerScript.instance.DisplayInvenFuncNoSort();
-                    DisplayOrderTurnip[num].GetComponentInChildren<Text>().text = activeOrder.TurnipAmount.ToString() + "/" + activeOrder.TurnipNeeded.ToString();
+                    DisplayOrderTurnip[num].GetComponentInChildren<Text>().text =   GameManagerScript.instance.acceptedOrders[num-1].TurnipAmount.ToString() + "/" +   GameManagerScript.instance.acceptedOrders[num-1].TurnipNeeded.ToString();
                 }
             }
 
             else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.PotatoSeed.FullyGrownSprite)
             {
-                if (activeOrder.PotatoNeeded != 0 && activeOrder.PotatoAmount != activeOrder.PotatoNeeded)
+                if (  GameManagerScript.instance.acceptedOrders[num-1].PotatoNeeded != 0 &&   GameManagerScript.instance.acceptedOrders[num-1].PotatoAmount !=   GameManagerScript.instance.acceptedOrders[num-1].PotatoNeeded)
                 {
-                    activeOrder.PotatoAmount++;
+                      GameManagerScript.instance.acceptedOrders[num-1].PotatoAmount++;
 
                     int pos = GameManagerScript.instance.FindPos("Potato");
                     if (pos != -1)
@@ -280,15 +279,15 @@ public class DeliveryScript : MonoBehaviour
                         GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                     }
                     GameManagerScript.instance.DisplayInvenFuncNoSort();
-                    DisplayOrderPotato[num].GetComponentInChildren<Text>().text = activeOrder.PotatoAmount.ToString() + "/" + activeOrder.PotatoNeeded.ToString();
+                    DisplayOrderPotato[num].GetComponentInChildren<Text>().text =   GameManagerScript.instance.acceptedOrders[num-1].PotatoAmount.ToString() + "/" +   GameManagerScript.instance.acceptedOrders[num-1].PotatoNeeded.ToString();
                 }
             }
 
             else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.WatermelonSeed.FullyGrownSprite)
             {
-                if (activeOrder.WatermelonNeeded != 0 && activeOrder.WatermelonAmount != activeOrder.WatermelonNeeded)
+                if (  GameManagerScript.instance.acceptedOrders[num-1].WatermelonNeeded != 0 &&   GameManagerScript.instance.acceptedOrders[num-1].WatermelonAmount !=   GameManagerScript.instance.acceptedOrders[num-1].WatermelonNeeded)
                 {
-                    activeOrder.WatermelonAmount++;
+                      GameManagerScript.instance.acceptedOrders[num-1].WatermelonAmount++;
 
                     int pos = GameManagerScript.instance.FindPos("Watermelon");
                     if (pos != -1)
@@ -296,15 +295,15 @@ public class DeliveryScript : MonoBehaviour
                         GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                     }
                     GameManagerScript.instance.DisplayInvenFuncNoSort();
-                    DisplayOrderWatermelon[num].GetComponentInChildren<Text>().text = activeOrder.WatermelonAmount.ToString() + "/" + activeOrder.WatermelonNeeded.ToString();
+                    DisplayOrderWatermelon[num].GetComponentInChildren<Text>().text =   GameManagerScript.instance.acceptedOrders[num-1].WatermelonAmount.ToString() + "/" +   GameManagerScript.instance.acceptedOrders[num-1].WatermelonNeeded.ToString();
                 }
             }
 
             else if (GameManagerScript.instance.SelectedObj.transform.Find("Item").GetComponent<SpriteRenderer>().sprite == GameManagerScript.instance.CarrotSeed.FullyGrownSprite)
             {
-                if (activeOrder.CarrotNeeded != 0 && activeOrder.CarrotAmount != activeOrder.CarrotNeeded)
+                if (  GameManagerScript.instance.acceptedOrders[num-1].CarrotNeeded != 0 &&   GameManagerScript.instance.acceptedOrders[num-1].CarrotAmount !=   GameManagerScript.instance.acceptedOrders[num-1].CarrotNeeded)
                 {
-                    activeOrder.CarrotAmount++;
+                      GameManagerScript.instance.acceptedOrders[num-1].CarrotAmount++;
 
                     int pos = GameManagerScript.instance.FindPos("Carrot");
                     if (pos != -1)
@@ -312,11 +311,11 @@ public class DeliveryScript : MonoBehaviour
                         GameManagerScript.instance.Inventory.inven[pos].ItemNumber--;
                     }
                     GameManagerScript.instance.DisplayInvenFuncNoSort();
-                    DisplayOrderCarrot[num].GetComponentInChildren<Text>().text = activeOrder.CarrotAmount.ToString() + "/" + activeOrder.CarrotNeeded.ToString();
+                    DisplayOrderCarrot[num].GetComponentInChildren<Text>().text =   GameManagerScript.instance.acceptedOrders[num-1].CarrotAmount.ToString() + "/" +   GameManagerScript.instance.acceptedOrders[num-1].CarrotNeeded.ToString();
                 }
             }
 
-            if ((activeOrder.CarrotAmount == activeOrder.CarrotNeeded) && (activeOrder.TurnipAmount == activeOrder.TurnipNeeded) && (activeOrder.WatermelonAmount == activeOrder.WatermelonNeeded) && (activeOrder.LettuceAmount == activeOrder.LettuceNeeded) && (activeOrder.PotatoAmount == activeOrder.PotatoNeeded))
+            if (((  GameManagerScript.instance.acceptedOrders[num-1].CarrotAmount ==   GameManagerScript.instance.acceptedOrders[num-1].CarrotNeeded) && (  GameManagerScript.instance.acceptedOrders[num-1].TurnipAmount ==   GameManagerScript.instance.acceptedOrders[num-1].TurnipNeeded) && (  GameManagerScript.instance.acceptedOrders[num-1].WatermelonAmount ==   GameManagerScript.instance.acceptedOrders[num-1].WatermelonNeeded) && (  GameManagerScript.instance.acceptedOrders[num-1].LettuceAmount ==   GameManagerScript.instance.acceptedOrders[num-1].LettuceNeeded) && (  GameManagerScript.instance.acceptedOrders[num-1].PotatoAmount ==   GameManagerScript.instance.acceptedOrders[num-1].PotatoNeeded)) && !  GameManagerScript.instance.acceptedOrders[num-1].Delivered)
             {
 
                 GameManagerScript.instance.juteBags[num-1].SetActive(false);
@@ -325,7 +324,7 @@ public class DeliveryScript : MonoBehaviour
                 JPS.transform.position = JPSTransforms[num - 1].position;
                 JPS.Clear();
                 JPS.Play();
-                activeOrder.Completed = true;
+                  GameManagerScript.instance.acceptedOrders[num-1].Completed = true;
                 GameManagerScript.instance.SetupNotebook();
                 GameManagerScript.instance.DisplayNotebook();
             }

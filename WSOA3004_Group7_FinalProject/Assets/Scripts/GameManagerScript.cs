@@ -336,24 +336,6 @@ public class GameManagerScript : MonoBehaviour
                     }
                 }
             }
-
-            int reward = 0;
-            for (int a = 0; a < acceptedOrders.Length; a++)
-            {
-                if (acceptedOrders[a].Completed == true && acceptedOrders[a].Delivered)
-                {
-                    reward += acceptedOrders[a].Reward;
-                }
-            }
-
-            if (PlayerPrefs.GetString("HoneyDelivered") == "true")
-            {
-                Funds = Funds + reward + PlayerPrefs.GetInt("Honey");
-            }
-            else
-            {
-                Funds = Funds + reward;
-            }
         }
         FundsText.text = Funds.ToString();
 
@@ -415,6 +397,7 @@ public class GameManagerScript : MonoBehaviour
                         acceptedOrders[a].LettuceAmount = 0;
                         acceptedOrderBool[a] = false;
                         juteBags[a].SetActive(false);
+                        closedJute[a].SetActive(false);
                     }
                     else if (acceptedOrders[a].Completed && acceptedOrders[a].Delivered)
                     {
@@ -440,15 +423,18 @@ public class GameManagerScript : MonoBehaviour
                         acceptedOrders[a].LettuceAmount = 0;
                         acceptedOrderBool[a] = false;
                         juteBags[a].SetActive(false);
+                        closedJute[a].SetActive(false);
                     }
                     else
                     {
                         juteBags[a].SetActive(true);
+                        closedJute[a].SetActive(false);
                     }
                 }
                 else
                 {
                     juteBags[a].SetActive(false);
+                    closedJute[a].SetActive(false);
                 }
 
                 if (acceptedOrders[a].Completed && acceptedOrders[a].Delivered)
@@ -1541,13 +1527,15 @@ public class GameManagerScript : MonoBehaviour
         QuitEndDay();
 
         bool deliveriesLeft = false;
-        for (int a = 0; a < acceptedOrders.Length && !deliveriesLeft; a++)
+        for (int a = 0; a < acceptedOrders.Length; a++)
         {
             if (acceptedOrderBool[a] == true)
             {
                 if (acceptedOrders[a].Completed == true && !acceptedOrders[a].Delivered)
                 {
                     deliveriesLeft = true;
+                    acceptedOrders[a].Delivered = true;
+                    DeliveredSave[a] = true;
                 }
             }
         }
@@ -1556,23 +1544,28 @@ public class GameManagerScript : MonoBehaviour
         {
             PlayerPrefs.SetString("NeedHoney", "yes");
             PlayerPrefs.SetString("HoneyDelivered", "true");
+            Funds = Funds + 75; 
+            SaveGame();
             transition.TransitionToScene("DayOver");
         }
-        else
+        else if(deliveriesLeft)
         {
             PlayerPrefs.SetString("NeedHoney", "no");
-        }
+            int honey = Random.Range(50, 151);
+            PlayerPrefs.SetInt("Honey", honey);
 
-        for (int f = 0; f < acceptedOrders.Length; f++)
-        {
-            if (acceptedOrderBool[f])
+            int reward = honey;
+            for (int a = 0; a < acceptedOrders.Length; a++)
             {
-                if (acceptedOrders[f].Completed && !acceptedOrders[f].Delivered)
+                if (acceptedOrders[a].Completed == true)
                 {
-                    PlayerPrefs.SetString("HoneyDelivered", "true");
-                    transition.TransitionToScene("DayOver");
+                    reward += acceptedOrders[a].Reward;
                 }
             }
+
+            Funds = Funds + reward;
+            SaveGame();
+            transition.TransitionToScene("DayOver");
         }
     }
 

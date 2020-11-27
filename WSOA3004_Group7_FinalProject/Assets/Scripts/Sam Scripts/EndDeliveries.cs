@@ -8,7 +8,6 @@ public class EndDeliveries : MonoBehaviour
 {
     public GameObject truck;
     public GameObject deliveryPanel;
-    public Order[] acceptedOrders;
     public Text money;
     public Text order;
     public string deliveredString;
@@ -23,33 +22,31 @@ public class EndDeliveries : MonoBehaviour
     {
         if (PlayerPrefs.GetString("NeedHoney") == "no")
         {
-            int honey = Random.Range(50, 151);
-            PlayerPrefs.SetInt("Honey", honey);
+            int honey = PlayerPrefs.GetInt("Honey");
             reward = honey;
             honeyText.text = "+ " + honey.ToString();
             deliveredString = "";
-            for (int a = 0; a < acceptedOrders.Length; a++)
+            for (int a = 0; a < GameManagerScript.instance.acceptedOrders.Length; a++)
             {
-                if (acceptedOrders[a].Completed == true)
+                if (GameManagerScript.instance.acceptedOrders[a].Completed == true)
                 {
-                    deliveredString += "Delivered to " + acceptedOrders[a].nameOrder + " + " + acceptedOrders[a].Reward + System.Environment.NewLine;
-                    reward += acceptedOrders[a].Reward;
-                    acceptedOrders[a].Delivered = true;
+                    deliveredString += "Delivered to " + GameManagerScript.instance.acceptedOrders[a].nameOrder + " + " + GameManagerScript.instance.acceptedOrders[a].Reward + System.Environment.NewLine;
+                    reward += GameManagerScript.instance.acceptedOrders[a].Reward;
+                    GameManagerScript.instance.acceptedOrders[a].Delivered = true;
                 }
             }
 
-            money.text = (acceptedOrders[0].TotalFunds).ToString();
+            money.text = (GameManagerScript.instance.acceptedOrders[0].TotalFunds).ToString();
             order.text = deliveredString;
             rewardText.text = reward.ToString();
         }
         else
         {
             int honey = 75;
-            PlayerPrefs.SetInt("Honey", honey);
             reward = honey;
             honeyText.text = "+ " + honey.ToString();
 
-            money.text = (acceptedOrders[0].TotalFunds).ToString();
+            money.text = (GameManagerScript.instance.acceptedOrders[0].TotalFunds).ToString();
             order.text = "No orders delivered today. But Ruby sold some honey!";
             rewardText.text = reward.ToString();
         }
@@ -65,7 +62,7 @@ public class EndDeliveries : MonoBehaviour
 
         if(truck.transform.position.x > 12.7f)
         {
-            money.text = (acceptedOrders[0].TotalFunds + reward).ToString();
+            money.text = (GameManagerScript.instance.acceptedOrders[0].TotalFunds + reward).ToString();
             AS.volume = 1;
         }
 
