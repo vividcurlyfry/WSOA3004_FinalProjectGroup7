@@ -21,6 +21,7 @@ public class GameManagerScript : MonoBehaviour
     public InventoryObject Inventory;
     public GameObject[] DisplayInven = new GameObject[6];
     public int[] InventorySave;
+    public string[] InventoryNameSave;
     public List<int> orderListSave;
     public List<int> orderAcceptedSave;
 
@@ -137,9 +138,27 @@ public class GameManagerScript : MonoBehaviour
     public List<int> TurnipPlantedLocationsZ;
     public List<bool> TurnipWatered;
 
-    public List<int> ScytheTooledX;
-    public List<int> ScytheTooledY;
-    public List<int> ScytheTooledZ;
+    public string[] OrderTextSave = new string[10];
+    public string[] NameOrdererSave = new string[10];
+    public int[] TotalFundsSave = new int[10];
+    public int[] DaysAllocatedSave = new int[10];
+    public int[] DaysPassedSave = new int[10];
+    public int[] RewardSave = new int[10];
+    public bool[] AcceptedSave = new bool[10];
+    public bool[] RejectedSave = new bool[10];
+    public bool[] CompletedSave = new bool[10];
+    public bool[] DeliveredSave = new bool[10];
+    public int[] TurnipNeededSave = new int[10];
+    public int[] WatermelonNeededSave = new int[10];
+    public int[] CarrotNeededSave = new int[10];
+    public int[] PotatoNeededSave = new int[10];
+    public int[] LettuceNeededSave = new int[10];
+    public int[] TurnipAmountSave = new int[10];
+    public int[] WatermelonAmountSave = new int[10];
+    public int[] CarrotAmountSave = new int[10];
+    public int[] PotatoAmountSave = new int[10];
+    public int[] LettuceAmountSave = new int[10];
+    public int[] AcceptedOrderBoolSave = new int[10];
 
     private void Awake()
     {
@@ -678,7 +697,6 @@ public class GameManagerScript : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(RubyLoop);
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if ((PosInven + 6) < Inventory.inven.Length)
@@ -1222,16 +1240,24 @@ public class GameManagerScript : MonoBehaviour
     {
         for (int a = 0; a < Inventory.inven.Length; a++)
         {
-            Inventory.inven[a].ItemNumber = InventorySave[a];
+            for(int b = 0; b < Inventory.inven.Length; b++)
+            {
+                if(InventoryNameSave[a] == Inventory.inven[b].ItemName)
+                {
+                    Inventory.inven[b].ItemNumber = InventorySave[a];
+                }
+            }
         }
     }
 
     public void SaveInven()
     {
         InventorySave = new int[Inventory.inven.Length];
+        InventoryNameSave = new string[Inventory.inven.Length];
         for(int a = 0; a < Inventory.inven.Length; a++)
         {
             InventorySave[a] = Inventory.inven[a].ItemNumber;
+            InventoryNameSave[a] = Inventory.inven[a].ItemName;
         }
     }
 
@@ -1335,6 +1361,30 @@ public class GameManagerScript : MonoBehaviour
             }
         }
 
+        for(int r = 0; r < acceptedOrders.Length; r++)
+        {
+            OrderTextSave[r] = acceptedOrders[r].OrderText;
+            NameOrdererSave[r] = acceptedOrders[r].nameOrder;
+            TotalFundsSave[r] = acceptedOrders[r].TotalFunds;
+            DaysAllocatedSave[r] = acceptedOrders[r].DaysAllocated;
+            DaysPassedSave[r] = acceptedOrders[r].DaysPassed;
+            RewardSave[r] = acceptedOrders[r].Reward;
+            AcceptedSave[r] = acceptedOrders[r].Accepted;
+            RejectedSave[r] = acceptedOrders[r].Rejected;
+            CompletedSave[r] = acceptedOrders[r].Completed;
+            DeliveredSave[r] = acceptedOrders[r].Delivered;
+            TurnipNeededSave[r] = acceptedOrders[r].TurnipNeeded;
+            WatermelonNeededSave[r] = acceptedOrders[r].WatermelonNeeded;
+            CarrotNeededSave[r] = acceptedOrders[r].CarrotNeeded;
+            PotatoNeededSave[r] = acceptedOrders[r].PotatoNeeded;
+            LettuceNeededSave[r] = acceptedOrders[r].LettuceNeeded;
+            TurnipAmountSave[r] = acceptedOrders[r].TurnipAmount;
+            WatermelonAmountSave[r] = acceptedOrders[r].WatermelonAmount;
+            CarrotAmountSave[r] = acceptedOrders[r].CarrotAmount;
+            PotatoAmountSave[r] = acceptedOrders[r].PotatoAmount;
+            LettuceAmountSave[r] = acceptedOrders[r].LettuceAmount;
+        }
+
         LettuceDaysGrown = LettuceSeed.DaysGrown;
         LettucePlantedLocationsX.Clear();
         LettucePlantedLocationsY.Clear();
@@ -1393,17 +1443,7 @@ public class GameManagerScript : MonoBehaviour
             PotatoPlantedLocationsY.Add(PotatoSeed.PlantedLocations[a].y);
             PotatoPlantedLocationsZ.Add(PotatoSeed.PlantedLocations[a].z);
         }
-        PotatoWatered = LettuceSeed.Watered;
-
-        ScytheTooledX.Clear();
-        ScytheTooledY.Clear();
-        ScytheTooledZ.Clear();
-        for (int a = 0; a < Scythe.TooledLocations.Count; a++)
-        {
-            ScytheTooledX.Add(Scythe.TooledLocations[a].x);
-            ScytheTooledY.Add(Scythe.TooledLocations[a].y);
-            ScytheTooledZ.Add(Scythe.TooledLocations[a].z);
-        }
+        PotatoWatered = PotatoSeed.Watered;
 
         if (Slot.instance.ActiveSlot == 1)
         {
@@ -1552,8 +1592,8 @@ public class GameManagerScript : MonoBehaviour
         Funds = data.Funds;
         DaysPlayed = data.DaysPlayed;
         InventorySave = data.InventorySave;
+        InventoryNameSave = data.InventoryNameSave;
         orderListSave = data.orderListSave;
-        orderAcceptedSave = data.orderAcceptedSave;
         acceptedOrderBool = data.acceptedOrderBool;
         GroceriesBought = data.GroceriesBought;
         GroceriesDays = data.GroceriesDays;
@@ -1591,6 +1631,51 @@ public class GameManagerScript : MonoBehaviour
         LoadOrderList();
         LoadInven();
         RubyLoop = DaysPlayed % 3;
+
+        OrderTextSave = data.OrderTextSave;
+        NameOrdererSave = data.NameOrdererSave;
+        TotalFundsSave = data.TotalFundsSave;
+        DaysAllocatedSave = data.DaysAllocatedSave;
+        DaysPassedSave = data.DaysPassedSave;
+        RewardSave = data.RewardSave;
+        AcceptedSave = data.AcceptedSave;
+        RejectedSave = data.RejectedSave;
+        CompletedSave = data.CompletedSave;
+        DeliveredSave = data.DeliveredSave;
+        TurnipNeededSave = data.TurnipNeededSave;
+        WatermelonNeededSave = data.WatermelonNeededSave;
+        CarrotNeededSave = data.CarrotNeededSave;
+        PotatoNeededSave = data.PotatoNeededSave;
+        LettuceNeededSave = data.LettuceNeededSave;
+        TurnipAmountSave = data.TurnipAmountSave;
+        WatermelonAmountSave = data.WatermelonAmountSave;
+        CarrotAmountSave = data.CarrotAmountSave;
+        PotatoAmountSave = data.PotatoAmountSave;
+        LettuceAmountSave = data.LettuceAmountSave;
+
+        for (int r = 0; r < acceptedOrders.Length; r++)
+        {
+            acceptedOrders[r].OrderText =  OrderTextSave[r];
+            acceptedOrders[r].nameOrder = NameOrdererSave[r];
+            acceptedOrders[r].TotalFunds = TotalFundsSave[r];
+            acceptedOrders[r].DaysAllocated = DaysAllocatedSave[r];
+            acceptedOrders[r].DaysPassed = DaysPassedSave[r];
+            acceptedOrders[r].Reward = RewardSave[r];
+            acceptedOrders[r].Accepted = AcceptedSave[r];
+            acceptedOrders[r].Rejected = RejectedSave[r];
+            acceptedOrders[r].Completed = CompletedSave[r];
+            acceptedOrders[r].Delivered = DeliveredSave[r];
+            acceptedOrders[r].TurnipNeeded = TurnipNeededSave[r];
+            acceptedOrders[r].WatermelonNeeded = WatermelonNeededSave[r];
+            acceptedOrders[r].CarrotNeeded = CarrotNeededSave[r];
+            acceptedOrders[r].PotatoNeeded = PotatoNeededSave[r];
+            acceptedOrders[r].LettuceNeeded = LettuceNeededSave[r];
+            acceptedOrders[r].TurnipAmount = TurnipAmountSave[r];
+            acceptedOrders[r].WatermelonAmount = WatermelonAmountSave[r];
+            acceptedOrders[r].CarrotAmount = CarrotAmountSave[r];
+            acceptedOrders[r].PotatoAmount = PotatoAmountSave[r];
+            acceptedOrders[r].LettuceAmount = LettuceAmountSave[r];
+        }
 
         LettuceSeed.DaysGrown = LettuceDaysGrown;
         List<Vector3Int> LettucePlantedLocations = new List<Vector3Int>();
@@ -1636,14 +1721,5 @@ public class GameManagerScript : MonoBehaviour
         }
         PotatoSeed.PlantedLocations = PotatoPlantedLocations;
         PotatoSeed.Watered = PotatoWatered;
-
-        List<Vector3Int> ScytheTooledLocations = new List<Vector3Int>();
-        for (int b = 0; b < ScytheTooledX.Count; b++)
-        {
-            ScytheTooledLocations.Add(new Vector3Int(ScytheTooledX[b], ScytheTooledY[b], ScytheTooledZ[b]));
-        }
-
-        Scythe.TooledLocations = ScytheTooledLocations;
-
     }
 }
